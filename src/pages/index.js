@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/layout"
+import App from "../layouts/app"
 
 const IndexPage = () => (
-    <Layout>
-        Index page
-    </Layout>
+    <App>
+        <h1>This is the home page</h1>
+    </App>
 )
 
 export default IndexPage
