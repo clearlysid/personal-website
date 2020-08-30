@@ -2,7 +2,7 @@ import React from 'react';
 
 function renderBlockImage(meta) {
     return (
-        <div className="nso">
+        <div className="notion">
             <img style={{width: "100%"}}
                 src={meta.publicImageUrl}
                 alt=""
@@ -17,37 +17,37 @@ function renderBlockCode(children, meta) {
 }
 
 function renderBlockText(children) {
-    return children.length > 0 && <p className="nso">{children}</p>
+    return children.length > 0 && <p className="notion">{children}</p>
 }
 
 function renderBlockHeader(children, level) {
     switch (level) {
         case 1:
-            return <h1 className="nso">{children}</h1>;
+            return <h1 className="notion">{children}</h1>;
         case 2:
-            return <h2 className="nso">{children}</h2>;
+            return <h2 className="notion">{children}</h2>;
         case 3:
-            return <h3 className="nso">{children}</h3>;
+            return <h3 className="notion">{children}</h3>;
         default:
-            return <h4 className="nso">{children}</h4>;
+            return <h4 className="notion">{children}</h4>;
     }
 }
 
 function renderBulletedList(children) {
     return (
-        <ul className="nso">{children}</ul>
+        <ul className="notion">{children}</ul>
     );
 }
 
 function renderNumberedList(children) {
     return (
-        <ol className="nso">{children}</ol>
+        <ol className="notion">{children}</ol>
     );
 }
 
 function renderQuote(children) {
     return (
-        <blockquote className="nso">{children}</blockquote>
+        <blockquote className="notion">{children}</blockquote>
     );
 }
 
@@ -139,16 +139,16 @@ function mkRenderFuncs(_notionPageBlog) {
         renderTextAtt: (children, att) => {
             switch (att){
                 case 'i':
-                    return <span className='nso' style={{ fontStyle: "italic"}}>{children}</span>
+                    return <span className='notion' style={{ fontStyle: "italic"}}>{children}</span>
                 
                 case 'b':
-                    return <span className='nso' style={{ fontWeight: "bold" }}>{children}</span>;
+                    return <span className='notion' style={{ fontWeight: "bold" }}>{children}</span>;
 
                 case 's':
-                    return <span className='nso' style={{ textDecoration: "line-through"}}>{children}</span>;
+                    return <span className='notion' style={{ textDecoration: "line-through"}}>{children}</span>;
 
                 case 'c':
-                    return <code className='nso'>{children}</code>;
+                    return <code className='notion'>{children}</code>;
 
                 default:
                     console.log(`@@@ no text attribute for: ${att}`);
@@ -166,7 +166,6 @@ function mkRenderFuncs(_notionPageBlog) {
 
 const NotionBlockRenderer = ({ data, renderer, debug }) => {
     const { notionPageBlog } = data;
-    // console.log(data);
     const renderFuncs = mkRenderFuncs(notionPageBlog);
     const child = renderer.render(renderFuncs);
 
@@ -175,8 +174,8 @@ const NotionBlockRenderer = ({ data, renderer, debug }) => {
                 maxWidth: "800px",
                 margin: "0 auto",
                 position: "relative"
-        }} className="nso">
-            <h1 className="nso">{notionPageBlog.title}</h1>
+        }} className="notion">
+            <h1 className="notion">{notionPageBlog.title}</h1>
             {child}
         </article>
     );

@@ -1,2 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+::selection {
+    background: rgb(255, 231, 185);
+}
+
 body {
+    max-width: 100vw;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding-top: 120px;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-header-text {
+    font-weight: bold;
+    font-size: 42px;
+    max-width: 1160px;
+    width: 80%;
+    margin: 0;
+    margin-left: 10%;
+}
+
+svg.site-header-text {
+    margin-bottom: 0;
+    width: unset;
+}
+
+.site-header-text > span {
+    position: relative;
+    font-size: inherit;
+}
+
+.site-header-text > span:hover {
+    cursor: pointer;
+}
+
+.site-header-text > span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    background: #CFF6FF;
+    height: 20px;
+    width: 100%;
+    z-index: -1;
+    transition: all 0.2s ease;
+}
+
+.site-header-text > span:hover::after {
+    height: 100%;
+    transition: all 0.2s ease;
+    
+}
+
+.site-header-text > span:last-of-type::after {
+    background: #FFCED1;
+    transition: all 0.2s ease;
+}
+
+.article-card {
+    height: 500px;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-image {
+    background: lightgray;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.article-image > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.article-title {
+    margin-top: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+}
+
+.article-card:hover .article-title {
+    opacity: 1;
+}
+
+.swiper-slide:first-of-type .article-card {
+    width: 366px;
+    height: 468px;
+    margin-left: 100px;
+}
+
+.swiper-slide:nth-of-type(2) .article-card {
+    height: 345px;
+    width: 555px;
+}
+
+.swiper-slide:nth-of-type(3) .article-card {
+    height: 450px;
+    width: 450px;
+}
+
+.swiper-slide:nth-of-type(4) .article-card {
+    height: 360px;
+    width: 450px;
+}
+
+.swiper-slide:last-of-type .article-card {
+    margin-right: 100px;
+}
+
+.swiper-wrapper {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    opacity: 0.3;
+    font-size: 14px;
+    font-weight: regular;
+}
+
+#social-icons {
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    margin: 40px;
+
+    svg {
+        margin-left: 16px;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+    }
+
+    svg:hover {
+        opacity: 1;
+        transform: scale(1.1)
+    }
 }

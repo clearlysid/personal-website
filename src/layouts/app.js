@@ -1,21 +1,17 @@
 import React from "react"
-import { Link } from "gatsby"
 import "../styles/styles.scss"
+import SocialIcons from "../components/socialIcons"
 
 const App = ({ children }) => {
     return (
         <>
-            <nav>
-                <ul>
-                    <li><Link to="/blog">blog</Link></li>
-                    <li><Link to="/about">about</Link></li>
-                    <li><Link to="/">home</Link></li>
-                </ul>
-            </nav>
+            <SocialIcons />
+            <main>
+                {children}
+            </main>
 
-            <main>{children}</main>
             <footer>
-                this is footer ©{new Date().getFullYear()}, Built with Gatsby
+                Copyleft ©{new Date().getFullYear()}, Steal if you must.
             </footer>
         </>
     )

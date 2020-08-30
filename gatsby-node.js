@@ -14,6 +14,11 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
                 slug
                 tags
                 createdAt
+                imageNodes {
+                    localFile {
+                      absolutePath
+                    }
+                  }
               }
             }
           }
