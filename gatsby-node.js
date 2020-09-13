@@ -6,22 +6,22 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
     const result = await graphql(
         `
         query {
-          allNotionPageBlog {
-            edges {
-              node {
-                title
-                pageId
-                slug
-                tags
-                createdAt
-                imageNodes {
-                    localFile {
-                      absolutePath
+            allNotionPageBlog {
+                edges {
+                node {
+                    title
+                    pageId
+                    slug
+                    tags
+                    createdAt
+                    imageNodes {
+                        localFile {
+                            absolutePath
+                        }
                     }
-                  }
-              }
+                }
+                }
             }
-          }
         }
       `,
     );

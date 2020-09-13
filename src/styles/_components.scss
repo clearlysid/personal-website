@@ -1,0 +1,153 @@
+.header {
+    max-width: 1160px;
+    width: 80%;
+    margin-left: 10%;
+    overflow: hidden;
+}
+
+.site-header-text {
+    color: #333;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 1.375;
+}
+
+.site-header-text > span {
+    color: #333;
+    position: relative;
+    font-size: inherit;
+    white-space: nowrap;
+}
+
+.site-header-text > span:hover {
+    cursor: pointer;
+}
+
+.site-header-text > span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    background: #CFF6FF;
+    height: 20px;
+    width: 100%;
+    z-index: -1;
+    transition: all 0.2s ease;
+}
+
+.site-header-text > span:hover::after {
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.site-header-text > span:last-of-type::after {
+    background: #FFCED1;
+    transition: all 0.2s ease;
+}
+
+.article-card {
+    // overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-image {
+    background: lightgray;
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow: hidden;
+    transition: all 0.6s ease !important;
+}
+
+.article-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.6s ease !important;
+}
+
+.article-title {
+    margin-top: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+}
+
+.article-card:hover .article-title {
+    // opacity: 1;
+}
+
+.article-card:hover .article-image img {
+    // transform: scale(1.1);
+}
+
+.article-card:hover .article-image {
+    // transform: scale(0.98);
+}
+
+.swiper-slide:first-of-type .article-card {margin-left: 100px;}
+.swiper-slide:last-of-type .article-card {margin-right: 100px;}
+
+.swiper-slide:nth-of-type(4n+1) .article-card {
+    width: 366px;
+    height: 468px;
+}
+
+.swiper-slide:nth-of-type(4n+2) .article-card {
+    height: 345px;
+    width: 555px;
+}
+
+.swiper-slide:nth-of-type(4n+3) .article-card {
+    height: 450px;
+    width: 450px;
+}
+
+.swiper-slide:nth-of-type(4n) .article-card {
+    height: 360px;
+    width: 450px;
+}
+
+
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-container {
+    // overflow: hidden;
+    margin-top: 100px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    opacity: 0.3;
+    font-size: 14px;
+    font-weight: regular;
+}
+
+#social-icons {
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    margin: calc(min(5vw, 36px));
+
+    svg {
+        margin-left: 16px;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+    }
+
+    svg:hover {
+        opacity: 1;
+        transform: scale(1.1)
+    }
+}
