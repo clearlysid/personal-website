@@ -38,13 +38,13 @@ inside renderNotionBlocks.js
 
 ```javascript
 if (root.type === 'image') {
-        const url = renderUtils.publicUrl(meta.source);
-        if (!url) {
-            console.log(`cannot find public url for image: ${JSON.stringify(meta)}`);
-        }
-        const fluid = renderUtils.childImage(meta.source);
-        // TODO: default image?
-        meta.publicImageUrl = url || '';
-        meta.childImage = fluid || '';
+    const url = renderUtils.publicUrl(meta.source);
+    if (!url) {
+        console.log(`cannot find public url for image: ${JSON.stringify(meta)}`);
     }
+    const fluid = renderUtils.childImage(meta.source);
+    // TODO: default image?
+    meta.publicImageUrl = url || '';
+    meta.childImage = fluid || '';
+}
 ```

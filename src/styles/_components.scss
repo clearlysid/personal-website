@@ -133,7 +133,7 @@ footer {
     }
 }
 
-main.notion .gatsby-image-wrapper:first-of-type {
+main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
     display: none;
 }
 
@@ -148,6 +148,11 @@ main.notion .gatsby-image-wrapper:first-of-type {
     height: 400px;
     margin: 0 auto 20px;
     position: relative;
+}
+
+.notion img {
+    display: block;
+    margin-bottom: 20px;
 }
 
 .back-button {

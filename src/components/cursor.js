@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
 export default function Cursor(){
 
-    // const cursorRef = useRef(null);
-
     useEffect(() => {
-
         let cursor = document.querySelector('.cursor')
         document.addEventListener('mousemove', (e) => {
             const {clientX, clientY} = e;
@@ -15,16 +12,9 @@ export default function Cursor(){
             cursor.style.opacity = 1;
         });
 
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = 0;
-        })
-
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = 1;
-        })
-
+        document.addEventListener('mouseleave', () => { cursor.style.opacity = 0 })
+        document.addEventListener('mouseenter', () => { cursor.style.opacity = 1 })
     }, [])
-    
 
-    return <div className="cursor" ></div>
+    return <div className="cursor"></div>
 }

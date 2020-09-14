@@ -4,20 +4,18 @@
   "version": "0.6.0",
   "author": "Siddharth Jha <hey@siddharth.fyi>",
   "dependencies": {
-    "framer-motion": "^2.3.0",
-    "gatsby": "^2.24.37",
-    "gatsby-image": "^2.4.14",
+    "gatsby": "^2.24.58",
+    "gatsby-image": "^2.4.17",
     "gatsby-plugin-sass": "^2.3.12",
-    "gatsby-plugin-sharp": "^2.6.25",
-    "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-plugin-sharp": "^2.6.35",
+    "gatsby-source-filesystem": "^2.3.29",
     "gatsby-source-notionso": "^1.1.6",
-    "gatsby-transformer-sharp": "^2.5.12",
-    "highlight.js": "^10.1.2",
+    "gatsby-transformer-sharp": "^2.5.14",
     "node-sass": "^4.14.1",
     "patch-package": "^6.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "swiper": "^6.1.1"
+    "swiper": "^6.2.0"
   },
   "devDependencies": {
     "prettier": "2.0.5"

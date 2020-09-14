@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import "../styles/styles.scss"
 import SocialIcons from "../components/socialIcons"
 import Cursor from "../components/cursor"
@@ -11,9 +11,9 @@ const App = ({ children }) => {
 
             <Cursor />
                
-                <main className="app">
-                    {children}
-                </main>
+            <main className="app">
+                {children}
+            </main>
 
             <footer>
                 Copyleft ©{new Date().getFullYear()}, Steal if you must.

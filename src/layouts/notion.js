@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import BackButton from '../components/backButton';
 
 function renderBlockImage(meta) {
-    // return <img style={{width: "100%"}} src={meta.publicImageUrl} alt="" /> for normal img tag
+    // return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
     return <Img className="notion" fluid={meta.childImage} alt="" />
 }
 
