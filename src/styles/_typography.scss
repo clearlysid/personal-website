@@ -1,6 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 * {
     font-family: 'Manrope', sans-serif;
     font-size: 18px;
+}
+
+code {
+    font-family: "Roboto Mono", monospace;
+    color: #333333;
+}
+
+.notion h1 {
+    font-family: Manrope;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 160%;
+    color: #222222;
+    padding-bottom: 20px;
+}
+
+.notion h2 {
+    font-family: Manrope;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 160%;
+    margin-top: 1.4em;
+    padding-bottom: 0.4em;
+    color: #222222;
+}
+
+.notion h3 {
+    font-family: Manrope;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 160%;
+    margin-top: 1.4em;
+    padding-bottom: 0.4em;
+    color: #222222;
+}
+
+.notion p, ul, ol {
+    font-size: 18px;
+    line-height: 160%;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.notion pre {
+    background: #eeeeee;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.notion ul, ol {
+    padding-left: 24px;
+    margin-bottom: 20px;
+    li {margin-bottom: 8px;}
+}
+
+.notion ul {list-style: disc;}
+.notion ol {list-style: decimal; }
+
+.notion .gatsby-image-wrapper {
+    margin-bottom: 20px;
+}
+
+
+main.notion > * {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notion .callout {
+    font-family: Manrope;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 130%;
+    text-align: center;
+    color: #2E2E2E;
+    margin-bottom: 1.4em;
+    max-width: 1000px !important;
+}
+
+blockquote.notion {
+    font-size: 24px;
+    line-height: 32px;
+    color: #2E2E2E;
+    border-left: 4px #2e2e2e solid;
+    padding-left: 18px;
+    margin: 0 auto;
+    margin-bottom: 1.6em;
+}
+
+.notion .checkbox {
+    margin-bottom: 16px;
 }

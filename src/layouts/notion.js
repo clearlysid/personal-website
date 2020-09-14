@@ -3,10 +3,11 @@ import { graphql } from 'gatsby';
 import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import App from './app';
 import Img from 'gatsby-image';
+import BackButton from '../components/backButton';
 
 function renderBlockImage(meta) {
     // return <img style={{width: "100%"}} src={meta.publicImageUrl} alt="" /> for normal img tag
-    return <Img className="notion" fluid={meta.childImage} alt="" />;
+    return <Img className="notion" fluid={meta.childImage} alt="" />
 }
 
 function renderBlockCode(children, meta) {
@@ -21,13 +22,13 @@ function renderBlockText(children) {
 function renderBlockHeader(children, level) {
     switch (level) {
         case 1:
-            return <h1 className="notion">{children}</h1>;
+            return <h1 className="notion">{children}</h1>
         case 2:
-            return <h2 className="notion">{children}</h2>;
+            return <h2 className="notion">{children}</h2>
         case 3:
-            return <h3 className="notion">{children}</h3>;
+            return <h3 className="notion">{children}</h3>
         default:
-            return <h4 className="notion">{children}</h4>;
+            return <h4 className="notion">{children}</h4>
     }
 }
 
@@ -44,18 +45,15 @@ function renderQuote(children) {
 }
 
 function renderToDo(children, meta) {
-    return (<div>
-        <input type="checkbox" disabled {...(meta.checked === "Yes" && { checked: "checked" })}/>
+    return (<div className="notion checkbox">
+        {/* <input type="checkbox" disabled {...(meta.checked === "Yes" && { checked: "checked" })}/> */}
+        <span style={{ paddingRight: '8px'}}>{ meta.checked === "Yes" ? "☑" : "☐"}</span>
         <span>{children}</span>
     </div>)
 }
 
 function renderCallout(children) {
-    return (
-        <div>
-            <p>{children}</p>
-        </div>
-    );
+    return <div className="notion callout">{children}</div>
 }
 
 function renderListItem(children) {
@@ -95,7 +93,7 @@ function renderBlock(type, meta, children) {
         case 'to_do':
             return renderToDo(children, meta);
         case 'divider':
-            return <hr/>
+            return <hr className="notion"/>
         case 'callout':
             return renderCallout(children);
         case '__meta': // we don't parse this block - it contains the page meta information such as the slug
@@ -114,11 +112,11 @@ function mkRenderFuncs(npb) {
         renderTextAtt: (children, att) => {
             switch (att){
                 case 'i':
-                    return <span className='notion' style={{ fontStyle: "italic"}}>{children}</span>
+                    return <span className='notion' style={{ fontStyle: "italic" }}>{children}</span>
                 case 'b':
                     return <span className='notion' style={{ fontWeight: "bold" }}>{children}</span>;
                 case 's':
-                    return <span className='notion' style={{ textDecoration: "line-through"}}>{children}</span>;
+                    return <span className='notion' style={{ textDecoration: "line-through" }}>{children}</span>;
                 case 'c':
                     return <code className='notion'>{children}</code>;
                 default:
@@ -135,23 +133,25 @@ function mkRenderFuncs(npb) {
     };
 }
 
-const NotionBlockRenderer = ({ data, renderer, debug }) => {
+const NotionBlockRenderer = ({ data, renderer }) => {
     const { notionPageBlog } = data;
     const renderFuncs = mkRenderFuncs(notionPageBlog);
     const child = renderer.render(renderFuncs);
-    return <section style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }} className="notion">{child}</section>
+    return <main className="notion">{child}</main>
 };
 
 export default function NotionArticle({ data, pageContext }) {
-    const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog, });
+    const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog });
 
     return (
         <App>
-            <article className="notion">
-                <h1 className="notion" style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}>{data.notionPageBlog.title}</h1>
-                <Img style={{ maxWidth: "1000px", height: "400px", margin: "0 auto", position: "relative" }} fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
 
-                <NotionBlockRenderer data={data} renderer={notionRenderer} debug={false} />
+            <BackButton />
+            <article className="notion">
+                <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
+                <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
+
+                <NotionBlockRenderer data={data} renderer={notionRenderer} />
             </article>
         </App>
     );

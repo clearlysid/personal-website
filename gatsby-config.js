@@ -12,7 +12,7 @@ module.exports = {
             resolve: 'gatsby-source-notionso',
             options: {
               name: 'Blog',
-              rootPageUrl: 'https://www.notion.so/Personal-Blog-Page-3fa9554bfd3f497696653d9cf29a898f',
+              rootPageUrl: 'https://www.notion.so/test-blog-backend-da0ca5fe8b5e423582c4734d104e064e',
               debug: false,
             },
         },

@@ -14,6 +14,7 @@
     "gatsby-transformer-sharp": "^2.5.12",
     "highlight.js": "^10.1.2",
     "node-sass": "^4.14.1",
+    "patch-package": "^6.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "swiper": "^6.1.1"
@@ -26,6 +27,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "postinstall": "patch-package",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

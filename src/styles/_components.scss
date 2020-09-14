@@ -6,72 +6,53 @@
 }
 
 .site-header-text {
-    color: #333;
+    color: rgb(201, 201, 201);
     font-weight: bold;
     font-size: 42px;
     line-height: 1.375;
 }
 
-.site-header-text > span {
-    color: #333;
-    position: relative;
+.site-header-text span {
+    color: #333333;
     font-size: inherit;
     white-space: nowrap;
-}
-
-.site-header-text > span:hover {
-    cursor: pointer;
-}
-
-.site-header-text > span::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    background: #CFF6FF;
-    height: 20px;
-    width: 100%;
-    z-index: -1;
     transition: all 0.2s ease;
+    
 }
 
-.site-header-text > span:hover::after {
-    height: 100%;
-    transition: all 0.2s ease;
-}
-
-.site-header-text > span:last-of-type::after {
-    background: #FFCED1;
-    transition: all 0.2s ease;
+.site-header-text span:hover {
+    -webkit-text-stroke: 1px black;
+    color: #33333300
 }
 
 .article-card {
-    // overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .article-image {
-    background: lightgray;
     width: 100%;
     height: calc(100% - 40px);
     overflow: hidden;
-    transition: all 0.6s ease !important;
+    border-radius: 8px;
+    // transition: all 0.6s ease !important;
 }
 
 .article-image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: all 0.6s ease !important;
 }
 
 .article-title {
-    margin-top: 10px;
+    // margin-top: 10px;
     font-size: 18px;
-    transition: all 0.3s ease;
+    // transition: all 0.3s ease;
     opacity: 0.4;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
 }
 
 .article-card:hover .article-title {
@@ -134,7 +115,7 @@ footer {
 
 #social-icons {
     list-style-type: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     display: flex;
@@ -150,4 +131,53 @@ footer {
         opacity: 1;
         transform: scale(1.1)
     }
+}
+
+main.notion .gatsby-image-wrapper:first-of-type {
+    display: none;
+}
+
+.notion .main-title {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.notion .main-image {
+    max-width: 1000px;
+    height: 400px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.back-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: calc(min(5vw, 36px));
+    z-index: 1;
+    font-weight: bold;
+    opacity: 0.3;
+    transition: all 0.6s ease;
+}
+
+.back-button:hover {
+    opacity: 1;
+}
+
+.cursor {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: fixed;
+    transform: translate3d(0,0,0);
+    pointer-events: none;
+    z-index: 999;
+    transition: border 0.3s ease;
+    opacity: 0;
+}
+
+* {
+    cursor: none;
 }

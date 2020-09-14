@@ -352,8 +352,8 @@
 *,
 *::before,
 *::after{box-sizing:border-box;}
-a{text-decoration:none; color:inherit; cursor:pointer;}
-button{background-color:transparent; color:inherit; border-width:0; padding:0; cursor:pointer;}
+a{text-decoration:none; color:inherit; cursor:none;}
+button{background-color:transparent; color:inherit; border-width:0; padding:0; cursor:none;}
 figure{margin:0;}
 input::-moz-focus-inner {border:0; padding:0; margin:0;}
 ul, ol, dd{margin:0; padding:0; list-style:none;}
