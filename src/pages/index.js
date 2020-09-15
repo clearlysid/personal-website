@@ -15,7 +15,7 @@ export default function IndexPage({ data }) {
     SwiperCore.use([Mousewheel]);
 
     return (
-        <App>
+        <App back={false}>
              <header className="header" key="header" exit={{opacity: 0}} transition={transition}>
                  {/* 
                  <svg width="116" height="52" viewBox="0 0 116 52" fill="none" xmlns="http://www.w3.org/2000/svg">

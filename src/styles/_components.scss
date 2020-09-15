@@ -21,8 +21,9 @@
 }
 
 .site-header-text span:hover {
-    -webkit-text-stroke: 1px black;
-    color: #33333300
+    // -webkit-text-stroke: 1px black;
+    color: #33333300;
+    mix-blend-mode: multiply;
 }
 
 .article-card {
@@ -174,13 +175,18 @@ main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    border: 2px solid black;
+    // border: 2px solid black;
     position: fixed;
-    transform: translate3d(0,0,0);
+    transform: translate3d(-100%,-100%,0);
     pointer-events: none;
     z-index: 999;
-    transition: border 0.3s ease;
+    // transition: border 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
     opacity: 0;
+}
+
+body:hover > div > div > .cursor {
+    opacity: 1;
 }
 
 * {

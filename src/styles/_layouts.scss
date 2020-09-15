@@ -9,5 +9,17 @@ body {
 }
 
 main.app {
+    // for scrolling
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scroll {
+    position: relative;
     padding: 120px 0;
+    min-height: 100vh;
 }
