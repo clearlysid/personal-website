@@ -29,7 +29,7 @@ export default function IndexPage({ data }) {
                 </h2>
             </header>
 
-            <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true}>
+            <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true} loop={true}>
                 {data.allNotionPageBlog.edges.map(edge => (
                     <SwiperSlide key={edge.node.slug}>
                         <Link className="article-card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`}>

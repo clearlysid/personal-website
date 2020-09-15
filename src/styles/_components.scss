@@ -2,7 +2,6 @@
     max-width: 1160px;
     width: 80%;
     margin-left: 10%;
-    overflow: hidden;
 }
 
 .site-header-text {
@@ -36,8 +35,7 @@
     width: 100%;
     height: calc(100% - 40px);
     overflow: hidden;
-    border-radius: 8px;
-    // transition: all 0.6s ease !important;
+    transition: all 0.6s ease;
 }
 
 .article-image img {
@@ -47,29 +45,25 @@
 }
 
 .article-title {
-    // margin-top: 10px;
     font-size: 18px;
-    // transition: all 0.3s ease;
     opacity: 0.4;
     z-index: 1;
     position: absolute;
     bottom: 0;
+    transition: all 0.6s ease;
 }
 
 .article-card:hover .article-title {
-    // opacity: 1;
-}
-
-.article-card:hover .article-image img {
-    // transform: scale(1.1);
+    opacity: 1;
 }
 
 .article-card:hover .article-image {
-    // transform: scale(0.98);
+    transform: scale(0.98);
 }
 
-.swiper-slide:first-of-type .article-card {margin-left: 100px;}
-.swiper-slide:last-of-type .article-card {margin-right: 100px;}
+.swiper-wrapper {
+    padding: 0 100px;
+}
 
 .swiper-slide:nth-of-type(4n+1) .article-card {
     width: 366px;
@@ -99,7 +93,6 @@
 }
 
 .swiper-container {
-    // overflow: hidden;
     margin-top: 100px;
 }
 
