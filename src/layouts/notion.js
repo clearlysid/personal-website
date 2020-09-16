@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import App from './app';
 import Img from 'gatsby-image';
+import SmoothScroll from '../components/smoothScroll';
 
 function renderBlockImage(meta) {
     return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
@@ -145,11 +146,13 @@ export default function NotionArticle({ data, pageContext }) {
 
     return (
         <App back={true}>
-            <article className="notion">
-                <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
-                <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
-                <NotionBlockRenderer data={data} renderer={notionRenderer} />
-            </article>
+            <SmoothScroll>
+                <article className="notion">
+                    <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
+                    <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
+                    <NotionBlockRenderer data={data} renderer={notionRenderer} />
+                </article>
+            </SmoothScroll>
         </App>
     );
 };
@@ -181,7 +184,7 @@ export const query = graphql`
                 localFile {
                     publicURL
                     childImageSharp {
-                        fluid(maxWidth: 1000) {
+                        fluid(maxWidth: 2000) {
                             ...GatsbyImageSharpFluid
                         }
                     }
