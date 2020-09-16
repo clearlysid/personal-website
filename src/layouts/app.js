@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
+import React from "react"
 import "../styles/styles.scss"
 import SocialIcons from "../components/socialIcons"
 import Cursor from "../components/cursor"
 import BackButton from "../components/backButton"
+import { isMobile } from 'react-device-detect';
 
 const App = ({ children , back}) => {
 
@@ -10,7 +11,8 @@ const App = ({ children , back}) => {
         <>
             <SocialIcons />
 
-            <Cursor />
+            { !isMobile && <Cursor />}
+    
 
             {back === true && <BackButton />}
                
@@ -18,10 +20,7 @@ const App = ({ children , back}) => {
                 
                     {children}
 
-                    <footer>
-                        Copyleft ©{new Date().getFullYear()}, Steal if you must.
-                    </footer>
-                
+                    <footer>Copyleft ©{new Date().getFullYear()}, Steal if you must.</footer>
             </main>
         </>
     )

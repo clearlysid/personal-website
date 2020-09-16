@@ -1,12 +1,17 @@
 diff --git a/node_modules/gatsby-source-notionso/lib/renderer/renderNotionBlocks.js b/node_modules/gatsby-source-notionso/lib/renderer/renderNotionBlocks.js
-index 58f7a49..496c0cf 100644
+index 58f7a49..8ef8615 100644
 --- a/node_modules/gatsby-source-notionso/lib/renderer/renderNotionBlocks.js
 +++ b/node_modules/gatsby-source-notionso/lib/renderer/renderNotionBlocks.js
-@@ -124,8 +124,10 @@ function renderBlock(root, renderFuncs, renderUtils, debug) {
-         if (!url) {
-             console.log(`cannot find public url for image: ${JSON.stringify(meta)}`);
-         }
+@@ -121,11 +121,12 @@ function renderBlock(root, renderFuncs, renderUtils, debug) {
+     addAttributesToDict(root, meta);
+     if (root.type === 'image') {
+         const url = renderUtils.publicUrl(meta.source);
+-        if (!url) {
+-            console.log(`cannot find public url for image: ${JSON.stringify(meta)}`);
+-        }
++        if (!url) {console.log(`cannot find public url for image: ${JSON.stringify(meta)}`);}
 +        const fluid = renderUtils.childImage(meta.source);
++        if (!fluid) {console.log(`cannot find fluid prop for image: ${JSON.stringify(meta)}`);}
          // TODO: default image?
          meta.publicImageUrl = url || '';
 +        meta.childImage = fluid || '';
@@ -14,19 +19,23 @@ index 58f7a49..496c0cf 100644
      if (hasProperty(root, 'title') && root.type !== 'page') {
          const texts = findTextProperty(root, 'title');
 diff --git a/node_modules/gatsby-source-notionso/lib/renderer/renderUtils.js b/node_modules/gatsby-source-notionso/lib/renderer/renderUtils.js
-index 29bc7b5..54fae6f 100644
+index 29bc7b5..5446c20 100644
 --- a/node_modules/gatsby-source-notionso/lib/renderer/renderUtils.js
 +++ b/node_modules/gatsby-source-notionso/lib/renderer/renderUtils.js
-@@ -9,6 +9,13 @@ function default_1(imageNodes) {
-             }
+@@ -4,11 +4,14 @@ function default_1(imageNodes) {
+     return {
+         publicUrl(imageUrl) {
+             const node = imageNodes.find(i => i.imageUrl === imageUrl);
+-            if (!node) {
+-                return null;
+-            }
++            if (!node) {return null;}
              return node.localFile && node.localFile.publicURL;
          },
 +        childImage(imageUrl) {
 +            const node = imageNodes.find(i => i.imageUrl === imageUrl);
-+            if (!node) {
-+                return null;
-+            }
-+            return node.localFile && node.localFile.childImageSharp.fluid;
++            if (!node) {return null;}
++            return node.localFile && node.localFile.childImageSharp && node.localFile.childImageSharp.fluid;
 +        }
      };
  }
