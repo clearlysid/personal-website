@@ -14,6 +14,7 @@ export default function Cursor(){
         }
 
         document.addEventListener('mousemove', (e) => moveCursor(e));
+
     }, [])
 
     return <div className="cursor-wrapper"><div className="cursor"></div></div>

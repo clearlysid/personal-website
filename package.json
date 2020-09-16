@@ -11,6 +11,7 @@
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-source-notionso": "^1.1.6",
     "gatsby-transformer-sharp": "^2.5.14",
+    "gsap": "^3.5.1",
     "node-sass": "^4.14.1",
     "patch-package": "^6.2.2",
     "react": "^16.12.0",
