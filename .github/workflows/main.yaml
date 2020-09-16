@@ -1,10 +1,10 @@
-name: Trigger Netlify Build
+name: Triweekly Netlify Rebuild
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 0 * * 0,3,5'
 jobs:
   build:
-    name: Weekly Netlify Rebuild
+    name: Trigger Webhook
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
