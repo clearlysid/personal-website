@@ -4,6 +4,7 @@ import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import App from './app';
 import Img from 'gatsby-image';
 import SmoothScroll from '../components/smoothScroll';
+import SEO from '../components/seo';
 
 function renderBlockImage(meta) {
     return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
@@ -144,8 +145,14 @@ const NotionBlockRenderer = ({ data, renderer }) => {
 export default function NotionArticle({ data, pageContext }) {
     const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog });
 
+    // extract description and keywords from notion page
+
     return (
         <App back={true}>
+            
+            <SEO title={data.notionPageBlog.title + ` — Siddharth's Blog`}
+                    image={data.notionPageBlog.imageNodes[0].localFile.publicURL}
+                    url={`https://siddharth.fyi/${pageContext.pathSlug}`} />
             <SmoothScroll>
                 <article className="notion">
                     <h1 className="notion main-title">{data.notionPageBlog.title}</h1>

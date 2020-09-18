@@ -6,7 +6,7 @@
 }
 
 .site-header-text {
-    color: rgb(201, 201, 201);
+    color: #c9c9c9;
     font-weight: bold;
     font-size: 42px;
     line-height: 1.375;
@@ -16,9 +16,16 @@
     color: #333333;
     font-size: 42px;
     white-space: nowrap;
-    transition: all 0.2s ease;
-    mix-blend-mode: difference; 
-    z-index: 2;
+    transition: all 0.5s ease;
+    
+}
+
+.site-header-text > span:hover {
+    mix-blend-mode: exclusion;
+    color: #33333300;
+    // color: rgb(201, 201, 201);
+    -webkit-text-stroke: 2px #c9c9c9;
+
 }
 
 .article-card {
@@ -57,9 +64,7 @@
     transform: scale(0.98);
 }
 
-.swiper-wrapper {
-    padding: 0 100px;
-}
+
 
 .swiper-slide:nth-of-type(4n+1) .article-card {
     width: 366px;
@@ -86,6 +91,7 @@
 .swiper-wrapper {
     display: flex;
     align-items: center;
+    padding: 0 100px;
 }
 
 .swiper-container {
@@ -118,9 +124,10 @@ footer {
         transition: all 0.3s ease;
     }
 
-    svg:hover {
-        opacity: 1;
-        transform: scale(1.1)
+    li:hover {
+        svg {
+            opacity: 1;
+        }
     }
 }
 
@@ -165,13 +172,13 @@ main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
 
 .hover-reveal {
 	position: fixed;
-	width: 200px;
-	height: 150px;
+	width: 132px;
+	height: 100px;
 	top: 0;
 	left: 0;
 	pointer-events: none;
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 .hover-reveal__inner,
@@ -193,4 +200,5 @@ main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
 .hover-reveal__img {
 	background-size: cover;
     background-position: 50% 50%;
+    // opacity: 0.6;
 }
