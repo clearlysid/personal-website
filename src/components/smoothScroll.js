@@ -8,7 +8,8 @@ export default function SmoothScroll({ children }) {
     useEffect(() => {
         
         const scrollWrapper = scroller.current;
-        scrollWrapper.appendChild(document.querySelector('footer'));
+        const footer = document.querySelector('footer');
+        if (footer) scrollWrapper.appendChild(footer);
 
         const scrollConfig = { ease: 0.1, current: 0, previous: 0, rounded: 0, skew: 4 };
         
@@ -24,13 +25,14 @@ export default function SmoothScroll({ children }) {
         requestAnimationFrame(() => smoothScrolling());
 
         setTimeout(() => {
-            document.body.style.height = `${scrollWrapper.offsetHeight}px`
+            document.body.style.height = `${scrollWrapper.offsetHeight}px`;
+            
             // console.log(scrollWrapper.offsetHeight)
         }, 100 );
         
         // console.log(scrollWrapper.offsetHeight);
 
-        return () => {document.body.style.height = ""}
+        return () => {document.body.style.height = ""; document.querySelector('main.app').appendChild(footer)}
     }, []);
 
     return (
