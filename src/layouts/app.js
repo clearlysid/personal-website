@@ -5,7 +5,7 @@ import Cursor from "../components/cursor"
 import BackButton from "../components/backButton"
 import { isMobile } from 'react-device-detect';
 
-const App = ({ children , back}) => {
+const App = ({ children , back = true }) => {
 
     return (
         <>

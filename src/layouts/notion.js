@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
-import App from './app';
 import Img from 'gatsby-image';
 import SmoothScroll from '../components/smoothScroll';
 import SEO from '../components/seo';
@@ -148,7 +147,7 @@ export default function NotionArticle({ data, pageContext }) {
     // extract description and keywords from notion page
 
     return (
-        <App back={true}>
+        <>
             
             <SEO title={data.notionPageBlog.title + ` — Siddharth's Blog`}
                     image={data.notionPageBlog.imageNodes[0].localFile.publicURL}
@@ -160,7 +159,7 @@ export default function NotionArticle({ data, pageContext }) {
                     <NotionBlockRenderer data={data} renderer={notionRenderer} />
                 </article>
             </SmoothScroll>
-        </App>
+        </>
     );
 };
 

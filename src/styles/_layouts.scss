@@ -34,7 +34,7 @@ main.app {
     top: -1rem;
     left: -1rem;
     z-index: 100;
-    opacity: 1;
+    opacity: 0;
 }
 
 .on-swiper {
@@ -42,7 +42,7 @@ main.app {
     padding: 1.6rem;
 }
 
-body:hover > div > div > div > .cursor {
+body:hover > div > div > .cursor {
     opacity: 1;
 }
 
