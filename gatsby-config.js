@@ -12,6 +12,13 @@ module.exports = {
         `gatsby-plugin-sass`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
+        `gatsby-plugin-react-helmet`,
+        {
+            resolve: "gatsby-plugin-transition-link",
+            options: {
+                layout: require.resolve(`./src/layouts/app.js`)
+              }
+         },
         {
             resolve: 'gatsby-source-notionso',
             options: {
