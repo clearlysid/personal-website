@@ -12,25 +12,18 @@ export default function IndexPage({ data }) {
     SwiperCore.use([Mousewheel]);
 
     return (
-        // <App back={false}>
         <>
             <SEO />
-
             <header className="header">
                 <h1 className="site-header-text" >
-                    {/* <span>Siddharth</span> builds prototypes as a <span>UX Engineer</span> Intern at <span>Headout.</span> Here’s what he’s been writing about lately... */}
                     <ImageOnHover img="1.jpg">Siddharth</ImageOnHover> builds prototypes as a <ImageOnHover img="2.gif">UX Engineer</ImageOnHover> Intern with the team at <ImageOnHover img="3.gif">Headout.</ImageOnHover> Here’s what he’s been up to...
                 </h1>
             </header>
-
             <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true} loop={true}>
                 {data.allNotionPageBlog.edges.map(edge => (
                     <SwiperSlide key={edge.node.slug}>
-                        <Link className="article-card"
-                            cover
-                            direction="up"
-                            to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`}
-                            bg="#999999">
+                        <Link className="article-card" paintDrip hex="#999999"
+                            to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`} >
                             <div key={edge.node.title} className="article-image">
                                 <Img style={{ height: `100%`, width: `100%` }} fluid={edge.node.imageNodes[0].localFile.childImageSharp.fluid} alt={edge.node.title} />
                             </div>
@@ -40,7 +33,6 @@ export default function IndexPage({ data }) {
                 ))}
             </Swiper>
         </>
-        // </App>
     );
 }
 

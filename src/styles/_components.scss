@@ -115,13 +115,20 @@ footer {
     top: 0;
     right: 0;
     display: flex;
-    margin: calc(min(5vw, 36px));
+    margin: calc(min(5vw, 24px));
     z-index: 2;
+    justify-content: center;
+
+    li > a {
+        display: inline-block;
+    }
 
     svg {
-        margin-left: 16px;
+        // margin-left: 16px;
+        padding: 8px;
+        box-sizing: content-box;
         opacity: 0.3;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
     }
 
     li:hover {
@@ -157,18 +164,18 @@ main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
     position: fixed;
     top: 0;
     left: 0;
-    margin: calc(min(5vw, 36px));
+    padding: 16px;
+    padding-right: 28px;
+    margin: calc(min(5vw, 20px));
     z-index: 1;
     font-weight: bold;
     opacity: 0.3;
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease;
 }
 
 .back-button:hover {
     opacity: 1;
 }
-
-
 
 .hover-reveal {
 	position: fixed;

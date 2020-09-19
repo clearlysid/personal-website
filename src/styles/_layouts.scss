@@ -25,6 +25,7 @@ main.app {
 .cursor {
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0.3);
+    // background-color: #999999;
     // background-color: black;
     border-radius: 50%;
     transition: 0.3s ease;
@@ -35,6 +36,7 @@ main.app {
     left: -1rem;
     z-index: 100;
     opacity: 0;
+    // mix-blend-mode: exclusion;
 }
 
 .on-swiper {
@@ -54,4 +56,9 @@ body:hover > div > div > .cursor {
 article.notion {
     padding: 120px 0;
     height: 100%;
+}
+
+.tl-edges {
+    height: 100%;
+    overflow: hidden;
 }

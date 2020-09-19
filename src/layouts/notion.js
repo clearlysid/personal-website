@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import Img from 'gatsby-image';
 import SmoothScroll from '../components/smoothScroll';
 import SEO from '../components/seo';
+import Link from "gatsby-plugin-transition-link/AniLink";
 
 function renderBlockImage(meta) {
     return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
@@ -143,15 +144,42 @@ const NotionBlockRenderer = ({ data, renderer }) => {
 
 export default function NotionArticle({ data, pageContext }) {
     const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog });
-
     // extract description and keywords from notion page
+
+    useEffect(() => {
+        let backButton = document.querySelector('.back-button')
+        let cursor = document.querySelector('.cursor')
+
+        const stickToCursorMore = function(e){
+            const { offsetX: x, offsetY: y} = e;
+            const { offsetWidth: width, offsetHeight: height } = e.target;
+            const move = 20;
+            const xMove = x / width * ( move * 2) - move;
+            const yMove = y / height * ( move * 2) - move;
+            e.target.style.transform = `translate3d(${xMove}px, ${yMove}px, 0px)`;
+            cursor.style.opacity = 0.2;
+            cursor.style.transform = `scale(2)`;
+        }
+
+        if (backButton) {
+            backButton.addEventListener('mousemove', stickToCursorMore)
+            backButton.addEventListener('mouseleave', () => {
+                backButton.style.transform = ""
+                cursor.style.transform = ""
+                cursor.style.opacity = ""
+            })
+        }
+        
+    })
 
     return (
         <>
-            
-            <SEO title={data.notionPageBlog.title + ` — Siddharth's Blog`}
+            <SEO title={`${data.notionPageBlog.title} — Siddharth's Blog`}
                     image={data.notionPageBlog.imageNodes[0].localFile.publicURL}
                     url={`https://siddharth.fyi/${pageContext.pathSlug}`} />
+
+            <Link className="back-button" to="/" paintDrip hex="#999999">⟵ BACK</Link>
+
             <SmoothScroll>
                 <article className="notion">
                     <h1 className="notion main-title">{data.notionPageBlog.title}</h1>

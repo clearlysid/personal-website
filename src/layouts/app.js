@@ -2,25 +2,19 @@ import React from "react"
 import "../styles/styles.scss"
 import SocialIcons from "../components/socialIcons"
 import Cursor from "../components/cursor"
-import BackButton from "../components/backButton"
 import { isMobile } from 'react-device-detect';
 
-const App = ({ children , back = true }) => {
+const App = ({ children }) => {
 
     return (
         <>
-            <SocialIcons />
-
             { !isMobile && <Cursor />}
-    
 
-            {back === true && <BackButton />}
-               
+            <SocialIcons />
+            
             <main className="app">
-                
-                    {children}
-
-                    <footer>Copyleft ©{new Date().getFullYear()}, Steal if you must.</footer>
+                {children}
+                <footer>Copyleft ©{new Date().getFullYear()}, Steal if you must.</footer> 
             </main>
         </>
     )
