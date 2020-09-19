@@ -9,15 +9,20 @@ module.exports = {
         twitterUsername: '@clearlysid',
     },
     plugins: [
-        `gatsby-plugin-sass`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-react-helmet`,
         {
+            resolve: "gatsby-plugin-sass",
+            options: {
+                outputStyle: 'compressed',
+            }
+        },
+        {
             resolve: "gatsby-plugin-transition-link",
             options: {
                 layout: require.resolve(`./src/layouts/app.js`)
-              }
+            }
          },
         {
             resolve: 'gatsby-source-notionso',
