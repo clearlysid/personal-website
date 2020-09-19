@@ -8,10 +8,6 @@ export default function ImageOnHover({img, children}){
     const el = useRef(null);
 
     useEffect(() => {
-        const getMousePos = (e) => {
-            
-        }
-        
         class HoverImg {
             constructor(el) {
                 this.DOM = {el: el};

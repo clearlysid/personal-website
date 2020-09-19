@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 
 export default function Cursor(){
 
-    // const lerp = (accum, target, roundness) => (1 - roundness) * accum + roundness * target
-
     useEffect(() => {
         let cursor = document.querySelector('.cursor')
         let swiper = document.querySelector('.swiper-container')
@@ -22,9 +20,10 @@ export default function Cursor(){
         const stickToCursor = function(e){
             const { offsetX: x, offsetY: y} = e;
             const { offsetWidth: width, offsetHeight: height } = this;
-            const move = 8;
+            const move = 4;
             const xMove = x / width * ( move * 2) - move;
             const yMove = y / height * ( move * 2) - move;
+            // console.log(e)
             this.querySelector('svg').style.transform = `translate3d(${xMove}px, ${yMove}px, 0px)`;
             cursor.style.opacity = 0.2;
         }
@@ -36,7 +35,10 @@ export default function Cursor(){
 
         socials.forEach((icon) => {
             icon.addEventListener('mousemove', stickToCursor)
-            icon.addEventListener('mouseleave', () => {icon.querySelector('svg').style.transform = "";  cursor.style.opacity = "";})
+            icon.addEventListener('mouseleave', () => {
+                icon.querySelector('svg').style.transform = ""
+                cursor.style.opacity = ""
+            })
         })
 
     }, [])
