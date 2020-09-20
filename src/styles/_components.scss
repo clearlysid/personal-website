@@ -2,22 +2,22 @@
     max-width: 1140px;
     width: 80%;
     margin-left: 10%;
-    margin-top: 120px;
+    margin-top: 12vh;
 }
 
 .site-header-text {
     color: #c9c9c9;
     font-weight: bold;
     font-size: 42px;
+    font-size: calc(max(32px, min(2.96vw, 42px)));
     line-height: 1.375;
 }
 
 .site-header-text > span {
     color: #333333;
-    font-size: 42px;
+    font-size: inherit;
     white-space: nowrap;
     transition: all 0.5s ease;
-    
 }
 
 .site-header-text > span:hover {
@@ -64,8 +64,6 @@
     transform: scale(0.98);
 }
 
-
-
 .swiper-slide:nth-of-type(4n+1) .article-card {
     width: 366px;
     height: 468px;
@@ -95,7 +93,7 @@
 }
 
 .swiper-container {
-    margin-top: 100px;
+    margin: 10vh auto;
 }
 
 footer {
@@ -105,8 +103,9 @@ footer {
     width: 100%;
     padding-bottom: 20px;
     opacity: 0.3;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: regular;
+    letter-spacing: 0.2px;
 }
 
 #social-icons {
@@ -138,12 +137,15 @@ footer {
     }
 }
 
-main.notion .gatsby-image-wrapper:first-of-type, main.notion img:first-of-type {
-    display: none;
-}
+main.notion {
+    img:first-of-type,
+    .gatsby-image-wrapper:first-of-type {
+        display: none;
+    }
+} 
 
 .notion .main-title {
-    max-width: 800px;
+    max-width: calc(min(800px, 90%));
     margin: 0 auto;
     text-align: center;
 }

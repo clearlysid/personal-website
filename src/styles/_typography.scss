@@ -3,7 +3,10 @@
 
 * {
     font-family: 'Manrope', sans-serif;
-    font-size: 18px;
+}
+
+body {
+    font-size: calc(max(16px, min(1.8vw, 18px)));
 }
 
 code {
@@ -11,72 +14,79 @@ code {
     color: #333333;
 }
 
-.notion h1 {
+h1 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: 42px;
+    font-size: calc(max(32px, min(4.2vw, 42px)));
     line-height: 160%;
     color: #222222;
     padding-bottom: 20px;
 }
 
-.notion h2 {
+h2 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: 32px;
+    font-size: calc(max(24px, min(3.2vw, 32px)));
     line-height: 160%;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
     color: #222222;
 }
 
-.notion h3 {
+h3 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(max(18px, min(2.4vw, 24px)));
     line-height: 160%;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
     color: #222222;
 }
 
-.notion p, ul, ol {
-    font-size: 18px;
+p, ul, ol {
+    font-size: calc(max(16px, min(1.8vw, 18px)));
     line-height: 160%;
     color: #333333;
     margin-bottom: 20px;
 }
 
-.notion pre {
+li { font-size: inherit; span { font-size: inherit;}}
+
+pre {
     background: #eeeeee;
     padding: 16px;
     font-size: 16px;
 }
 
-.notion ul, ol {
+ul, ol {
     padding-left: 24px;
-    margin-bottom: 20px;
     li {margin-bottom: 8px;}
 }
 
-.notion ul {list-style: disc;}
-.notion ol {list-style: decimal; }
+ul {list-style: disc;}
+ol {list-style: decimal; }
 
 .notion .gatsby-image-wrapper {
     margin-bottom: 20px;
 }
 
 
+
+
 main.notion > * {
-    max-width: 700px;
+    max-width: calc(min(700px, 90%));
     margin-left: auto;
     margin-right: auto;
+}
+
+main.notion > img {
+    max-width: calc(min(700px, 100%));
 }
 
 .notion .callout {
     font-family: Manrope;
     font-weight: normal;
-    font-size: 32px;
+    font-size: calc(max(24px, min(3.2vw, 32px)));
     line-height: 130%;
     text-align: center;
     color: #2E2E2E;
@@ -85,8 +95,9 @@ main.notion > * {
 }
 
 blockquote.notion {
-    font-size: 24px;
-    line-height: 32px;
+    // font-size: 24px;
+    font-size: calc(max(18px, min(2.4vw, 24px)));
+    line-height: 130%;
     color: #2E2E2E;
     border-left: 4px #2e2e2e solid;
     padding-left: 18px;

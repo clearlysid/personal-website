@@ -13,11 +13,15 @@ export default function IndexPage({ data }) {
 
     return (
         <>
+            
             <SEO />
             <header className="header">
                 <h1 className="site-header-text" >
                     <ImageOnHover img="1.jpg">Siddharth</ImageOnHover> builds prototypes as a <ImageOnHover img="2.gif">UX Engineer</ImageOnHover> Intern with the team at <ImageOnHover img="3.gif">Headout.</ImageOnHover> Here’s what he’s been up to...
                 </h1>
+
+
+                
             </header>
             <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true} loop={true}>
                 {data.allNotionPageBlog.edges.map(edge => (

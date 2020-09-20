@@ -8,6 +8,10 @@ export default function SmoothScroll({ children }) {
     useEffect(() => {
         
         const scrollWrapper = scroller.current;
+        
+        document.querySelector('.app').style.position = "fixed";
+        
+
         const footer = document.querySelector('footer');
         if (footer) scrollWrapper.appendChild(footer);
 
@@ -26,13 +30,16 @@ export default function SmoothScroll({ children }) {
 
         setTimeout(() => {
             document.body.style.height = `${scrollWrapper.offsetHeight}px`;
-            
             // console.log(scrollWrapper.offsetHeight)
         }, 100 );
         
         // console.log(scrollWrapper.offsetHeight);
 
-        return () => {document.body.style.height = ""; document.querySelector('main.app').appendChild(footer)}
+        return () => {
+            document.body.style.height = "";
+            document.querySelector('.app').appendChild(footer);
+            document.querySelector('.app').style.position = "";
+        }
     }, []);
 
     return (
