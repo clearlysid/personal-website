@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../styles/styles.scss"
 import SocialIcons from "../components/socialIcons"
 import Cursor from "../components/cursor"
@@ -6,15 +6,20 @@ import { isMobile } from 'react-device-detect';
 
 const App = ({ children }) => {
 
+    useEffect(() => {
+        // setTimeout(() => {document.querySelector('.loader').style.display = 'none'}, 1000)
+    })
+
     return (
         <>
+            {/* <div className="loader"></div> */}
             { !isMobile && <Cursor />}
 
             <SocialIcons />
             
             <main className="app">
                 {children}
-                <footer>Copyleft ©{new Date().getFullYear()}, Steal if you must.</footer> 
+                <footer>Copyleft ©{new Date().getFullYear()}, Built with Notion, Gatsby and GSAP.</footer> 
             </main>
         </>
     )
