@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import Img from 'gatsby-image';
 import SmoothScroll from '../components/smoothScroll';
 import SEO from '../components/seo';
-import Link from "gatsby-plugin-transition-link/AniLink";
+import BackButton from '../components/backButton'
+
 
 function renderBlockImage(meta) {
     return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
@@ -58,6 +59,10 @@ function renderCallout(children) {
     return <div className="notion callout">{children}</div>
 }
 
+// function renderTweet(meta) {
+//     return ()
+// }
+
 function renderListItem(children) {
     return <li>{children}</li>
 }
@@ -98,10 +103,12 @@ function renderBlock(type, meta, children) {
             return <hr className="notion"/>
         case 'callout':
             return renderCallout(children);
+        // case 'tweet':
+        //     return renderTweet(meta);
         case '__meta': // we don't parse this block - it contains the page meta information such as the slug
             return null;
         default:
-            console.log('@@@ unknow type to render>renderBlock>', type);
+            console.log('@@@ unknow type to render>renderBlock>', type, children, meta);
             return null;
     }
 }
@@ -146,39 +153,15 @@ export default function NotionArticle({ data, pageContext }) {
     const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog });
     // extract description and keywords from notion page
 
-    useEffect(() => {
-        let backButton = document.querySelector('.back-button')
-        let cursor = document.querySelector('.cursor')
-
-        const stickToCursorMore = function(e){
-            const { offsetX: x, offsetY: y} = e;
-            const { offsetWidth: width, offsetHeight: height } = e.target;
-            const move = 20;
-            const xMove = x / width * ( move * 2) - move;
-            const yMove = y / height * ( move * 2) - move;
-            e.target.style.transform = `translate3d(${xMove}px, ${yMove}px, 0px)`;
-            cursor.style.opacity = 0.2;
-            cursor.style.transform = `scale(2)`;
-        }
-
-        if (backButton) {
-            backButton.addEventListener('mousemove', stickToCursorMore)
-            backButton.addEventListener('mouseleave', () => {
-                backButton.style.transform = ""
-                cursor.style.transform = ""
-                cursor.style.opacity = ""
-            })
-        }
-        
-    })
-
     return (
         <>
             <SEO title={`${data.notionPageBlog.title} — Siddharth's Blog`}
-                    image={data.notionPageBlog.imageNodes[0].localFile.publicURL}
-                    url={`https://siddharth.fyi/${pageContext.pathSlug}`} />
+                image={data.notionPageBlog.imageNodes[0].localFile.publicURL}
+                url={`https://siddharth.fyi/${pageContext.pathSlug}`}
+                description={data.notionPageBlog.excerpt}
+                />
 
-            <Link className="back-button" to="/" paintDrip hex="#999999">⟵ BACK</Link>
+            <BackButton />
 
             <SmoothScroll>
                 <article className="notion">
@@ -230,6 +213,7 @@ export const query = graphql`
             isDraft
             id
             indexPage
+            excerpt
         }
     }
 `;

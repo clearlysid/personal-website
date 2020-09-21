@@ -6,7 +6,7 @@
 }
 
 body {
-    font-size: calc(max(16px, min(1.8vw, 18px)));
+    font-size: max(16px, min(1.8vw, 18px));
 }
 
 code {
@@ -17,7 +17,7 @@ code {
 h1 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: calc(max(32px, min(4.2vw, 42px)));
+    font-size: max(32px, min(4.2vw, 42px));
     line-height: 160%;
     color: #222222;
     padding-bottom: 20px;
@@ -26,7 +26,7 @@ h1 {
 h2 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: calc(max(24px, min(3.2vw, 32px)));
+    font-size: max(24px, min(3.2vw, 32px));
     line-height: 160%;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
@@ -36,7 +36,7 @@ h2 {
 h3 {
     font-family: Manrope;
     font-weight: bold;
-    font-size: calc(max(18px, min(2.4vw, 24px)));
+    font-size: max(18px, min(2.4vw, 24px));
     line-height: 160%;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
@@ -44,7 +44,7 @@ h3 {
 }
 
 p, ul, ol {
-    font-size: calc(max(16px, min(1.8vw, 18px)));
+    font-size: max(16px, min(1.8vw, 18px));
     line-height: 160%;
     color: #333333;
     margin-bottom: 20px;
@@ -74,19 +74,19 @@ ol {list-style: decimal; }
 
 
 main.notion > * {
-    max-width: calc(min(700px, 90%));
+    max-width: min(700px, 90%);
     margin-left: auto;
     margin-right: auto;
 }
 
 main.notion > img {
-    max-width: calc(min(700px, 100%));
+    max-width: min(700px, 100%);
 }
 
 .notion .callout {
     font-family: Manrope;
     font-weight: normal;
-    font-size: calc(max(24px, min(3.2vw, 32px)));
+    font-size: max(24px, min(3.2vw, 32px));
     line-height: 130%;
     text-align: center;
     color: #2E2E2E;
@@ -96,7 +96,7 @@ main.notion > img {
 
 blockquote.notion {
     // font-size: 24px;
-    font-size: calc(max(18px, min(2.4vw, 24px)));
+    font-size: max(18px, min(2.4vw, 24px));
     line-height: 130%;
     color: #2E2E2E;
     border-left: 4px #2e2e2e solid;

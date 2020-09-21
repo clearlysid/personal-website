@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-
-import { TimelineMax, TweenMax } from "gsap/all"
-
+import { TimelineLite, TweenLite } from "gsap/all"
 
 export default function ImageOnHover({img, children}){
 
@@ -55,36 +53,37 @@ export default function ImageOnHover({img, children}){
                 this.mousemoveFn = ev => requestAnimationFrame(() => this.positionElement(ev));
                 this.mouseleaveFn = () => this.hideImage();
              
-                
                 this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
                 this.DOM.el.addEventListener('mousemove', this.mousemoveFn);
                 this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
             }
             showImage() {
-                TweenMax.killTweensOf(this.DOM.revealInner);
-                TweenMax.killTweensOf(this.DOM.revealImg);
-    
-                this.tl = new TimelineMax({
-                    onStart: () => { this.DOM.reveal.style.opacity = 1; TweenMax.set(this.DOM.el, {zIndex: 1000}); }
+                TweenLite.killTweensOf(this.DOM.revealInner);
+                TweenLite.killTweensOf(this.DOM.revealImg);
+
+                this.tl = new TimelineLite({
+                    onStart: () => { this.DOM.reveal.style.opacity = 1; TweenLite.set(this.DOM.el, {zIndex: 1000}); }
                 })
                 .add('begin')
-                .add(new TweenMax(this.DOM.revealInner, 0.8, {
+                .add(new TweenLite(this.DOM.revealInner, 0.8, {
                     ease: "expo.out", y: '0%', rotation: 0, opacity: 1, scale: 1,
                     startAt: {opacity: 0, y: '50%', rotation: -15, scale:0}
                 }), 'begin')
-                .add(new TweenMax(this.DOM.revealImg, 0.8, { ease: "expo.out", startAt: {rotation: 15, scale: 2}, rotation: 0, scale: 1 }), 'begin');
+                .add(new TweenLite(this.DOM.revealImg, 0.8, { ease: "expo.out", startAt: {rotation: 15, scale: 2}, rotation: 0, scale: 1 }), 'begin');
+
             }
             hideImage() {
-                TweenMax.killTweensOf(this.DOM.revealInner);
-                TweenMax.killTweensOf(this.DOM.revealImg);
-    
-                this.tl = new TimelineMax({
-                    onStart: () => TweenMax.set(this.DOM.el, {zIndex: 999}),
-                    onComplete: () => { TweenMax.set(this.DOM.el, {zIndex: ''}); TweenMax.set(this.DOM.reveal, {opacity: 0});}
+                TweenLite.killTweensOf(this.DOM.revealInner);
+                TweenLite.killTweensOf(this.DOM.revealImg);
+
+                this.tl = new TimelineLite({
+                    onStart: () => TweenLite.set(this.DOM.el, {zIndex: 999}),
+                    onComplete: () => { TweenLite.set(this.DOM.el, {zIndex: ''}); TweenLite.set(this.DOM.reveal, {opacity: 0});}
                 })
                 .add('begin')
-                .add(new TweenMax(this.DOM.revealInner, 0.15, { ease: "sine.out", y: '-40%', rotation: 10, scale: 0.9, opacity: 0 }), 'begin')
-                .add(new TweenMax(this.DOM.revealImg, 0.15, { ease: "sine.out", rotation: -10, scale: 1.5 }), 'begin')
+                .add(new TweenLite(this.DOM.revealInner, 0.15, { ease: "sine.out", y: '-40%', rotation: 10, scale: 0.9, opacity: 0 }), 'begin')
+                .add(new TweenLite(this.DOM.revealImg, 0.15, { ease: "sine.out", rotation: -10, scale: 1.5 }), 'begin')
+
             }
         }
 
