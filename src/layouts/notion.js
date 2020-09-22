@@ -4,8 +4,26 @@ import notionRendererFactory from 'gatsby-source-notionso/lib/renderer';
 import Img from 'gatsby-image';
 import SmoothScroll from '../components/smoothScroll';
 import SEO from '../components/seo';
-import BackButton from '../components/backButton'
+import BackButton from '../components/backButton';
+import hljs from 'highlight.js/lib/core';
+import hl_javascript from 'highlight.js/lib/languages/javascript';
+import hl_typescript from 'highlight.js/lib/languages/typescript';
+import hl_html from 'highlight.js/lib/languages/xml';
+import hl_scss from 'highlight.js/lib/languages/scss';
+import hl_processing from 'highlight.js/lib/languages/processing';
+import hl_bash from 'highlight.js/lib/languages/bash';
+import hl_plaintext from 'highlight.js/lib/languages/plaintext';
+import hl_json from 'highlight.js/lib/languages/json';
+import 'highlight.js/styles/atom-one-light.css';
 
+hljs.registerLanguage('xml', hl_html);
+hljs.registerLanguage('scss', hl_scss);
+hljs.registerLanguage('processing', hl_processing);
+hljs.registerLanguage('javascript', hl_javascript);
+hljs.registerLanguage('typescript', hl_typescript);
+hljs.registerLanguage('bash', hl_bash);
+hljs.registerLanguage('plaintext', hl_plaintext);
+hljs.registerLanguage('json', hl_json);
 
 function renderBlockImage(meta) {
     return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
@@ -13,9 +31,10 @@ function renderBlockImage(meta) {
     // return <Img className="notion" fluid={meta.childImage} alt="" critical={true}/>
 }
 
-function renderBlockCode(children, meta) {
-    // meta will contain language for future syntax highlighting maybe?
-    return <pre><code>{children}</code></pre>
+function renderBlockCode(meta) {
+    const highlightedCode = hljs.highlight(meta.language.toString().toLowerCase(), meta.title).value;
+    return <pre dangerouslySetInnerHTML={{ __html: `<code>${highlightedCode}</code>` }} />;
+
 }
 
 function renderBlockText(children) {
@@ -78,7 +97,7 @@ function renderBlock(type, meta, children) {
         case 'text':
             return renderBlockText(children);
         case 'code':
-            return renderBlockCode(children, meta);
+            return renderBlockCode(meta);
         case 'image':
             return renderBlockImage(meta);
         case 'header':
@@ -108,7 +127,7 @@ function renderBlock(type, meta, children) {
         case '__meta': // we don't parse this block - it contains the page meta information such as the slug
             return null;
         default:
-            console.log('@@@ unknow type to render>renderBlock>', type, children, meta);
+            // console.log('@@@ unknow type to render>renderBlock>', type, children, meta);
             return null;
     }
 }
@@ -129,7 +148,7 @@ function mkRenderFuncs(npb) {
                 case 'c':
                     return <code className='notion'>{children}</code>;
                 default:
-                    console.log(`@@@ no text attribute for: ${att}`);
+                    // console.log(`@@@ no text attribute for: ${att}`);
                     return null;
             }
         },
