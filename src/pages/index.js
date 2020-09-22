@@ -14,19 +14,14 @@ export default function IndexPage({ data }) {
 
             <SEO />
 
+            <header className="header">
+                <h1 className="site-header-text" >
+                    <ImageOnHover img="1.jpg">Siddharth</ImageOnHover> builds prototypes as a <ImageOnHover img="2.gif">UX Engineer</ImageOnHover> Intern with the team at <ImageOnHover img="3.gif">Headout.</ImageOnHover> Here’s what he’s been up to...
+                </h1>
+            </header>
 
-                <header className="header">
-                    <h1 className="site-header-text" >
-                        <ImageOnHover img="1.jpg">Siddharth</ImageOnHover> builds prototypes as a <ImageOnHover img="2.gif">UX Engineer</ImageOnHover> Intern with the team at <ImageOnHover img="3.gif">Headout.</ImageOnHover> Here’s what he’s been up to...
-                    </h1>
-                </header>
+            <HomeSlider edges={data.allNotionPageBlog.edges} />
 
-                <HomeSlider edges={data.allNotionPageBlog.edges} />
-
-
-            
-
-          
         </>
     );
 }

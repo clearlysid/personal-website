@@ -6,32 +6,26 @@ import SmoothScroll from '../components/smoothScroll';
 import SEO from '../components/seo';
 import BackButton from '../components/backButton';
 import hljs from 'highlight.js/lib/core';
-import hl_javascript from 'highlight.js/lib/languages/javascript';
-import hl_typescript from 'highlight.js/lib/languages/typescript';
-import hl_html from 'highlight.js/lib/languages/xml';
-import hl_scss from 'highlight.js/lib/languages/scss';
-import hl_processing from 'highlight.js/lib/languages/processing';
-import hl_bash from 'highlight.js/lib/languages/bash';
-import hl_plaintext from 'highlight.js/lib/languages/plaintext';
-import hl_json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/atom-one-light.css';
 
-hljs.registerLanguage('xml', hl_html);
-hljs.registerLanguage('scss', hl_scss);
-hljs.registerLanguage('processing', hl_processing);
-hljs.registerLanguage('javascript', hl_javascript);
-hljs.registerLanguage('typescript', hl_typescript);
-hljs.registerLanguage('bash', hl_bash);
-hljs.registerLanguage('plaintext', hl_plaintext);
-hljs.registerLanguage('json', hl_json);
 
 function renderBlockImage(meta) {
-    return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
-    // console.log(meta)
-    // return <Img className="notion" fluid={meta.childImage} alt="" critical={true}/>
+    if (meta.childImage) {
+        return <Img className="notion" fluid={meta.childImage} alt="" />
+    } else {
+        return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
+    }
 }
 
 function renderBlockCode(meta) {
+
+    hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+    hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
+    hljs.registerLanguage('processing', require('highlight.js/lib/languages/processing'));
+    hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+    hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+    hljs.registerLanguage('plaintext', require('highlight.js/lib/languages/plaintext'));
+    hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
 
     const notionLanguageToHljs = {
         'plain text': 'plaintext',
@@ -82,19 +76,16 @@ function renderQuote(children) {
 
 function renderToDo(children, meta) {
     return (<div className="notion checkbox">
-        {/* <input type="checkbox" disabled {...(meta.checked === "Yes" && { checked: "checked" })}/> */}
-        <span style={{ paddingRight: '8px'}}>{ meta.checked === "Yes" ? "☑" : "☐"}</span>
-        <span>{children}</span>
-    </div>)
+            {meta.checked === "Yes"
+            ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459"><path d="M124.95 181.05l-35.7 35.7L204 331.5l255-255-35.7-35.7L204 260.1l-79.05-79.05zM408 408H51V51h255V0H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V204h-51v204z"/></svg>
+            : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459"><path d="M408 51v357H51V51h357m0-51H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V51c0-28.05-22.95-51-51-51z"/></svg>}
+            <span>{children}</span>
+        </div>)
 }
 
 function renderCallout(children) {
     return <div className="notion callout">{children}</div>
 }
-
-// function renderTweet(meta) {
-//     return ()
-// }
 
 function renderListItem(children) {
     return <li>{children}</li>
@@ -102,6 +93,11 @@ function renderListItem(children) {
 
 function renderPage(children) {
     return <>{children}</>
+}
+
+function renderColumn(children) {
+    // console.log(children)
+    // return <div>"column"</div>
 }
 
 function renderBlock(type, meta, children) {
@@ -140,8 +136,12 @@ function renderBlock(type, meta, children) {
         //     return renderTweet(meta);
         case '__meta': // we don't parse this block - it contains the page meta information such as the slug
             return null;
+        case 'meta':
+            return null;
+        // case 'column':
+        //     return renderColumn(children);
         default:
-            // console.log('@@@ unknow type to render>renderBlock>', type, children, meta);
+            // console.log("Can't render this:", type, children, meta);
             return null;
     }
 }
@@ -167,7 +167,7 @@ function mkRenderFuncs(npb) {
             }
         },
         renderLink: (children, ref) => {
-            return <a href={ref}>{children}</a>;
+            return <a href={ref} target="_blank" rel="noreferrer">{children}</a>;
         },
         renderBlock: (type, meta, children, npb) => {
             return renderBlock(type, meta, children, npb);
@@ -184,7 +184,6 @@ const NotionBlockRenderer = ({ data, renderer }) => {
 
 export default function NotionArticle({ data, pageContext }) {
     const notionRenderer = notionRendererFactory({ notionPage: data.notionPageBlog });
-    // extract description and keywords from notion page
 
     return (
         <>
