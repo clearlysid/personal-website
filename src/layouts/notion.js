@@ -34,19 +34,18 @@ function renderBlockImage(meta) {
 function renderBlockCode(meta) {
 
     const notionLanguageToHljs = {
-        'Plain Text': 'plaintext',
-        JavaScript: 'javascript',
-        Bash: 'bash',
-        HTML: 'xml',
-        Processing: 'processing',
-        SCSS: 'scss',
-        CSS: 'scss',
-        JSON: 'json',
+        'plain text': 'plaintext',
+        javascript: 'javascript',
+        bash: 'bash',
+        html: 'xml',
+        processing: 'processing',
+        scss: 'scss',
+        css: 'scss',
+        json: 'json',
     };
 
-    const hljslanguage = notionLanguageToHljs[meta.language] || 'plaintext';
+    const hljslanguage = notionLanguageToHljs[meta.language.toString().toLowerCase()] || 'plaintext';
     const highlightedCode = hljs.highlight(hljslanguage, meta.title).value;
-
 
     return <pre dangerouslySetInnerHTML={{ __html: `<code>${highlightedCode}</code>` }} />
 
