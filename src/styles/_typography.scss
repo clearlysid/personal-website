@@ -118,14 +118,14 @@ blockquote.notion {
     a {
         display: block;
         text-align: right;
-        font-size: 0.8em;
+        font-size: 14px;
         font-weight: bold;
     }
 
     a::before {
         content: '-';
         position: relative;
-        padding-right: 0.4em;
+        padding-right: 8px;
     }
 }
 

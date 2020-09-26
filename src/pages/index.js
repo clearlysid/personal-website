@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from 'gatsby';
 
 
-import ImageOnHover from "../components/imageOnHover";
+import HoverImg from "../components/hoverImg";
 import SEO from "../components/seo";
 import HomeSlider from "../components/homeSlider";
 
@@ -16,7 +16,7 @@ export default function IndexPage({ data }) {
 
             <header className="header">
                 <h1 className="site-header-text" >
-                    <ImageOnHover img="1.jpg">Siddharth</ImageOnHover> builds prototypes as a <ImageOnHover img="2.gif">UX Engineer</ImageOnHover> Intern with the team at <ImageOnHover img="3.gif">Headout.</ImageOnHover> Here’s what he’s been up to...
+                    <HoverImg img="1.jpg">Siddharth</HoverImg> builds prototypes as a <HoverImg img="2.gif">UX Engineer</HoverImg> Intern with the team at <HoverImg img="3.gif" pos="bottom">Headout.</HoverImg> Here’s what he’s been up to...
                 </h1>
             </header>
 
@@ -39,7 +39,7 @@ export const query = graphql`
                             publicURL
                             childImageSharp {
                                 fluid(maxWidth: 2000) {
-                                    ...GatsbyImageSharpFluid
+                                    ...GatsbyImageSharpFluid_withWebp
                                 }
                             }
                         }

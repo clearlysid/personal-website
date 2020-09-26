@@ -18,7 +18,7 @@
     color: #333333;
     font-size: inherit;
     white-space: nowrap;
-    transition: color 0.5s ease text-stroke 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .site-header-text > span:hover {
@@ -26,6 +26,7 @@
     color: #33333300;
     // color: rgb(201, 201, 201);
     -webkit-text-stroke: 2px #c9c9c9;
+    opacity: 0.8;
 }
 
 .swiper-wrapper {
@@ -43,11 +44,26 @@
     position: relative;
 }
 
+.card:hover {
+    .card-title{
+        opacity: 1;
+    }
+
+    .card-image img {
+        transform: scale(1.1);
+    }
+
+
+}
+
 .card-image {
     width: 100%;
     height: 100%;
-    // overflow: hidden;
-    transform-origin: top left;
+}
+
+.card-image img {
+    // transform-origin: center right;
+    transition: transform 0.8s ease-out !important;
 }
 
 
@@ -58,6 +74,7 @@
     z-index: 1;
     position: absolute;
     bottom: -36px;
+    transition: opacity 0.3s ease;
 }
 
 .swiper-slide {
@@ -125,13 +142,6 @@ footer {
     }
 }
 
-// main.notion {
-//     img:first-of-type,
-//     .gatsby-image-wrapper:first-of-type {
-//         display: none;
-//     }
-// } 
-
 main.notion > .notion:first-child {
     display: none;
 }
@@ -196,5 +206,4 @@ main.notion > .notion:first-child {
 .hover-reveal__img {
 	background-size: cover;
     background-position: 50% 50%;
-    // opacity: 0.6;
 }

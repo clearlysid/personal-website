@@ -13,7 +13,7 @@ function renderBlockImage(meta) {
     if (meta.childImage) {
         return <Img className="notion" fluid={meta.childImage} alt="" />
     } else {
-        return <img className="notion" style={{width: "100%"}} src={meta.publicImageUrl} alt="" />
+        return <img className="notion" style={{width: "100%", height: "auto"}} src={meta.publicImageUrl} alt="" />
     }
 }
 
@@ -95,11 +95,6 @@ function renderPage(children) {
     return <>{children}</>
 }
 
-function renderColumn(children) {
-    // console.log(children)
-    // return <div>"column"</div>
-}
-
 function renderBlock(type, meta, children) {
     switch (type) {
         case 'page':
@@ -132,14 +127,10 @@ function renderBlock(type, meta, children) {
             return <hr className="notion"/>
         case 'callout':
             return renderCallout(children);
-        // case 'tweet':
-        //     return renderTweet(meta);
         case '__meta': // we don't parse this block - it contains the page meta information such as the slug
             return null;
         case 'meta':
             return null;
-        // case 'column':
-        //     return renderColumn(children);
         default:
             // console.log("Can't render this:", type, children, meta);
             return null;
@@ -234,7 +225,7 @@ export const query = graphql`
                     publicURL
                     childImageSharp {
                         fluid(maxWidth: 2000) {
-                            ...GatsbyImageSharpFluid
+                            ...GatsbyImageSharpFluid_withWebp
                         }
                     }
                 }

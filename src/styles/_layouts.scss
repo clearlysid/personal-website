@@ -22,20 +22,30 @@ body {
 }
 
 .cursor {
-    pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.3);
-    // background-color: #999999;
-    // background-color: black;
-    border-radius: 50%;
-    transition: 0.3s ease;
-    transition-property: transform, padding, opacity;
-    padding: 0.6rem;
+    opacity: 0 !important;
     position: fixed;
-    top: -1rem;
-    left: -1rem;
-    z-index: 100;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    // mix-blend-mode: color-burn;
+    background-color: black;
+    height: 5rem;
+    width: 5rem;
+    backface-visibility: hidden;
+    z-index: 999;
+    border-radius: 50%;
+}
+
+.cursor::after {
+    content: 'READ';
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    top: 40%;
+    width: 100%;
     opacity: 0;
-    // mix-blend-mode: exclusion;
 }
 
 .on-swiper {
@@ -43,14 +53,10 @@ body {
     padding: 1.6rem;
 }
 
-body:hover > div > div > .cursor {
-    opacity: 1;
+body:hover > div > div {
+    .cursor { opacity: 1 !important; }
+    .cursor::after { opacity: 1; }
 }
-
-* {
-    cursor: none !important;
-}
-
 
 article.notion {
     padding: 120px 0;
