@@ -118,14 +118,15 @@ export default function HomeSlider({ edges }) {
 
     return (
         <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true}>
-            {edges.map(edge => (<SwiperSlide key={edge.node.slug}>
-                    {/* <Link className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`}
+            {edges.map(edge => 
+                (<SwiperSlide key={edge.node.slug}>
+                    {/* <Link className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-').replace(/^-|-$/g, '')}`}
                         exit={{ length: 1 }} entry={{ length: 1 }} trigger={(pages) => TransitionToCardPage(pages)}>
                         <Img className="card-image" fluid={edge.node.imageNodes[0].localFile.childImageSharp.fluid} alt={edge.node.title} />
                         <div className="card-title">{edge.node.title}</div>
                     </Link> */}
 
-                    <AniLink className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`} paintDrip hex="#999999">
+                    <AniLink className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-').replace(/^-|-$/g, '')}`} paintDrip hex="#999999">
                         <Img className="card-image" fluid={edge.node.imageNodes[0].localFile.childImageSharp.fluid} alt={edge.node.title} />
                         <div className="card-title">{edge.node.title}</div>
                     </AniLink>

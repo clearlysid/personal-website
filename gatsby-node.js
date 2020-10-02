@@ -31,7 +31,14 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
     }
 
     result.data.allNotionPageBlog.edges.forEach(({ node }) => {
-        const path = `/blog/${node.title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')}`;
+
+        const slug = node.title.toLowerCase()
+                                .replace(/[^\w ]+/g,'')
+                                .replace(/ +/g,'-')
+                                .replace(/^-|-$/g, '');
+
+        const path = `/blog/${slug}`;
+
         createPage({
             path,
             component: pageTemplate,
