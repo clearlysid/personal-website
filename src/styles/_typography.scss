@@ -24,40 +24,41 @@ span {
     font-size: inherit;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: Manrope;
     font-weight: bold;
+    color: #222222;
+}
+
+h1 {    
     font-size: max(32px, min(4.2vw, 42px));
     line-height: 1.6em;
-    color: #222222;
-    padding-bottom: 20px;
+    padding-bottom: 0.6em;
 }
 
 h2 {
-    font-family: Manrope;
-    font-weight: bold;
     font-size: max(24px, min(3.2vw, 32px));
     line-height: 1.6em;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
-    color: #222222;
 }
 
 h3 {
-    font-family: Manrope;
-    font-weight: bold;
     font-size: max(18px, min(2.4vw, 24px));
     line-height: 1.6em;
     margin-top: 1.4em;
     padding-bottom: 0.4em;
-    color: #222222;
 }
 
 p, ul, ol {
     font-size: max(16px, min(1.8vw, 18px));
     line-height: 1.6em;
-    color: #333333;
-    margin-bottom: 20px;
+    color: #444444;
+    margin-bottom: 1.4em;
+
+    a {
+        border-bottom: 0.1em solid #bbbbbb;
+    }
 }
 
 li { font-size: inherit; span { font-size: inherit;}}
@@ -147,10 +148,15 @@ blockquote::after {
 }
 
 .notion .checkbox {
+    color: #444444;
     margin-bottom: 16px;
     svg {
         height: 0.8em;
         width: 0.8em;
         margin-right: 0.6em;
+    }
+
+    a {
+        border-bottom: 0.1em solid #bbbbbb;
     }
 }

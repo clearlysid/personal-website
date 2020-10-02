@@ -29,7 +29,7 @@ module.exports = {
             resolve: 'gatsby-source-notionso',
             options: {
               name: 'Blog',
-              rootPageUrl: 'https://www.notion.so/test-blog-backend-da0ca5fe8b5e423582c4734d104e064e',
+              rootPageUrl: 'https://www.notion.so/LIVE-5456840bf1024977afa6b6f70deb8ae4',
               debug: false,
             },
         },
