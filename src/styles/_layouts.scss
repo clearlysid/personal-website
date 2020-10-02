@@ -22,7 +22,7 @@ body {
 }
 
 .cursor {
-    opacity: 0 !important;
+    opacity: 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,25 +36,20 @@ body {
     border-radius: 50%;
 }
 
-.cursor::after {
-    content: 'READ';
-    color: white;
-    position: absolute;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1rem;
-    top: 40%;
-    width: 100%;
-    opacity: 0;
-}
-
-.on-swiper {
-    // transform: scale(2);
-    padding: 1.6rem;
-}
+// .cursor::after {
+//     content: 'READ';
+//     color: white;
+//     position: absolute;
+//     font-weight: bold;
+//     text-align: center;
+//     font-size: 1rem;
+//     top: 40%;
+//     width: 100%;
+//     opacity: 0;
+// }
 
 body:hover > div > div {
-    .cursor { opacity: 1 !important; }
+    .cursor { opacity: 1; }
     .cursor::after { opacity: 1; }
 }
 

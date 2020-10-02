@@ -2,8 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Mousewheel } from 'swiper';
 import Img from "gatsby-image";
-import Link from "gatsby-plugin-transition-link";
-// import AniLink from "gatsby-plugin-transition-link/AniLink";
+// import Link from "gatsby-plugin-transition-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import gsap from 'gsap';
 
 
@@ -120,16 +120,16 @@ export default function HomeSlider({ edges }) {
         <Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true}>
             {edges.map(edge => edge.node.isDraft === true &&
                 (<SwiperSlide key={edge.node.slug}>
-                    <Link className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`}
+                    {/* <Link className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`}
                         exit={{ length: 1 }} entry={{ length: 1 }} trigger={(pages) => TransitionToCardPage(pages)}>
                         <Img className="card-image" fluid={edge.node.imageNodes[0].localFile.childImageSharp.fluid} alt={edge.node.title} />
                         <div className="card-title">{edge.node.title}</div>
-                    </Link>
+                    </Link> */}
 
-                    {/* <AniLink className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`} paintDrip hex="#999999">
+                    <AniLink className="card" to={`/blog/${edge.node.title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-')}`} paintDrip hex="#999999">
                         <Img className="card-image" fluid={edge.node.imageNodes[0].localFile.childImageSharp.fluid} alt={edge.node.title} />
                         <div className="card-title">{edge.node.title}</div>
-                    </AniLink> */}
+                    </AniLink>
 
                 </SwiperSlide>)
             )}
