@@ -189,6 +189,7 @@ export default function NotionArticle({ data, pageContext }) {
             <SmoothScroll>
                 <article className="notion">
                     <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
+                    <div className="notion main-date">October 3rd, 2020</div>
                     <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
                     <NotionBlockRenderer data={data} renderer={notionRenderer} />
                 </article>
@@ -200,6 +201,14 @@ export default function NotionArticle({ data, pageContext }) {
 export const query = graphql`
     query($pageId: String!) {
         notionPageBlog(pageId: { eq: $pageId }) {
+            pageId
+            slug
+            title
+            isDraft
+            id
+            indexPage
+            excerpt
+            createdAt(formatString: "MMMM Do, YYYY")
             blocks {
                 blockId
                 blockIds
@@ -230,13 +239,6 @@ export const query = graphql`
                     }
                 }
             }
-            pageId
-            slug
-            title
-            isDraft
-            id
-            indexPage
-            excerpt
         }
     }
 `;

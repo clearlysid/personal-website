@@ -141,6 +141,16 @@ main.notion > .notion:first-child {
     max-width: min(800px, 90%);
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 0.2em;
+}
+
+.notion .main-date {
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.4;
+    font-size: 0.9rem;
+    padding-bottom: 2em;
 }
 
 .notion .main-image {
