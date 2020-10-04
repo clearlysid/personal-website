@@ -1,8 +1,8 @@
-.header {
+.site-header {
     max-width: 1600px;
     margin: 0 auto;
     width: 80%;
-    margin-top: 12vh;
+    margin-top: max(100px, 12vh);
 }
 
 .site-header-text {
@@ -37,6 +37,7 @@
 
 .swiper-container {
     margin: min(max(40px, 7vh), 100px) auto;
+    margin-bottom: min(max(100px, 7vh), 100px);
 }
 
 .card {
@@ -69,7 +70,7 @@
 
 .swiper-slide {
     // this font-size is the scale factor for all cards
-    font-size: min(max(12px, 2vh), 18px);
+    font-size: min(max(10px, 2vh), 18px);
 }
 
 .swiper-slide:nth-of-type(4n+1) .card {
@@ -92,7 +93,7 @@
     width: 25em;
 }
 
-footer {
+.site-footer {
     position: absolute;
     bottom: 0;
     text-align: center;

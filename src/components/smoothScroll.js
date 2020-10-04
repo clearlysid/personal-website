@@ -12,7 +12,7 @@ export default function SmoothScroll({ children }) {
         document.querySelector('.app').style.position = "fixed";
         
 
-        const footer = document.querySelector('footer');
+        const footer = document.querySelector('.site-footer');
         if (footer) scrollWrapper.appendChild(footer);
 
         const scrollConfig = { ease: 0.1, current: 0, previous: 0, rounded: 0, skew: 4 };

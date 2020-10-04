@@ -160,3 +160,14 @@ blockquote::after {
         border-bottom: 0.1em solid #bbbbbb;
     }
 }
+
+hr.notion {
+    margin: 2rem auto;
+    opacity: 0.2;
+}
+
+
+.main-footer {
+    margin: 2rem auto;
+    max-width: min(700px, 90%);
+}

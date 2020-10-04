@@ -19,7 +19,7 @@ const App = ({ children }) => {
             
             <main className="app">
                 {children}
-                <footer>Copyleft ©{new Date().getFullYear()}, Built with Notion, Gatsby and GSAP.</footer> 
+                <footer className="site-footer">Copyleft ©{new Date().getFullYear()}, Built with Notion, Gatsby and GSAP.</footer> 
             </main>
         </>
     )
