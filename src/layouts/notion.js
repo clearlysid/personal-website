@@ -189,14 +189,14 @@ export default function NotionArticle({ data, pageContext }) {
             <SmoothScroll>
                 <article className="notion">
                     <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
-                    <div className="notion main-date">October 3rd, 2020</div>
+                    <div className="notion main-date">{data.notionPageBlog.createdAt}</div>
                     <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
                     <NotionBlockRenderer data={data} renderer={notionRenderer} />
 
                     <footer className="notion main-footer">
                         <hr className="notion"/>
                         <h3 className="notion">Thanks for reading!</h3>
-                        <p className="notion">Shoot me an email if you have any suggestions, feedback or just want to send me your Among Us room code 😁</p>
+                        <p className="notion">I'm as authentic here as I can be, but accounts from my life may or may not resonate with you. If you'd like to get in touch, tweet @clearlysid or shoot me an email 😁</p>
                         <p className="notion" style={{fontStyle: 'normal'}}>✉️ <a href='mailto:hey@siddharthjha.com'>hey@siddharth.fyi</a></p>
                     </footer>
                     

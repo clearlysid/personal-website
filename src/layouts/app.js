@@ -8,6 +8,8 @@ const App = ({ children }) => {
 
     useEffect(() => {
         // setTimeout(() => {document.querySelector('.loader').style.display = 'none'}, 1000)
+
+        // Use Context to pass prop in cursor based on route
     })
 
     return (

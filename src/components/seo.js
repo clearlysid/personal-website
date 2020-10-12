@@ -11,7 +11,6 @@ export default function SEO({ title, description, author, keywords, image, url }
                         title
                         description
                         author
-                        keywords
                         image
                         url
                     }
@@ -24,7 +23,6 @@ export default function SEO({ title, description, author, keywords, image, url }
             const metaTitle = title || data.site.siteMetadata.title
             const metaDescription = description || data.site.siteMetadata.description
             const metaAuthor = author || data.site.siteMetadata.author
-            const metaKeywords = keywords || data.site.siteMetadata.keywords
             const metaImage = image || data.site.siteMetadata.image
             const metaUrl = url || data.site.siteMetadata.url
 
@@ -41,8 +39,7 @@ export default function SEO({ title, description, author, keywords, image, url }
                             { name: `twitter:title`, content: metaTitle },
                             { name: `twitter:description`, content: metaDescription },
                             { name: `twitter:image`, content: metaImage }
-                        ].concat(metaKeywords && metaKeywords.length > 0 && { name: `keywords`, content: metaKeywords.join(`, `)}
-                        )} />
+                        ]}/>
         }}
         
     />
