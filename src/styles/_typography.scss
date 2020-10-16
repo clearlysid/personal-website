@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&family=Manrope:wght@300;400;700&display=swap');
+@import url("https://use.typekit.net/tzx1yre.css");
+
+$global-font: 'Runda', sans-serif;
+
+$font-header: 'Manrope', sans-serif;
+$font-header-weight: 700;
+$font-body: $global-font;
+$font-body-weight: 300;
 
 * {
-    font-family: 'Manrope', sans-serif;
+	font-family: $global-font;
+	font-weight: $font-body-weight;
 }
 
 body {
@@ -21,12 +30,13 @@ p > code {
 
 span {
     font-family: inherit;
-    font-size: inherit;
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Manrope;
-    font-weight: bold;
+	font-family: $font-header;
+    font-weight: $font-header-weight;
     color: #222222;
 }
 
@@ -54,10 +64,10 @@ p, ul, ol {
     font-size: max(16px, min(1.8vw, 18px));
     line-height: 1.6em;
     color: #444444;
-    margin-bottom: 1.4em;
+    margin-bottom: 2em;
 
     a {
-        border-bottom: 0.1em solid #bbbbbb;
+        border-bottom: 0.09em solid #444444;
     }
 }
 
@@ -96,8 +106,8 @@ main.notion > img {
 }
 
 .notion .callout {
-    font-family: Manrope;
-    font-weight: normal;
+    // font-family: Manrope;
+    font-weight: 300;
     font-size: max(24px, min(3.2vw, 32px));
     line-height: 1.4em;
     text-align: center;

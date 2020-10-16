@@ -47,7 +47,7 @@ export default function HoverImg({img, pos = "top", children}){
                 this.DOM.revealImage = this.DOM.revealInner.querySelector('.hover-reveal__img');
                 this.DOM.el.parentElement.appendChild(this.DOM.reveal);
 
-                // eslint-disable-next-line react-hooks/exhaustive-deps
+				// eslint-disable-next-line react-hooks/exhaustive-deps
                 pos === "top" ? this.DOM.reveal.style.top = this.DOM.el.getBoundingClientRect().top - 24 + `px` : this.DOM.reveal.style.top = this.DOM.el.getBoundingClientRect().top + 28 + `px`
                 
                 this.DOM.reveal.style.left = this.DOM.el.getBoundingClientRect().left + `px`
@@ -141,9 +141,9 @@ export default function HoverImg({img, pos = "top", children}){
             }
         }
         
-
+		// eslint-disable-next-line react-hooks/exhaustive-deps
         setTimeout(() => {new HoverImg(el.current);} , 1000)
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return <span data-img={img} ref={el}>{children}</span>
