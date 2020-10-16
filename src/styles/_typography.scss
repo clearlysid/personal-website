@@ -179,5 +179,12 @@ hr.notion {
 
 .main-footer {
     margin: 2rem auto;
-    max-width: min(700px, 90%);
+	max-width: min(700px, 90%);
+
+	p:last-of-type {
+		opacity: 0.5;
+
+		a {border: none}
+	}
+
 }

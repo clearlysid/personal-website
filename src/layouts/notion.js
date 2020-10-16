@@ -196,8 +196,12 @@ export default function NotionArticle({ data, pageContext }) {
                     <footer className="notion main-footer">
                         <hr className="notion"/>
                         <h3 className="notion">Thanks for reading!</h3>
-                        <p className="notion">Shoot me an email if you have any suggestions, feedback or just want to send me your Among Us room code <span role="img" aria-label="smiley face">😁</span></p>
-                        <p className="notion" style={{fontStyle: 'normal'}}><span role="img" aria-label="envelope">✉️</span> <a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a></p>
+                        <p className="notion">Shoot me a email/tweet if you want to discuss something further, offer feedback or share your thoughts. Trying to be deliberate about having meaningful conversations!</p>
+
+
+                        <p className="notion" style={{fontStyle: 'normal'}}>
+							<a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a> / <a href="https://www.twitter.com/clearlysid">@clearlysid</a>
+						</p>
                     </footer>
                     
                 </article>
