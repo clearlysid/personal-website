@@ -147,7 +147,7 @@ function mkRenderFuncs(npb) {
                 case 'i':
                     return <span className='notion' style={{ fontStyle: "italic" }}>{children}</span>
                 case 'b':
-                    return <span className='notion' style={{ fontWeight: "bold" }}>{children}</span>;
+                    return <span className='notion' style={{ fontWeight: "500" }}>{children}</span>;
                 case 's':
                     return <span className='notion' style={{ textDecoration: "line-through" }}>{children}</span>;
                 case 'c':
@@ -189,15 +189,19 @@ export default function NotionArticle({ data, pageContext }) {
             <SmoothScroll>
                 <article className="notion">
                     <h1 className="notion main-title">{data.notionPageBlog.title}</h1>
-                    <div className="notion main-date">October 3rd, 2020</div>
+                    <div className="notion main-date">{data.notionPageBlog.createdAt}</div>
                     <Img className="notion main-image" fluid={data.notionPageBlog.imageNodes[0].localFile.childImageSharp.fluid} />
                     <NotionBlockRenderer data={data} renderer={notionRenderer} />
 
                     <footer className="notion main-footer">
                         <hr className="notion"/>
                         <h3 className="notion">Thanks for reading!</h3>
-                        <p className="notion">Shoot me an email if you have any suggestions, feedback or just want to send me your Among Us room code 😁</p>
-                        <p className="notion" style={{fontStyle: 'normal'}}>✉️ <a href='mailto:hey@siddharthjha.com'>hey@siddharth.fyi</a></p>
+                        <p className="notion">Shoot me a email/tweet if you want to discuss something further, offer feedback or share your thoughts. Trying to be deliberate about having meaningful conversations!</p>
+
+
+                        <p className="notion" style={{fontStyle: 'normal'}}>
+							<a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a> / <a href="https://www.twitter.com/clearlysid">@clearlysid</a>
+						</p>
                     </footer>
                     
                 </article>

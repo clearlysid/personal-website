@@ -8,7 +8,7 @@
 .site-header-text {
     max-width: 1140px;
     color: #c9c9c9;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 42px;
     font-size: max(32px, min(2.96vw, 42px));
     line-height: 1.375;
@@ -174,7 +174,7 @@ main.notion > .notion:first-child {
     padding-right: 28px;
     margin: min(5vw, 20px);
     z-index: 1;
-    font-weight: bold;
+    font-weight: 500;
     opacity: 0.3;
 }
 

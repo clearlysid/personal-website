@@ -3,10 +3,9 @@ module.exports = {
         title: "Siddharth Jha — UX and Interaction Designer",
         description: "Siddharth's portfolio and blog documenting his journey in the product-tech industry",
         author: 'Siddharth Jha',
-        keywords: ['Designer', 'Engineer', 'User Experience', 'User Interface', 'Graphic Design'],
-        image: '',
+        image: 'https://www.siddharth.fyi/og.jpg',
         url: 'https://www.siddharth.fyi',
-        twitterUsername: '@clearlysid',
+        username: '@clearlysid',
     },
     plugins: [
         `gatsby-plugin-sharp`,
