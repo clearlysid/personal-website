@@ -8,9 +8,19 @@ module.exports = {
         username: '@clearlysid',
     },
     plugins: [
+		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				trackingId: "UA-168083571-2",
+				head: true,
+				respectDNT: true,
+				pageTransitionDelay: 2000,
+				defer: true,
+			},
+		},
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-react-helmet`,
+		`gatsby-plugin-react-helmet`,
         {
             resolve: "gatsby-plugin-sass",
             options: {
