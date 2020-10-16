@@ -9,17 +9,15 @@ export default function IndexPage({ data }) {
     
     return (
         <>
-
             <SEO />
 
             <header className="site-header">
                 <h1 className="site-header-text">
-                    <HoverImg img="1.jpg">Siddharth</HoverImg> builds prototypes as a <HoverImg img="2.gif">UX Engineer</HoverImg> Intern with the team at <HoverImg img="3.gif" pos="bottom">Headout.</HoverImg> Here’s what he’s been up to...
+                    <HoverImg img="1.jpg">Siddharth</HoverImg> builds prototypes as a <HoverImg img="2.gif">UX Engineer</HoverImg> Intern with the team at <HoverImg img="3.gif" pos="bottom">Headout.</HoverImg> Here’s what he’s writing...
                 </h1>
             </header>
 
             <HomeSlider edges={data.allNotionPageBlog.edges} />
-
         </>
     );
 }

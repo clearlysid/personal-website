@@ -147,7 +147,7 @@ function mkRenderFuncs(npb) {
                 case 'i':
                     return <span className='notion' style={{ fontStyle: "italic" }}>{children}</span>
                 case 'b':
-                    return <span className='notion' style={{ fontWeight: "bold" }}>{children}</span>;
+                    return <span className='notion' style={{ fontWeight: "500" }}>{children}</span>;
                 case 's':
                     return <span className='notion' style={{ textDecoration: "line-through" }}>{children}</span>;
                 case 'c':
