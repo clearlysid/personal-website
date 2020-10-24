@@ -83,7 +83,11 @@ pre {
 ul, ol {
 	padding-left: 24px;
 	// margin-bottom: 2em;
-    li {margin-bottom: 0.6em;}
+	li {margin-bottom: 0.6em;}
+	
+	ol {
+		padding-left: 0;
+	}
 }
 
 ul {list-style: disc;}

@@ -5,10 +5,12 @@ import Link from "next/link";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from 'framer-motion';
 import { useGlobalDispatchContext } from '../context/globalContext';
+import { useAnalytics } from "../components/analytics";
 
 export default function HomeSlider({ posts }) {
 
 	SwiperCore.use([Mousewheel]);
+	const { trackEvent } = useAnalytics();
 
 	const dispatch = useGlobalDispatchContext();
 	const onCursor = style => dispatch({ type: 'CURSOR_TYPE', cursorType: style });
@@ -16,6 +18,8 @@ export default function HomeSlider({ posts }) {
 	const [hovered, setHovered] = useState(false);
 
 	useEffect(() => {VanillaTilt.init(document.querySelectorAll(".card-image"), { max: 4, speed: 100, reverse: true })}, []);
+
+	
 
 	return (
 		<>
@@ -49,7 +53,13 @@ export default function HomeSlider({ posts }) {
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
-									transition={{ delay: i / 4, duration: 0.6 }}>
+									transition={{ delay: i / 4, duration: 0.6 }}
+									onClick={() => {
+										trackEvent({
+										  action: "Clicked Slider",
+										  category: "HomeNav"
+										});
+									  }}>
 									<img className="card-image" src={src} alt={post.page}
 										onMouseEnter={() => {onCursor('read'), setHovered(true)}}
 										onMouseLeave={() => {onCursor(); setHovered(false)}} />

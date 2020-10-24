@@ -28,7 +28,7 @@ const Code = ({ code, language = "javascript" }) => {
     return <pre dangerouslySetInnerHTML={{ __html: `<code>${highlightedCode}</code>` }} />;
 };
 
-const types = ["video", "image", "embed", "figma"];
+const types = ["video", "image", "embed", "figma", "codepen"];
 
 const Asset = ({ block, mapImageUrl = defaultMapImageUrl}) => {
     const value = block.value;
@@ -41,13 +41,17 @@ const Asset = ({ block, mapImageUrl = defaultMapImageUrl}) => {
 
     const aspectRatio = block_aspect_ratio || block_height / block_width;
 
-    if (type === "embed" || type === "video" || type === "figma") {
+    if (type === "embed" || type === "video" || type === "codepen") {
         return (
-            <div style={{ paddingBottom: `${aspectRatio * 100}%`, position: "relative"}} >
-                <iframe className="notion-image-inset" src={ type === "figma" ? value.properties.source[0][0] : display_source } />
+            <div style={{ paddingBottom: `${aspectRatio * 100}%`, position: "relative", minHeight: "400px"}} >
+                <iframe className="notion-image-inset" src={ display_source } style={{ height: '100%'}} />
             </div>
         );
-    }
+	}
+	
+	if (type === "figma") {
+		return <iframe className="notion" src={value.properties.source[0][0]} style={{ height: '500px' }}></iframe>
+	}
 
     if (block.value.type === "image") {
         const src = mapImageUrl(value.properties.source[0][0], block);
@@ -68,7 +72,6 @@ const Asset = ({ block, mapImageUrl = defaultMapImageUrl}) => {
 };
 
 const classNames = (...classes) => classes.filter((a) => !!a).join(" ");
-
 const getTextContent = (text) => text.reduce((prev, current) => prev + current[0], "");
 
 const groupBlockContent = (blockMap) => {
@@ -154,17 +157,7 @@ const createRenderChildText = (customDecoratorComponents) => (properties) => {
 };
 
 export const Block = (props) => {
-    const {
-        block,
-        children,
-        level,
-        fullPage,
-        blockMap,
-        mapPageUrl,
-        mapImageUrl,
-        customBlockComponents,
-        customDecoratorComponents,
-    } = props;
+    const { block, children, level, fullPage, blockMap, mapPageUrl, mapImageUrl, customBlockComponents, customDecoratorComponents } = props;
     const blockValue = block?.value;
 
     const renderComponent = () => {
@@ -197,13 +190,7 @@ export const Block = (props) => {
                         return <main className="notion">{children}</main>;
                     }
                 } else {
-                    if (!blockValue.properties) return null;
-                    return (
-                        <a className="notion-page-link" href={mapPageUrl(blockValue.id)} >
-                            {blockValue.format && <div className="notion-page-icon"><PageIcon block={block} mapImageUrl={mapImageUrl} /></div>}
-                            <div className="notion-page-text">{renderChildText(blockValue.properties.title)}</div>
-                        </a>
-                    );
+                    return null;
                 }
             case "header":
                 if (!blockValue.properties) return null;
@@ -227,15 +214,7 @@ export const Block = (props) => {
             case "bulleted_list":
             case "numbered_list":
                 const wrapList = (content, start) =>
-                    blockValue.type === "bulleted_list" ? (
-                        <ul className="notion-list notion-list-disc">
-                            {content}
-                        </ul>
-                    ) : (
-                        <ol start={start} className="notion-list notion-list-numbered">
-                            {content}
-                        </ol>
-                    );
+                    blockValue.type === "bulleted_list" ? <ul className="notion">{content}</ul> : <ol start={start} className="notion">{content}</ol>;
 
                 let output = null;
 
@@ -247,18 +226,14 @@ export const Block = (props) => {
                         </>
                     );
                 } else {
-                    output = blockValue.properties ? (
-                        <li>{renderChildText(blockValue.properties.title)}</li>
-                    ) : null;
+                    output = blockValue.properties ? <li>{renderChildText(blockValue.properties.title)}</li> : null;
                 }
 
-                const isTopLevel =
-                    block.value.type !==
-                    blockMap[block.value.parent_id].value.type;
+                const isTopLevel = block.value.type !== blockMap[block.value.parent_id].value.type;
                 const start = getListNumber(blockValue.id, blockMap);
-
                 return isTopLevel ? wrapList(output, start) : output;
 
+			case "codepen":
             case "image":
             case "embed":
             case "figma":
@@ -280,9 +255,15 @@ export const Block = (props) => {
                 );
             case "code": {
                 if (blockValue.properties.title) {
+
                     const content = blockValue.properties.title[0][0];
-                    const language = blockValue.properties.language[0][0];
-                    return <Code key={blockValue.id} language={language || ""} code={content} />;
+					const language = blockValue.properties.language[0][0];
+
+					if (language == "VB.Net") {
+						return <div dangerouslySetInnerHTML={{ __html: content }} />
+					} else {
+						return <Code key={blockValue.id} language={language || ""} code={content} />;
+					}
                 }
                 break;
             }
