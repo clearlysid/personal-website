@@ -2,6 +2,7 @@ import HoverImage from "../components/hoverImage";
 import SEO from "../components/seo";
 import HomeSlider from "../components/homeSlider";
 import { motion } from 'framer-motion';
+import Layout from "../components/layout";
 
 export async function getStaticProps() {
     const posts = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json());
@@ -13,7 +14,9 @@ export default function Home({ posts }) {
     return (
         <>
 			<SEO />
-				
+
+			<Layout>
+
 				<motion.header 
 					className="site-header"
 					initial={{ opacity: 0, y: '40px', skewY: 1 }}
@@ -30,7 +33,9 @@ export default function Home({ posts }) {
 				<HomeSlider posts={posts} />
 
 				<footer className="site-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
-           
+
+			</Layout>
+				
         </>
     );
 }

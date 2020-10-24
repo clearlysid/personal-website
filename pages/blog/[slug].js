@@ -4,6 +4,7 @@ import BackButton from '../../components/backButton';
 import SEO from '../../components/seo';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import Layout from "../../components/layout";
 
 export async function getStaticProps({ params: { slug } }) {
     // Get all posts again, find matching one by slug, pass blocks as prop
@@ -21,55 +22,55 @@ export default function Article ({ post, blocks }) {
     return (
 		<>
 			<SEO title={`${post.page} — Siddharth's Blog`} image={post.image} url={`https://siddharth.fyi/blog/${post.slug}`} />
-		
-			<BackButton />
 
-			<SmoothScroll>
-				<article className="notion">
-					<motion.h1
-						className="notion main-title"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 1 }}>{post.page}</motion.h1>
-					<motion.div
-						className="notion main-date"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 0.4 }}
-						exit={{ opacity: 1 }}>{dateString}</motion.div>
+			<Layout>
 
-					<motion.img
-						className="notion main-image"
-						src={post.image[0].url}
-						layoutId={post.slug}
-						initial={{ opacity: 1, y: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ ease: 'easeInOut'}}
-						/>
+				<BackButton />
 
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 1 }}>
-						<NotionRenderer blockMap={blocks} />
-					</motion.div>
+				<SmoothScroll>
+					<article className="notion">
+						<motion.h1
+							className="notion main-title"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 1 }}>{post.page}</motion.h1>
+						<motion.div
+							className="notion main-date"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 0.4 }}
+							exit={{ opacity: 1 }}>{dateString}</motion.div>
 
+						<motion.img
+							className="notion main-image"
+							src={post.image[0].url}
+							layoutId={post.slug}
+							initial={{ opacity: 1, y: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ ease: 'easeInOut'}}
+							/>
 
-					<footer className="notion main-footer">
-						<hr className="notion"/>
-						<h3 className="notion">Thanks for reading!</h3>
-						<p className="notion">Shoot me a email/tweet if you want to discuss something further, offer feedback or share your thoughts. Trying to be deliberate about having meaningful conversations!</p>
-
-						<p className="notion" style={{fontStyle: 'normal'}}>
-							<a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a> / <a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">@clearlysid</a>
-						</p>
-					</footer>
-					
-				</article>
-				<footer className="site-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
-			</SmoothScroll>	
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 1 }}>
+							<NotionRenderer blockMap={blocks} />
+						</motion.div>
 
 
-            
+						<footer className="notion main-footer">
+							<hr className="notion"/>
+							<h3 className="notion">Thanks for reading!</h3>
+							<p className="notion">Shoot me a email/tweet if you want to discuss something further, offer feedback or share your thoughts. Trying to be deliberate about having meaningful conversations!</p>
+
+							<p className="notion" style={{fontStyle: 'normal'}}>
+								<a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a> / <a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">@clearlysid</a>
+							</p>
+						</footer>
+						
+					</article>
+					<footer className="site-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
+				</SmoothScroll>	
+			</Layout>
 		</>
     );
 };

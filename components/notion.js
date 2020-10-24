@@ -226,7 +226,6 @@ export const Block = (props) => {
 					
             case "bulleted_list":
             case "numbered_list":
-				console.log(block)
                 const wrapList = (content, start) =>
                     blockValue.type === "bulleted_list" ? (
                         <ul className="notion-list notion-list-disc">
