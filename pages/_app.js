@@ -3,7 +3,7 @@ import Cursor from "../components/cursor";
 import Navigation from "../components/navigation";
 import { isMobile } from "react-device-detect";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
-import { GlobalProvider } from "../context/globalContext"
+import { GlobalProvider } from "../context/globalContext";
 import SocialIcons from "../components/socialIcons";
 import { useAnalytics } from "../components/analytics";
 
@@ -12,13 +12,13 @@ import "../styles/styles.scss"
 export default function App({ Component, pageProps, router }) {
 
 	const { init, trackPageViewed } = useAnalytics();
-
+	
 	useEffect(() => {
 		init("UA-168083571-2");
 		trackPageViewed();
 		router.events.on("routeChangeComplete", () => {
 			trackPageViewed();
-		  });
+		});
 
 	}, []);
 

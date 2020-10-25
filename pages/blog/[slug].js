@@ -1,9 +1,11 @@
+import React, {useEffect} from 'react';
 import { NotionRenderer } from '../../components/notion';
 import SmoothScroll from '../../components/smoothScroll';
 import BackButton from '../../components/backButton';
 import SEO from '../../components/seo';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import { useGlobalDispatchContext } from '../../context/globalContext';
 
 export async function getStaticProps({ params: { slug } }) {
     // Get all posts again, find matching one by slug, pass blocks as prop
@@ -16,7 +18,14 @@ export async function getStaticProps({ params: { slug } }) {
 export default function Article ({ post, blocks }) {
 	if (!post) return null;
 
+	const dispatch = useGlobalDispatchContext();
+	const onCursor = style => dispatch({ type: 'CURSOR_TYPE', cursorType: style });
+
 	const dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
+
+	useEffect(() => {
+		onCursor()
+	}, []);
 
     return (
 		<>
