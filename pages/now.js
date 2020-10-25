@@ -1,9 +1,8 @@
-import SEO from "../components/seo";
-import { NotionRenderer } from '../components/notion';
+import SEO from "@components/seo";
+import { NotionRenderer } from '@components/notion';
 import { motion } from 'framer-motion';
 
 export async function getStaticProps() {
-	// const data = await fetch("https://notion-api.splitbee.io/v1/page/55c36a3560b64246aab297197139616b").then((res) => res.json());
 	const data = await fetch("https://notion-api.splitbee.io/v1/page/43a71af018da4387a9eaa77fc537c966").then((res) => res.json());
 	
     return { props: { blockMap: data } };

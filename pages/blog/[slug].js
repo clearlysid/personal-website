@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import { NotionRenderer } from '../../components/notion';
-import SmoothScroll from '../../components/smoothScroll';
-import BackButton from '../../components/backButton';
-import SEO from '../../components/seo';
+import { NotionRenderer } from '@components/notion';
+import SmoothScroll from '@components/smoothScroll';
+import BackButton from '@components/backButton';
+import SEO from '@components/seo';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
-import { useGlobalDispatchContext } from '../../context/globalContext';
+import { useGlobalDispatchContext } from '@context/globalContext';
 
 export async function getStaticProps({ params: { slug } }) {
     // Get all posts again, find matching one by slug, pass blocks as prop

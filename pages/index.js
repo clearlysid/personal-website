@@ -1,6 +1,6 @@
-import HoverImage from "../components/hoverImage";
-import SEO from "../components/seo";
-import HomeSlider from "../components/homeSlider";
+import HoverImage from "@components/hoverImage";
+import SEO from "@components/seo";
+import HomeSlider from "@components/homeSlider";
 import { motion } from 'framer-motion';
 
 export async function getStaticProps() {

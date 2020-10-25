@@ -4,8 +4,8 @@ import SwiperCore, { Mousewheel } from 'swiper';
 import Link from "next/link";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from 'framer-motion';
-import { useGlobalDispatchContext } from '../context/globalContext';
-import { useAnalytics } from "../components/analytics";
+import { useGlobalDispatchContext } from "@context/globalContext";
+import { useAnalytics } from "@hooks/analytics";
 
 export default function HomeSlider({ posts }) {
 
@@ -18,8 +18,6 @@ export default function HomeSlider({ posts }) {
 	const [hovered, setHovered] = useState(false);
 
 	useEffect(() => {VanillaTilt.init(document.querySelectorAll(".card-image"), { max: 4, speed: 100, reverse: true })}, []);
-
-	
 
 	return (
 		<>
