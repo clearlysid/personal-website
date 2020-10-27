@@ -6,6 +6,7 @@ import SEO from '@components/seo';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { useGlobalDispatchContext } from '@context/globalContext';
+// import Image from 'next/image';
 
 export async function getStaticProps({ params: { slug } }) {
     // Get all posts again, find matching one by slug, pass blocks as prop
@@ -24,7 +25,8 @@ export default function Article ({ post, blocks }) {
 	const dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
 
 	useEffect(() => {
-		onCursor()
+		onCursor();
+		// console.log(post.image[0]);
 	}, []);
 
     return (
@@ -46,15 +48,15 @@ export default function Article ({ post, blocks }) {
 						animate={{ opacity: 0.4 }}
 						exit={{ opacity: 1 }}>{dateString}</motion.div>
 
-					<motion.img
-						className="notion main-image"
-						src={post.image[0].url}
+		
+					<motion.img className="notion main-image"
 						layoutId={post.slug}
 						initial={{ opacity: 1, y: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ ease: 'easeInOut'}}
-						/>
-
+						src={post.image[0].rawUrl} /
+					>
+										
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}

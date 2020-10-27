@@ -41,6 +41,6 @@ export default function BackButton() {
 				exit={{ opacity: 0, y: '-40px' }}
 				transition={{ duration: 0.6, ease: 'easeOut' }}
 
-				>⟵ BACK</motion.a></Link>
+				>⟵ back to portfolio</motion.a></Link>
 
 }

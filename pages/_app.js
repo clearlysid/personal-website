@@ -26,8 +26,8 @@ export default function App({ Component, pageProps, router }) {
         <GlobalProvider>
             {!isMobile && <Cursor />}
 
-            {/* <Navigation /> */}
-            <SocialIcons />
+            <Navigation />
+            {/* <SocialIcons /> */}
 
             <main className="app">
                 <AnimatePresence exitBeforeEnter>

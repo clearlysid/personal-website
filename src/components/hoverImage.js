@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { useGlobalDispatchContext } from '../context/globalContext';
+import { useGlobalDispatchContext } from '@context/globalContext';
 
 export default function HoverImg({img, pos = "top", children}){
 
@@ -17,8 +17,8 @@ export default function HoverImg({img, pos = "top", children}){
 
 	return (
         <>
-			<span 	onMouseEnter={() => {setHovering([mx, my, true]); onCursor('hidden')}}
-					onMouseLeave={() => {setHovering([mx, my, false]); onCursor()}}
+			<span onMouseEnter={() => {setHovering([mx, my, true]); onCursor('hidden');}}
+					onMouseLeave={() => {setHovering([mx, my, false]); onCursor();}}
 					onMouseMove={e => setHovering([e.pageX, e.pageY, true])}>
 					{children}</span>
 

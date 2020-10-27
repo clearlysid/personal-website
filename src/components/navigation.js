@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Slant as Hamburger } from "hamburger-react";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useGlobalDispatchContext } from '../context/globalContext';
+import { useGlobalDispatchContext } from '@context/globalContext';
 
 export default function Navigation(){
 
-	const [isOpen, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 	const dispatch = useGlobalDispatchContext();
 
 	const onCursor = style => dispatch({ type: 'CURSOR_TYPE', cursorType: style });
@@ -40,15 +40,17 @@ export default function Navigation(){
 						onMouseLeave={() => {onCursor()}}
 						initial={{opacity: 0 }}
 						animate={{ opacity: 1 }}
+						// onClick={() => setOpen(!open)}
 					>
-					<Hamburger toggled={isOpen} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} />
+						{/* <div>menu</div> */}
+					<Hamburger toggled={open} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} />
 				</motion.div>
 			</AnimatePresence>
 			
 
 			<AnimatePresence initial={false}>
 			{
-				isOpen &&
+				open &&
 					
 					<motion.div key="abc"
 						className="nav-bar"
