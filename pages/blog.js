@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -19,35 +20,46 @@ export async function getStaticProps() {
 
 export default function Blog({ posts, tags }) {
 
+	const [tag, setTag] = useState("all");
+
 	return (
 	
 		<motion.div className="blog-container" exit={{ opacity: 0 }}>
 			<header>My <HoverImg img="1.jpg">notes</HoverImg> detailing learning experiences and building a <HoverImg>career</HoverImg> in <HoverImg>design</HoverImg> and <HoverImg>product.</HoverImg></header>
 
 			<div className="blog-tags">
-				<div className="blog-tag">#all</div>
+				<button className="blog-tag" onClick={() => setTag("all")}>#all</button>
 
-				{ tags.map((tag, i) => <div className="blog-tag" key={i}>{`#${tag}`}</div>) }
+				{ 
+					tags.map((t, i) => {
+						return <button className="blog-tag" key={i} onClick={() => setTag(t)}>{`#${t}`}</button>
+					})
+				}
 		
 			</div>
 
 			<ul className="post-list">
 				{
 					posts.map((post, i) => {
+
+						// move this initial processing to getStaticProps
 						let src = "";
 						post.image ? src = post.image[0].url : src = ""
 						let dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
 
-						return (
-							<li key={i}>
-								<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`}>
-									<a>
-										<div className="post-date">{dateString}</div>
-										<h4 className="post-title">{post.page}</h4>
-									</a>
-								</Link>
-							</li>
-						)
+						if (tag === "all" || post.tags.includes(tag)) {
+							return (
+								<li key={i}>
+									<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`} scroll={false}>
+										<a>
+											<div className="post-date">{dateString}</div>
+											<h4 className="post-title">{post.page}</h4>
+										</a>
+									</Link>
+								</li>
+							)
+						}
+
 					})
 				}
 			</ul>

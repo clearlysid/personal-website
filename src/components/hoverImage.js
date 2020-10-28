@@ -4,7 +4,7 @@ import { useGlobalDispatchContext } from '@context/globalContext';
 
 export default function HoverImg({img, pos = "top", children}){
 
-	const [hovering, setHovering] = useState([500, 200, false]);
+	const [hovering, setHovering] = useState([-100, -100, true]);
 	const [mx, my, isHovered] = hovering;
 
 	const dispatch = useGlobalDispatchContext();
