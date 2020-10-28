@@ -6,7 +6,7 @@ import VanillaTilt from "vanilla-tilt";
 import { motion } from 'framer-motion';
 import { useGlobalDispatchContext } from "@context/globalContext";
 import { useAnalytics } from "@hooks/analytics";
-import { Curtains, Plane } from 'curtainsjs';
+// import { Curtains, Plane } from 'curtainsjs';
 
 export default function HomeSlider({ posts }) {
 
@@ -113,7 +113,7 @@ export default function HomeSlider({ posts }) {
 						post.image ? src = post.image[0].url : src = ""
 
 						return (<SwiperSlide key={post.slug}>
-							<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`}>
+							<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`} scroll={false}>
 								<motion.a className="card plane"
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}

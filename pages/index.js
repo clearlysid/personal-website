@@ -4,13 +4,12 @@ import HomeSlider from "@components/homeSlider";
 import { motion } from 'framer-motion';
 
 export async function getStaticProps() {
-	const data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json());
+	let data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json());
 
-	if (process.env.LOCAL_KEY === "yolo") {
-		return { props: { posts: data } };
-	} else {
-		return { props: { posts: data.filter(x => x.published) } };
-	}
+	if (!process.env.NODE_ENV === "development") {data = data.filter(x => x.published)}
+
+	return { props: { posts: data } };
+
 }
 
 export default function Home({ posts }) {

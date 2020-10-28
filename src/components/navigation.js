@@ -68,7 +68,7 @@ export default function Navigation(){
 
 							{
 								menuLinks.map((link, i) => 
-									<Link href={link[1]}>
+									<Link href={link[1]} scroll={false}>
 										<motion.a key={i}
 											variants={item}
 										>{link[0]}</motion.a>

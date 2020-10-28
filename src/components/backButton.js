@@ -33,7 +33,7 @@ export default function BackButton() {
 
     })
 
-    return <Link href="/" shallow={true}>
+    return <Link href="/" scroll={false}>
 			<motion.a
 				className="back-button"
 				initial={{ opacity: 0, y: '-40px' }}
