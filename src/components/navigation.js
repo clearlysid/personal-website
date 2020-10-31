@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Slant as Hamburger } from "hamburger-react";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useGlobalDispatchContext } from '../context/globalContext';
+import { useGlobalDispatchContext } from '@context/globalContext';
 
 export default function Navigation(){
 
-	const [isOpen, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 	const dispatch = useGlobalDispatchContext();
 
 	const onCursor = style => dispatch({ type: 'CURSOR_TYPE', cursorType: style });
 
-	const menuLinks = [['Home', '/'], ['Now', '/now'], ['Blog', '/blog']];
+	// const menuLinks = [['Home', '/'], ['Now', '/now'], ['Blog', '/blog']];
+	const menuLinks = [['Home', '/'], ['Blog', '/blog']];
 
 	const container = {
         hidden: { opacity: 0 },
@@ -40,15 +41,17 @@ export default function Navigation(){
 						onMouseLeave={() => {onCursor()}}
 						initial={{opacity: 0 }}
 						animate={{ opacity: 1 }}
+						// onClick={() => setOpen(!open)}
 					>
-					<Hamburger toggled={isOpen} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} />
+						{/* <div>menu</div> */}
+					<Hamburger toggled={open} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} />
 				</motion.div>
 			</AnimatePresence>
 			
 
 			<AnimatePresence initial={false}>
 			{
-				isOpen &&
+				open &&
 					
 					<motion.div key="abc"
 						className="nav-bar"
@@ -61,15 +64,12 @@ export default function Navigation(){
 							onClick={() => setOpen(false)}
 							variants={container}
 							initial="hidden"
-							animate="show"
-							>
+							animate="show">
 
 							{
 								menuLinks.map((link, i) => 
-									<Link href={link[1]}>
-										<motion.a key={i}
-											variants={item}
-										>{link[0]}</motion.a>
+									<Link href={link[1]} scroll={false} key={i}>
+										<motion.a variants={item}>{link[0]}</motion.a>
 									</Link>)
 							}
 						</motion.nav>

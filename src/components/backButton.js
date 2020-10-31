@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function BackButton() {
+export default function BackButton({ text = "back to portfolio", link = "/"}) {
 
     useEffect(() => {
 
@@ -33,14 +33,14 @@ export default function BackButton() {
 
     })
 
-    return <Link href="/" shallow={true}>
-			<motion.a
-				className="back-button"
-				initial={{ opacity: 0, y: '-40px' }}
-				animate={{ opacity: 0.3, y: 0 }}
-				exit={{ opacity: 0, y: '-40px' }}
-				transition={{ duration: 0.6, ease: 'easeOut' }}
-
-				>⟵ BACK</motion.a></Link>
-
+    return (<Link href={link} scroll={false}>
+				<motion.a
+					className="back-button"
+					initial={{ opacity: 0, y: '-40px' }}
+					animate={{ opacity: 0.3, y: 0 }}
+					exit={{ opacity: 0, y: '-40px' }}
+					transition={{ duration: 0.6, ease: 'easeOut' }}>
+					⟵ {text}
+				</motion.a>
+			</Link>)
 }

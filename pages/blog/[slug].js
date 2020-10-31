@@ -6,6 +6,7 @@ import SEO from '@components/seo';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { useGlobalDispatchContext } from '@context/globalContext';
+// import Image from 'next/image';
 
 export async function getStaticProps({ params: { slug } }) {
     // Get all posts again, find matching one by slug, pass blocks as prop
@@ -24,14 +25,14 @@ export default function Article ({ post, blocks }) {
 	const dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
 
 	useEffect(() => {
-		onCursor()
+		onCursor();
 	}, []);
 
     return (
 		<>
 			<SEO title={`${post.page} — Siddharth's Blog`} image={post.image} url={`https://siddharth.fyi/blog/${post.slug}`} />
 
-			<BackButton />
+			<BackButton link="/blog" text="back to blog" />
 
 			<SmoothScroll>
 				<article className="notion">
@@ -45,16 +46,14 @@ export default function Article ({ post, blocks }) {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 0.4 }}
 						exit={{ opacity: 1 }}>{dateString}</motion.div>
-
-					<motion.img
-						className="notion main-image"
-						src={post.image[0].url}
+		
+					<motion.img className="notion main-image"
 						layoutId={post.slug}
 						initial={{ opacity: 1, y: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ ease: 'easeInOut'}}
-						/>
-
+						src={post.image[0].rawUrl} />
+					
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -81,11 +80,7 @@ export default function Article ({ post, blocks }) {
 };
 
 export async function getStaticPaths() {
-	const data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json());
-
-	if (process.env.LOCAL_KEY === "yolo") {
-		return { paths: data.map((row) => `/blog/${row.slug}`), fallback: false };
-	} else {
-		return { paths: data.filter(row => row.published).map((row) => `/blog/${row.slug}`), fallback: false };
-	}
+	let data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json())
+	if (!process.env.NODE_ENV === "development") {data = data.filter(x => x.published)}
+	return { paths: data.map((row) => `/blog/${row.slug}`), fallback: false };
 }
