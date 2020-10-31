@@ -18,15 +18,14 @@ export default function Home({ posts }) {
         <>
 			<SEO />
 
-			<motion.header 
-				className="site-header"
+			<motion.header className="site-header"
 				initial={{ opacity: 0, y: '40px', skewY: 1 }}
 				animate={{ opacity: 1, y: 0, skewY: 0 }}
 				transition={{ duration: 0.4, ease: 'easeOut'}}
 				exit={{ opacity: 0, y: '40px', skewY: 1 }}>
 					
 				<h1 className="site-header-text">
-					<HoverImage img="1.jpg">Siddharth</HoverImage> builds prototypes as a <HoverImage img="2.gif">UX Engineer</HoverImage> Intern with the team at <HoverImage img="3.gif" pos="bottom">Headout.</HoverImage> Here’s what he’s writing...
+					<HoverImage img="gifs/me.jpg">Siddharth</HoverImage> builds prototypes as a <HoverImage img="gifs/ux.gif">UX Engineer</HoverImage> Intern with the team at <HoverImage img="gifs/headout.gif" pos="bottom">Headout.</HoverImage> Here’s what he’s writing...
 				</h1>
 			</motion.header>
 

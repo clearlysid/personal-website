@@ -109,3 +109,24 @@ article.notion > div > main.notion > * {
 // .plane img {
 // 	opacity: 0;
 // 	}
+
+
+.project-hero {
+	height: 100vh;
+	background: #7b42ff;
+	margin-top: -120px;
+	width: 100vw;
+	position: relative;
+}
+
+
+.project-meta-image {
+	height: 300px;
+	width: 300px;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	transform-origin: center;
+}
