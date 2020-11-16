@@ -56,16 +56,7 @@ const Asset = ({ block, mapImageUrl = defaultMapImageUrl}) => {
     if (block.value.type === "image") {
         const src = mapImageUrl(value.properties.source[0][0], block);
         const caption = value.properties.caption?.[0][0];
-
-        if (block_aspect_ratio) {
-            return (
-                <div style={{ paddingBottom: `${aspectRatio * 100}%`, position: "relative" }} >
-                    <img className="notion-image-inset" alt={caption || "notion image"} src={src} />
-                </div>
-            );
-        } else {
-            return <img alt={caption} src={src} />;
-        }
+		return <img alt={caption} src={src} />;
     }
 
     return null;
@@ -234,7 +225,6 @@ export const Block = (props) => {
                 return isTopLevel ? wrapList(output, start) : output;
 
 			case "codepen":
-            case "image":
             case "embed":
             case "figma":
             case "video":
@@ -252,7 +242,23 @@ export const Block = (props) => {
                             </figcaption>
                         )}
                     </figure>
-                );
+				);
+			case "image":
+				const val = block.value;
+				return (
+					<figure style={{ margin: '2rem auto' }}>
+
+						<Asset block={block} mapImageUrl={mapImageUrl} />
+
+						{val.properties.caption && (
+                            <figcaption className="notion-image-caption">
+                                {renderChildText(val.properties.caption)}
+                            </figcaption>
+                        )}
+
+					</figure>
+				)
+
             case "code": {
                 if (blockValue.properties.title) {
 

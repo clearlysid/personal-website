@@ -24,9 +24,9 @@ export default function App({ Component, pageProps, router }) {
 
     return (
         <GlobalProvider>
-            {!isMobile && <Cursor />}
+            {/* {!isMobile && <Cursor />} */}
 
-            <Navigation />
+            {/* <Navigation /> */}
             {/* <SocialIcons /> */}
 
             <main className="app">

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import HoverImg from '@components/hoverImage';
 import SEO from '@components/seo';
+import VanillaTilt from 'vanilla-tilt';
 
 export async function getStaticProps() {
 	let data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json());
@@ -19,9 +20,31 @@ export async function getStaticProps() {
 	return { props: { posts: data, tags: uniqueTags } }
 }
 
+function Post({ slug, date, title, image }) {
+
+	return <li>
+				<Link href={`/blog/[slug]`} as={`/blog/${slug}`} scroll={false}>
+					<a>
+						<div className="post-date">{date}</div>
+						<h4 className="post-title">{title}</h4>
+					</a>
+				</Link>
+				
+			</li>
+}
+
 export default function Blog({ posts, tags }) {
 
 	const [tag, setTag] = useState("all");
+
+	useEffect(() => {
+		VanillaTilt.init(document.querySelector(".sidds"), {
+			max: 10,
+			speed: 1000,
+			reverse: true,
+			scale: 0.95,
+		});
+	})
 
 	return (
 
@@ -29,45 +52,48 @@ export default function Blog({ posts, tags }) {
 
 			<SEO title="Siddharth's Blog — Notes on building a career in Design and Product" />
 		
-			<motion.div className="blog-container" exit={{ opacity: 0 }}>
-				<header>My <HoverImg img="gifs/note.gif">notes</HoverImg> detailing learning experiences and building a <HoverImg img="gifs/career.gif" pos="bottom">career</HoverImg> in <HoverImg img="gifs/design.gif" pos="bottom">design</HoverImg> and <HoverImg img="gifs/product.gif" pos="bottom">product.</HoverImg></header>
+			<motion.div className="blog-container" exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+				<header>Sidd’s notes chronicling oopsies and adventures building a career in design, tech and product.</header>
 
 				<div className="blog-tags">
-					<button className="blog-tag" onClick={() => setTag("all")}>#all</button>
+					<button className="blog-tag" onClick={() => setTag("all")} style={{ opacity: tag === 'all' ? 1 : 0.4 }}>#all</button>
 
 					{ 
 						tags.map((t, i) => {
-							return <button className="blog-tag" key={i} onClick={() => setTag(t)}>{`#${t}`}</button>
+							return <button className="blog-tag" key={i} onClick={() => setTag(t)} style={{ opacity: tag === t ? 1 : 0.4 }}>{`#${t}`}</button>
 						})
 					}
-			
 				</div>
 
-				<ul className="post-list">
-					{
-						posts.map((post, i) => {
+				<div className="blog-list-wrapper">
+					<ul className="post-list">
+						{
+							posts.map((post, i) => {
 
-							// move this initial processing to getStaticProps
-							let src = "";
-							post.image ? src = post.image[0].url : src = ""
-							let dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
+								// move this initial processing to getStaticProps
+								let src = "";
+								post.image ? src = post.image[0].url : src = ""
+								// let dateString = format(new Date(post.date.toString()), 'MMMM do, yyyy');
+								let dateString = format(new Date(post.date.toString()), 'dd/MM');
 
-							if (tag === "all" || post.tags.includes(tag)) {
-								return (
-									<li key={i}>
-										<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`} scroll={false}>
-											<a>
-												<div className="post-date">{dateString}</div>
-												<h4 className="post-title">{post.page}</h4>
-											</a>
-										</Link>
-									</li>
-								)
-							}
+								if (tag === "all" || post.tags.includes(tag)) {
+									return <Post key={i} slug={post.slug} date={dateString} title={post.page} image={src} />
+								}
 
-						})
-					}
-				</ul>
+							})
+						}
+					</ul>
+
+					<a className="sidds" href="https://www.twitter.com/clearlysid" rel="noreferrer" target="_blank">
+						<img class="sidds-blog" src="/blog/sidds.png" alt=""/>
+						<img class="sidds-text" src="/blog/sidds-text.svg" alt=""/>
+					</a>
+
+
+
+				</div>
+
+				
 			</motion.div>
 
 		</>

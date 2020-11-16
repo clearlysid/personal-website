@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useGlobalDispatchContext } from '@context/globalContext';
 
 export default function HoverImg({img, pos = "top", children}){
+
+	const span = useRef(null);
 
 	const [hovering, setHovering] = useState([500, 200, false]);
 	const [mx, my, isHovered] = hovering;
@@ -15,9 +17,14 @@ export default function HoverImg({img, pos = "top", children}){
 
 	if (pos !== "top") cmy = my - 40;
 
+	useEffect(() => {
+		setHovering([span.current.getBoundingClientRect().left, span.current.getBoundingClientRect().top, false]);
+	}, [])
+
 	return (
         <>
-			<span onMouseEnter={() => {setHovering([mx, my, true]); onCursor('hidden');}}
+			<span ref={span}
+					onMouseEnter={() => {setHovering([mx, my, true]); onCursor('hidden');}}
 					onMouseLeave={() => {setHovering([mx, my, false]); onCursor();}}
 					onMouseMove={e => setHovering([e.pageX, e.pageY, true])}>
 					{children}</span>

@@ -40,7 +40,7 @@ export default function BackButton({ text = "back to portfolio", link = "/"}) {
 					animate={{ opacity: 0.3, y: 0 }}
 					exit={{ opacity: 0, y: '-40px' }}
 					transition={{ duration: 0.6, ease: 'easeOut' }}>
-					⟵ {text}
+					{text}
 				</motion.a>
 			</Link>)
 }
