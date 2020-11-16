@@ -2,7 +2,7 @@ body {
     width: 100vw;
     position: relative;
     margin: 0;
-	padding-top: max(100px, 12vh);;
+	padding-top: max(100px, 12vh);
     overscroll-behavior-y: none;
 	min-height: 99vh;
 	overflow-x: hidden;
@@ -15,6 +15,7 @@ body {
     height: 100%;
 	width: 100%;
 	margin: 0 auto;
+	// padding: 0 2rem;
 }
 
 .smooth-scroll {
@@ -57,7 +58,7 @@ article.notion {
 }
 
 article.notion > div > main.notion > * {
-	width: min(700px, 90%);
+	width: min(760px, 90%);
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -90,7 +91,7 @@ article.notion > div > main.notion > * {
 
 
 .main-footer {
-	width: min(700px, 90%);
+	width: min(760px, 90%);
 	margin-left: auto;
 	margin-right: auto;
 }
