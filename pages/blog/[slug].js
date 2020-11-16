@@ -32,47 +32,29 @@ export default function Article ({ post, blocks }) {
 		<>
 			<SEO title={`${post.page} — Siddharth's Blog`} image={post.image} url={`https://siddharth.fyi/blog/${post.slug}`} />
 
-			<BackButton link="/blog" text="back to blog" />
+			<BackButton link="/blog" text="~(■_■ ~)" />
 
 			<SmoothScroll>
-				<article className="notion">
+				<motion.article className="notion" exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 					<motion.h1
-						className="notion main-title"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 1 }}>{post.page}</motion.h1>
+						className="notion main-title">{post.page}</motion.h1>
 					<motion.div
-						className="notion main-date"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 0.4 }}
-						exit={{ opacity: 1 }}>{dateString}</motion.div>
+						className="notion main-date" animate={{ opacity: 0.4 }}>{dateString}</motion.div>
 		
-					<motion.img className="notion main-image"
-						layoutId={post.slug}
-						initial={{ opacity: 1, y: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ ease: 'easeInOut'}}
-						src={post.image[0].rawUrl} />
+					<motion.img className="notion main-image" src={post.image[0].rawUrl} />
 					
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 1 }}>
+					<motion.div>
 						<NotionRenderer blockMap={blocks} />
 					</motion.div>
 
 
 					<footer className="notion main-footer">
-						<hr className="notion"/>
-						<h3 className="notion">Thanks for reading!</h3>
-						<p className="notion">Shoot me a email/tweet if you want to discuss something further, offer feedback or share your thoughts. Trying to be deliberate about having meaningful conversations!</p>
-
-						<p className="notion" style={{fontStyle: 'normal'}}>
-							<a href='mailto:hey@siddharth.fyi'>hey@siddharth.fyi</a> / <a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">@clearlysid</a>
+						<p className="notion" style={{fontStyle: 'normal'}}>Thanks for reading! <br />
+						<a href='mailto:hey@sidds.me'>hey@sidds.me</a> / <a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">@clearlysid</a>
 						</p>
 					</footer>
 					
-				</article>
+				</motion.article>
 				<footer className="site-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
 			</SmoothScroll>	
 		</>
