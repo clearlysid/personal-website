@@ -58,7 +58,7 @@ article.notion {
 }
 
 article.notion > div > main.notion > * {
-	width: min(760px, 90%);
+	width: min(720px, 90%);
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -74,8 +74,8 @@ article.notion > div > main.notion > * {
     max-width: min(800px, 90%);
     margin: 0 auto;
     text-align: center;
-    opacity: 0.4;
-    font-size: 0.9rem;
+    opacity: 0.5;
+    font-size: 1rem;
     padding-bottom: 2em;
 }
 
@@ -91,7 +91,7 @@ article.notion > div > main.notion > * {
 
 
 .main-footer {
-	width: min(760px, 90%);
+	width: min(720px, 90%);
 	margin-left: auto;
 	margin-right: auto;
 }
