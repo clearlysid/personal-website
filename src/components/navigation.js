@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Slant as Hamburger } from "hamburger-react";
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useGlobalDispatchContext } from '@context/globalContext';
@@ -44,7 +43,7 @@ export default function Navigation(){
 						// onClick={() => setOpen(!open)}
 					>
 						{/* <div>menu</div> */}
-					<Hamburger toggled={open} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} />
+					{/* <Hamburger toggled={open} toggle={setOpen} direction="left" label="Site Navigation" color="#efefef" size={20} /> */}
 				</motion.div>
 			</AnimatePresence>
 			

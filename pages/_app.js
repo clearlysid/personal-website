@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Cursor from "@components/cursor";
 import Navigation from "@components/navigation";
-import { isMobile } from "react-device-detect";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { GlobalProvider } from "@context/globalContext";
 import SocialIcons from "@components/socialIcons";
@@ -24,8 +23,7 @@ export default function App({ Component, pageProps, router }) {
 
     return (
         <GlobalProvider>
-            {/* {!isMobile && <Cursor />} */}
-
+            {/* <Cursor /> */}
             {/* <Navigation /> */}
             {/* <SocialIcons /> */}
 
