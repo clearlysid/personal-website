@@ -1,32 +1,6 @@
 import React from "react";
-import hljs from "highlight.js/lib/core";
-import "highlight.js/styles/atom-one-light.css";
+import Codeblock from "@components/codeblock";
 
-const Code = ({ code, language = "javascript" }) => {
-    hljs.registerLanguage("xml", require("highlight.js/lib/languages/xml"));
-    hljs.registerLanguage("scss", require("highlight.js/lib/languages/scss"));
-    hljs.registerLanguage("processing", require("highlight.js/lib/languages/processing"));
-    hljs.registerLanguage("javascript", require("highlight.js/lib/languages/javascript"));
-    hljs.registerLanguage("bash", require("highlight.js/lib/languages/bash"));
-    hljs.registerLanguage("plaintext", require("highlight.js/lib/languages/plaintext"));
-    hljs.registerLanguage("json", require("highlight.js/lib/languages/json"));
-
-    const notionLanguageToHljs = {
-        "plain text": "plaintext",
-        javascript: "javascript",
-        bash: "bash",
-        html: "xml",
-        processing: "processing",
-        scss: "scss",
-        css: "scss",
-        json: "json",
-    };
-
-    const hljslanguage = notionLanguageToHljs[language.toString().toLowerCase()] || "plaintext";
-    const highlightedCode = hljs.highlight(hljslanguage, code).value;
-
-    return <pre dangerouslySetInnerHTML={{ __html: `<code>${highlightedCode}</code>` }} />;
-};
 
 const types = ["video", "image", "embed", "figma", "codepen"];
 
@@ -268,7 +242,7 @@ export const Block = (props) => {
 					if (language == "VB.Net") {
 						return <div dangerouslySetInnerHTML={{ __html: content }} />
 					} else {
-						return <Code key={blockValue.id} language={language || ""} code={content} />;
+						return <Codeblock key={blockValue.id} language={language || ""} code={content} />;
 					}
                 }
                 break;
