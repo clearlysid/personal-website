@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Mousewheel } from 'swiper';
 import Link from "next/link";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from 'framer-motion';
@@ -10,7 +8,6 @@ import { useAnalytics } from "@hooks/analytics";
 
 export default function HomeSlider({ posts }) {
 
-	SwiperCore.use([Mousewheel]);
 	const { trackEvent } = useAnalytics();
 
 	const dispatch = useGlobalDispatchContext();
@@ -106,14 +103,12 @@ export default function HomeSlider({ posts }) {
 
 			{/* <div id="canvas"></div> */}
 
-			<Swiper spaceBetween={40} slidesPerView={"auto"} freeMode={true} mousewheel={true}>
 				{
 					posts.map((post, i) => {
 						let src = "";
 						post.image ? src = post.image[0].url : src = ""
 
-						return (<SwiperSlide key={post.slug}>
-							<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`} scroll={false}>
+						return (<Link href={`/blog/[slug]`} as={`/blog/${post.slug}`} scroll={false}>
 								<motion.a className="card plane"
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
@@ -126,16 +121,10 @@ export default function HomeSlider({ posts }) {
 									{/* <img src={"https://unsplash.it/300/500?random=" + 2} alt=""/> */}
 									<div className="card-title">{post.page}</div>
 								</motion.a>
-							</Link>
-						</SwiperSlide>)
+							</Link>)
 					})
 				}
-			</Swiper>
 
-
-	
-
-		
 		</>
     )
 }

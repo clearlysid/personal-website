@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { format } from 'date-fns';
-import HoverImg from '@components/hoverImage';
 import SEO from '@components/seo';
 import VanillaTilt from 'vanilla-tilt';
 
@@ -15,7 +14,7 @@ export async function getStaticProps() {
 	const uniqueTags = [...new Set(alltags)];
 
 	// filter out unpublished posts
-	if (!process.env.NODE_ENV === "development") {data = data.filter(x => x.published)}
+	if (process.env.NODE_ENV !== "development") {data = data.filter(x => x.published)}
 
 	return { props: { posts: data, tags: uniqueTags } }
 }
@@ -58,11 +57,12 @@ export default function Blog({ posts, tags }) {
 				<div className="blog-tags">
 					<button className="blog-tag" onClick={() => setTag("all")} style={{ opacity: tag === 'all' ? 1 : 0.4 }}>#all</button>
 
-					{ 
-						tags.map((t, i) => {
-							return <button className="blog-tag" key={i} onClick={() => setTag(t)} style={{ opacity: tag === t ? 1 : 0.4 }}>{`#${t}`}</button>
-						})
-					}
+					{tags.map((t, i) =>
+						<button key={i}
+							className="blog-tag" 
+							style={{ opacity: tag === t ? 1 : 0.4 }}
+							onClick={() => setTag(t)}>{`#${t}`}</button>
+						)}
 				</div>
 
 				<div className="blog-list-wrapper">
@@ -89,10 +89,7 @@ export default function Blog({ posts, tags }) {
 						<img class="sidds-text" src="/blog/sidds-text.svg" alt=""/>
 					</a>
 
-
-
 				</div>
-
 				
 			</motion.div>
 

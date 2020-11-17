@@ -63,6 +63,6 @@ export default function Article ({ post, blocks }) {
 
 export async function getStaticPaths() {
 	let data = await fetch(`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`).then((res) => res.json())
-	if (!process.env.NODE_ENV === "development") {data = data.filter(x => x.published)}
+	if (process.env.NODE_ENV !== "development") {data = data.filter(x => x.published)}
 	return { paths: data.map((row) => `/blog/${row.slug}`), fallback: false };
 }

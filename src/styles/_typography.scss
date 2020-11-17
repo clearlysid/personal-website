@@ -22,7 +22,7 @@ code {
 p > code {
     background: #f5f5f5;
     padding: 0.18em 0.4em;
-    font-size: 1.1em;
+    font-size: 0.9em;
 }
 
 span {
@@ -58,7 +58,8 @@ h3 {
 }
 
 h4 {
-	font-size: max(18px, min(2vw, 24px));
+	font-size: max(18px, min(2vw, 22px));
+	letter-spacing: -0.02em;
 	line-height: 1.4em;
 	font-weight: 400;
 }
@@ -66,26 +67,42 @@ h4 {
 p, ul, ol {
     font-size: max(16px, min(1.8vw, 20px));
 	line-height: 1.6em;
-    color: #222222;
-    a { border-bottom: 0.09em solid #888888;}
+	color: #333333;
+	letter-spacing: -0.02em;
+	font-feature-settings: 'salt' on;
+	
+    a { border-bottom: 0.09em solid #444444;}
 }
 
-p { margin-bottom: 2em; }
+p { margin-bottom: 1.2em; }
 li { font-size: inherit; span { font-size: inherit;}}
 
-pre {
+.code-block {
     background: #f5f5f5 !important;
-    padding: 16px !important;
+    padding: 1rem 2rem !important;
     font-size: 16px;
-    line-height: 1.6em;
+    line-height: 1.4em;
     overflow-x: scroll;
-    color: #333333;
+	color: #333333;
+	tab-size: 4;
+	border-radius: 4px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	pre {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 ul, ol {
-	padding-left: 24px;
-	li {margin-bottom: 0.6em;}
-	ol { padding-left: 0;}
+	padding-left: 2rem;
+	li {margin-bottom: 0.4em;}
+}
+
+ol > ol, ul > ol {
+	padding-left: 2rem;
+	list-style: lower-latin;
 }
 
 ul { list-style: disc; }
