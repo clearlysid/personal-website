@@ -8,7 +8,7 @@ export async function getStaticProps() {
     return { props: { data } };
 }
 
-export default function Now({ data, date }) {
+export default function Now({ data }) {
 
 	return (
 		<>

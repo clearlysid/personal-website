@@ -160,7 +160,11 @@ blockquote.notion::after {
 
 .notion.checkbox {
     color: #222222;
-    margin-bottom: 16px;
+	margin-bottom: 0.4em;
+	padding-left: 0.28em;
+	line-height: 1.6em;
+	letter-spacing: -0.02em;
+	
     svg {
         height: 0.8em;
         width: 0.8em;
