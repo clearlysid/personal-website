@@ -1,3 +1,49 @@
+article.notion {
+	height: 100%;
+	margin: 0 auto;
+}
+
+article.notion > div > main.notion > * {
+	width: min(720px, 90%);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.notion .main-title {
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 0.2em;
+}
+
+.notion .main-date {
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 1rem;
+    padding-bottom: 2em;
+}
+
+.main-image {
+	width: max-content;
+	width: min(1000px, 100%) !important;
+	height: min(max(200px, 50vh), 400px) !important;
+	overflow: hidden;
+	margin: auto;
+	margin-bottom: 2rem;
+	border-radius: 0;
+}
+
+
+.main-footer {
+	width: min(720px, 90%);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
 .notion-page {
 	padding: 0 2rem;
 	margin: 0 auto;
@@ -10,7 +56,9 @@
 }
 
 .notion-small-text {
-	font-size: 14px;
+	p, li {
+		font-size: 18px;
+	}
 }
 
 .notion-asset-wrapper {

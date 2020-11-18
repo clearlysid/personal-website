@@ -3,4 +3,54 @@
 @import "typography";
 @import "components";
 @import "notion";
-@import "layouts";
+@import "animations";
+
+body {
+    width: 100vw;
+    position: relative;
+    margin: 0;
+	padding-top: max(100px, 12vh);
+    overscroll-behavior-y: none;
+	min-height: 99vh;
+	overflow-x: hidden;
+}
+
+.app {
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.smooth-scroll {
+    position: relative;
+	min-height: 100vh;
+	padding: 120px 0;
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-color: black;
+    height: 5rem;
+    width: 5rem;
+    backface-visibility: hidden;
+    z-index: 999;
+	border-radius: 50%;
+	transition: opacity 0.3s ease, height 0.3s ease, width 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: center;
+	font-size: 80%;
+	font-weight: bold;
+	will-change: height width opacity;
+	transform: translate3d(-100%, -100%, 0); // initiliazes cursor off screen
+
+	span { transition: all 0.6s ease; }
+}
