@@ -9,23 +9,24 @@ article.notion > div > main.notion > * {
 	margin-right: auto;
 }
 
-.notion .main-title {
+.article-title {
     max-width: min(800px, 90%);
     margin: 0 auto;
     text-align: center;
     padding-bottom: 0.2em;
 }
 
-.notion .main-date {
+.article-date {
     max-width: min(800px, 90%);
     margin: 0 auto;
     text-align: center;
     opacity: 0.5;
     font-size: 1rem;
-    padding-bottom: 2em;
+	padding-bottom: 2em;
+	font-family: 'Manrope', sans-serif;
 }
 
-.main-image {
+.article-image {
 	width: max-content;
 	width: min(1000px, 100%) !important;
 	height: min(max(200px, 50vh), 400px) !important;
@@ -36,7 +37,7 @@ article.notion > div > main.notion > * {
 }
 
 
-.main-footer {
+.article-footer {
 	width: min(720px, 90%);
 	margin-left: auto;
 	margin-right: auto;

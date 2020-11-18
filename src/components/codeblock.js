@@ -13,6 +13,7 @@ export default function Codeblock({ code, language = "javascript" }) {
     //     'json': "json",
     // };
 
+	// add support for other languages + plain text
 
 	const Prism = require('prismjs');
 	const highlightedCode = Prism.highlight(code, Prism.languages.javascript, 'javascript');
