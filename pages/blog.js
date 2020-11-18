@@ -51,8 +51,8 @@ export default function Blog({ posts, tags }) {
 
 			<SEO title="Siddharth's Blog — Notes on building a career in Design and Product" />
 		
-			<motion.div className="blog-container" exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-				<header>Sidd’s notes chronicling oopsies and adventures building a career in design, tech and product.</header>
+			<motion.div className="page-container blog" exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+				<h1 className="page-title">Sidd’s notes chronicling oopsies and adventures building a career in design, tech and product.</h1>
 
 				<div className="blog-tags">
 					<button className="blog-tag" onClick={() => setTag("all")} style={{ opacity: tag === 'all' ? 1 : 0.4 }}>#all</button>
@@ -92,6 +92,8 @@ export default function Blog({ posts, tags }) {
 				</div>
 				
 			</motion.div>
+
+			<footer className="page-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
 
 		</>
 	)
