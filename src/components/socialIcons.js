@@ -1,4 +1,9 @@
 import React from "react";
+import styled from 'styled-components';
+
+const StyledSocialIcons = styled.ul`
+		
+	`
 
 const SocialIcons = () => (
     <ul id="social-icons">

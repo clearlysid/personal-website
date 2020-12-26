@@ -1,25 +1,38 @@
-import SEO from "@components/seo";
-import { NotionRenderer } from '@components/notion';
-import { motion } from 'framer-motion';
+import SEO from "@components/seo"
+import { NotionRenderer } from "@components/notion"
+import { motion } from "framer-motion"
+import { PageTitle, PageFooter, PageContainer } from "@components/page"
 
 export async function getStaticProps() {
-	const data = await fetch("https://notion-api.splitbee.io/v1/page/43a71af018da4387a9eaa77fc537c966").then((res) => res.json());
+    const data = await fetch(
+        "https://notion-api.splitbee.io/v1/page/43a71af018da4387a9eaa77fc537c966"
+    ).then(res => res.json())
 
-    return { props: { data } };
+    return { props: { data } }
 }
 
 export default function Now({ data }) {
+    return (
+        <>
+            <SEO title="Siddharth — What am I up to now?" />
 
-	return (
-		<>
-			<SEO title="Siddharth — What am I up to now?" />
+            <PageContainer
+                className="notion-small-text"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{ marginBottom: 120 }}
+            >
+                <PageTitle style={{ maxWidth: 800 }}>
+                    Right now, Siddharth is...
+                </PageTitle>
+                <NotionRenderer blockMap={data} />
+            </PageContainer>
 
-			<motion.div className="page-container now notion-small-text" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-				<h1 className="page-title">Right now, Siddharth is...</h1>
-				<NotionRenderer blockMap={data} />
-			</motion.div>
-
-			<footer className="page-footer">Copyleft ©{new Date().getFullYear()}, Built on Next.js via Notion.</footer>
-		</>	
-	)
+            <PageFooter>
+                Copyleft ©{new Date().getFullYear()}, Built on Next.js via
+                Notion.
+            </PageFooter>
+        </>
+    )
 }
