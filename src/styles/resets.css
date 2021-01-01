@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -67,6 +70,7 @@ textarea {
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
+    cursor: pointer;
 }
 button,
 input {
