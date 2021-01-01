@@ -11,6 +11,7 @@ const StyledPageTitle = styled(motion.h1)`
     max-width: 1200px;
     padding: 0;
     margin-bottom: 4rem;
+    margin-top: max(100px, 12vh);
 `
 
 const StyledPageFooter = styled.footer`
@@ -30,6 +31,7 @@ const StyledPageContainer = styled(motion.div)`
     max-width: calc(1200px + 4rem);
     margin: 0 auto;
     padding: 0 2rem;
+    min-height: 88vh;
 `
 
 export function PageTitle(props) {

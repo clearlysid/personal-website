@@ -1,6 +1,5 @@
 import SEO from "@components/seo"
 import { NotionRenderer } from "@components/notion"
-import { motion } from "framer-motion"
 import { PageTitle, PageFooter, PageContainer } from "@components/page"
 
 export async function getStaticProps() {
@@ -21,7 +20,7 @@ export default function Now({ data }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                style={{ marginBottom: 120 }}
+                style={{ paddingBottom: "max(100px, 12vh)" }}
             >
                 <PageTitle style={{ maxWidth: 800 }}>
                     Right now, Siddharth is...
