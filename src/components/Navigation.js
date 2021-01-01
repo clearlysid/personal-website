@@ -1,8 +1,18 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef } from "react"
 import useOnClickOutside from "@hooks/useOnClickOutside"
 import Link from "next/link"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+
+const ScrollPreventer = styled.div({
+    height: "100vh",
+    width: "100vw",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    pointerEvents: "all",
+    zIndex: 9,
+})
 
 const StyledNav = styled.nav`
     position: fixed;
@@ -74,7 +84,7 @@ function ListItem({ url, text, onClick }) {
         },
         hidden: {
             y: -50,
-            x: "11%",
+            x: "10%",
             opacity: 0,
             transition: {
                 y: { stiffness: 1000 },
@@ -94,16 +104,12 @@ function ListItem({ url, text, onClick }) {
 export default function Navigation() {
     const [menuOpen, setMenuOpen] = useState(false)
     const ref = useRef()
-
     useOnClickOutside(ref, () => setMenuOpen(false))
-
-    // add a context here to lock body scroll when menu is open
 
     const listVariants = {
         hidden: {
             x: "100%",
             transition: {
-                // when: "afterChildren",
                 delay: 0.2,
                 type: "tween",
                 duration: 0.3,
@@ -120,27 +126,30 @@ export default function Navigation() {
                 ease: [0.26, 1, 0.66, 1],
                 staggerChildren: 0.05,
                 staggerDirection: -1,
-                // delayChildren: 0.2,
             },
         },
     }
 
     return (
-        <StyledNav ref={ref}>
-            <StyledButton onClick={() => setMenuOpen(!menuOpen)}>
-                {menuOpen ? `close` : `menu`}
-            </StyledButton>
+        <>
+            {menuOpen && <ScrollPreventer />}
 
-            <StyledList
-                initial={false}
-                variants={listVariants}
-                animate={menuOpen ? "visible" : "hidden"}
-            >
-                <ListItem text="Work" url="/" onClick={setMenuOpen} />
-                <ListItem text="Play" url="/play" onClick={setMenuOpen} />
-                <ListItem text="Blog" url="/blog" onClick={setMenuOpen} />
-                <ListItem text="Now" url="/now" onClick={setMenuOpen} />
-            </StyledList>
-        </StyledNav>
+            <StyledNav ref={ref}>
+                <StyledButton onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? `close` : `menu`}
+                </StyledButton>
+
+                <StyledList
+                    initial={false}
+                    variants={listVariants}
+                    animate={menuOpen ? "visible" : "hidden"}
+                >
+                    <ListItem text="Work" url="/" onClick={setMenuOpen} />
+                    <ListItem text="Play" url="/play" onClick={setMenuOpen} />
+                    <ListItem text="Blog" url="/blog" onClick={setMenuOpen} />
+                    <ListItem text="Now" url="/now" onClick={setMenuOpen} />
+                </StyledList>
+            </StyledNav>
+        </>
     )
 }
