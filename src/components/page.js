@@ -23,6 +23,7 @@ const StyledPageFooter = styled.footer`
     font-family: "Manrope", sans-serif;
     font-weight: regular;
     letter-spacing: 0.2px;
+    pointer-events: none;
 `
 
 const StyledPageContainer = styled(motion.div)`

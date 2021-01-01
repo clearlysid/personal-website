@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { format } from "date-fns"
-import SEO from "@components/seo"
+import SEO from "@components/SEO"
 import styled from "styled-components"
-import { PageTitle, PageFooter, PageContainer } from "@components/page"
+import { PageTitle, PageFooter, PageContainer } from "@components/Page"
 
 export async function getStaticProps() {
     let data = await fetch(
