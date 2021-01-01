@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import SEO from "@components/SEO"
+import SEO from "@components/seo"
 import { motion } from "framer-motion"
 import { PageTitle, PageFooter } from "@components/Page"
 import styled from "styled-components"

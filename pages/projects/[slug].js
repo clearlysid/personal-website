@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { NotionRenderer } from "@components/Notion"
 import SmoothScroll from "@components/SmoothScroll"
 import BackButton from "@components/BackButton"
-import SEO from "@components/SEO"
+import SEO from "@components/seo"
 import { useGlobalDispatchContext } from "@context/globalContext"
 
 export async function getStaticProps({ params: { slug } }) {

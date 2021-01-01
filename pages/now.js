@@ -1,4 +1,4 @@
-import SEO from "@components/SEO"
+import SEO from "@components/seo"
 import { NotionRenderer } from "@components/Notion"
 import { motion } from "framer-motion"
 import { PageTitle, PageFooter, PageContainer } from "@components/Page"

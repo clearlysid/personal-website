@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { format } from "date-fns"
-import SEO from "@components/SEO"
+import SEO from "@components/seo"
 import styled from "styled-components"
 import { PageTitle, PageFooter, PageContainer } from "@components/Page"
 

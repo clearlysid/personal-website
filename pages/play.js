@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
-import SEO from "@components/SEO"
+import SEO from "@components/seo"
 import { PageTitle } from "@components/Page"
 
 export async function getStaticProps() {
