@@ -74,7 +74,7 @@ function ListItem({ url, text, onClick }) {
         },
         hidden: {
             y: -50,
-            x: "10%",
+            x: "11%",
             opacity: 0,
             transition: {
                 y: { stiffness: 1000 },
