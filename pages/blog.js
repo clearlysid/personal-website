@@ -4,7 +4,7 @@ import Link from "next/link"
 import { format } from "date-fns"
 import SEO from "@components/seo"
 import styled from "styled-components"
-import { PageTitle, PageFooter, PageContainer } from "@components/Page"
+import { PageTitle, PageFooter, PageContainer } from "@components/page"
 
 export async function getStaticProps() {
     let data = await fetch(

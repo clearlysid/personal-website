@@ -1,12 +1,12 @@
 import React from "react"
-import { NotionRenderer } from "@components/Notion"
-import SmoothScroll from "@components/SmoothScroll"
-import BackButton from "@components/BackButton"
+import { NotionRenderer } from "@components/notion"
+import SmoothScroll from "@components/smoothScroll"
+import BackButton from "@components/backButton"
 import SEO from "@components/seo"
 import { format } from "date-fns"
 import { motion } from "framer-motion"
 import { useGlobalDispatchContext } from "@context/globalContext"
-import { PageFooter } from "@components/Page"
+import { PageFooter } from "@components/page"
 import styled from "styled-components"
 // import Image from 'next/image';
 

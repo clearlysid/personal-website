@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 import SEO from "@components/seo"
-import { PageTitle } from "@components/Page"
+import { PageTitle } from "@components/page"
 
 export async function getStaticProps() {
     let data = await fetch(

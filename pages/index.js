@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import SEO from "@components/seo"
 import { motion } from "framer-motion"
-import { PageTitle, PageFooter } from "@components/Page"
+import { PageTitle, PageFooter } from "@components/page"
 import styled from "styled-components"
 
 export async function getStaticProps() {
@@ -65,7 +65,6 @@ export default function Home({ posts }) {
                     },
                 })
             })
-
             return () => {
                 scroll && scroll.destroy && scroll.destroy()
                 document.documentElement.removeAttribute(

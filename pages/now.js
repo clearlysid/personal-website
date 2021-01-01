@@ -1,7 +1,7 @@
 import SEO from "@components/seo"
-import { NotionRenderer } from "@components/Notion"
+import { NotionRenderer } from "@components/notion"
 import { motion } from "framer-motion"
-import { PageTitle, PageFooter, PageContainer } from "@components/Page"
+import { PageTitle, PageFooter, PageContainer } from "@components/page"
 
 export async function getStaticProps() {
     const data = await fetch(

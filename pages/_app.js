@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { GlobalProvider } from "@context/globalContext"
 import { useGoogleAnalytics } from "@hooks/useGoogleAnalytics"
 import styled from "styled-components"
-import Navigation from "@components/Navigation"
+import Navigation from "@components/navigation"
 
 import "@styles/resets.css"
 import "@styles/global.css"
