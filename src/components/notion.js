@@ -226,9 +226,10 @@ export const Block = props => {
                                     )}
                                 >
                                     <div className="notion-title">
-                                        {renderChildText(
-                                            blockValue.properties.title
-                                        )}
+                                        {blockValue.properties.title &&
+                                            renderChildText(
+                                                blockValue.properties.title
+                                            )}
                                     </div>
 
                                     {children}
@@ -604,7 +605,8 @@ export const Block = props => {
                             </svg>
                         )}
                         <span>
-                            {renderChildText(blockValue.properties.title)}
+                            {blockValue.properties &&
+                                renderChildText(blockValue.properties.title)}
                         </span>
                     </div>
                 )

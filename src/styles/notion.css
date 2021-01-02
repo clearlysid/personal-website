@@ -70,10 +70,6 @@ blockquote.notion::after {
     margin-right: 0.6em;
 }
 
-.notion-checkbox a {
-    border-bottom: 0.1em solid #888888;
-}
-
 hr.notion {
     margin: 2rem auto;
     opacity: 0.2;
