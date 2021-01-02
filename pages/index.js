@@ -3,6 +3,7 @@ import SEO from "@components/seo"
 import { motion } from "framer-motion"
 import { PageTitle, PageFooter } from "@components/page"
 import styled from "styled-components"
+import useIsMobile from "@hooks/useIsMobile"
 
 export async function getStaticProps() {
     let data = await fetch(
@@ -49,9 +50,10 @@ const StyledSection = styled.section`
 export default function Home({ posts }) {
     const scrollRef = useRef(null)
     const scrollbarRef = useRef(null)
+    const isMobile = useIsMobile()
 
     useEffect(() => {
-        if (window.innerWidth > 700) {
+        if (!isMobile) {
             import("locomotive-scroll").then(locomotiveModule => {
                 const scroll = new locomotiveModule.default({
                     el: scrollRef.current,
