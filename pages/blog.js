@@ -58,8 +58,10 @@ const PostList = styled.ul`
         }
     }
 
-    & > li:hover {
-        transform: translateX(10px);
+    @media (min-width: 700px) {
+        & > li:hover {
+            transform: translateX(10px);
+        }
     }
 `
 

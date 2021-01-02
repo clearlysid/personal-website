@@ -86,7 +86,7 @@ export default function Article({ post, blocks }) {
                 url={`https://sidds.me/blog/${post.slug}`}
             />
 
-            <BackButton link="/blog" text="~(■_■ ~)" />
+            <BackButton link="/blog" text="back" />
 
             <SmoothScroll>
                 <StyledArticle
