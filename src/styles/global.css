@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&family=Manrope:wght@300;400;500;700&display=swap");
+
+@font-face {
+    font-family: "hk_grotesk";
+    src: url("/fonts/hk-grotesk/hkgrotesk-bold.eot");
+    src: url("/fonts/hk-grotesk/hkgrotesk-bold.eot?#iefix")
+            format("embedded-opentype"),
+        url("/fonts/hk-grotesk/hkgrotesk-bold.woff2") format("woff2"),
+        url("/fonts/hk-grotesk/hkgrotesk-bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "hk_grotesk";
+    src: url("/fonts/hk-grotesk/hkgrotesk-italic.eot");
+    src: url("/fonts/hk-grotesk/hkgrotesk-italic.eot?#iefix")
+            format("embedded-opentype"),
+        url("/fonts/hk-grotesk/hkgrotesk-italic.woff2") format("woff2"),
+        url("/fonts/hk-grotesk/hkgrotesk-italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "hk_grotesk";
+    src: url("/fonts/hk-grotesk/HKGrotesk-Medium.eot");
+    src: url("/fonts/hk-grotesk/HKGrotesk-Medium.eot?#iefix")
+            format("embedded-opentype"),
+        url("/fonts/hk-grotesk/HKGrotesk-Medium.woff2") format("woff2"),
+        url("/fonts/hk-grotesk/HKGrotesk-Medium.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "hk_grotesk";
+    src: url("/fonts/hk-grotesk/hkgrotesk-regular.eot");
+    src: url("/fonts/hk-grotesk/hkgrotesk-regular.eot?#iefix")
+            format("embedded-opentype"),
+        url("/fonts/hk-grotesk/hkgrotesk-regular.woff2") format("woff2"),
+        url("/fonts/hk-grotesk/hkgrotesk-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+::selection {
+    background: rgb(255, 231, 185);
+}
+
+* {
+    font-family: "hk_grotesk", sans-serif;
+    overscroll-behavior: none;
+}
+
+code {
+    font-family: "Inconsolata", monospace;
+    font-size: inherit;
+}
+
+p > code {
+    background: #f5f5f5;
+    padding: 0.18em 0.4em;
+    font-size: 0.9em;
+}
+
+span {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    color: #222222;
+}
+
+h1 {
+    font-size: max(32px, min(4.2vw, 42px));
+    line-height: 1.6em;
+    padding-bottom: 0.6em;
+}
+
+h2 {
+    font-size: max(24px, min(3.2vw, 32px));
+    line-height: 1.6em;
+    margin-top: 1.4em;
+    padding-bottom: 0.4em;
+}
+
+h3 {
+    font-size: max(18px, min(2.4vw, 24px));
+    line-height: 1.6em;
+    margin-top: 1.4em;
+    padding-bottom: 0.4em;
+}
+
+h4 {
+    font-size: max(18px, min(2vw, 22px));
+    letter-spacing: -0.02em;
+    line-height: 1.4em;
+    font-weight: 400;
+}
+
+p,
+ul,
+ol {
+    font-size: max(16px, min(1.8vw, 20px));
+    font-weight: 300;
+    line-height: 1.6em;
+    color: #333333;
+    letter-spacing: -0.02em;
+    font-feature-settings: "salt" on;
+}
+
+p > a,
+ul > a,
+ol > a {
+    border-bottom: 0.09em solid #444444;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+li {
+    font-size: inherit;
+}
+
+li > span {
+    font-size: inherit;
+}
+
+pre {
+    background: #f5f5f5 !important;
+    padding: 1rem 2rem !important;
+    font-size: 16px;
+    line-height: 1.4em;
+    overflow-x: scroll;
+    color: #333333;
+    tab-size: 4;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+ul,
+ol {
+    padding-left: 2rem;
+}
+
+ul > li,
+ol > li {
+    margin-bottom: 0.4em;
+}
+
+ol > ol,
+ul > ol {
+    padding-left: 2rem;
+    list-style: lower-latin;
+}
+
+ul {
+    list-style: disc;
+}
+ol {
+    list-style: decimal;
+}
+ul + *:not(ul),
+ol + *:not(ol) {
+    margin-top: 2em;
+}
+
+/*! locomotive-scroll v4.0.6 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    transform-origin: center right;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+}
+.c-scrollbar:hover {
+    transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+    opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+    width: 100%;
+    height: 10px;
+    top: auto;
+    bottom: 0;
+    transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+    transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.3;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab !important;
+    cursor: grab !important;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+    cursor: -webkit-grabbing !important;
+    cursor: grabbing !important;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+    right: auto;
+    bottom: 0;
+}
+
+body {
+    position: relative;
+}

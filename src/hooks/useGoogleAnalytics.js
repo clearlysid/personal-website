@@ -1,6 +1,6 @@
 import ReactGA from "react-ga"
 
-export const useAnalytics = () => {
+export const useGoogleAnalytics = () => {
     return {
         init: trackingId => {
             ReactGA.initialize(trackingId)
