@@ -144,8 +144,8 @@ export default function Navigation() {
                     variants={listVariants}
                     animate={menuOpen ? "visible" : "hidden"}
                 >
-                    <ListItem text="Work" url="/" onClick={setMenuOpen} />
-                    <ListItem text="Play" url="/play" onClick={setMenuOpen} />
+                    {/* <ListItem text="Work" url="/" onClick={setMenuOpen} />
+                    <ListItem text="Play" url="/play" onClick={setMenuOpen} /> */}
                     <ListItem text="Blog" url="/blog" onClick={setMenuOpen} />
                     <ListItem text="Now" url="/now" onClick={setMenuOpen} />
                 </StyledList>

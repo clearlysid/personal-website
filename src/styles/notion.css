@@ -9,6 +9,10 @@
     width: min(1000px, 90%) !important;
 }
 
+.notion-link {
+    text-decoration: underline;
+}
+
 blockquote.notion {
     position: relative;
     font-size: max(18px, min(2.4vw, 24px));

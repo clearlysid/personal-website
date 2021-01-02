@@ -41,6 +41,8 @@ const PostList = styled.ul`
     grid-column: 1;
     border-top: 2px solid #eeeeee;
     width: 100%;
+    padding-bottom: 4rem;
+    min-height: 60vh;
 
     & > li {
         list-style: none;
@@ -48,6 +50,7 @@ const PostList = styled.ul`
         padding-bottom: 1em;
         position: relative;
         transition: transform 0.2s ease;
+        max-width: 500px;
 
         & > a {
             display: grid;
