@@ -10,7 +10,7 @@ module.exports = {
 	mode: isDev ? "development" : "production",
 	entry: [
 		path.resolve(__dirname, "scripts", "main.js"),
-		path.resolve(__dirname, "styles", "index.scss"),
+		path.resolve(__dirname, "styles", "main.scss"),
 	],
 	output: {
 		path: path.resolve(__dirname, "public", "assets"),

@@ -12,7 +12,7 @@ const manifest = JSON.parse(
 );
 
 module.exports = function (eleventyConfig) {
-	// use shorcodes {% webpackAsset 'main.js' %} or {% webpackAsset 'main.css' %}
+	// use shortcodes {% webpackAsset 'main.js' %} or {% webpackAsset 'main.css' %}
 	eleventyConfig.addShortcode("webpackAsset", function (name) {
 		if (!manifest[name]) {
 			throw new Error(
@@ -33,10 +33,6 @@ module.exports = function (eleventyConfig) {
 
 	// keep the console noise-free
 	eleventyConfig.setQuietMode(true);
-
-	// eleventyConfig.setLiquidOptions({
-	// 	dynamicPartials: true,
-	// });
 
 	return {
 		dir: {

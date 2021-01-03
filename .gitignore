@@ -69,7 +69,7 @@ yarn-error.log
 .yarn-integrity
 
 dist
-public
+public/
 .cache
 .DS_STORE
 z_refs.txt

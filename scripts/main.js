@@ -1,3 +1,5 @@
+// import "../styles/index.scss";
+
 import LocomotiveScroll from "locomotive-scroll";
 
 if (document.querySelector(".projects-container")) {
