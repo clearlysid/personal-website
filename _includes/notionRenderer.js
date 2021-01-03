@@ -1,6 +1,4 @@
 module.exports = function NotionRenderer(blockMap) {
-	// console.log(`now rendering:`, Object.keys(blockMap).length);
-
 	const output = BlockRenderer(0, blockMap);
 	return output;
 };
@@ -82,10 +80,12 @@ function BlockRenderer(level = 0, blockMap, currentId) {
 
 	const children =
 		currentBlock && currentBlock.value && currentBlock.value.content
-			? currentBlock.value.content.map((contentId) =>
-					BlockRenderer(level + 1, blockMap, contentId)
-			  )
-			: null;
+			? currentBlock.value.content
+					.map((contentId) =>
+						BlockRenderer(level + 1, blockMap, contentId)
+					)
+					.join("")
+			: "";
 
 	const thisBlock = Block(level, blockMap, currentBlock, children);
 	return thisBlock;

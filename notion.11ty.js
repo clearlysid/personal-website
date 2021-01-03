@@ -15,7 +15,6 @@ class Notion {
 	render(data) {
 		const blockMap = data.post.blocks;
 		const blockRender = NotionRenderer(blockMap);
-		// there's a bug where errant commas keep appearing in the DOM
 		return blockRender;
 	}
 }
