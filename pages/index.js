@@ -27,7 +27,7 @@ const StyledDiv = styled.div`
     min-height: 100vh;
 
     @media (max-width: 700px) {
-        width: 100vw;
+        width: 100%;
         grid-auto-flow: row;
         /* row-gap: 80px; */
         padding: 100px 0;
@@ -76,7 +76,7 @@ export default function Home({ posts }) {
                 document.documentElement.classList.remove("has-scroll-smooth")
             }
         }
-    }, [])
+    }, [isMobile])
 
     return (
         <>
@@ -86,7 +86,8 @@ export default function Home({ posts }) {
                 ref={scrollRef}
                 style={{
                     minHeight: "100vh",
-                    width: "max-content",
+                    minWidth: "max-content",
+                    width: "100%",
                 }}
             >
                 <StyledDiv>

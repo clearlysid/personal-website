@@ -1,7 +1,7 @@
 {
     "name": "next-personal-website",
     "description": "My website and blog, built with NextJS, Notion and Framer Motion",
-    "version": "0.6.1",
+    "version": "0.6.3",
     "author": "Siddharth Jha <hey@sidds.me>",
     "private": true,
     "scripts": {

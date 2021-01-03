@@ -123,12 +123,6 @@ ol {
     font-feature-settings: "salt" on;
 }
 
-p > a,
-ul > a,
-ol > a {
-    border-bottom: 0.09em solid #444444;
-}
-
 p {
     margin-bottom: 1.2em;
 }

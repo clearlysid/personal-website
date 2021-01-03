@@ -10,7 +10,7 @@ import "@styles/notion.css"
 
 const StyledApp = styled.main`
     margin: 0 auto;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
 `
 

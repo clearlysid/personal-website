@@ -54,6 +54,7 @@ const ArticleFooter = styled.footer`
     width: min(720px, 90%);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2rem;
 `
 
 const StyledArticle = styled(motion.article)`
@@ -70,6 +71,7 @@ const ArticleBodyWrapper = styled(motion.div)`
 `
 
 export default function Article({ post, blocks }) {
+    console.log(blocks)
     if (!post) return null
 
     const dispatch = useGlobalDispatchContext()

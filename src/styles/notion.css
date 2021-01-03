@@ -1,5 +1,6 @@
 .notion.callout {
     font-weight: 300;
+    font-family: "Manrope", sans-serif;
     font-size: max(24px, min(3.2vw, 32px));
     line-height: 1.4em;
     text-align: center;
@@ -7,6 +8,12 @@
     margin-top: 1.4em;
     padding-bottom: 1.8em;
     width: min(1000px, 90%) !important;
+}
+
+@media (max-width: 700px) {
+    .notion.callout {
+        text-align: left;
+    }
 }
 
 .notion-link {
@@ -62,6 +69,7 @@ blockquote.notion::after {
     padding-left: 0.28em;
     line-height: 1.6em;
     letter-spacing: -0.02em;
+    font-size: max(16px, min(1.8vw, 20px));
 }
 
 .notion-checkbox svg {
@@ -86,12 +94,18 @@ hr.notion {
     max-width: 100%;
 }
 
-.notion-small-text p {
+.notion-small-text p,
+.notion-small-text li,
+.notion-small-text .notion-checkbox {
     font-size: 18px;
 }
 
-.notion-small-text li {
-    font-size: 18px;
+@media (max-width: 700px) {
+    .notion-small-text p,
+    .notion-small-text li,
+    .notion-small-text .notion-checkbox {
+        font-size: 16px;
+    }
 }
 
 .notion-asset-wrapper {
