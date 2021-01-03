@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<!-- back-button -->
+<a class="back-button" href="/blog/">back</a>
+
+<article>
+	<header style="padding-top: 120px">
+		<h1 class="article-title">{{ post.page }}</h1>
+		<div class="article-date">{{ post.date | date: "%B %d, %Y"}}</div>
+		<img class="article-image" src="{{ post.image[0].rawUrl }}" alt="">
+	</header>
+	
+	<div>
+		{{ content | safe }}
+	</div>
+	
+	<footer class="article-footer" style="padding-bottom: 100px">
+		<p style="font-style: normal">
+			Thanks for reading! <br>
+			<a href="mailto:hey@sidds.me" target="_blank">
+				hey@sidds.me
+			</a>
+			/
+			<a
+				href="https://www.twitter.com/clearlysid"
+				target="_blank"
+				rel="noreferrer"
+			>
+				@clearlysid
+			</a>
+		</p>
+	
+	</footer>
+
+</article>

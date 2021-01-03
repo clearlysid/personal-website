@@ -67,3 +67,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+dist
+public
+.cache
+.DS_STORE
+z_refs.txt

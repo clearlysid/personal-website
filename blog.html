@@ -1,0 +1,21 @@
+---
+layout: default
+permalink: '/blog/'
+---
+
+<div class="page-container">
+	<h1 class="page-title" style="max-width: 1000px;">
+		Sidd’s notes chronicling oopsies and adventures building a career in design, tech and product.
+	</h1>
+	
+	<ul class="post-list">
+		{% for post in posts %}
+		<li>
+			<a href="/blog/{{ post.slug }}">
+				<div class="post-list-date">{{ post.date | date: "%d/%m"}}</div>
+				<h4 class="post-list-title">{{ post.page }}</h4>
+			</a>
+		</li>
+	  {% endfor %}
+	</ul>
+</div>
