@@ -5,20 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="/img/favicon.ico">
 	<link rel="stylesheet" href="{% webpackAsset 'main.css' %}">
-	{% include seo.html %}
+	{%- include seo.html -%}
 </head>
 <body>
 	
-	{% include navigation.html %}
+	{%- include navigation.html -%}
 
 	<div class="app">
-		{{ content | safe }}
+		{{- content | safe -}}
 	</div>
 	
-	<footer class="page-footer">
-		Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.
-	</footer>
-	
+	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 	<script src="{% webpackAsset 'main.js' %}"></script>
 </body>
 </html>
