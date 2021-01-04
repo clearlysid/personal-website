@@ -112,16 +112,46 @@ const mapImageUrl = (image = "", blockV) => {
 	return url.toString();
 };
 
-const renderAsset = (blockValue) => {
+const renderImage = async (url, caption) => {
+	const Image = require("@11ty/eleventy-img");
+
+	let metadata = await Image(url, {
+		formats: ["webp", "jpeg"],
+		widths: [500, 1000],
+		urlPath: "/images/",
+		outputDir: "./public/assets/images",
+	});
+
+	let lowsrc = metadata.jpeg[0];
+
+	// console.log(stats);
+	return `<picture>
+				${Object.values(metadata)
+					.map((imageFormat) => {
+						return `<source type="image/${
+							imageFormat[0].format
+						}" srcset="${imageFormat
+							.map((entry) => entry.srcset)
+							.join(", ")}" sizes="100vw">`;
+					})
+					.join("\n")}
+				<img src="${lowsrc.url}" alt="${caption}">
+			</picture>
+			${
+				caption &&
+				`<figcaption class="notion-image-caption">${caption}</figcaption>`
+			}`;
+};
+
+const renderAsset = async (blockValue) => {
 	switch (blockValue.type) {
 		case "image":
-			const sourceUrl = blockValue.properties.source[0][0];
-			const caption = blockValue.properties.caption[0][0];
-			// console.log(blockValue.properties);
-			return `<img src="${mapImageUrl(
-				sourceUrl,
+			const sourceUrl = mapImageUrl(
+				blockValue.properties.source[0][0],
 				blockValue
-			)}"><figcaption class="notion-image-caption">${caption}</figcaption>`;
+			);
+			const caption = blockValue.properties.caption[0][0];
+			return await renderImage(sourceUrl, caption);
 		case "figma":
 			return `<iframe class="notion" src="${
 				blockValue.properties.source[0][0]
@@ -148,6 +178,18 @@ const renderAsset = (blockValue) => {
 		default:
 			return ``;
 	}
+};
+
+const renderCodeBlock = (content, language) => {
+	const Prism = require("prismjs");
+
+	// figure out how to render other languages
+	const highlightedCode = Prism.highlight(
+		content,
+		Prism.languages.javascript,
+		"javascript"
+	);
+	return `<pre><code class="${language}-code">${highlightedCode}</code></pre>`;
 };
 
 function Block(level, blockMap, block, children) {
@@ -324,10 +366,11 @@ function Block(level, blockMap, block, children) {
 			case "code":
 				if (!blockValue.properties.title) return "";
 				const content = blockValue.properties.title[0][0];
-				// const language = blockValue.properties.language[0][0];
+				const language = blockValue.properties.language[0][0] || "";
 				// syntax highlighting ??
-				return `<pre><code>${content}</code></pre>`;
-
+				if (language === "VB.Net")
+					return `<div class="custom-code">${content}</div>`;
+				return renderCodeBlock(content, language);
 			default:
 				return ``;
 		}
