@@ -92,8 +92,67 @@ function BlockRenderer(level = 0, blockMap, currentId) {
 	return thisBlock;
 }
 
+const mapImageUrl = (image = "", blockV) => {
+	const url = new URL(
+		`https://www.notion.so${
+			image.startsWith("/image")
+				? image
+				: `/image/${encodeURIComponent(image)}`
+		}`
+	);
+
+	if (blockV && !image.includes("/images/page-cover/")) {
+		const table =
+			blockV.parent_table === "space" ? "block" : blockV.parent_table;
+		url.searchParams.set("table", table);
+		url.searchParams.set("id", blockV.id);
+		url.searchParams.set("cache", "v2");
+	}
+
+	return url.toString();
+};
+
+const renderAsset = (blockValue) => {
+	switch (blockValue.type) {
+		case "image":
+			const sourceUrl = blockValue.properties.source[0][0];
+			const caption = blockValue.properties.caption[0][0];
+			// console.log(blockValue.properties);
+			return `<img src="${mapImageUrl(
+				sourceUrl,
+				blockValue
+			)}"><figcaption class="notion-image-caption">${caption}</figcaption>`;
+		case "figma":
+			return `<iframe class="notion" src="${
+				blockValue.properties.source[0][0]
+			}" style="height:500px;"></iframe>
+						${
+							blockValue.properties.caption &&
+							`<figcaption class="notion-image-caption">${renderChildText(
+								blockValue.properties.caption
+							)}</figcaption>`
+						}`;
+		case "video":
+			// console.log(blockValue.properties);
+
+			// not working :(
+
+			const url = blockValue.properties.source[0][0];
+			const hackUrl = mapImageUrl(url, blockValue);
+
+			return `<figcaption>sorry, a notion update broke the video file access</figcaption>`;
+
+			return `<video width="640" height="480" controls>
+			<source src="${hackUrl}" type="video/mp4">
+		  </video>`;
+		default:
+			return ``;
+	}
+};
+
 function Block(level, blockMap, block, children) {
 	const blockValue = block.value;
+	if (!blockValue) return "";
 
 	const renderComponent = () => {
 		const renderChildText = createRenderChildText();
@@ -101,7 +160,7 @@ function Block(level, blockMap, block, children) {
 		switch (blockValue.type) {
 			case "page":
 				if (!blockValue.properties) return null;
-				return `<main class="notion">${children}</main>`;
+				return `${children}`;
 			case "header":
 				if (!blockValue.properties) return null;
 				return `<h1 class="notion>${children}</h1>`;
@@ -162,9 +221,8 @@ function Block(level, blockMap, block, children) {
 				const columns = Number((1 / ratio).toFixed(0));
 				const spacerTotalWith = (columns - 1) * spacerWith;
 				const width = `calc((100% - ${spacerTotalWith}px) * ${ratio})`;
-				return `<div class="notion-column" style="width:${width}">${children}</div>
-						<div class="notion-spacer" style="width:${spacerWith}"/>`;
-
+				return `<div class="notion-column" style="width:${width};">${children}</div>
+						<div class="notion-spacer" style="width:${spacerWith}px;"></div>`;
 			case "quote":
 				if (!blockValue.properties) return null;
 				return `<blockquote class="notion">${renderChildText(
@@ -229,7 +287,6 @@ function Block(level, blockMap, block, children) {
 						<summary>${renderChildText(blockValue.properties.title)}</summary>
 						<div>${children}</div>
 					</details>`;
-
 			case "to_do":
 				let checked = false;
 				if (
@@ -256,6 +313,20 @@ function Block(level, blockMap, block, children) {
 						}</span>
 					</div>
 				`;
+			case "codepen":
+			case "embed":
+			case "figma":
+			case "video":
+			case "image":
+				return `<figure class="notion-${blockValue.type}">${renderAsset(
+					blockValue
+				)}</figure>`;
+			case "code":
+				if (!blockValue.properties.title) return "";
+				const content = blockValue.properties.title[0][0];
+				// const language = blockValue.properties.language[0][0];
+				// syntax highlighting ??
+				return `<pre><code>${content}</code></pre>`;
 
 			default:
 				return ``;
