@@ -2,11 +2,11 @@
 
 @font-face {
 	font-family: "hk_grotesk";
-	src: url("/assets/fonts/hk-grotesk/hkgrotesk-bold.eot");
-	src: url("/assets/fonts/hk-grotesk/hkgrotesk-bold.eot?#iefix")
+	src: url("/assets/fonts/hk-grotesk/hkgrotesk-semibold.eot");
+	src: url("/assets/fonts/hk-grotesk/hkgrotesk-semibold.eot?#iefix")
 			format("embedded-opentype"),
-		url("/assets/fonts/hk-grotesk/hkgrotesk-bold.woff2") format("woff2"),
-		url("/assets/fonts/hk-grotesk/hkgrotesk-bold.woff") format("woff");
+		url("/assets/fonts/hk-grotesk/hkgrotesk-semibold.woff2") format("woff2"),
+		url("/assets/fonts/hk-grotesk/hkgrotesk-semibold.woff") format("woff");
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -114,12 +114,13 @@ h4 {
 
 p,
 ul,
-ol {
-	font-size: max(16px, min(1.8vw, 20px));
+ol,
+.notion-checkbox {
+	font-size: max(16px, min(1.8vw, 18px));
 	font-weight: 300;
 	line-height: 1.6em;
 	color: #333333;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.01em;
 	font-feature-settings: "salt" on;
 }
 
@@ -143,8 +144,8 @@ pre {
 	color: #333333;
 	tab-size: 4;
 	border-radius: 4px;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
 }
 
 ul,
