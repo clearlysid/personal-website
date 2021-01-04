@@ -13,8 +13,7 @@ const groupBlockContent = (blockMap) => {
 	let index = -1;
 
 	Object.keys(blockMap).forEach((id) => {
-		// null checks here
-
+		// add null checks here
 		if (blockMap[id] && blockMap[id].value && blockMap[id].value.content) {
 			blockMap[id].value.content.forEach((blockId) => {
 				const blockType = blockMap[blockId].value.type;
@@ -26,7 +25,6 @@ const groupBlockContent = (blockMap) => {
 				output[index].push(blockId);
 			});
 		}
-
 		lastType = undefined;
 	});
 
@@ -40,33 +38,36 @@ const getListNumber = (blockId, blockMap) => {
 	return group.indexOf(blockId) + 1;
 };
 
+const renderText = (el, dec) => {
+	switch (dec[0]) {
+		case "h":
+			return `<span class="notion-${dec[1]}">${el}</span>`;
+		case "c":
+			return `<code class="notion">${el}</code>`;
+		case "b":
+			return `<b>${el}</b>`;
+		case "i":
+			return `<em>${el}</em>`;
+		case "s":
+			return `<s>${el}</s>`;
+		case "a":
+			return `<a class="notion-link" href="${dec[1]}" target="_blank" rel="noreferrer">${el}</a>`;
+		default:
+			return el;
+	}
+};
+
 const createRenderChildText = (customDecoratorComponents) => (properties) => {
 	// add null check on properties
-	return properties.map(([text, decorations], i) => {
-		if (!decorations) return text;
-
-		return decorations.reduceRight((element, decorator) => {
-			const renderText = () => {
-				switch (decorator[0]) {
-					case "h":
-						return `<span class="notion-${decorator[1]}">${element}</span>`;
-					case "c":
-						return `<code class="notion">${element}</code>`;
-					case "b":
-						return `<b>${element}</b>`;
-					case "i":
-						return `<em>${element}</em>`;
-					case "s":
-						return `<s>${element}</s>`;
-					case "a":
-						return `<a class="notion-link" href="${decorator[1]}" target="_blank" rel="noreferrer">${element}</a>`;
-					default:
-						return element;
-				}
-			};
-			return renderText();
-		}, text);
-	});
+	return properties
+		.map(([text, decorations], i) => {
+			if (!decorations) return text;
+			return decorations.reduceRight(
+				(element, decorator) => renderText(element, decorator),
+				text
+			);
+		})
+		.join("");
 };
 
 function BlockRenderer(level = 0, blockMap, currentId) {
