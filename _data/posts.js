@@ -2,10 +2,6 @@
 const Cache = require("@11ty/eleventy-cache-assets");
 
 module.exports = async function () {
-	// let postList = await fetch(
-	// 	`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`
-	// ).then((r) => r.json());
-
 	let postList = await Cache(
 		`https://notion-api.splitbee.io/v1/table/5a6fc926e63441bf9492f7fb89fdc114`,
 		{
@@ -14,7 +10,6 @@ module.exports = async function () {
 		}
 	);
 
-	// console.log(postList[0].slug);
 	let postBlocks = await Promise.all(
 		postList.map((d) => {
 			const postData = Cache(
