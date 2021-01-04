@@ -17,15 +17,17 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 
 ## To-Do
 
+-   [x] SEO
 -   [ ] Image Optimization
 -   [ ] Design Homepage
 -   [ ] Page Transitions
 -   [ ] Design Case Studies
 -   [ ] Explore Sound and 3D Interactions
--   [ ] Revamp Blog Page
 
 ## Bug List
 
 -   [x] Double underline on Notion links
 -   [x] Sometimes styles don't load when navigating pages
 -   [x] Incorrect page height calculation on blog posts
+-   [ ] Convoluted list markup
+-   [x] Errant Commas in markup

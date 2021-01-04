@@ -8,8 +8,12 @@ class Notion {
 				size: 1,
 				alias: "post",
 			},
-			permalink: (data) => `/blog/${data.post.slug}/`,
+			permalink: ({ post }) => `/blog/${post.slug}/`,
 			layout: "article",
+			eleventyComputed: {
+				title: ({ post }) => post.page,
+				image: ({ post }) => post.image[0].rawUrl,
+			},
 		};
 	}
 	render(data) {
