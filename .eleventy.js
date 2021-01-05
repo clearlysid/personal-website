@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const Image = require("@11ty/eleventy-img");
 
 const manifestPath = path.resolve(
 	__dirname,
