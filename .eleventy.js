@@ -23,6 +23,7 @@ module.exports = function (eleventyConfig) {
 		return manifest[name];
 	});
 
+	// shortcode for responsive images
 	eleventyConfig.addShortcode(
 		"image",
 		async function (src, alt = "", sizes = "100vw") {
@@ -61,14 +62,6 @@ module.exports = function (eleventyConfig) {
 	// Copy all images directly to dist.
 	eleventyConfig.addPassthroughCopy({ assets: "assets" });
 	eleventyConfig.setBrowserSyncConfig({ files: [manifestPath] });
-
-	// A debug utility.
-	eleventyConfig.addFilter("dump", (obj) => {
-		return util.inspect(obj);
-	});
-
-	// keep the console noise-free
-	eleventyConfig.setQuietMode(true);
 
 	return {
 		dir: {

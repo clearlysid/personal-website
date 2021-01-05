@@ -16,10 +16,13 @@ class Notion {
 			},
 		};
 	}
-	render(data) {
+	async render(data) {
 		const blockMap = data.post.blocks;
 		const blockRender = NotionRenderer(blockMap);
-		return blockRender;
+		const processed = `\`${blockRender}\``;
+
+		// return blockRender;
+		return processed;
 	}
 }
 

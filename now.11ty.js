@@ -9,10 +9,9 @@ class Now {
 		};
 	}
 	render(data) {
-		const blockMap = data.now;
-		const blockRender = NotionRenderer(blockMap);
+		const blockRender = NotionRenderer(data.now);
 		return `
-			<div class="page-container" style="padding-bottom: max(100px, 12vh);">
+			<div class="page-container" style="padding-bottom: max(100px, 12vh);" data-barba="container">
 				<h1 class="page-title" style="max-width: 800px;">
 					Right now, Siddharth is...
 				</h1>
