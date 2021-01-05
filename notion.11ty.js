@@ -12,16 +12,13 @@ class Notion {
 			layout: "article",
 			eleventyComputed: {
 				title: ({ post }) => post.page,
-				image: ({ post }) => post.image[0].rawUrl,
+				image: ({ post }) => post.image[0].url,
 			},
 		};
 	}
-	async render(data) {
-		const blockMap = data.post.blocks;
-		const blockRender = NotionRenderer(blockMap);
-		const processed = `\`${blockRender}\``;
-
-		// return blockRender;
+	render(data) {
+		const blockRender = NotionRenderer(data.post.blocks);
+		const processed = eval(`\`${blockRender}\``);
 		return processed;
 	}
 }

@@ -6,14 +6,10 @@ layout: default
 	<a class="back-button" href="/blog/">back</a>
 	<article class="article">
 		<header style="padding-top: 120px">
-			<h1 class="article-title">{{ post.page }}</h1>
+			<h1 class="article-title">{{ title }}</h1>
 			<div class="article-date">{{ post.date | date: "%B %d, %Y"}}</div>
-			<!-- <img class="article-image" src="{{ post.image[0].rawUrl }}" alt=""> -->
 			<div class="article-image">
-				{% capture lol %}
-				{{ post.image[0].rawUrl }}
-				{% endcapture %}
-				{% image lol %}
+				{% cloudimage image %}
 			</div>
 		</header>
 		

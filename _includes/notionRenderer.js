@@ -1,10 +1,5 @@
 module.exports = function NotionRenderer(blockMap) {
-	const output = renderBlock(0, blockMap);
-
-	// const templateOutput = `\`${output}\``;
-	// const processedOutput = eval(templateOutput);
-
-	return output;
+	return renderBlock(0, blockMap);
 };
 
 const groupBlockContent = (blockMap) => {
@@ -108,40 +103,6 @@ const renderBlock = (level = 0, blockMap, currentId) => {
 	return thisBlock;
 };
 
-const renderImage = (url, caption) => {
-	// const Image = require("@11ty/eleventy-img");
-
-	// let metadata = Image(url, {
-	// 	formats: ["webp", "jpeg"],
-	// 	widths: [500, 1000],
-	// 	urlPath: "/images/",
-	// 	outputDir: "./public/assets/images",
-	// });
-	// let lowsrc = metadata.jpeg[0];
-	// let picture = `<picture>${Object.values(metadata)
-	// 	.map(
-	// 		(imageFormat) =>
-	// 			`<source type="image/${
-	// 				imageFormat[0].format
-	// 			}" srcset="${imageFormat
-	// 				.map((entry) => entry.srcset)
-	// 				.join(", ")}" sizes="100vw">`
-	// 	)
-	// 	.join("\n")}
-	// 			<img src="${lowsrc.url}" alt="${caption}">
-	// 		</picture>
-	// ${
-	// 	caption &&
-	// 	`<figcaption class="notion-image-caption">${caption}</figcaption>`
-	// }`;
-	// console.log(picture);
-	return `<img src="${url}" alt="${caption}">${
-		caption &&
-		`<figcaption class="notion-image-caption">${caption}</figcaption>`
-	}`;
-	// return `\${this.image("${url}", "${caption}")}`;
-};
-
 const renderAsset = (blockValue) => {
 	switch (blockValue.type) {
 		case "image":
@@ -150,8 +111,7 @@ const renderAsset = (blockValue) => {
 				blockValue
 			);
 			const caption = blockValue.properties.caption[0][0];
-			const picture = renderImage(sourceUrl, caption);
-			return picture;
+			return `\${this.cloudimage("${sourceUrl}", "${caption}")}`;
 		case "figma":
 			return `<iframe class="notion" src="${
 				blockValue.properties.source[0][0]
