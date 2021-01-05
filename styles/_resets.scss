@@ -204,17 +204,3 @@ picture {
 	width: 100%;
 	object-fit: cover;
 }
-
-img:after {
-	content: "\f127"" Broken Image of " attr(alt);
-	display: block;
-	font-size: 16px;
-	color: rgb(100, 100, 100);
-
-	position: absolute;
-	top: 5px;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	height: 100%;
-}

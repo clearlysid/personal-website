@@ -3,17 +3,34 @@
 	font-family: "Manrope", sans-serif;
 	font-size: max(24px, min(3.2vw, 32px));
 	line-height: 1.4em;
-	text-align: center;
-	color: #2e2e2e;
+	color: #222222;
 	margin-top: 1.4em;
 	padding-bottom: 1.8em;
 	width: min(1000px, 90%) !important;
-}
+	text-align: center;
 
-@media (max-width: 700px) {
-	.notion-callout {
+	@media (max-width: 700px) {
 		text-align: left;
 	}
+}
+
+.notion-video {
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	position: relative;
+	opacity: 0.3;
+}
+
+.notion-video::after {
+	content: "🔗";
+	height: 1rem;
+	width: 1rem;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: -1.6rem;
+	font-size: 1rem;
+	opacity: 1;
 }
 
 .notion-link {
@@ -67,9 +84,6 @@ blockquote.notion::after {
 	color: #222222;
 	margin-bottom: 0.4em;
 	padding-left: 0.28em;
-	// line-height: 1.6em;
-	// letter-spacing: -0.02em;
-	// font-size: max(16px, min(1.8vw, 20px));
 }
 
 .notion-checkbox > svg {
@@ -261,90 +275,4 @@ hr.notion {
 
 .notion-toggle > div {
 	margin-left: 1em;
-}
-
-.notion-table,
-.notion-th,
-.notion-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-.notion-table {
-	width: 100%;
-	border-left: none;
-	border-right: none;
-	border-spacing: 0px;
-	white-space: nowrap;
-}
-
-.notion-th,
-.notion-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-	font-size: 14px;
-}
-
-.notion-td.notion-bold {
-	font-weight: 500;
-}
-
-.notion-th {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 14px;
-}
-
-.notion-td:first-child,
-.notion-th:first-child {
-	border-left: 0;
-}
-
-.notion-td:last-child,
-.notion-th:last-child {
-	border-right: 0;
-}
-
-.notion-gallery {
-	display: grid;
-	position: relative;
-	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-	grid-auto-rows: 1fr;
-	gap: 16px;
-	border-top: 1px solid rgba(55, 53, 47, 0.16);
-	padding-top: 16px;
-	padding-bottom: 4px;
-}
-.notion-gallery-card {
-	display: block;
-	color: inherit;
-	text-decoration: none;
-	box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
-		rgba(15, 15, 15, 0.1) 0px 2px 4px;
-	border-radius: 3px;
-	background: white;
-	overflow: hidden;
-	transition: background 100ms ease-out 0s;
-	position: static;
-	height: 100%;
-}
-
-.notion-gallery-content {
-	padding: 8px 10px 6px;
-	font-size: 12px;
-	white-space: nowrap;
-}
-
-.notion-gallery-data.is-first {
-	white-space: nowrap;
-	word-break: break-word;
-	caret-color: rgb(55, 53, 47);
-	font-size: 14px;
-	line-height: 1.5;
-	min-height: 21px;
-	font-weight: 500;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
