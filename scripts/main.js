@@ -42,33 +42,33 @@ navButton.addEventListener("click", () => {
 	navMain.classList.toggle("active");
 });
 
-barba.init({
-	transitions: [
-		{
-			name: "default",
-			leave(data) {
-				const done = this.async();
-				anime({
-					targets: data.current.container,
-					opacity: [1, 0],
-					duration: 300,
-					complete: () => {
-						done();
-					},
-				});
-			},
-			enter(data) {
-				const done = this.async();
-				anime({
-					targets: data.next.container,
-					opacity: [0, 1],
-					duration: 300,
-					complete: () => {
-						init();
-						done();
-					},
-				});
-			},
-		},
-	],
-});
+// barba.init({
+// 	transitions: [
+// 		{
+// 			name: "default",
+// 			leave(data) {
+// 				const done = this.async();
+// 				anime({
+// 					targets: data.current.container,
+// 					opacity: [1, 0],
+// 					duration: 300,
+// 					complete: () => {
+// 						done();
+// 					},
+// 				});
+// 			},
+// 			enter(data) {
+// 				const done = this.async();
+// 				anime({
+// 					targets: data.next.container,
+// 					opacity: [0, 1],
+// 					duration: 300,
+// 					complete: () => {
+// 						init();
+// 						done();
+// 					},
+// 				});
+// 			},
+// 		},
+// 	],
+// });
