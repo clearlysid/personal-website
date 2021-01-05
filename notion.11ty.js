@@ -12,7 +12,8 @@ class Notion {
 			layout: "article",
 			eleventyComputed: {
 				title: ({ post }) => post.page,
-				image: ({ post }) => post.image[0].url,
+				image: ({ post }) =>
+					post.image && post.image[0] ? post.image[0].url : "",
 			},
 		};
 	}
