@@ -111,7 +111,9 @@ const renderAsset = (blockValue) => {
 				blockValue.properties.source[0][0],
 				blockValue
 			);
-			const caption = blockValue.properties.caption[0][0];
+			const caption = blockValue.properties.caption
+				? blockValue.properties.caption[0][0]
+				: "";
 			return `\${this.cloudimage("${sourceUrl}", "${caption}")}`;
 		case "figma":
 			return `<iframe class="notion" src="${
