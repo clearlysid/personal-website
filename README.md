@@ -18,7 +18,7 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 ## To-Do
 
 -   [x] SEO
--   [ ] Image Optimization
+-   [x] Image Optimization
 -   [ ] Design Homepage
 -   [ ] Page Transitions
 -   [ ] Design Case Studies
@@ -29,6 +29,7 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 -   [x] Double underline on Notion links
 -   [x] Sometimes styles don't load when navigating pages
 -   [x] Incorrect page height calculation on blog posts
--   [ ] Convoluted list markup
+-   [x] Convoluted list markup
 -   [x] Errant Commas in markup
 -   [x] Notion Columns don't render correctly
+-   [ ] Build Fail

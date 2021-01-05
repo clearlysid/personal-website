@@ -60,6 +60,7 @@ const renderText = (title) => {
 		.map(([text, decorations]) => {
 			if (!decorations) return text;
 			return decorations.reduceRight((el, dec) => {
+				if (!dec[0]) return "";
 				switch (dec[0]) {
 					case "h":
 						return `<span class="notion-${dec[1]}">${el}</span>`;
