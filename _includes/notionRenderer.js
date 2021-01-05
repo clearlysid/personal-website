@@ -274,24 +274,12 @@ function Block(level, blockMap, block, children) {
 					<div>${children}</div>
 				</details>`;
 		case "to_do":
-			let checked;
-			blockValue.properties.checked &&
-			blockValue.properties.checked.toString().includes("Yes")
-				? (checked = true)
-				: (checked = false);
-
-			return `<div class="notion-checkbox">
-					${
-						checked
-							? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459">
-							<path d="M124.95 181.05l-35.7 35.7L204 331.5l255-255-35.7-35.7L204 260.1l-79.05-79.05zM408 408H51V51h255V0H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V204h-51v204z" /></svg>`
-							: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459">
-							<path d="M408 51v357H51V51h357m0-51H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V51c0-28.05-22.95-51-51-51z" /></svg>
-					`
-					}
-					<span>${text}</span>
-				</div>
-			`;
+			return `<div class="notion-checkbox${
+				blockValue.properties.checked &&
+				blockValue.properties.checked.toString().includes("Yes")
+					? " checked"
+					: ""
+			}">${text}</div>`;
 		case "codepen":
 		case "embed":
 		case "figma":

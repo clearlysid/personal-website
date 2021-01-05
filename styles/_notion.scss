@@ -83,13 +83,26 @@ blockquote.notion::after {
 .notion-checkbox {
 	color: #222222;
 	margin-bottom: 0.4em;
-	padding-left: 0.28em;
+	padding-left: 1.6em;
+	position: relative;
 }
 
-.notion-checkbox > svg {
+.notion-checkbox::before {
+	content: "";
 	height: 0.8em;
 	width: 0.8em;
-	margin-right: 0.6em;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 459 459'%3E%3Cpath d='M408 51v357H51V51h357m0-51H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V51c0-28.05-22.95-51-51-51z' /%3E%3C/svg%3E");
+	background-size: contain;
+	z-index: 1;
+	position: absolute;
+	bottom: 0.4em;
+	left: 0;
+	transform-origin: bottom;
+	opacity: 0.8;
+}
+
+.notion-checkbox.checked::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 459 459'%3E%3Cpath d='M124.95 181.05l-35.7 35.7L204 331.5l255-255-35.7-35.7L204 260.1l-79.05-79.05zM408 408H51V51h255V0H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V204h-51v204z' /%3E%3C/svg%3E");
 }
 
 hr.notion {
