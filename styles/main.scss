@@ -1,0 +1,8 @@
+@import "_resets";
+
+// this imports the syntax highlighter theme
+@import "../node_modules/prismjs/themes/prism-solarizedlight.css";
+
+@import "_typography";
+@import "_components";
+@import "_notion";

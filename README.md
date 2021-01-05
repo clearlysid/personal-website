@@ -4,10 +4,10 @@ This has been a long pending project which I'm finally putting together.
 
 ## Stack
 
-1. [NextJS](https://nextjs.org) - React Framework, SSG
-2. [Notion](https://www.notion.so/desktop) - My jugaad pseudo-CMS
-3. [Framer Motion](https://www.framer.com/motion/) - Animations, Page Transitions
-4. Styled Components
+1. 11ty
+2. Notion
+3. Barba
+4. Anime
 
 ## Notes
 
@@ -17,15 +17,19 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 
 ## To-Do
 
--   [ ] Image Optimization
+-   [x] SEO
+-   [x] Image Optimization
 -   [ ] Design Homepage
 -   [ ] Page Transitions
 -   [ ] Design Case Studies
 -   [ ] Explore Sound and 3D Interactions
--   [ ] Revamp Blog Page
 
 ## Bug List
 
--   [ ] Double underline on Notion links
--   [ ] Sometimes styles don't load when navigating pages
--   [ ] Incorrect page height calculation on blog posts
+-   [x] Double underline on Notion links
+-   [x] Sometimes styles don't load when navigating pages
+-   [x] Incorrect page height calculation on blog posts
+-   [x] Convoluted list markup
+-   [x] Errant Commas in markup
+-   [x] Notion Columns don't render correctly
+-   [ ] Build Fail

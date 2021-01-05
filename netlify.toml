@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
-  publish = "out"
+  command = "yarn build"
+  publish = "public"
 
 [[redirects]]
   from = "/"
-  to = "/blog"
+  to = "/blog/"
   status = 302
   force = true

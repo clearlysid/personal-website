@@ -1,0 +1,15 @@
+<title>{%- if title -%} {{- title -}} {%- else -%} {{- seo.title -}} {%- endif -%}</title>
+<link rel="canonical" href="{{- page.url -}}" />
+<meta name="description" content="{%- if description -%} {{- description -}} {%- else -%} {{- seo.description -}} {%- endif -%}"/>
+<meta property="og:title" content="{%- if title -%} {{- title -}} {%- else -%} {{- seo.title -}} {%- endif -%}"/>
+<meta property="og:description" content="{%- if description -%} {{- description -}} {%- else -%} {{- seo.description -}} {%- endif -%}"/>
+<meta property="og:type" content="{%- if type -%} {{- type -}} {%- else -%} {{- seo.type -}} {%- endif -%}"/>
+<meta property="og:image" content="{%- if image -%} {{- image -}} {%- else -%} {{- seo.image -}} {%- endif -%}"/>
+<meta property="og:url" content="{{- page.url -}}" />
+<meta property="og:site_name" content="{%- if author -%} {{- author -}} {%- else -%} {{- seo.author -}} {%- endif -%}"/>
+<meta name="twitter:card" value="summary" />
+<meta name="twitter:site" content="{%- if username -%} {{- username -}} {%- else -%} {{- seo.username -}} {%- endif -%}"/>
+<meta name="twitter:title" content="{%- if title -%} {{- title -}} {%- else -%} {{- seo.title -}} {%- endif -%}"/>
+<meta name="twitter:description" content="{%- if description -%} {{- description -}} {%- else -%} {{- seo.description -}} {%- endif -%}"/>
+<meta name="twitter:creator" content="{%- if username -%} {{- username -}} {%- else -%} {{- seo.username -}} {%- endif -%}"/>
+<meta name="twitter:image" content="{%- if image -%} {{- image -}} {%- else -%} {{- seo.image -}} {%- endif -%}"/>
