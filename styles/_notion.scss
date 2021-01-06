@@ -95,9 +95,9 @@ blockquote.notion::after {
 	background-size: contain;
 	z-index: 1;
 	position: absolute;
-	bottom: 0.4em;
+	top: 0.4em;
 	left: 0;
-	transform-origin: bottom;
+	transform-origin: top;
 	opacity: 0.8;
 }
 

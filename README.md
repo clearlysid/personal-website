@@ -24,7 +24,8 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 -   [ ] Design Case Studies
 -   [ ] Explore Sound and 3D Interactions
 
-## Bug List
+<details>
+	<summary>Known Bugs</summary>
 
 -   [x] Double underline on Notion links
 -   [x] Sometimes styles don't load when navigating pages
@@ -32,4 +33,6 @@ As part of this project I also wrote a custom React renderer for Notion data, it
 -   [x] Convoluted list markup
 -   [x] Errant Commas in markup
 -   [x] Notion Columns don't render correctly
--   [ ] Build Fail
+-   [x] Build Fail
+-   [x] Checkboxes pin to top
+<details>
