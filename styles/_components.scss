@@ -356,6 +356,9 @@ body {
 }
 
 .post-list-title {
+	font-size: max(18px, min(2vw, 22px));
+	letter-spacing: -0.02em;
+	line-height: 1.4em;
 	margin-top: 0;
 	font-family: "hk_grotesk", sans-serif;
 	font-weight: normal;
