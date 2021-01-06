@@ -18,7 +18,7 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 
 		<ul class="social-links">
 			<li>
-				<a href="https://www.twitter.com/clearlysid" target="_blank">
+				<a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M21.7501 5.96023C21.033 6.2696 20.2525 6.49226 19.4486 6.57898C20.2832 6.08312 20.9082 5.29976 21.2064 4.37585C20.4232 4.84176 19.5652 5.16847 18.6705 5.34148C18.2965 4.9417 17.8442 4.62321 17.3418 4.40587C16.8394 4.18853 16.2976 4.07699 15.7501 4.0782C13.5353 4.0782 11.7541 5.87351 11.7541 8.07663C11.7541 8.38601 11.7916 8.69538 11.8525 8.99304C8.53608 8.8196 5.57827 7.23523 3.61187 4.80945C3.25357 5.42144 3.0658 6.11826 3.06811 6.82741C3.06811 8.21491 3.77358 9.43835 4.84936 10.1579C4.21539 10.1329 3.59626 9.95866 3.04233 9.64929V9.69851C3.04233 11.6415 4.41577 13.2516 6.24624 13.6219C5.90255 13.7112 5.54899 13.7569 5.1939 13.7579C4.93374 13.7579 4.68765 13.7321 4.43921 13.6969C4.94546 15.2813 6.41968 16.4321 8.17515 16.4696C6.80171 17.5454 5.0814 18.1782 3.21343 18.1782C2.87827 18.1782 2.5689 18.1665 2.2478 18.129C4.01968 19.2657 6.12202 19.9219 8.38608 19.9219C15.7361 19.9219 19.758 13.8329 19.758 8.54773C19.758 8.37429 19.758 8.20085 19.7462 8.02741C20.5244 7.45788 21.2064 6.75241 21.7501 5.96023Z"
@@ -26,7 +26,7 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 				</a>
 			</li>
 			<li>
-				<a href="https://www.github.com/clearlysid" target="_blank">
+				<a href="https://www.github.com/clearlysid" target="_blank" rel="noreferrer">
 					<svg width="24" height="24"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -35,7 +35,7 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 					</a>
 			</li>
 			<li>
-				<a href="https://www.youtube.com/channel/UCLU5GtmdF56X-1Kak_7RMeQ" target="_blank">
+				<a href="https://www.youtube.com/channel/UCLU5GtmdF56X-1Kak_7RMeQ" target="_blank" rel="noreferrer">
 					<svg width="24" height="24" viewBox="0 0 24 24"
 						fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -44,7 +44,7 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 				</a>
 			</li>
 			<li>
-				<a href="https://www.linkedin.com/in/clearlysid" target="_blank">
+				<a href="https://www.linkedin.com/in/clearlysid" target="_blank" rel="noreferrer">
 					<svg width="24" height="24"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -56,7 +56,9 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 
 	</header>
 
-	<img src="/assets/emoji.png" alt="" class="mascot">
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/c_scale,f_auto,w_300/v1609949609/emoji.png"
+		alt="signature thug life glasses" 
+		height="300" width="300" class="mascot">
 
 	<ol class="post-list">
 		{% for post in posts %}
@@ -65,7 +67,7 @@ title: Siddharth's Blog — Chronicling adventures in design, tech and product!
 			<a href="/blog/{{ post.slug }}">
 				<!-- <div class="post-list-date" style="width: calc(18ch + {{ forloop.index }} * 10px);">{{ post.date | date: "%d/%m/%y" }}</div> -->
 				<div class="post-list-date">{{ post.date | date: "%d/%m/%y" }}</div>
-				<h4 class="post-list-title">{{ post.page }}</h4>
+				<div class="post-list-title">{{ post.page }}</div>
 			</a>
 		</li>
 		{% endfor %}
