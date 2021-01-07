@@ -1,6 +1,10 @@
+:root {
+	--content-para-width: 775px; // matches notion line-length
+	--content-para-width: 680px;
+}
+
 @import "_resets";
 
-// this imports the syntax highlighter theme
 @import "../node_modules/prismjs/themes/prism-solarizedlight.css";
 @import "_vendor";
 

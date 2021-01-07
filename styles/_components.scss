@@ -22,10 +22,9 @@
 	bottom: 20px;
 	text-align: center;
 	width: 100%;
-	opacity: 0.3;
+	opacity: 0.4;
 	font-size: 12px;
 	font-family: "Manrope", sans-serif;
-	font-weight: regular;
 	letter-spacing: 0.2px;
 	pointer-events: none;
 }
@@ -98,13 +97,13 @@
 }
 
 .article-body > * {
-	width: min(680px, 90%);
+	width: min(var(--content-para-width), 90%);
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .article-footer {
-	width: min(680px, 90%);
+	width: min(var(--content-para-width), 90%);
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 2rem;
@@ -234,18 +233,21 @@ body {
 	span {
 		background: -webkit-linear-gradient(290deg, #6d0093 6%, #ffa8a2 108%);
 		-webkit-background-clip: text;
+		background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 }
 
 .blog .page-subtitle {
-	font-family: "Give You Glory";
+	font-family: "Give You Glory", sans-serif;
 	font-weight: normal;
-	font-size: max(20px, min(3.2vw, 30px));
+	font-size: max(20px, min(3.2vw, 24px));
 	line-height: 140%;
 	margin-top: 0;
-	opacity: 0.4;
-	max-width: 36ch;
+	padding: 0;
+	margin-bottom: 2rem;
+	color: #aaaaaa;
+	max-width: 40ch;
 }
 
 .blog .social-links {
@@ -259,6 +261,10 @@ body {
 	li > a > svg > path {
 		fill: #333333;
 		fill-opacity: 1;
+	}
+
+	li {
+		margin-bottom: 0;
 	}
 
 	@media (max-width: 699px) {
@@ -341,7 +347,7 @@ body {
 	top: 0.8em;
 	right: 0;
 	height: 1px;
-	width: calc(100% - 10ch);
+	width: calc(100% - 7ch);
 	background: currentColor;
 	opacity: 0.6;
 }
@@ -350,7 +356,7 @@ body {
 	.post-list-item:nth-of-type(#{$i}) {
 		margin-left: calc(min(40vw, 4rem) + min(10px, 4vw) * -#{$i});
 		.post-list-date {
-			width: calc(18ch + #{$i} * min(10px, 4vw));
+			width: calc(15ch + #{$i} * min(10px, 4vw));
 		}
 	}
 }
