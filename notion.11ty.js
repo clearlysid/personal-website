@@ -18,9 +18,8 @@ class Notion {
 		};
 	}
 	render(data) {
-		const blockRender = NotionRenderer(data.post.blocks);
-		const processed = eval(`\`${blockRender}\``);
-		return processed;
+		const blockRender = eval(`\`${NotionRenderer(data.post.blocks)}\``);
+		return blockRender;
 	}
 }
 
