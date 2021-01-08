@@ -114,6 +114,11 @@ const renderAsset = (blockValue) => {
 			const caption = blockValue.properties.caption
 				? blockValue.properties.caption[0][0]
 				: "";
+
+			if (sourceUrl.includes(".gif")) {
+				return `<img src="${sourceUrl}" alt="${caption}" >`;
+			}
+
 			return `\${this.cloudimage("${sourceUrl}", "${caption}")}`;
 		case "figma":
 			return `<iframe class="notion" src="${
@@ -152,9 +157,9 @@ const renderCodeBlock = (content, language) => {
 function Block(level, blockMap, block, children) {
 	const blockValue = block.value;
 	if (!blockValue) return "";
-	if (!blockValue.properties) return "";
 
-	const text = renderText(blockValue.properties.title) || "";
+	const text =
+		renderText(blockValue.properties && blockValue.properties.title) || "";
 
 	switch (blockValue.type) {
 		case "page":

@@ -9,7 +9,7 @@ class Now {
 		};
 	}
 	render(data) {
-		const blockRender = NotionRenderer(data.now);
+		const blockRender = eval(`\`${NotionRenderer(data.now)}\``);
 		return `
 			<div class="page-container" style="padding-bottom: max(100px, 12vh);" data-barba="container">
 				<h1 class="page-title" style="max-width: 800px;">
