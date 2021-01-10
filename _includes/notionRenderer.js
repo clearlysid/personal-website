@@ -167,12 +167,15 @@ function Block(level, blockMap, block, children) {
 		case "header":
 			return `<h1 class="notion>${children}</h1>`;
 		case "sub_header":
+			if (text === "") return "";
 			return `<h2 class="notion">${text}</h2>`;
 		case "sub_sub_header":
+			if (text === "") return "";
 			return `<h3 class="notion">${text}</h3>`;
 		case "divider":
 			return `<hr class="notion">`;
 		case "text":
+			if (text === "") return "";
 			return `<p class="notion-text">${text}</p>`;
 		case "bulleted_list":
 		case "numbered_list":
