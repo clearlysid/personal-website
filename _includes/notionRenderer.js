@@ -165,7 +165,7 @@ function Block(level, blockMap, block, children) {
 
 	switch (blockValue.type) {
 		case "page":
-			console.dir(blockValue.format);
+			// console.dir(blockValue.format);
 			const {
 				page_icon,
 				page_cover,
@@ -189,7 +189,7 @@ function Block(level, blockMap, block, children) {
 			return `<hr class="notion">`;
 		case "text":
 			if (text === "") return "";
-			return `<p class="notion-text">${text}</p>`;
+			return `<p class="notion">${text}</p>`;
 		case "bulleted_list":
 		case "numbered_list":
 			const wrapList = (content, start) =>
@@ -208,19 +208,19 @@ function Block(level, blockMap, block, children) {
 			const start = getListNumber(blockValue.id, blockMap);
 			return isTopLevel ? wrapList(output, start) : output;
 		case "column_list":
-			return `<div class="notion-row">${children}</div>`;
+			return `<div class="notion notion-row">${children}</div>`;
 		case "column":
 			const spacerWidth = 24;
 			const ratio = blockValue.format.column_ratio;
 			const columns = Number((1 / ratio).toFixed(0));
 			const spacerTotalWidth = (columns - 1) * spacerWidth;
 			const width = `calc((100% - ${spacerTotalWidth}px) * ${ratio})`;
-			return `<div class="notion-column" style="width:${width};">${children}</div>
-					<div class="notion-spacer" style="width:${spacerWidth}px;"></div>`;
+			return `<div class="notion notion-column" style="width:${width};">${children}</div>
+					<div class="notion notion-spacer" style="width:${spacerWidth}px;"></div>`;
 		case "quote":
 			return `<blockquote class="notion">${text}</blockquote>`;
 		case "callout":
-			return `<div class="notion-callout">${text}</div>`;
+			return `<div class="notion notion-callout">${text}</div>`;
 		case "bookmark":
 			const link = blockValue.properties.link;
 			const description = blockValue.properties.description;
@@ -228,7 +228,7 @@ function Block(level, blockMap, block, children) {
 			const cover = blockValue.format.bookmark_cover || "";
 
 			return `
-				<div class="notion-row">
+				<div class="notion notion-row">
 					<a target="_blank" class="notion-bookmark" href="${link[0][0]}">
 						<div>
 							<div class="notion-bookmark-title">${text}</div>
@@ -253,12 +253,12 @@ function Block(level, blockMap, block, children) {
 				</div>`;
 		case "toggle":
 			return `
-				<details className="notion-toggle">
+				<details class="notion notion-toggle">
 					<summary>${text}</summary>
 					<div>${children}</div>
 				</details>`;
 		case "to_do":
-			return `<div class="notion-checkbox${
+			return `<div class="notion notion-checkbox${
 				blockValue.properties.checked &&
 				blockValue.properties.checked.toString().includes("Yes")
 					? " checked"
@@ -269,15 +269,15 @@ function Block(level, blockMap, block, children) {
 		case "figma":
 		case "video":
 		case "image":
-			return `<figure class="notion-${blockValue.type}">${renderAsset(
-				blockValue
-			)}</figure>`;
+			return `<figure class="notion notion-${
+				blockValue.type
+			}">${renderAsset(blockValue)}</figure>`;
 		case "code":
 			if (!blockValue.properties.title) return "";
 			const content = blockValue.properties.title[0][0];
 			const language = blockValue.properties.language[0][0] || "";
 			if (language === "VB.Net")
-				return `<div class="custom-code">${content}</div>`;
+				return `<div class="notion custom-code">${content}</div>`;
 			return renderCodeBlock(content, language);
 		default:
 			return ``;
