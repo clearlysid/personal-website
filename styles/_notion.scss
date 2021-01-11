@@ -52,12 +52,14 @@ blockquote.notion > a {
 	text-align: right;
 	font-size: 14px;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 blockquote.notion > a::before {
 	content: "-";
 	position: relative;
 	padding-right: 8px;
+	text-decoration: none;
 }
 
 blockquote.notion::before,
