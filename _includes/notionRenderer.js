@@ -145,7 +145,7 @@ const renderAsset = (blockValue) => {
 const renderCodeBlock = (content, language) => {
 	const Prism = require("prismjs");
 
-	// figure out how to render other languages
+	// TODO: add support for other languages
 	const highlightedCode = Prism.highlight(
 		content,
 		Prism.languages.javascript,
@@ -153,6 +153,8 @@ const renderCodeBlock = (content, language) => {
 	);
 	return `<pre><code class="${language}-code">${highlightedCode}</code></pre>`;
 };
+
+// TODO: Refactor classnames to be "notion" + "block-type"
 
 function Block(level, blockMap, block, children) {
 	const blockValue = block.value;
@@ -163,6 +165,17 @@ function Block(level, blockMap, block, children) {
 
 	switch (blockValue.type) {
 		case "page":
+			console.dir(blockValue.format);
+			const {
+				page_icon,
+				page_cover,
+				page_full_width,
+				page_small_text,
+				page_cover_position,
+			} = blockValue.format || {};
+
+			// now we can add support for icon, cover-image and position, width, text size
+			// TODO: render a self-contained page section
 			return `${children}`;
 		case "header":
 			return `<h1 class="notion>${children}</h1>`;
@@ -263,7 +276,6 @@ function Block(level, blockMap, block, children) {
 			if (!blockValue.properties.title) return "";
 			const content = blockValue.properties.title[0][0];
 			const language = blockValue.properties.language[0][0] || "";
-			// syntax highlighting ??
 			if (language === "VB.Net")
 				return `<div class="custom-code">${content}</div>`;
 			return renderCodeBlock(content, language);
