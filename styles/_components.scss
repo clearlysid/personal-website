@@ -422,3 +422,84 @@ body {
 		left: 0;
 	}
 }
+
+.play .page-subtitle {
+	font-family: "Give You Glory", sans-serif;
+	font-weight: normal;
+	font-size: max(20px, min(3.2vw, 24px));
+	line-height: 140%;
+	margin-top: 0;
+	padding: 0;
+	margin-bottom: 2rem;
+	color: #aaaaaa;
+	max-width: 40ch;
+}
+
+.play .page-title {
+	font-size: max(32px, min(4.2vw, 48px));
+	margin-bottom: 1rem;
+	background: -webkit-linear-gradient(290deg, #6d0093 6%, #ffa8a2 108%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.play-item {
+	margin-bottom: 4rem;
+	height: 300px;
+	width: 100%;
+	position: relative;
+
+	p {
+		z-index: 1;
+		position: absolute;
+		bottom: 0;
+		width: max-content;
+		text-align: center;
+		font-size: 18px;
+		padding: 0.4em 0.8em;
+		color: black;
+		background: white;
+		border-radius: 4px;
+		box-shadow: rgb(252, 215, 232) 4px 2px 8px 0;
+		font-weight: bold;
+		letter-spacing: 0.004em;
+	}
+}
+
+.play-item img {
+	width: 90%;
+	height: 95%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 8px;
+	border: 1px solid #f7f7f7;
+	padding: 0.4rem;
+}
+
+.play-item-button {
+	margin-top: 2rem;
+	background: -webkit-linear-gradient(290deg, #6d0093 6%, #ffa8a2 108%);
+	color: white;
+	padding: 1em 2em;
+	display: block;
+	width: max-content;
+	border-radius: 0.2em;
+	letter-spacing: 0.02em;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: transform 0.3s ease;
+}
+
+.play-item-button:hover {
+	transform: scale(1.04);
+}
+
+.play-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 4rem;
+	row-gap: 3rem;
+	padding: 2rem 0;
+}
