@@ -1,0 +1,38 @@
+---
+layout: default
+permalink: '/play/'
+title: Siddharth's Playground — Experiments in Design and Code
+---
+
+<div class="page-container play" style="max-width: calc(900px + 4rem)" data-barba="container">
+
+	<header class="play-header">
+		<h1 class="page-title">Playground</h1>
+		<h2 class="page-subtitle">experiments in design and code.</h2>
+	</header>
+
+	<!-- ADD BLANK CHECKS FOR EACH ITEM  -->
+	<main class="play-grid">
+
+		{% for item in play %}
+			{% if item.published == true %}
+			<div class="play-item">
+				
+				<!-- <h3>{{ item.year }}</h3> -->
+				<!-- <p>{{ item.blurb }}</p> -->
+
+				<img src="{{ item.media }}" alt="" height="400" width="400">
+
+				<!-- {% if item.link != blank %}
+					<a href="{{ item.link }}" target="_blank" class="play-item-button">View Live</a>
+				{% endif %} -->
+
+				<p>{{ item.name }}</p>
+			</div>
+			{% endif %}
+		{% endfor %}
+
+	</main>
+
+	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
+</div>
