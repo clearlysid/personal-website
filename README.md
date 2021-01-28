@@ -1,38 +1,19 @@
 # @clearlysid — personal website
 
-This has been a long pending project which I'm finally putting together.
+This is an ongoing personal project which I've put together using [11ty](https://www.11ty.dev), [Notion](https://http://notion.so/), [Barba](https://barba.js.org), [Anime](https://animejs.com) and [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/).
 
-## Stack
+Deployed on [![Netlify Status](https://api.netlify.com/api/v1/badges/4fc3be70-90bc-44a2-80f0-8deebc83575a/deploy-status)](https://app.netlify.com/sites/sidds/deploys)
 
-1. 11ty
-2. Notion
-3. Barba
-4. Anime
 
-## Notes
+## Usage
+If you want to clone this site for your own personal use, or as a starting point for a project, then feel free to do so by all means. Although I will really appreciate attribution since I've spent a lot of time and effort on this. It would be a really shitty move if you literally passed this off as your own work.
 
-Started this as a Gatsby site but I migrated it to NextJS to try out it's new SSG features, and cut down my build times.
+### Instructions
+1. `yarn dev` will spin up a development server
+2. `yarn build` will build a static, production ready site
+3. `yarn clean` will remove the existing build and cache
 
-As part of this project I also wrote a custom React renderer for Notion data, it can potentially be abstracted out of this project and used as a standalone package.
+## Further Plans
+As part of this project I also wrote an HTML renderer for Notion data, it can potentially be abstracted out of this project and used as a standalone package. I will likely get around to it at some point and but you're also welcome to give it a shot.
 
-## To-Do
-
--   [x] SEO
--   [x] Image Optimization
--   [ ] Design Homepage
--   [ ] Page Transitions
--   [ ] Design Case Studies
--   [ ] Explore Sound and 3D Interactions
-
-<details>
-	<summary>Known Bugs</summary>
-
--   [x] Double underline on Notion links
--   [x] Sometimes styles don't load when navigating pages
--   [x] Incorrect page height calculation on blog posts
--   [x] Convoluted list markup
--   [x] Errant Commas in markup
--   [x] Notion Columns don't render correctly
--   [x] Build Fail
--   [x] Checkboxes pin to top
-<details>
+There's a lot more design and animation work still to be done and, as my life changes around me, the project will evolve alongside it.
