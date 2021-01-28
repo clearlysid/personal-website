@@ -16,8 +16,21 @@ title: Siddharth's Playground — Experiments in Design and Code
 
 		{% for item in play %}
 			{% if item.published == true %}
+
+			
 			<div class="play-item">
-				<img src="{{ item.media }}" alt="" height="400" width="400">
+
+
+				{% if item.video-url != BLANK %}
+					<video autoplay loop muted>
+						<source src="{{ item.video-url }}" type="video/mp4">
+					</video>
+				{% else %}
+					<img src="{{ item.image-url }}" alt="" height="400" width="400">
+				{% endif %}
+
+				
+
 			</div>
 			{% endif %}
 		{% endfor %}
@@ -26,4 +39,3 @@ title: Siddharth's Playground — Experiments in Design and Code
 
 	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 </div>
-
