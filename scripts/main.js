@@ -1,5 +1,5 @@
 import LocomotiveScroll from "locomotive-scroll";
-import anime from "animejs";
+import ProjectHover from "./projectHover";
 
 function init() {
 	if (document.querySelector(".article")) {
@@ -12,6 +12,12 @@ function init() {
 				lerp: 0.1,
 			});
 		}
+	}
+
+	if (document.querySelector(".project-list") && window.innerWidth > 700) {
+		document.querySelectorAll(".project-li").forEach((p, i) => {
+			new ProjectHover(p, i);
+		});
 	}
 }
 

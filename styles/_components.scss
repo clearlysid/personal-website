@@ -541,27 +541,45 @@ body {
 	min-height: 400px;
 }
 
-.project-list-item {
+.project-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-left: 200px;
+}
+
+.project-li {
 	position: relative;
-	width: 520px;
+	width: 500px;
+	margin: 0;
+	padding: 0;
 }
 
-.project-list-item h2 {
+.project-li-title {
 	cursor: pointer;
+	padding: 0;
+	opacity: 0.4;
+	transition: opacity 0.2s ease;
 }
 
-.project-list-item img {
-	height: 300px;
+.project-li-media {
+	height: 200px;
 	width: 300px;
 	position: absolute;
 	top: 0;
 	z-index: -1;
 	opacity: 0;
-	transform: translateX(10%) skewX(4deg) translateY(-30%);
-	transition: all 0.2s ease-out;
+	border-radius: 8px;
+	overflow: hidden;
+	pointer-events: none;
+	filter: saturate(0.6);
+	object-fit: cover;
+
+	img {
+		border: none;
+	}
 }
 
-.project-list-item > h2:hover + img {
-	transform: translateX(0) skewX(0) translateY(-30%);
+.project-li-title:hover {
 	opacity: 1;
 }
