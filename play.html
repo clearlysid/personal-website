@@ -4,7 +4,7 @@ permalink: '/play/'
 title: Siddharth's Playground — Experiments in Design and Code
 ---
 
-<div class="page-container play" style="max-width: calc(900px + 4rem)" data-barba="container">
+<div class="page-container play" style="max-width: calc(900px + 4rem)">
 
 	<header class="play-header">
 		<h1 class="page-title">Playground</h1>
@@ -16,22 +16,15 @@ title: Siddharth's Playground — Experiments in Design and Code
 
 		{% for item in play %}
 			{% if item.published == true %}
-
-			
-			<div class="play-item">
-
-
-				{% if item.video-url != BLANK %}
-					<video autoplay loop muted>
-						<source src="{{ item.video-url }}" type="video/mp4">
-					</video>
-				{% else %}
-					<img src="{{ item.image-url }}" alt="" height="400" width="400">
-				{% endif %}
-
-				
-
-			</div>
+				<div class="play-item">
+					{% if item.video-url != BLANK %}
+						<video autoplay loop muted>
+							<source src="{{ item.video-url }}" type="video/mp4">
+						</video>
+					{% else %}
+						<img src="{{ item.image-url }}" alt="{{ item.page }}" height="400" width="400">
+					{% endif %}
+				</div>
 			{% endif %}
 		{% endfor %}
 	

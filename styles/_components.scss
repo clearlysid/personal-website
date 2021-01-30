@@ -500,26 +500,26 @@ body {
 .play-grid .play-item:nth-child(3) {
 	grid-area: 11 / 5 / 22 / 10;
 }
-.play-grid .play-item:nth-child(4) {
+.play-grid .play-item:nth-child(6) {
 	grid-area: 17 / 10 / 26 / 15;
 }
 .play-grid .play-item:nth-child(5) {
-	grid-area: 8 / 10 / 17 / 15;
+	grid-area: 9 / 10 / 17 / 17;
 }
-.play-grid .play-item:nth-child(6) {
-	grid-area: 11 / 15 / 24 / 20;
+.play-grid .play-item:nth-child(4) {
+	grid-area: 17 / 15 / 24 / 20;
 }
 .play-grid .play-item:nth-child(7) {
-	grid-area: 5 / 15 / 11 / 18;
+	grid-area: 3 / 14 / 9 / 17;
 }
 .play-grid .play-item:nth-child(8) {
-	grid-area: 1 / 18 / 11 / 23;
+	grid-area: 1 / 17 / 11 / 23;
 }
 .play-grid .play-item:nth-child(9) {
 	grid-area: 20 / 20 / 27 / 24;
 }
 .play-grid .play-item:nth-child(10) {
-	grid-area: 24 / 15 / 29 / 20;
+	grid-area: 11 / 17 / 17 / 20;
 }
 .play-grid .play-item:nth-child(11) {
 	grid-area: 4 / 23 / 11 / 27;
@@ -528,5 +528,40 @@ body {
 	grid-area: 11 / 20 / 20 / 30;
 }
 .play-grid .play-item:nth-child(13) {
-	grid-area: 25 / 24 / 29 / 28;
+	grid-area: 20 / 24 / 25 / 28;
+}
+
+.handwritten {
+	font-family: "Give You Glory", sans-serif;
+	font-weight: normal;
+	letter-spacing: 0.003em;
+}
+
+.twitter-tweet {
+	min-height: 400px;
+}
+
+.project-list-item {
+	position: relative;
+	width: 520px;
+}
+
+.project-list-item h2 {
+	cursor: pointer;
+}
+
+.project-list-item img {
+	height: 300px;
+	width: 300px;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	opacity: 0;
+	transform: translateX(10%) skewX(4deg) translateY(-30%);
+	transition: all 0.2s ease-out;
+}
+
+.project-list-item > h2:hover + img {
+	transform: translateX(0) skewX(0) translateY(-30%);
+	opacity: 1;
 }
