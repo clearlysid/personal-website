@@ -2,18 +2,35 @@
 layout: default
 ---
 
-<div class="page-container">
+<div class="page-container" style="width: 1132px;">
+	<div class="home-grid">
+		<h1><span>@clearlysid</span><span>siddharth</span></h1>
+		<div class="hero">
+			<p>The product focused <span>UX Engineer</span> at Headout who tinkers with design systems, animation and code.</p>
+			<p>He’s also working on his <span>Graduation Thesis</span> project for B.Design in Visual Communication (🎓 2021)</p>
 
-	<ol class="project-list">
-		{% for project in projects %}
-			{% if env.isProduction == false or project.published == true %}
-			<li class="project-li">
-				<h2 class="project-li-title">{{ project.title }}</h2>
-				<div class="project-li-media">
-					<img src="{{ project.images[0].rawUrl }}" alt="" height="300" width="300">
-				</div>
-			</li>
-			{% endif %}
-		{% endfor %}
-	</ol>
+			<img src="https://res.cloudinary.com/clearlysid/image/upload/v1612098862/789bd167-dcf2-45e8-a5d5-c2c8247bf0e6_qocgfn.jpg" alt="" width="450" height="620">
+		</div>
+	
+		<div class="project-list-section">
+			<div class="project-list-title">LATEST WORK</div>
+			<ol class="project-list" style="height: 500px;">
+				{% for project in projects %}
+					{% if env.isProduction == false or project.published == true %}
+					<li class="project-item">
+						<h2 class="project-item-title">{{ project.title }}</h2>
+						<div class="project-item-media">
+							<img src="{{ project.images[0].rawUrl }}" alt="" height="300" width="300">
+						</div>
+					</li>
+					{% endif %}
+				{% endfor %}
+			</ol>
+		</div>
+
+		<footer class="page-footer" style="text-align: left; position: static;">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
+	</div>
+
+	
+	
 </div>
