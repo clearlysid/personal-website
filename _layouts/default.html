@@ -16,16 +16,13 @@
 	<link rel="stylesheet" href="{% webpackAsset 'main.css' %}">
 	{%- include seo.html -%}
 </head>
-<body data-barba="wrapper">
-	
-	{% comment %} 
-	
+<body>
+	{% comment %}
 	{%- include navigation.html -%}
 	{% endcomment %}
-
 	{{- content | safe -}}
 	
-	<div className="scrollbar"></div>
+	<div class="scrollbar"></div>
 	<script src="{% webpackAsset 'main.js' %}"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G41TH7XN14"></script>
 	<script>
