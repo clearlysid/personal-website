@@ -12,9 +12,9 @@ window.addEventListener("mousemove", (ev) => (mousepos = getMousePos(ev)));
 
 export default class ProjectHover {
 	constructor(el, index) {
-		this.DOM = { el: el }; // class ".project=li"
-		this.DOM.media = this.DOM.el.querySelector(".project-li-media");
-		this.index = index; // number in menu
+		this.DOM = { el: el };
+		this.DOM.media = this.DOM.el.querySelector(".project-item-media");
+		this.index = index;
 		this.animProps = {
 			tx: { previous: 0, current: 0, amt: 0.08 },
 			ty: { previous: 0, current: 0, amt: 0.08 },
@@ -27,9 +27,7 @@ export default class ProjectHover {
 		// crosscheck bounds with reference
 		this.bounds = {
 			el: this.DOM.el.getBoundingClientRect(),
-			media: this.DOM.el
-				.querySelector(".project-li-title")
-				.getBoundingClientRect(),
+			media: this.DOM.media.getBoundingClientRect(),
 		};
 	}
 	initEvents() {
@@ -51,12 +49,9 @@ export default class ProjectHover {
 		anime({
 			targets: this.DOM.media,
 			duration: 200,
+			opacity: 0.4,
+			translateX: [direction.x < 0 ? "+=40%" : "-=40%", 0],
 			easing: "easeOutSine",
-			translateX: [direction.x < 0 ? "100%" : "-100%", 0], // check for directional movement
-			begin: () => {
-				anime.set(this.DOM.media, { opacity: 0.6 });
-				anime.set(this.DOM.el, { zIndex: 8 });
-			},
 		});
 	}
 	hideImage() {
@@ -64,14 +59,9 @@ export default class ProjectHover {
 		anime({
 			targets: this.DOM.media,
 			duration: 200,
+			opacity: 0,
+			translateX: direction.x < 0 ? "+=40%" : "-=40%",
 			easing: "easeOutSine",
-			translateX: direction.x < 0 ? "100%" : "-100%",
-			begin: () => {
-				anime.set(this.DOM.el, { zIndex: 1 });
-			},
-			complete: () => {
-				anime.set(this.DOM.media, { opacity: 0 });
-			},
 		});
 	}
 	loopRender() {
@@ -108,12 +98,23 @@ export default class ProjectHover {
 		// new translation values
 		// the center of the image element is positioned where the mouse is
 		// crosscheck integrity post bounds calculations
-		this.animProps.tx.current = Math.abs(
-			mousepos.x - this.bounds.el.left - this.bounds.media.width / 2
+		// this.animProps.tx.current = Math.abs(
+		// 	mousepos.x - this.bounds.el.left - this.bounds.media.width / 2
+		// );
+		// this.animProps.ty.current = Math.abs(
+		// 	mousepos.y - this.bounds.el.top - this.bounds.media.height / 2
+		// );
+
+		this.animProps.tx.current = clamp(
+			mousepos.x - this.bounds.el.left - this.bounds.media.width / 2,
+			-20,
+			120
 		);
-		this.animProps.ty.current = Math.abs(
-			mousepos.y - this.bounds.el.top - this.bounds.media.height / 2
-		);
+		this.animProps.ty.current =
+			mousepos.y - this.bounds.el.top - this.bounds.media.height / 2;
+
+		// this.animProps.tx.current = mousepos.x - 480;
+		// this.animProps.ty.current = mousepos.y - this.bounds.el.top - 100;
 		// new rotation value
 		this.animProps.rotation.current = this.firstRAFCycle
 			? 0
@@ -143,14 +144,12 @@ export default class ProjectHover {
 					this.animProps.rotation.amt
 			  );
 
-		// set styles
 		anime.set(this.DOM.media, {
 			translateX: this.animProps.tx.previous,
 			translateY: this.animProps.ty.previous,
 			rotate: this.animProps.rotation.previous,
 		});
 
-		// loop
 		this.firstRAFCycle = false;
 		this.loopRender();
 	}

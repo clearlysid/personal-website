@@ -15,7 +15,7 @@ function init() {
 	}
 
 	if (document.querySelector(".project-list") && window.innerWidth > 700) {
-		document.querySelectorAll(".project-li").forEach((p, i) => {
+		document.querySelectorAll(".project-item").forEach((p, i) => {
 			new ProjectHover(p, i);
 		});
 	}
@@ -26,9 +26,6 @@ init();
 const navButton = document.querySelector(".nav-button");
 const navMain = document.querySelector(".nav-main");
 
-// navButton.addEventListener("click", () => {
-// 	navMain.classList.contains("active")
-// 		? (navButton.innerHTML = "menu")
-// 		: (navButton.innerHTML = "close");
-// 	navMain.classList.toggle("active");
-// });
+navButton.addEventListener("click", () => {
+	navMain.classList.toggle("active");
+});
