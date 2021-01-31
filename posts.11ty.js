@@ -1,6 +1,6 @@
 const NotionRenderer = require("./_includes/notionRenderer");
 
-class Notion {
+class Posts {
 	data() {
 		return {
 			pagination: {
@@ -23,4 +23,4 @@ class Notion {
 	}
 }
 
-module.exports = Notion;
+module.exports = Posts;

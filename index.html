@@ -13,15 +13,17 @@ layout: default
 		</div>
 	
 		<div class="project-list-section">
-			<div class="project-list-title">LATEST WORK</div>
+			<div class="project-list-title">Latest Work</div>
 			<ol class="project-list" style="height: 500px;">
 				{% for project in projects %}
 					{% if env.isProduction == false or project.published == true %}
 					<li class="project-item">
-						<h2 class="project-item-title">{{ project.title }}</h2>
-						<div class="project-item-media">
-							<img src="{{ project.images[0].rawUrl }}" alt="" height="300" width="300">
-						</div>
+						<a href="/projects/{{ project.slug }}">
+							<h2 class="project-item-title">{{ project.title }}</h2>
+							<div class="project-item-media">
+								<img src="{{ project.images[0].rawUrl }}" alt="" height="300" width="300">
+							</div>
+						</a>
 					</li>
 					{% endif %}
 				{% endfor %}
@@ -30,7 +32,4 @@ layout: default
 
 		<footer class="page-footer" style="text-align: left; position: static;">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 	</div>
-
-	
-	
 </div>

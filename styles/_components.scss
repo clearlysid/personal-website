@@ -7,7 +7,7 @@
 	max-width: 1200px;
 	padding: 0;
 	margin-bottom: 4rem;
-	padding-top: max(100px, 12vh);
+	padding-top: 100px;
 }
 
 .page-container {
@@ -171,7 +171,6 @@ body {
 }
 
 .blog {
-	// padding: 0 2rem;
 	display: grid;
 	grid-template-columns: 240px 240px auto;
 }
