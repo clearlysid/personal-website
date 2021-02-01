@@ -511,10 +511,6 @@ body {
 		letter-spacing: -0.03em;
 		color: #000000;
 		padding-bottom: 1rem;
-
-		span:last-child {
-			display: none;
-		}
 	}
 
 	footer {
@@ -640,4 +636,15 @@ body {
 
 .project-item-title:hover {
 	opacity: 1;
+}
+
+.home-grid > h1 > span {
+	display: inline-block;
+	transform-origin: bottom;
+	transition: all 0.2s ease-out;
+	cursor: pointer;
+}
+
+.home-grid > h1 > span:hover {
+	transform: scaleY(1.2);
 }

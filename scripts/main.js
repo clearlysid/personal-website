@@ -18,6 +18,12 @@ function init() {
 		document.querySelectorAll(".project-item").forEach((p, i) => {
 			new ProjectHover(p, i);
 		});
+
+		const homeTitle = document.querySelector(".home-grid > h1");
+
+		homeTitle.innerHTML = Array.from(homeTitle.innerText)
+			.map((l) => `<span>${l}</span>`)
+			.join("");
 	}
 }
 
@@ -26,6 +32,7 @@ init();
 const navButton = document.querySelector(".nav-button");
 const navMain = document.querySelector(".nav-main");
 
-navButton.addEventListener("click", () => {
-	navMain.classList.toggle("active");
-});
+if (navButton)
+	navButton.addEventListener("click", () => {
+		navMain.classList.toggle("active");
+	});
