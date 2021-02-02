@@ -1,3 +1,10 @@
+body {
+	position: relative;
+	min-height: 99vh;
+	height: 100%;
+	overflow: hidden;
+}
+
 .page-title {
 	font-family: "Manrope", sans-serif;
 	font-weight: 500;
@@ -164,18 +171,8 @@
 	margin: 1.2rem;
 }
 
-body {
-	position: relative;
-	min-height: 70vh;
-	height: 100%;
-}
-
 .handwritten {
 	font-family: "Give You Glory", sans-serif;
 	font-weight: normal;
 	letter-spacing: 0.003em;
-}
-
-.twitter-tweet {
-	min-height: 400px;
 }
