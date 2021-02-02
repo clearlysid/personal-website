@@ -22,6 +22,8 @@
 	{% endcomment %}
 	{{- content | safe -}}
 	
+
+	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 	<div class="scrollbar"></div>
 	<script src="{% webpackAsset 'main.js' %}"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G41TH7XN14"></script>

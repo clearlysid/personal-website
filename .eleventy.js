@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const NotionRenderer = require("./_includes/notion");
+const CloudinaryRenderer = require("./_includes/cloudinary");
 
 const manifestPath = path.resolve(
 	__dirname,
@@ -23,38 +25,12 @@ module.exports = function (eleventyConfig) {
 	});
 
 	// cloudinary image shortcode
-	eleventyConfig.addShortcode("cloudimage", (url, alt) => {
-		const formats = ["webp", "png"];
-		const widths = [500, 1000];
-		const caption = alt
-			? `<figcaption class="image-caption">${alt}<figcaption>`
-			: "";
+	eleventyConfig.addShortcode("cloudimage", (url, alt) =>
+		CloudinaryRenderer(url, alt)
+	);
 
-		const getCloudinaryLink = (format, width, source) => {
-			const cloudinary = `https://res.cloudinary.com/clearlysid/image/fetch`;
-			const encSource = encodeURIComponent(source);
-			const transforms = `f_${format},w_${width}`;
-			return `${cloudinary}/${transforms}/${encSource}`;
-		};
-
-		const picture = `<picture>${formats
-			.map(
-				(f) =>
-					`<source type="image/${f}" srcset="${widths
-						.map((w) => `${getCloudinaryLink(f, w, url)} ${w}w,`)
-						.join(
-							" "
-						)}" sizes="(min-width: 1000px) 1000px, (max-width: 700px) 100vw">`
-			)
-			.join("")}<img src="${getCloudinaryLink(
-			"png",
-			"500",
-			url
-		)}" alt="${alt}" loading="lazy"></picture>`;
-
-		// console.log(picture);
-		return picture + caption;
-	});
+	// Notion Renderer shortcode
+	eleventyConfig.addShortcode("notion", (blocks) => NotionRenderer(blocks));
 
 	// Copy all images directly to dist.
 	eleventyConfig.addPassthroughCopy({ assets: "assets" });
@@ -65,7 +41,6 @@ module.exports = function (eleventyConfig) {
 			input: ".",
 			data: "_data",
 			includes: "_includes", // relative to dir.input
-			layouts: "_layouts",
 			output: "public",
 		},
 		htmlTemplateEngine: "liquid",

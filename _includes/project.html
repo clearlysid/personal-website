@@ -1,19 +1,19 @@
 ---
-layout: default
+layout: "default"
 ---
 
 <div data-barba="container">
 	<a class="back-button" href="/">back</a>
 	<article class="project">
 		<header style="padding-top: 120px">
-			<h1 class="project-title">{{ title }}</h1>
+			<h1 class="project-title">{{ project.title }}</h1>
 			<div class="project-image">
 				<img src="{{ image }}" alt="">
 			</div>
 		</header>
 		
 		<main class="project-body">
-			{{ content | safe }}
+			{% notion project.blocks %}
 		</main>
 		
 		<footer class="project-footer" style="padding-bottom: 100px">
@@ -21,6 +21,5 @@ layout: default
 				Check out this other case study too!
 			</p>
 		</footer>
-		<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 	</article>
 </div>

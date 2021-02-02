@@ -1,5 +1,3 @@
-const NotionRenderer = require("./_includes/notionRenderer");
-
 class Posts {
 	data() {
 		return {
@@ -18,8 +16,7 @@ class Posts {
 		};
 	}
 	render(data) {
-		const blockRender = eval(`\`${NotionRenderer(data.post.blocks)}\``);
-		return blockRender;
+		return this.notion(data.post.blocks);
 	}
 }
 
