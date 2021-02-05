@@ -4,15 +4,14 @@ permalink: '/play/'
 title: Siddharth's Playground — Experiments in Design and Code
 ---
 
-<div class="page-container play" style="max-width: calc(900px + 4rem)">
+<div class="page-container play">
 
-	<header class="play-header">
+	<header>
 		<h1 class="page-title">Playground</h1>
-		<h2 class="page-subtitle">experiments in design and code.</h2>
+		<h2 class="page-subtitle">~ crude explorations of interesting things ~</h2>
 	</header>
 
 	<main class="play-grid">
-
 		{% for item in play %}
 			{% if item.published == true %}
 				<div class="play-item">

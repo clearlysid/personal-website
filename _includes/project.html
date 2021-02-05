@@ -2,11 +2,37 @@
 layout: "default"
 ---
 
-<div data-barba="container">
+<div class="page-container" data-barba="container">
 	<a class="back-button" href="/">back</a>
 	<article class="project">
-		<header style="padding-top: 120px">
+		<header>
 			<h1 class="project-title">{{ project.title }}</h1>
+
+			<div class="project-metadata">
+				{% if project.role != BLANK %}
+					<div>
+						<div class="overline">Role</div>
+						{% for role in project.role %}
+						<div class="tag">{{ role }}</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if project.company != BLANK %}
+					<div>
+						<div class="overline">Company</div>
+						<div class="tag">{{ project.company }}</div>
+					</div>
+				{% endif %}
+
+				{% if project.year != BLANK %}
+					<div>
+						<div class="overline">Year</div>
+						<div class="tag">{{ project.year }}</div>
+					</div>
+				{% endif %}
+			</div>
+
 			<div class="project-image">
 				<img src="{{ image }}" alt="">
 			</div>
