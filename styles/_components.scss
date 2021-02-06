@@ -21,9 +21,9 @@ body {
 }
 
 .page-container {
-	max-width: calc(1200px + 8vw);
+	max-width: calc(1200px + 16vw);
 	margin: 0 auto;
-	padding: 10.8rem max(1.5rem, 4vw) 0;
+	padding: 10.8rem max(1.5rem, 8vw) 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -273,11 +273,12 @@ body {
 
 @media (min-width: 800px) {
 	.project header {
-		margin-bottom: 8rem;
+		margin-bottom: 4rem;
+		height: max-content;
 	}
 
 	.project-title {
-		padding-top: 45px;
+		padding-top: 2.8rem;
 		max-width: 20ch;
 	}
 
@@ -287,13 +288,14 @@ body {
 		z-index: -1;
 		top: 0;
 		right: 0;
-		width: 590px;
-		height: 540px;
+		width: 50%;
+		height: 100%;
 		user-select: none;
 	}
 
 	.project-metadata {
 		width: max-content;
+		padding-bottom: 2.8rem;
 		column-gap: 42px;
 
 		& > div {

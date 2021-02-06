@@ -15,7 +15,8 @@
 .home .page-title,
 .home .page-subtitle {
 	position: relative;
-	max-width: 240px;
+	width: 75%;
+	max-width: 370px;
 }
 
 .hero-image {
@@ -48,7 +49,8 @@
 .project-item-title {
 	margin: 0;
 	padding: 0;
-	font-size: 20px;
+	font-size: max(20px, min(2.4vw, 32px));
+	// font-size: 20px;
 	font-weight: 500;
 	margin-bottom: 16px;
 }
@@ -64,12 +66,14 @@
 
 @media screen and (min-width: 800px) {
 	.home {
-		grid-template-columns: 500px auto;
-		column-gap: 100px;
+		grid-template-columns: min(30vw, 32rem) auto;
+		grid-template-columns: 1fr 1fr;
+		column-gap: min(8vw, 6.25rem);
 	}
 
 	.home .page-title,
 	.home .page-subtitle {
+		width: 100%;
 		max-width: 380px;
 	}
 
@@ -115,9 +119,6 @@
 		padding: 0;
 		transition: opacity 0.2s ease;
 		margin: 0;
-		font-size: 32px;
-		line-height: 1.4em;
-		letter-spacing: -0.03em;
 		width: 24ch;
 	}
 
