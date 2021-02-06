@@ -46,15 +46,13 @@ layout: default
 		</ul>
 	</header>
 	
-	
-
 	<main>
 		<div class="overline">Latest Work</div>
 		<ol class="project-list">
 			{% for project in projects %}
 				{% if env.isProduction == false or project.published == true %}
 				<li class="project-item">
-					<a href="/projects/{{ project.slug }}">
+					<a href="/work/{{ project.slug }}">
 						<h2 class="project-item-title">{{ project.title }}</h2>
 						<div class="project-item-media">
 							<img src="{{ project.images[0].rawUrl }}" alt="" height="300" width="300">

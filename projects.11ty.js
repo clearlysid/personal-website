@@ -6,7 +6,7 @@ class Projects {
 				size: 1,
 				alias: "project",
 			},
-			permalink: ({ project }) => `/projects/${project.slug}/`,
+			permalink: ({ project }) => `/work/${project.slug}/`,
 			layout: "project",
 			eleventyComputed: {
 				title: ({ project }) => project.title,
