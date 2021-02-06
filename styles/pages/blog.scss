@@ -14,6 +14,7 @@
 .post-list {
 	list-style: none;
 	padding: 0;
+	padding-bottom: 5rem;
 }
 
 .post-list-item {
@@ -50,7 +51,6 @@
 
 @media (min-width: 800px) {
 	.blog {
-		display: grid;
 		grid-template-columns: min(30vw, 25rem) auto;
 		column-gap: min(8vw, 6.25rem);
 	}
