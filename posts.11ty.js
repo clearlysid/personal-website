@@ -1,6 +1,4 @@
-const NotionRenderer = require("./_includes/notionRenderer");
-
-class Notion {
+class Posts {
 	data() {
 		return {
 			pagination: {
@@ -18,9 +16,8 @@ class Notion {
 		};
 	}
 	render(data) {
-		const blockRender = eval(`\`${NotionRenderer(data.post.blocks)}\``);
-		return blockRender;
+		return this.notion(data.post.blocks);
 	}
 }
 
-module.exports = Notion;
+module.exports = Posts;

@@ -1,3 +1,5 @@
+const cloudinaryRenderer = require("./cloudinary");
+
 module.exports = function NotionRenderer(blockMap) {
 	return renderBlock(0, blockMap);
 };
@@ -119,7 +121,7 @@ const renderAsset = (blockValue) => {
 				return `<img src="${sourceUrl}" alt="${caption}" >`;
 			}
 
-			return `\${this.cloudimage("${sourceUrl}", "${caption}")}`;
+			return cloudinaryRenderer(sourceUrl, caption);
 		case "figma":
 			return `<iframe class="notion" src="${
 				blockValue.properties.source[0][0]

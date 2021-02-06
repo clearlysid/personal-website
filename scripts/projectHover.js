@@ -1,5 +1,5 @@
 import anime from "animejs";
-import { map, lerp, clamp, getMousePos } from "./utils";
+import { map, lerp, clamp, getMousePos } from "./utilities";
 
 let mousepos = { x: 0, y: 0 };
 let mousePosCache = mousepos;

@@ -13,12 +13,6 @@ function init() {
 			});
 		}
 	}
-
-	if (document.querySelector(".project-list") && window.innerWidth > 700) {
-		document.querySelectorAll(".project-item").forEach((p, i) => {
-			new ProjectHover(p, i);
-		});
-	}
 }
 
 init();
@@ -26,6 +20,7 @@ init();
 const navButton = document.querySelector(".nav-button");
 const navMain = document.querySelector(".nav-main");
 
-navButton.addEventListener("click", () => {
-	navMain.classList.toggle("active");
-});
+if (navButton)
+	navButton.addEventListener("click", () => {
+		navMain.classList.toggle("active");
+	});

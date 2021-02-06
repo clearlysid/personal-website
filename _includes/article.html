@@ -1,13 +1,13 @@
 ---
-layout: default
-type: article
+layout: "default"
+type: "article"
 ---
 
 <div data-barba="container">
 	<a class="back-button" href="/blog/">back</a>
 	<article class="article">
-		<header style="padding-top: 120px">
-			<h1 class="article-title">{{ title }}</h1>
+		<header>
+			<h1 class="article-title">{{ post.page }}</h1>
 			<div class="article-date">{{ post.date | date: "%B %d, %Y"}}</div>
 			<div class="article-image">
 				{% cloudimage image %}
@@ -15,7 +15,7 @@ type: article
 		</header>
 		
 		<main class="article-body">
-			{{ content | safe }}
+			{{- content | safe -}}
 		</main>
 		
 		<footer class="article-footer" style="padding-bottom: 100px">
@@ -29,6 +29,5 @@ type: article
 				</a>
 			</p>
 		</footer>
-		<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
 	</article>
 </div>
