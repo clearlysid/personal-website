@@ -6,7 +6,7 @@ Deployed on [![Netlify Status](https://api.netlify.com/api/v1/badges/4fc3be70-90
 
 ## Usage
 
-If you want to clone this site for your own personal use, or as a starting point for a project, then feel free to do so by all means. Although I will really appreciate attribution since I've spent a lot of time and effort on this. It would be a really shitty move if you literally passed this off as your own work.
+If you want to clone this site for your own personal use, or as a starting point for a project, feel free to do so by all means. Although I will appreciate attribution, since I've spent a lot of time and effort on this. It would be a really shitty move if you literally passed this off as your own work.
 
 ### Instructions
 
@@ -18,4 +18,6 @@ If you want to clone this site for your own personal use, or as a starting point
 
 As part of this project I also wrote an HTML renderer for Notion data, it can potentially be abstracted out of this project and used as a standalone package. I will likely get around to it at some point and but you're also welcome to give it a shot.
 
-There's a lot more design and animation work still to be done and, as my life changes around me, the project will evolve alongside it.
+There's a lot more design and animation work still to be done, plus I'm thinking of exploring sound and 3D in the browser as part of this project.
+
+As my life changes around me, this website will continue to evolve alongside it.

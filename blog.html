@@ -17,7 +17,7 @@ title: Siddharth's Blog — On design, tech and product!
 		<ol class="post-list">
 			{% for post in posts %}
 				{% if env.isProduction == false or post.published == true %}
-				<li class="post-list-item">
+				<li class="post-list-item" data-tags="{{ post.tags | join ' ' }}">
 					<a href="/blog/{{ post.slug }}">
 						<div class="post-list-date">{{ post.date | date: "%d/%m" }}</div>
 						<div class="post-list-title">{{ post.page }}</div>
