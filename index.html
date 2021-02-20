@@ -2,11 +2,12 @@
 layout: default
 ---
 
-<div class="page-container home">
+<div class="page-container home" data-barba="container" data-barba-namespace="home">
 	<header>
 		<h1 class="page-title">siddharth</h1>
 		<h2 class="page-subtitle">The product focused UX Engineer at Headout who loves playing with design systems, animation & code.</h2>
-		<img class="hero-image" src="https://res.cloudinary.com/clearlysid/image/upload/v1612545640/dummy_gbpmum.jpg" width="290" height="650">
+		<!-- <img class="hero-image" src="https://res.cloudinary.com/clearlysid/image/upload/v1612545640/dummy_gbpmum.jpg" width="290" height="650"> -->
+		<img class="hero-image" src="https://res.cloudinary.com/clearlysid/image/upload/w_400/v1612632013/tp-2_r8ioub.jpg" width="290" height="650">
 		<ul class="social-links">
 			<li>
 				<a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">
@@ -49,8 +50,8 @@ layout: default
 	<main>
 		<div class="overline">Latest Work</div>
 		<ol class="project-list">
-			{% for project in projects %}
-				{% if env.isProduction == false or project.published == true %}
+			{% assign ft_projects = projects | where: "featured", true %}
+			{% for project in ft_projects %}
 				<li class="project-item">
 					<a href="/work/{{ project.slug }}">
 						<h2 class="project-item-title">{{ project.title }}</h2>
@@ -59,8 +60,7 @@ layout: default
 						</div>
 					</a>
 				</li>
-				{% endif %}
-			{% endfor %}
+			{% endfor %} 
 		</ol>
 	</main>
 

@@ -20,4 +20,8 @@ const getMousePos = (e) => {
 	return { x: posx, y: posy };
 };
 
-export { map, lerp, clamp, getMousePos };
+const getIsMobile = () => {
+	return window.innerWidth < 700;
+};
+
+export { map, lerp, clamp, getMousePos, getIsMobile };

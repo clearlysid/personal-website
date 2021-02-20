@@ -2,9 +2,9 @@
 layout: "default"
 ---
 
-<div class="page-container" data-barba="container">
+<div class="page-container project" data-barba="container" data-barba-namespace="project">
 	<a class="back-button" href="/">back</a>
-	<article class="project">
+	<article class="project" data-scroll-section >
 		<header>
 			<h1 class="project-title">{{ project.title }}</h1>
 
@@ -33,7 +33,7 @@ layout: "default"
 				{% endif %}
 			</div>
 
-			<div class="project-image">
+			<div class="project-image" data-scroll data-scroll-speed="-4">
 				<img src="{{ image }}" alt="">
 			</div>
 		</header>
