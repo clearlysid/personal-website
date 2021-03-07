@@ -4,7 +4,6 @@ body {
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	// overflow: hidden;
 }
 
 .page-title {
@@ -163,16 +162,89 @@ body {
 	transform: translateX(0);
 }
 
-.nav-button {
+.burger {
 	z-index: 10;
 	position: relative;
 	padding: 0.8rem;
-	background: black;
-	border-radius: 4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin: 2rem;
+	display: block;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+	background-color: transparent;
+	border: 0;
+}
+
+.active .burger-inner::before,
+.active .burger-inner::after {
+	background-color: #000;
+}
+
+.burger-box {
+	width: 2rem;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+
+.burger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -2px;
+}
+.burger-inner,
+.burger-inner::before,
+.burger-inner::after {
+	width: 100%;
+	height: 2px;
+	border-radius: 4px;
+	position: absolute;
+	transition-property: transform, background-color;
+	transition-duration: 0.15s;
+	transition-timing-function: ease;
+}
+.burger-inner::before,
+.burger-inner::after {
+	content: "";
+	display: block;
+	background-color: #000;
+}
+.burger-inner::before {
+	top: -4px;
+}
+.burger-inner::after {
+	bottom: -4px;
+}
+
+.burger--spin-r .burger-inner {
+	transition-duration: 0.22s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.burger--spin-r .burger-inner::before {
+	transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+.burger--spin-r .burger-inner::after {
+	transition: bottom 0.1s 0.25s ease-in,
+		transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.active .burger-inner {
+	transform: rotate(-225deg);
+	background-color: black;
+	transition-delay: 0.12s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.active .burger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+.active .burger-inner::after {
+	bottom: 0;
+	transform: rotate(90deg);
+	transition: bottom 0.1s ease-out,
+		transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .handwritten {
@@ -246,10 +318,9 @@ body {
 .project-image {
 	grid-row: 2;
 	height: 10rem;
-
-	img {
-		border-radius: 4px;
-	}
+	border-radius: 4px;
+	overflow: hidden;
+	background: lightgray;
 }
 
 .project-metadata {
@@ -292,7 +363,6 @@ body {
 		width: 50%;
 		height: 100%;
 		user-select: none;
-		background: lightcyan;
 	}
 
 	.project-metadata {

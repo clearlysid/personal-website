@@ -36,7 +36,6 @@ function init() {
 			lerp: 0.1,
 		});
 	}
-
 	if (!isMobile) {
 		document
 			.querySelectorAll(".project-item")
@@ -75,102 +74,46 @@ const animationLeave = (container, done) => {
 	});
 };
 
-let obb;
-let ibb;
+let projectScroll;
 
 // init Barba
-barba.init({
-	transitions: [
-		{
-			name: "homeToProject",
-			from: {
-				namespace: ["home"],
-			},
-			to: {
-				namespace: ["project"],
-			},
-			sync: true,
-			once({ next }) {
-				animationEnter(next.container);
-				console.log("once");
-			},
-			leave(data) {
-				obb = data.trigger
-					.querySelector(".project-item-media")
-					.getBoundingClientRect();
-				const projectImage = document.querySelector(".project-image");
-				ibb = projectImage.getBoundingClientRect();
-				console.log(ibb);
-
-				const done = this.async();
-
-				const scaleX = ibb.width / obb.width;
-				const scaleY = ibb.height / obb.height;
-				const posX = Math.abs(obb.x - ibb.x);
-				const posY = Math.abs(obb.y - ibb.y);
-
-				console.log(scaleX, scaleY, posX, posY);
-
-				anime({
-					targets: data.trigger.querySelector(".project-item-media"),
-					top: ibb.y,
-					scaleX: scaleX,
-					scaleY: scaleY,
-					duration: 1000,
-					easing: "easeOutQuad",
-					complete: () => {
-						done();
-						anime.remove(".project-item-media");
-					},
-				});
-				// animationLeave(data.current.container, done);
-			},
-			enter(data) {
-				// console.log(obb);
-				// const projectImage = document.querySelector(".project-image");
-				// ibb = projectImage.getBoundingClientRect();
-				// console.log(ibb);
-
-				// anime({
-				// 	targets: ".project-image",
-				// 	translateX: [`${posX}px`, "0px"],
-				// 	translateY: [`${posY}px`, "0px"],
-				// 	scaleX: [scaleX, 1],
-				// 	scaleY: [scaleY, 1],
-				// 	duration: 1000,
-				// 	easing: "easeOutQuad",
-				// 	complete: () => {
-				// 		anime.remove(".project-image");
-				// 		scroll.update();
-				// 	},
-				// });
-				// animationEnter(data.next.container);
-				console.log("entering");
-			},
-			afterEnter(data) {
-				init();
-			},
-		},
-	],
-	views: [
-		{
-			namespace: "home",
-			beforeLeave(data) {
-				// cleanup home
-				console.log("cleanup home scripts here");
-				scroll.destroy();
-			},
-			afterEnter(data) {
-				init();
-			},
-		},
-		{
-			namespace: "project",
-			beforeLeave(data) {
-				// cleanup project
-				console.log("cleanup project scripts here");
-				scroll.destroy();
-			},
-		},
-	],
-});
+// barba.init({
+// 	transitions: [
+// 		{
+// 			name: "homeToProject",
+// 			from: {
+// 				namespace: ["home"],
+// 			},
+// 			to: {
+// 				namespace: ["project"],
+// 			},
+// 			sync: true,
+// 			once({ next }) {
+// 				animationEnter(next.container);
+// 				console.log("once");
+// 			},
+// 		},
+// 	],
+// 	views: [
+// 		{
+// 			namespace: "home",
+// 			beforeLeave(data) {
+// 				// cleanup home
+// 				console.log("home cleanup");
+// 			},
+// 			afterEnter(data) {
+// 				init();
+// 			},
+// 		},
+// 		{
+// 			namespace: "project",
+// 			afterEnter(data) {
+// 				init();
+// 			},
+// 			beforeLeave(data) {
+// 				// cleanup project
+// 				console.log("project cleanup");
+// 			},
+// 		},
+// 	],
+// });
