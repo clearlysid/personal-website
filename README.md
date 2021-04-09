@@ -21,3 +21,27 @@ As part of this project I also wrote an HTML renderer for Notion data, it can po
 There's a lot more design and animation work still to be done, plus I'm thinking of exploring sound and 3D in the browser as part of this project.
 
 As my life changes around me, this website will continue to evolve alongside it.
+
+
+
+
+
+hello world just testing out the new typewriter mode thingy not sure how it works
+
+
+
+looks good so far thou
+
+
+
+asdsaasfasf
+
+
+
+asfsa
+
+f
+
+asfasfaf
+
+asfaf

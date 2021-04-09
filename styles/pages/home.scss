@@ -43,7 +43,7 @@
 	grid-template-columns: 1fr;
 	grid-auto-rows: max-content;
 	row-gap: 3rem;
-	margin-bottom: 100px;
+	margin-bottom: 6.25rem;
 }
 
 .project-item-title {
@@ -57,7 +57,7 @@
 
 .project-item-media {
 	width: 100%;
-	height: max(140px, min(80vw, 300px));
+	height: max(140px, min(40vw, 300px));
 
 	img {
 		border-radius: 4px;
@@ -69,6 +69,15 @@
 		grid-template-columns: min(30vw, 32rem) auto;
 		grid-template-columns: 1fr 1fr;
 		column-gap: min(8vw, 6.25rem);
+		height: 100vh;
+		padding-top: 0;
+		padding-bottom: 0;
+		align-items: center;
+	}
+
+	.home header {
+		height: 60vh;
+		max-height: 700px;
 	}
 
 	.home .page-title,
@@ -108,10 +117,14 @@
 
 	.hero-image {
 		width: 290px;
-		height: 650px;
+		height: 100%;
 		top: -2rem;
 		right: 0;
 		transform: rotate(0);
+	}
+
+	.project-list {
+		margin-bottom: 3rem;
 	}
 
 	.project-item-title {
@@ -119,20 +132,14 @@
 		padding: 0;
 		transition: opacity 0.2s ease;
 		margin: 0;
-		width: 24ch;
+		width: 25ch;
 	}
 
 	.project-item-media {
 		position: absolute;
-		height: 300px;
-		width: 200px;
-		top: calc(50% - 150px);
-		right: 0;
-		transform: translateX(100%);
-		transition: transform 0.2s ease-out;
-	}
-
-	.project-item-title:hover + .project-item-media {
-		transform: translateX(0%);
+		height: 100px;
+		width: 150px;
+		opacity: 0;
+		z-index: -1;
 	}
 }

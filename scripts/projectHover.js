@@ -49,7 +49,7 @@ export default class ProjectHover {
 		anime({
 			targets: this.DOM.media,
 			duration: 200,
-			opacity: 0.4,
+			opacity: 0.6,
 			translateX: [direction.x < 0 ? "+=40%" : "-=40%", 0],
 			easing: "easeOutSine",
 		});
@@ -108,10 +108,10 @@ export default class ProjectHover {
 		this.animProps.tx.current = clamp(
 			mousepos.x - this.bounds.el.left - this.bounds.media.width / 2,
 			-20,
-			120
+			200
 		);
 		this.animProps.ty.current =
-			mousepos.y - this.bounds.el.top - this.bounds.media.height / 2;
+			mousepos.y - this.bounds.el.top - this.bounds.media.height / 2 - 50;
 
 		// this.animProps.tx.current = mousepos.x - 480;
 		// this.animProps.ty.current = mousepos.y - this.bounds.el.top - 100;
