@@ -53,7 +53,7 @@ if (navButton)
 		navMain.classList.toggle("active");
 	});
 
-if (!isMobile) renderCursor();
+// if (!isMobile) renderCursor();
 
 const animationEnter = (container) => {
 	return anime({
