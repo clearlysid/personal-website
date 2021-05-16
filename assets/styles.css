@@ -11,6 +11,7 @@ html {
 }
 
 body {
+	position: relative;
 	font-size: 14px;
 	line-height: 20px;
 	font-weight: normal;
@@ -379,9 +380,15 @@ article a:hover {
 .page-navigation,
 .footer {
 	text-align: center;
-	max-width: 500px;
+	max-width: 100%;
+	width: 100%;
 	margin: 0 auto;
 	font-size: 0.8rem;
+}
+
+.footer {
+	position: absolute;
+	bottom: 20px;
 }
 
 .page-navigation {

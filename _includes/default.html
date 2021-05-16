@@ -10,14 +10,16 @@
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
 	{%- include seo.html -%}
 </head>
-<body>
+<!-- <style>*{box-sizing:border-box;line-height:1.4;}img{display:block;width:100%;height:auto;}ol,ul,li{padding:0;list-style-position:outside;}</style> -->
+<body style="max-width: 640px; margin: 0px auto; padding: 40px 0 100px; min-height: 100vh;">
 	{% comment %}
 	{%- include navigation.html -%}
 	{% endcomment %}
 
+
 	<aside class="logo">
 		<a href="/blog/">
-			<img src="/assets/profile.jpg" alt="" class="logo-avatar">
+			<img src="/assets/profile.jpg" alt="" class="logo-avatar" height="100" width="120" style="height: 100px; width: 100px; object-fit: cover;">
 		</a>
 		<span class="logo-prompt code">Siddharth Jha</span>
 	</aside>
@@ -26,7 +28,6 @@
 		{{- content | safe -}}
 	</div>
 
-	
 	<footer class="footer">
 		<span class="block">&copy;{{ "now" | date: "%Y" }} Siddharth Jha</span>
 		<span class="block"><small>Built on 11ty via Notion</small></span>
