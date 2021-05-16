@@ -6,9 +6,9 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"build": "npm-run-all clean build:assets build:site",
+		"build": "npx @11ty/eleventy",
 		"clean": "rm -rf ./.cache",
-		"dev": "npm-run-all webpack:assets --parallel dev:*"
+		"dev": "npx @11ty/eleventy --serve"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
