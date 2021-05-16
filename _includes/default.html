@@ -3,25 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.gstatic.com"> 
-	<link rel="preload" as="font" href="/assets/fonts/hk-grotesk/hkgrotesk-semibold.woff2" crossorigin="anonymous">
-	<link rel="preload" as="font" href="/assets/fonts/hk-grotesk/hkgrotesk-regular.woff2" crossorigin="anonymous">
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Inconsolata&family=Manrope:wght@400;500;700&display=swap">
+	<link rel="stylesheet" href="/assets/styles.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
 	{%- include seo.html -%}
 </head>
-<body data-barba="wrapper">
+<body>
 	{% comment %}
+	{%- include navigation.html -%}
 	{% endcomment %}
 
-	{%- include navigation.html -%}
 
-	{{- content | safe -}}
+	<aside class="logo">
+
+		{% if page.url == '/index.html' or page.url == '/' %}
+			{% assign link = '/about' %}
+			{% assign prompt = 'About the Author' %}
+		{% else %}
+			{% assign link = '/' %}
+			{% assign prompt = 'Back to Index' %}
+		{% endif %}
 	
-	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
+		<a href="/">
+			<img src="{{ site.logo_url }}" alt="" class="logo-avatar">
+		</a>
+		<span class="logo-prompt code">Siddharth Jha</span>
+	
+	</aside>
 
+	<div id="content">
+		{{- content | safe -}}
+	</div>
+
+	
+	<footer class="footer">
+		<span class="block">&copy;{{ "now" | date: "%Y" }} Siddharth Jha</span>
+		<span class="block"><small>Built on 11ty via Notion</small></span>
+	</footer>
 </body>
 </html>

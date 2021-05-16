@@ -4,28 +4,38 @@ permalink: '/blog/'
 title: Siddharth's Blog — On design, tech and product!
 ---
 
-<div class="page-container blog" data-barba="container">
 
-	<header class="blog-header">
-		<h1 class="page-title">notes by @clearlysid</h1>
-		<h2 class="page-subtitle">chronicling his career in design, product and tech. Occasionally some personal stuff too.</h2>
-	</header>
 
-	<main>
-		<div class="overline">All Notes</div>
-	
-		<ol class="post-list">
-			{% for post in posts %}
+
+
+	<section>
+
+		{% for post in posts %}
+			{% unless post.next %}
+				<h3 class="code">{{ post.date | date: '%Y' }}</h3>
+			{% else %}
+				{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+				{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+				{% if year != nyear %}
+					<h3 class="code">{{ post.date | date: '%Y' }}</h3>
+				{% endif %}
+			{% endunless %}
+
+			<ul>
 				{% if env.isProduction == false or post.published == true %}
-				<li class="post-list-item" data-tags="{{ post.tags | join ' ' }}">
-					<a href="/blog/{{ post.slug }}">
-						<div class="post-list-date">{{ post.date | date: "%d/%m" }}</div>
-						<div class="post-list-title">{{ post.page }}</div>
-					</a>
+				<li>
+					<div class="post-date code">
+						<span>{{ post.date | date: "%b %d" }}</span>
+					</div>
+					<div class="title">
+						<a href="/blog/{{ post.slug }}">{{ post.page }}</a>
+					</div>
 				</li>
 				{% endif %}
-			{% endfor %}
-		</ol>
-	</main>
+			</ul>
 
+		{% endfor %}
+	</section>
 </div>
+
+	
