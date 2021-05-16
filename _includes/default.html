@@ -15,22 +15,11 @@
 	{%- include navigation.html -%}
 	{% endcomment %}
 
-
 	<aside class="logo">
-
-		{% if page.url == '/index.html' or page.url == '/' %}
-			{% assign link = '/about' %}
-			{% assign prompt = 'About the Author' %}
-		{% else %}
-			{% assign link = '/' %}
-			{% assign prompt = 'Back to Index' %}
-		{% endif %}
-	
-		<a href="/">
-			<img src="{{ site.logo_url }}" alt="" class="logo-avatar">
+		<a href="/blog/">
+			<img src="/assets/profile.jpg" alt="" class="logo-avatar">
 		</a>
 		<span class="logo-prompt code">Siddharth Jha</span>
-	
 	</aside>
 
 	<div id="content">

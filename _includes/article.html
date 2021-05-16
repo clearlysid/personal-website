@@ -3,31 +3,17 @@ layout: "default"
 type: "article"
 ---
 
-<div data-barba="container">
-	<a class="back-button" href="/blog/">back</a>
-	<article class="article">
-		<header>
-			<h1 class="article-title">{{ post.page }}</h1>
-			<div class="article-date">{{ post.date | date: "%B %d, %Y"}}</div>
-			<div class="article-image">
-				{% cloudimage image %}
-			</div>
-		</header>
-		
-		<main class="article-body">
-			{{- content | safe -}}
-		</main>
-		
-		<footer class="article-footer" style="padding-bottom: 100px">
-			<p style="font-style: normal">
-				Thanks for reading! <br>
-				<a href="mailto:hey@sidds.me" target="_blank">
-					hey@sidds.me</a>
-				/
-				<a href="https://www.twitter.com/clearlysid" target="_blank" rel="noreferrer">
-					@clearlysid
-				</a>
-			</p>
-		</footer>
-	</article>
+<article>
+	<div class="center">
+		<h1 class="title">{{ post.page }}</h1>
+		<time class="code">{{ page.date | date: '%B %d, %Y' }}</time>
+	</div>
+	<div class="divider"></div>
+	{{- content | safe -}}
+
+	<p>Thanks for reading!</p>
+</article>
+
+<div class="page-navigation code">
+	<a class="home" href="/blog/">Back Home</a>
 </div>
