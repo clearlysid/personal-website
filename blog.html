@@ -4,28 +4,20 @@ permalink: '/blog/'
 title: Siddharth's Blog — On design, tech and product!
 ---
 
-<div class="page-container blog" data-barba="container">
+<section>
+	{% for post in posts %}
+		<ul>
+			{% if env.isProduction == false or post.published == true %}
+			<li>
+				<div class="post-date code">
+					<span>{{ post.date | date: "%b %d %Y" }}</span>
+				</div>
+				<div class="title">
+					<a href="/blog/{{ post.slug }}">{{ post.page }}</a>
+				</div>
+			</li>
+			{% endif %}
+		</ul>
 
-	<header class="blog-header">
-		<h1 class="page-title">notes by @clearlysid</h1>
-		<h2 class="page-subtitle">chronicling his career in design, product and tech. Occasionally some personal stuff too.</h2>
-	</header>
-
-	<main>
-		<div class="overline">All Notes</div>
-	
-		<ol class="post-list">
-			{% for post in posts %}
-				{% if env.isProduction == false or post.published == true %}
-				<li class="post-list-item" data-tags="{{ post.tags | join ' ' }}">
-					<a href="/blog/{{ post.slug }}">
-						<div class="post-list-date">{{ post.date | date: "%d/%m" }}</div>
-						<div class="post-list-title">{{ post.page }}</div>
-					</a>
-				</li>
-				{% endif %}
-			{% endfor %}
-		</ol>
-	</main>
-
-</div>
+	{% endfor %}
+</section>

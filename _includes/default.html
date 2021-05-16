@@ -3,36 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.gstatic.com"> 
-	<link rel="preload" as="font" href="/assets/fonts/hk-grotesk/hkgrotesk-semibold.woff2" crossorigin="anonymous">
-	<link rel="preload" as="font" href="/assets/fonts/hk-grotesk/hkgrotesk-regular.woff2" crossorigin="anonymous">
-	<link rel="preload" as="style" href="{% webpackAsset 'main.css' %}">
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Inconsolata&family=Manrope:wght@400;500;700&display=swap">
+	<!-- <link rel="stylesheet" href="/assets/styles.css"> -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Inconsolata&family=Manrope:wght@400;500;700&display=swap">
-	<link rel="stylesheet" href="{% webpackAsset 'main.css' %}">
 	{%- include seo.html -%}
 </head>
-<body data-barba="wrapper">
+<style>*{box-sizing:border-box;line-height:1.4;}img{display:block;width:100%;height:auto;}ol,ul,li{padding:0;list-style-position:outside;}</style>
+<body style="max-width: 520px; margin: 0px auto; padding: 40px 0 100px; min-height: 100vh; background-color: linen;">
 	{% comment %}
+	{%- include navigation.html -%}
 	{% endcomment %}
 
-	{%- include navigation.html -%}
+	<aside class="logo">
+		<a href="/blog/">
+			<img src="/assets/nostalgia.gif" alt="clearlysid holding a crystal ball about to save club penguin from dying" class="logo-avatar" height="100" width="120" style="height: 100px; width: 100px; object-fit: cover;">
+		</a>
+		<marquee>
+			<span class="logo-prompt code"><a href="https://www.twitter.com/clearlysid" target="_blank">@clearlysid</a> went back in time <span style="color:purple">~ ᕕ(ᐛ)ᕗ</span></span>
+		</marquee>
+	</aside>
 
-	{{- content | safe -}}
-	
-	<footer class="page-footer">Copyleft ©{{ "now" | date: "%Y" }}, Built on 11ty via Notion.</footer>
-	<div class="scrollbar"></div>
-	<script src="{% webpackAsset 'main.js' %}"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G41TH7XN14"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-G41TH7XN14');
-	</script>
+	<div id="content">
+		{{- content | safe -}}
+	</div>
+
+	<footer class="footer">
+		<span class="block">&copy;{{ "now" | date: "%Y" }} Siddharth Jha</span>
+		<span class="block"><small>Built on 11ty via Notion</small></span>
+	</footer>
 </body>
 </html>

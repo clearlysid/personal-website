@@ -145,15 +145,16 @@ const renderAsset = (blockValue) => {
 };
 
 const renderCodeBlock = (content, language) => {
-	const Prism = require("prismjs");
+	// const Prism = require("prismjs");
 
-	// TODO: add support for other languages
-	const highlightedCode = Prism.highlight(
-		content,
-		Prism.languages.javascript,
-		"javascript"
-	);
-	return `<pre><code class="${language}-code">${highlightedCode}</code></pre>`;
+	// // TODO: add support for other languages
+	// const highlightedCode = Prism.highlight(
+	// 	content,
+	// 	Prism.languages.javascript,
+	// 	"javascript"
+	// );
+	// return `<pre><code class="${language}-code">${highlightedCode}</code></pre>`;
+	return `<pre><code class="${language}-code">${content}</code></pre>`;
 };
 
 // TODO: Refactor classnames to be "notion" + "block-type"
