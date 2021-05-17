@@ -7,10 +7,4 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode("cloudimage", (url, alt) =>
 		CloudinaryRenderer(url, alt)
 	);
-
-	return {
-		dir: {
-			output: "public",
-		},
-	};
 };

@@ -1,6 +1,6 @@
 [build]
   command = "yarn build"
-  publish = "public"
+  publish = "_site"
 
 [[redirects]]
   from = "/"
