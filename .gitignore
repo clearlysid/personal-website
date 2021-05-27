@@ -54,10 +54,6 @@ typings/
 # dotenv environment variable files
 .env*
 
-# NextJS files
-.next
-out/
-
 # Mac files
 .DS_Store
 
@@ -68,8 +64,5 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-dist
-public/
+_site
 .cache
-.DS_STORE
-z_refs.txt
