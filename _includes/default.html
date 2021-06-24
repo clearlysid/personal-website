@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'>
 	<link rel="stylesheet" href="/assets/styles.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
@@ -17,11 +16,9 @@
 	{%- include navigation.html -%}
 	{% endcomment %}
 
-	<aside class="logo">
-		<a href="/blog/">
-			<img src="/assets/profile.jpg" alt="clearlysid in full glory" class="logo-avatar" height="100" width="100">
-		</a>
-	</aside>
+	<a href="/blog/">
+		<h1 style="text-align: center; margin-bottom: 2em;">Siddharth / @clearlysid</h1>
+	</a>
 
 	<div id="content">
 		{{- content | safe -}}
@@ -31,5 +28,11 @@
 		<span class="block">&copy;{{ "now" | date: "%Y" }} Siddharth Jha</span>
 		<span class="block"><small>Built on 11ty via Notion</small></span>
 	</footer>
+    {% if build.env == "production" %}
+        {% viteScript "scripts/main.js" %}
+    {% else %}
+        <script type="module" src="http://localhost:3000/@vite/client"></script>
+        <script type="module" src="http://localhost:3000/scripts/main.js"></script>
+    {% endif %}
 </body>
 </html>

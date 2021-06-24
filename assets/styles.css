@@ -12,7 +12,7 @@ html {
 
 body {
 	position: relative;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 20px;
 	font-weight: normal;
 	font-style: normal;
@@ -22,7 +22,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 	min-height: 100vh;
-	max-width: 540px;
+	max-width: 640px;
 	margin: 0px auto;
 	padding: 40px 0 100px;
 }
@@ -89,49 +89,11 @@ mark {
 }
 
 blockquote {
-	border-left: 5px solid #ccc;
-	margin: 40px 0;
-	padding: 5px 30px;
-	background: #eee;
-}
-
-.logo {
-	position: relative;
-	margin: 0 auto 48px;
-	text-align: center;
-}
-
-.logo a {
-	height: 100px;
-	width: 100px;
-	font-size: 1.5em;
-	border-radius: 100%;
-	display: inline-block;
-	text-align: center;
-	line-height: 100px;
-	box-sizing: border-box;
-	transition: transform 0.2s ease;
-}
-
-.logo a:hover {
-	transform: translateY(-6%);
-}
-
-.logo a .logo-avatar {
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-}
-
-@media (max-width: 480px) {
-	.logo a:hover + .logo-prompt,
-	.logo a:focus + .logo-prompt {
-		display: none !important;
-	}
+	border: 1px solid lightgray;
+	border-left: 4px solid lightgray;
+	margin: 3em 0;
+	padding: 1em 2em;
+	line-height: 1.6em;
 }
 
 iframe {
@@ -273,10 +235,11 @@ article hr {
 	margin: 30px 0;
 }
 
-article p {
-	font-size: 15px;
-	line-height: 1.9em;
+article p,
+article li {
+	line-height: 1.8em;
 	word-wrap: break-word;
+	color: #222;
 }
 
 article .footnote {
@@ -385,7 +348,7 @@ article a:hover {
 }
 
 section {
-	max-width: 500px;
+	max-width: 580px;
 	margin: 0 auto 50px auto;
 }
 
@@ -396,7 +359,7 @@ section ul {
 }
 
 section ul li {
-	margin: 25px 0;
+	margin: 1.2rem 0;
 }
 
 section ul li .title {
@@ -407,34 +370,32 @@ section ul li .title {
 section ul li a {
 	text-decoration: none;
 	border: 0;
-	color: #000;
+	color: #222;
 	box-sizing: border-box;
 }
 
 section ul li .post-date {
 	float: right;
-	margin: 0 0 0 20px;
-	font-size: 0.6rem;
+	font-size: 0.8rem;
 }
 
 time {
-	font-size: 0.8rem;
-	text-transform: uppercase;
+	font-size: 1rem;
+	color: darkgray;
 }
 
 section ul li span {
 	display: inline-block;
-	color: #757575;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+	color: darkgray;
+	letter-spacing: 0.4px;
 }
 
 @media (min-width: 992px) {
 	section ul li a {
-		border-bottom: 1px solid transparent;
+		border-bottom: 1px dashed lightgray;
 	}
 
 	section ul li a:hover {
-		border-color: #000;
+		border-bottom: 1px solid black;
 	}
 }
