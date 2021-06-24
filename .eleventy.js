@@ -1,6 +1,6 @@
 const RenderNotion = require("./_includes/notion");
 const Cloudinary = require("./_includes/cloudinary");
-const fs = require("fs/promises");
+const fs = require("fs").promises;
 const path = require("path");
 
 module.exports = function (eleventyConfig) {
