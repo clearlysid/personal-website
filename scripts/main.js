@@ -1,4 +1,5 @@
 import ParticleText from "./particleText";
+import "../styles/main.scss";
 
 function TestVite() {
 	setTimeout(() => {

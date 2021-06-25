@@ -4,7 +4,7 @@ export default defineConfig({
 	logLevel: "error",
 	build: {
 		outDir: "_site",
-		assetsDir: "scripts",
+		assetsDir: "assets",
 		sourcemap: true, // technically optional
 		manifest: true, // need this to write script tags
 		rollupOptions: {

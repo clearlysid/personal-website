@@ -9,17 +9,30 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode("cloudimage", (u, a) => Cloudinary(u, a));
 
 	// Read Vite's manifest.json, add script tags for entry files
-	// You could decide to do more things here, such as adding preload/prefetch tags
-	// for dynamic segments
-	// NOTE: There is some hard-coding going on here, with regard to the assetDir
-	// and location of manifest.json
 	// you could probably read vite.config.js and get that information directly
 	// @see https://vitejs.dev/guide/backend-integration.html
 	eleventyConfig.addShortcode("viteScript", viteScript);
+	eleventyConfig.addShortcode("viteStyles", viteStyles);
 
 	async function viteScript(entryFilename) {
 		const entryChunk = await getChunkInformationFor(entryFilename);
 		return `<script type="module" src="/${entryChunk.file}"></script>`;
+	}
+
+	async function viteStyles(entryFilename) {
+		const entryChunk = await getChunkInformationFor(entryFilename);
+		if (!entryChunk.css || entryChunk.css.length === 0) {
+			console.warn(
+				`No css found for ${entryFilename} entry. Is that correct?`
+			);
+			return "";
+		}
+		/* There can be multiple CSS files per entry, so assume many by default */
+		return entryChunk.css
+			.map(
+				(cssFile) => `<link rel="stylesheet" href="/${cssFile}"></link>`
+			)
+			.join("\n");
 	}
 
 	async function getChunkInformationFor(entryFilename) {

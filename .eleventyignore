@@ -1,2 +1,3 @@
 # Tell 11ty to ignore stuff Vite is serving/building
-scripts/*.js
+scripts/*
+styles/*
