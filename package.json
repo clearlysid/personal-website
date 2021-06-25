@@ -16,8 +16,8 @@
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
 		"@11ty/eleventy-cache-assets": "^2.0.4",
-		"animejs": "^3.2.1",
 		"concurrently": "^6.2.0",
+		"gsap": "^3.7.0",
 		"serve": "^12.0.0",
 		"vite": "^2.3.8"
 	}

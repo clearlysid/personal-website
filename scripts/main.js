@@ -1,3 +1,5 @@
+import ParticleText from "./particleText";
+
 function TestVite() {
 	setTimeout(() => {
 		if (import.meta.env.DEV === true) {
@@ -10,3 +12,4 @@ function TestVite() {
 }
 
 TestVite();
+ParticleText();
