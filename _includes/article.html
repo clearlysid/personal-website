@@ -3,17 +3,17 @@ layout: "default"
 type: "article"
 ---
 
+<a href="/blog/" class="article-back">
+	← all notes
+</a>
+
 <article>
-	<div class="center">
-		<h1 class="title">{{ post.page }}</h1>
-		<time class="code">{{ page.date | date: '%B %d, %Y' }}</time>
-	</div>
-	<div class="divider"></div>
+	<header class="article-header">
+		<h1 class="article-title">{{ post.page }}</h1>
+		<time>{{ page.date | date: '%B %d, %Y' }}</time>
+	</header>
+
 	{{- content | safe -}}
 
 	<p>Thanks for reading!</p>
 </article>
-
-<div class="page-navigation code">
-	<a class="home" href="/blog/">Back Home</a>
-</div>
