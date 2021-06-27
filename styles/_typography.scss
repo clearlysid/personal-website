@@ -13,7 +13,7 @@ h5,
 h6 {
 	margin-bottom: 1rem;
 	line-height: 1.25;
-	color: #313131;
+	color: #333;
 	font-weight: 700;
 	font-variation-settings: "wght" 600;
 }
@@ -45,6 +45,12 @@ blockquote {
 	margin: 3em 0;
 	padding: 1em 2em;
 	line-height: 1.6em;
+}
+
+p,
+ul,
+ol {
+	color: #222;
 }
 
 ul,

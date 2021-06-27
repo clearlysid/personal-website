@@ -10,7 +10,7 @@ title: Siddharth's Blog — On design, tech and product.
 	{% for post in posts %}
 		{% if post.published == true %}
 			<li class="post-list-item">
-				<div class="post-list-item-date">{{ post.date | date: "%b %d %Y" }}</div>
+				<time class="post-list-item-date">{{ post.date | date: "%d/%m/%y" }}</time>
 				<a href="/blog/{{ post.slug }}" class="post-list-item-title">{{ post.page }}</a>
 			</li>
 		{% endif %}

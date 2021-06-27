@@ -45,9 +45,6 @@ function ParticleText() {
 		let imageWidth = png.width;
 		let imageHeight = png.height;
 		const data = ctx.getImageData(50, 30, imageWidth, imageHeight);
-
-		// ctx.strokeRect(50, 30, 422, 82);
-
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		class Particle {
@@ -133,12 +130,6 @@ function ParticleText() {
 		// ctx.strokeRect(50, 30, 422, 82);
 		renderCanvasOnLogoLoad();
 	});
-
-	// ctx.fillStyle = "black";
-	// ctx.font = "400 86px Anybody";
-	// ctx.fillText("@clearlysid", 20, 120);
-
-	// const data = ctx.getImageData(20, 45, 480, 100);
 }
 
 export default ParticleText;
