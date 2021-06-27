@@ -4,19 +4,15 @@ permalink: '/blog/'
 title: Siddharth's Blog — On design, tech and product.
 ---
 
-<section>
+<h1 style="text-align: center; padding-top: 2em; margin-bottom: 2em;">notes by @clearlysid</h1>
+
+<ul class="post-list">
 	{% for post in posts %}
-		<ul>
-			{% if post.published == true %}
-			<li>
-				<div class="post-date">
-					<span>{{ post.date | date: "%b %d %Y" }}</span>
-				</div>
-				<div class="title">
-					<a href="/blog/{{ post.slug }}">{{ post.page }}</a>
-				</div>
+		{% if post.published == true %}
+			<li class="post-list-item">
+				<time class="post-list-item-date">{{ post.date | date: "%d/%m/%y" }}</time>
+				<a href="/blog/{{ post.slug }}" class="post-list-item-title">{{ post.page }}</a>
 			</li>
-			{% endif %}
-		</ul>
+		{% endif %}
 	{% endfor %}
-</section>
+</ul>
