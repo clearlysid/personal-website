@@ -54,6 +54,7 @@ a {
 	color: inherit;
 	text-decoration: none;
 	border-bottom: 1px dashed #555;
+	transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 a.image {
@@ -88,7 +89,7 @@ article {
 
 article hr {
 	border: 0;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid lightgray;
 	margin: 30px 0;
 }
 
@@ -103,9 +104,9 @@ article li {
 	color: #222;
 }
 
-article a:hover {
-	color: rgb(53, 66, 252);
-	border-color: rgb(53, 66, 252);
+a:hover {
+	color: darkviolet;
+	border-color: darkviolet;
 }
 
 .footer {
@@ -118,58 +119,43 @@ article a:hover {
 	bottom: 20px;
 	left: 0;
 	overflow-x: hidden;
-	color: #777;
+	color: lightslategrey;
 }
 
-section {
+.post-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 	max-width: 580px;
 	margin: 0 auto 50px auto;
 }
 
-section ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-section ul li {
+.post-list-item {
 	margin: 1.2rem 0;
 }
 
-section ul li .title {
+.post-list-item-title {
 	max-width: 100%;
 	word-wrap: normal !important;
-}
-
-section ul li a {
 	text-decoration: none;
 	border: 0;
 	color: #222;
 	box-sizing: border-box;
+	border-bottom: 1px dashed lightgray;
 }
 
-section ul li .post-date {
+.post-list-item-title:hover {
+	border-bottom: 1px solid black;
+}
+
+.post-list-item-date {
 	float: right;
 	font-size: 0.8rem;
-}
-
-section ul li span {
-	display: inline-block;
 	color: darkgray;
 	letter-spacing: 0.4px;
 }
 
-@media (min-width: 992px) {
-	section ul li a {
-		border-bottom: 1px dashed lightgray;
-	}
-
-	section ul li a:hover {
-		border-bottom: 1px solid black;
-	}
-}
-
-#content > article {
+.article-wrapper {
 	max-width: 640px;
 	padding: 2rem 4rem;
 }
@@ -186,8 +172,9 @@ section ul li span {
 }
 
 .home-content p {
-	max-width: 390px;
+	max-width: 420px;
 	text-align: center;
 	margin: 0 auto;
 	line-height: 1.8;
+	margin-bottom: 1.8em;
 }

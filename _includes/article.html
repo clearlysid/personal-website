@@ -3,11 +3,9 @@ layout: "default"
 type: "article"
 ---
 
-<a href="/blog/" class="article-back">
-	← all notes
-</a>
+<a href="/blog/" class="article-back">← All Notes</a>
 
-<article>
+<article class="article-wrapper">
 	<header class="article-header">
 		<h1 class="article-title">{{ post.page }}</h1>
 		<time>{{ page.date | date: '%B %d, %Y' }}</time>
@@ -15,5 +13,5 @@ type: "article"
 
 	{{- content | safe -}}
 
-	<p>Thanks for reading!</p>
+	<p style="margin-bottom: 3em;">Thanks for reading!</p>
 </article>
