@@ -1,18 +1,36 @@
 ---
 layout: default
 permalink: '/blog/'
-title: Siddharth's Blog — On design, tech and product.
+title: Siddharth's Notes — Design, Life and People
 ---
 
-<h1 style="text-align: center; padding-top: 2em; margin-bottom: 2em;">notes by @clearlysid</h1>
 
-<ul class="post-list">
+<header class="blog-container">
+	<h1>Siddharth's Notes</h1>
+	<h2>— on products, people, design and life.</h2>
+</header>
+
+<main class="blog-container">
 	{% for post in posts %}
+		{% assign currentdate = post.date | date: "%Y" %}
+
+		{% if currentdate != date %}
+			{% unless forloop.first %}
+				</ul>
+			{% endunless %}
+			<h3 class="post-year">{{ currentdate }}</h3>
+			<ul class="post-list">
+			{% assign date = currentdate %}
+		{% endif %}
+
 		{% if post.published == true %}
 			<li class="post-list-item">
-				<time class="post-list-item-date">{{ post.date | date: "%d/%m/%y" }}</time>
+				<time class="post-list-item-date">{{ post.date | date: "%d/%m" }}</time>
 				<a href="/blog/{{ post.slug }}" class="post-list-item-title">{{ post.page }}</a>
 			</li>
 		{% endif %}
+		{% if forloop.last %}
+			</ul>
+		{% endif %}
 	{% endfor %}
-</ul>
+</main>
