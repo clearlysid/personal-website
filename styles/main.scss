@@ -205,3 +205,39 @@ header.blog-container h2 {
 	line-height: 1.8;
 	margin-bottom: 1.8em;
 }
+
+.post-list-item-title {
+	width: max-content;
+	color: #222;
+	position: relative;
+	white-space: nowrap;
+	cursor: pointer;
+	border: none;
+}
+
+.post-list-item-title:hover {
+	border: none;
+}
+
+.post-item-svg {
+	position: absolute;
+	top: 90%;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1px;
+
+	& path {
+		stroke-dasharray: 1;
+		stroke-dashoffset: 1;
+		transition: stroke-dashoffset 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+	}
+
+	.post-list-item-title:hover & path {
+		stroke-dashoffset: 0;
+		transition-timing-function: cubic-bezier(0.8, 1, 0.7, 1);
+		transition-duration: 0.3s;
+	}
+}
