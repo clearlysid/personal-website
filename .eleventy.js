@@ -4,6 +4,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 module.exports = function (eleventyConfig) {
+	eleventyConfig.setQuietMode(true);
 	eleventyConfig.addPassthroughCopy({ assets: "assets" });
 	eleventyConfig.addShortcode("notion", (blocks) => RenderNotion(blocks));
 	eleventyConfig.addShortcode("cloudimage", (u, a) => Cloudinary(u, a));
