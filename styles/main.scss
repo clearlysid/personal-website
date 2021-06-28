@@ -199,7 +199,8 @@ header.blog-container h2 {
 }
 
 .home-content p {
-	max-width: 420px;
+	max-width: calc(420px + 4rem);
+	padding: 0 2rem;
 	text-align: center;
 	margin: 0 auto;
 	line-height: 1.8;
