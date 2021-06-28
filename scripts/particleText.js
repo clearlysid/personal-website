@@ -6,8 +6,13 @@ const logoB64 =
 function ParticleText() {
 	const canvas = document.getElementById("canvas1");
 	const ctx = canvas.getContext("2d");
-	canvas.width = 540;
-	canvas.height = 140;
+
+	let size = 540;
+	const aRatio = 0.26;
+
+	canvas.width = size;
+	canvas.height = Math.floor(canvas.width * aRatio);
+
 	const color = "#222";
 	let particleArray = [];
 	const png = new Image();
@@ -21,7 +26,7 @@ function ParticleText() {
 	});
 
 	// handle mouse events
-	const mouse = { x: -100, y: -100, radius: 48 };
+	const mouse = { x: -100, y: -100, radius: Math.floor(size * 0.089) };
 
 	canvas.addEventListener("mousemove", (e) => {
 		mouse.x = e.offsetX;
@@ -41,10 +46,8 @@ function ParticleText() {
 		gsap.to("#canvas1", { opacity: 0.4, duration: 0.2 });
 	});
 
-	function renderCanvasOnLogoLoad() {
-		let imageWidth = png.width;
-		let imageHeight = png.height;
-		const data = ctx.getImageData(50, 30, imageWidth, imageHeight);
+	function renderCanvasOnLogoLoad(x, y, w, h) {
+		const data = ctx.getImageData(x, y, w, h);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		class Particle {
@@ -104,7 +107,10 @@ function ParticleText() {
 						let positionX = x;
 						let positionY = y;
 						particleArray.push(
-							new Particle(positionX * 1 + 60, positionY * 1 + 30)
+							new Particle(
+								positionX * 1 + Math.floor(size * 0.088),
+								positionY * 1 + Math.floor(size * 0.055)
+							)
 						);
 					}
 				}
@@ -125,11 +131,37 @@ function ParticleText() {
 		animParticles();
 	}
 
-	window.addEventListener("load", () => {
-		ctx.drawImage(png, 50, 30);
-		// ctx.strokeRect(50, 30, 422, 82);
-		renderCanvasOnLogoLoad();
-	});
+	function initCanvas() {
+		size = Math.max(Math.min(window.innerWidth * 0.5, 540), 200);
+		canvas.width = size;
+		canvas.height = Math.floor(canvas.width * aRatio);
+
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.drawImage(
+			png,
+			Math.floor(size * 0.088), // x
+			Math.floor(size * 0.055), // y
+			Math.floor(size * 0.77), // w
+			Math.floor(size * 0.16) // h
+		); // actual source: 420x86
+
+		// Bounding box for reference
+		// ctx.strokeRect(
+		// 	Math.floor(size * 0.08), // x
+		// 	Math.floor(size * 0.05), // y
+		// 	Math.floor(size * 0.78), // w
+		// 	Math.floor(size * 0.17) // h
+		// );
+		renderCanvasOnLogoLoad(
+			Math.floor(size * 0.08), // x
+			Math.floor(size * 0.05), // y
+			Math.floor(size * 0.78), // w
+			Math.floor(size * 0.17) // h
+		);
+	}
+
+	window.addEventListener("load", () => initCanvas());
+	// window.addEventListener("resize", () => initCanvas()); // very heavy on cpu
 }
 
 export default ParticleText;
