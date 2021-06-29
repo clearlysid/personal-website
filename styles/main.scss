@@ -10,11 +10,6 @@ $system-fonts-mono: ui-monospace, Menlo, Monaco, "Segoe UI Mono", "Roboto Mono",
 @import "_resets";
 @import "_typography";
 
-#canvas1 {
-	margin: 0 auto;
-	// background: yellow;
-}
-
 .hero-wrapper {
 	position: relative;
 	margin: 0 auto;
@@ -38,7 +33,18 @@ $system-fonts-mono: ui-monospace, Menlo, Monaco, "Segoe UI Mono", "Roboto Mono",
 	user-select: none;
 }
 
-.hero-wrapper:hover > #profile {
+#canvas1 {
+	margin: 0 auto;
+	filter: saturate(0) brightness(0);
+	transition: filter 0.4s ease;
+	// background: yellow;
+}
+
+#canvas1:hover {
+	filter: saturate(100%) brightness(100%);
+}
+
+#canvas1:hover + #profile {
 	opacity: 1;
 }
 
@@ -134,13 +140,14 @@ article li {
 
 header.blog-container h1 {
 	padding-top: 2em;
+	margin-bottom: 0.6rem;
 }
 
 header.blog-container h2 {
-	font-weight: 300;
-	margin: 0;
-	font-variation-settings: "wght" 300;
 	font-size: 1rem;
+	margin: 0;
+	font-weight: 300;
+	font-variation-settings: "wght" 300;
 }
 
 .post-year {

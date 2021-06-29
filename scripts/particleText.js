@@ -13,7 +13,7 @@ function ParticleText() {
 	canvas.width = size;
 	canvas.height = Math.floor(canvas.width * aRatio);
 
-	const color = "#222";
+	const color = "lightblue";
 	let particleArray = [];
 	const png = new Image();
 	png.src = logoB64;
@@ -22,7 +22,7 @@ function ParticleText() {
 		duration: 8,
 		rotation: 360,
 		repeat: Infinity,
-		ease: "sine.inOut",
+		ease: "linear",
 	});
 
 	// handle mouse events
@@ -38,12 +38,10 @@ function ParticleText() {
 		mouse.x = -100;
 		mouse.y = -100;
 		gsap.to("#profile", { scale: 0, duration: 0.2 });
-		gsap.to("#canvas1", { opacity: 1, duration: 0.2 });
 	});
 
 	canvas.addEventListener("mouseenter", (e) => {
 		gsap.to("#profile", { scale: 1, duration: 0.4 });
-		gsap.to("#canvas1", { opacity: 0.4, duration: 0.2 });
 	});
 
 	function renderCanvasOnLogoLoad(x, y, w, h) {
@@ -132,11 +130,13 @@ function ParticleText() {
 	}
 
 	function initCanvas() {
-		size = Math.max(Math.min(window.innerWidth * 0.5, 540), 200);
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		particleArray = [];
+
+		size = Math.max(Math.min(window.innerWidth * 0.5, 540), 300);
 		canvas.width = size;
 		canvas.height = Math.floor(canvas.width * aRatio);
 
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.drawImage(
 			png,
 			Math.floor(size * 0.088), // x
