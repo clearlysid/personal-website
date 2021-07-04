@@ -65,6 +65,15 @@ const renderText = (title) => {
 				if (!dec[0]) return "";
 				switch (dec[0]) {
 					case "h":
+						console.log(dec);
+						if (
+							dec[1].includes("pink") &&
+							dec[1].includes("background")
+						) {
+							return `<span class="notion-redacted">${"█".repeat(
+								Math.min(el.length, 10)
+							)}</span>`;
+						}
 						return `<span class="notion-${dec[1]}">${el}</span>`;
 					case "c":
 						return `<code class="notion">${el}</code>`;
