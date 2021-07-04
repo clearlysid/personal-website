@@ -22,7 +22,7 @@ In the past, I've used Jekyll, Hugo, Hexo, Gatsby and NextJS to power this site:
 -   [ ] Make homepage responsive
 -   [ ] Fluid typography and layouts
 -   [ ] Page transitions
--   [ ] Migrate lifelog to this codebase
+-   [x] Migrate lifelog to this codebase
 -   [ ] Modular CSS structure
 -   [ ] Add case studies
 -   [ ] Add site-level navigation
