@@ -8,7 +8,7 @@
 	"scripts": {
 		"clean": "rm -rf ./.cache",
 		"dev": "concurrently \"npx @11ty/eleventy --serve\" \"vite\"",
-		"build": "yarn build:vite && yarn build:eleventy",
+		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
 		"build:vite": "NODE_ENV=production vite build",
 		"prod": "NODE_ENV=production yarn build && serve _site"
@@ -16,8 +16,11 @@
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
 		"@11ty/eleventy-cache-assets": "^2.0.4",
+		"@notionhq/client": "^0.2.4",
 		"concurrently": "^6.2.0",
+		"dotenv": "^10.0.0",
 		"gsap": "^3.7.0",
+		"node-fetch": "^2.6.1",
 		"sass": "^1.35.1",
 		"serve": "^12.0.0",
 		"vite": "^2.3.8"
