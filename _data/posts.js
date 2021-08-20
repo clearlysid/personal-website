@@ -4,10 +4,12 @@ const { AssetCache } = require("@11ty/eleventy-cache-assets")
 
 module.exports = async function () {
 
+	const cacheTime = "1D"
+
 	async function getArticlesListFromSplitbee() {
 		const blogPageId = process.env.BLOG_DB_ID
 		let asset = new AssetCache('blog-list')
-		if (asset.isCacheValid("1D")) {
+		if (asset.isCacheValid(cacheTime)) {
 			return asset.getCachedValue()
 		}
 
@@ -15,25 +17,24 @@ module.exports = async function () {
 			headers: {
 				'Authorization': `Bearer ${process.env.NOTION_WEB_TOKEN}`
 			}
-		})
+		}).then(r => r.json())
 
-		const responseJson = response.json()
-		await asset.save(responseJson, "json")
-		return responseJson
+		await asset.save(response, "json")
+		return response
 	}
 
 	async function getPageBlocksFromSplitbee(page_id) {
 		let asset = new AssetCache(`splitbee-${page_id}`)
 
-		if (asset.isCacheValid("1D")) {
+		if (asset.isCacheValid(cacheTime)) {
 			return asset.getCachedValue()
 		}
 
-		const response = fetch(`https://notion-api.splitbee.io/v1/page/${page_id}`, {
+		const response = await fetch(`https://notion-api.splitbee.io/v1/page/${page_id}`, {
 			headers: {
 				'Authorization': `Bearer ${process.env.NOTION_WEB_TOKEN}`
 			}
-		})
+		}).then(r => r.json())
 
 		await asset.save(response, "json")
 		return response
