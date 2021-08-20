@@ -65,4 +65,4 @@ yarn-error.log
 .yarn-integrity
 
 _site
-.cache/*
+.cache

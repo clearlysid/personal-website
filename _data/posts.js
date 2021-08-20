@@ -41,8 +41,6 @@ module.exports = async function () {
 
 	const postList = await getArticlesListFromSplitbee();
 
-	console.log(postList)
-
 	const postPages = await Promise.all(
 		postList.map((post) => {
 			const date = new Date(post.date);
