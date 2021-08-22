@@ -10,6 +10,7 @@ $system-fonts-mono: ui-monospace, Menlo, Monaco, "Segoe UI Mono", "Roboto Mono",
 @import "_resets";
 @import "_typography";
 @import "_notion";
+@import "_prism";
 
 .hero-wrapper {
 	position: relative;
