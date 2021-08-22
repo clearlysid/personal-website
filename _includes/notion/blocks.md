@@ -1,17 +1,17 @@
 # List of all Notion Blocks
 
 ## Basic
-- [ ] text
+- [x] text
 - [ ] page
-- [ ] to-do
-- [ ] heading 1
-- [ ] heading 2
-- [ ] heading 3
-- [ ] bulleted list
-- [ ] numbered list
-- [ ] toggle list
-- [ ] quote
-- [ ] divider
+- [x] to_do
+- [x] header
+- [x] sub_header
+- [x] sub_sub_header
+- [ ] bulleted_list
+- [ ] numbered_list
+- [ ] toggle
+- [x] quote
+- [x] divider
 - [ ] link to page
 - [ ] callout
 
@@ -32,11 +32,11 @@
 - [ ] linked database
 
 ## Media
-- [ ] image
-- [ ] web bookmark
+- [x] image
+- [x] web bookmark
 - [ ] video
 - [ ] audio
-- [ ] code
+- [x] code
 - [ ] file
 
 ## Embed
