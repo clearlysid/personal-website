@@ -1,6 +1,6 @@
 const NotionRender = require('./notion/index')
 
-module.exports = function NotionRenderer(blockMap) {
-	return NotionRender(blockMap);
+module.exports = function NotionRenderer(blockMap, header) {
+	return NotionRender(blockMap, header);
 };
 

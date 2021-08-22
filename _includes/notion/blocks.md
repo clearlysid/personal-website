@@ -2,38 +2,26 @@
 
 ## Basic
 - [x] text
-- [ ] page
-- [x] to_do
 - [x] header
 - [x] sub_header
 - [x] sub_sub_header
+- [x] divider
 - [ ] bulleted_list
 - [ ] numbered_list
-- [ ] toggle
 - [x] quote
-- [x] divider
+- [x] callout
+- [ ] toggle
+- [x] to_do
 - [ ] link to page
-- [ ] callout
 
-## Inline
-- [ ] person mention
-- [ ] page mention
-- [ ] date or reminder
-- [ ] emoji
-- [ ] inline equation
-
-## Database
-- [ ] table inline, fp
-- [ ] board inline, fp
-- [ ] gallery inline, fp
-- [ ] list inline, fp
-- [ ] calendar inline, fp
-- [ ] timeline inline, fp
-- [ ] linked database
+## Layout
+- [x] page
+- [x] column_list
+- [x] column
 
 ## Media
 - [x] image
-- [x] web bookmark
+- [x] bookmark
 - [ ] video
 - [ ] audio
 - [x] code
@@ -41,10 +29,10 @@
 
 ## Embed
 - [ ] embed
-- [ ] google drive
+- [ ] drive
 - [ ] tweet
-- [ ] github gist
-- [ ] google maps
+- [ ] gist
+- [ ] maps
 - [ ] figma
 - [ ] abstract
 - [ ] invision
@@ -59,8 +47,25 @@
 - [ ] codepen
 - [ ] replit
 
+## Inline
+- [ ] person mention
+- [ ] page mention
+- [ ] date or reminder
+- [ ] emoji
+- [ ] equation
+
+## Database
+- [ ] table inline, fp
+- [ ] board inline, fp
+- [ ] gallery inline, fp
+- [ ] list inline, fp
+- [ ] calendar inline, fp
+- [ ] timeline inline, fp
+- [ ] linked database
+
+
 ## Advanced
-- [ ] table of contents
+- [ ] table_of_contents
 - [ ] block equation
 - [ ] template button
 - [ ] breadcrumb

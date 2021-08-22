@@ -131,3 +131,8 @@
 	color: rgb(211, 192, 19);
 	opacity: 1;
 }
+
+.notion-columns {
+	display: grid;
+	grid-auto-flow: column;
+}

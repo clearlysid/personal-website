@@ -21,7 +21,7 @@ class Posts {
 		};
 	}
 	render(data) {
-		return this.notion(data.post.blocks);
+		return this.notion(data.post.blocks, false);
 	}
 }
 
