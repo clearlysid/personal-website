@@ -133,6 +133,5 @@
 }
 
 .notion-columns {
-	display: grid;
-	grid-auto-flow: column;
+	display: flex;
 }

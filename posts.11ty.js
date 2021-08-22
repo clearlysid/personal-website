@@ -10,15 +10,9 @@ class Posts {
 			layout: "article",
 			eleventyComputed: {
 				title: ({ post }) => post.page,
-				image: ({ post }) => {
-					if (post.image && post.image[0]) {
-						return post.image[0].url
-					} else {
-						return ""
-					}
-				}
-			},
-		};
+				image: ({ image }) => image,
+			}
+		}
 	}
 	render(data) {
 		return this.notion(data.post.blocks, false);

@@ -9,6 +9,9 @@ type: "article"
 	<header class="article-header">
 		<h1 class="article-title">{{ post.page }}</h1>
 		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
+		{%- if post.image != "" -%}
+		<img class="article-image" src="{{ post.image }}" alt="{{ post.page }}">
+		{%- endif -%}
 	</header>
 
 	{{- content | safe -}}
