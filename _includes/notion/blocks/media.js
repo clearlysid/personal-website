@@ -41,52 +41,43 @@ const renderBookmark = (value, text, caption) => {
 
 	return `
 		<a class="notion-bookmark" href="${link}" target="_blank">
-			<div class="bm-title">${text}</div>
+			<div class="bm-title h">
+				${icon && `<img src="${icon}" />`}<span>${text}</span>
+			</div>
 			${caption && `<div class="bm-caption">${caption}</div>`}
-			${icon && `<img class="bm-image" src="${icon}" />`}
 			${cover && `<img class="bm-image" src="${cover}"/>`}
 		</a>`
 }
 
 const renderImage = (value, caption) => {
 
+	const rawUrl = value.properties?.source[0][0]
+
 	// TODO: check if dimensions can be interpolated from notion
-	const sourceUrl = mapImageUrl(
-		value.properties.source[0][0],
-		value
-	);
-	let captionText = ""
+	const sourceUrl = mapImageUrl(rawUrl, value)
 
-	if (value.properties?.caption && value.properties.caption[0]) {
-		captionText = value.properties.caption[0][0]
-	}
-
-	let captionEl = ""
-
-	if (caption) {
-		captionEl = `<figcaption>${caption}</figcaption>`
-	}
+	const captionText = caption ? value.properties.caption[0][0] : ""
+	const captionEl = caption ? `<figcaption>${caption}</figcaption>` : ""
 
 	if (sourceUrl.includes(".gif")) {
-		return `<figure class="notion-image><img src="${sourceUrl}" alt="${captionText}">${captionEl}</figure>`
+		return `<figure class="notion-image"><img src="${sourceUrl}" alt="${captionText}">${captionEl}</figure>`
 	}
 
-	return cloudinaryRenderer(sourceUrl, caption)
+	return `<figure class="notion-image">${cloudinaryRenderer(sourceUrl, captionText)}${captionEl}</figure>`
 }
 
 const renderVideo = (value, caption) => {
-	// TODO: generate iframe embed for youtube / video
-	// Clooudinary video for everything else
-	let captionEl = ""
-	if (caption) {
-		captionEl = `<figcaption>${caption}</figcaption>`
+
+	const rawUrl = value.properties?.source[0][0]
+
+	const captionEl = caption ? `<figcaption>${caption}</figcaption>` : ""
+
+	if (rawUrl.includes("youtube.com")) {
+		const id = rawUrl.split("v=")[1].substring(0, 11);
+		return `<figure class="notion-video"><iframe width="640" height="360" src="https://www.youtube.com/embed/${id}" allow="fullscreen;"></iframe>${captionEl}</figure>`
 	}
 
 	// Find a way to access video on AWS without credentials
-	const url = value.properties.source[0][0]
-	// const hackUrl = mapImageUrl(url, value)
-	// console.log(url)
-
 	return `<figcaption>sorry, a notion update broke access to this video file</figcaption>`
 	return `<video width="640" height="480" controls><source src="${hackUrl}" type="video/mp4"></video>`
 }
