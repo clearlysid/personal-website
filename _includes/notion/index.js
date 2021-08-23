@@ -76,7 +76,7 @@ const Block = (level, blockMap, block, children, showHeader) => {
 
 	const type = value.type
 	const text = RenderText(value.properties?.title)
-	const caption = RenderText(value.properties?.description)
+	const caption = RenderText(value.properties?.caption)
 
 	switch (type) {
 		case "text":
