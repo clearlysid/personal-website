@@ -2,18 +2,28 @@ const RenderBasic = require('./blocks/basic')
 const RenderMedia = require('./blocks/media')
 const RenderEmbed = require('./blocks/embed')
 const RenderLayout = require('./blocks/layout')
+const twemoji = require('twemoji')
 
 module.exports = function NotionRender(blockMap, showHeader) {
 	return InitBlock(0, blockMap, showHeader);
 };
 
+// TODO: fetch and inline twemoji images?
 const RenderText = (title) => {
 	if (!title) return ""
 	return title
-		.map(([text, decorations]) => {
-			if (!decorations) return text
-			return decorations.reduceRight((el, dec) => {
+		.map(([text, decs]) => {
+			if (!decs) {
+				let twemoji = twemoji.parse(text, {
+					ext: '.svg',
+					folder: 'svg'
+				})
+				return twemoji
+			}
+			return decs.reduceRight((el, dec) => {
 				if (!dec[0]) return ""
+				let string = el
+				string = twemoji.parse(el, { ext: '.svg', folder: 'svg' })
 				switch (dec[0]) {
 					case "h":
 						// console.log(dec);
@@ -25,19 +35,19 @@ const RenderText = (title) => {
 								Math.min(el.length, 10)
 							)}</span>`
 						}
-						return `<span class="notion-${dec[1]}">${el}</span>`
+						return `<span class="notion-${dec[1]}">${string}</span>`
 					case "c":
-						return `<code>${el}</code>`;
+						return `<code>${string}</code>`;
 					case "b":
-						return `<b>${el}</b>`
+						return `<b>${string}</b>`
 					case "i":
-						return `<em>${el}</em>`
+						return `<em>${string}</em>`
 					case "s":
-						return `<s>${el}</s>`
+						return `<s>${string}</s>`
 					case "a":
-						return `<a class="notion-link" href="${dec[1]}" target="_blank" rel="noreferrer">${el}</a>`
+						return `<a class="notion-link" href="${dec[1]}" target="_blank" rel="noreferrer">${string}</a>`
 					default:
-						return el
+						return string
 				}
 			}, text)
 		})
@@ -49,12 +59,12 @@ const InitBlock = (level = 0, blockMap, showHeader, thisId) => {
 	const thisBlock = blockMap[id];
 
 	if (!thisBlock) {
-		console.warn(`block data not found: ${thisId}`);
+		console.warn(`block not found: ${thisId}`);
 		return ""
 	}
 
-	const children = thisBlock?.value?.content?.map((contentId) =>
-		InitBlock(level + 1, blockMap, showHeader, contentId)
+	const children = thisBlock?.value?.content?.map((childId) =>
+		InitBlock(level + 1, blockMap, showHeader, childId)
 	).join("") || ""
 
 	return Block(level, blockMap, thisBlock, children, showHeader)
@@ -106,7 +116,7 @@ const Block = (level, blockMap, block, children, showHeader) => {
 		case 'drive':
 			return RenderEmbed(value)
 		default:
-			console.log(`unknown block type: ${type}`)
+			console.warn(`unknown block type: ${type}`)
 			return ""
 	}
 }
