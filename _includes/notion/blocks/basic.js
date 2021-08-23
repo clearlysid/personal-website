@@ -58,12 +58,10 @@ const renderList = (value, type, blockMap, text, children) => {
 	}
 }
 
-const renderQuote = (text) => {
-	return `<blockquote class="notion-quote">${text}</blockquote>`
-}
+const renderQuote = (text) => `<blockquote class="notion-quote">${text}</blockquote>`
 
 const renderCallout = (text, emoji) => {
-	return `<div class="notion-callout">${emoji || ""}${text}</div>`
+	return `<div class="notion-callout">${emoji + " " || ""}${text}</div>`
 }
 
 const renderToggle = (text, children) => {
@@ -74,10 +72,8 @@ const renderToggle = (text, children) => {
 		<div>${children}</div></details>`
 }
 
-const renderToDo = (text, checked) => {
-	return `<div class="notion-checkbox${checked?.includes("Yes")
-		? " checked" : ""}">${text}</div>`;
-}
+const renderToDo = (text, checked) => `<div class="notion-checkbox${checked?.includes("Yes")
+	? " checked" : ""}">${text}</div>`
 
 
 module.exports = function RenderBasic(value, text, children, blockMap) {
@@ -86,7 +82,7 @@ module.exports = function RenderBasic(value, text, children, blockMap) {
 
 	switch (type) {
 		case "text":
-			if (!text) return "";
+			if (!text) return ""
 			return `<p class="notion-text">${text}</p>`
 		case "header":
 		case "sub_header":
@@ -106,7 +102,5 @@ module.exports = function RenderBasic(value, text, children, blockMap) {
 			return renderToggle(text, children)
 		case "to_do":
 			return renderToDo(text, value.properties?.checked)
-		default:
-			console.log(`can't render type: ${type}`)
 	}
 };

@@ -10,7 +10,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h {
 	margin-bottom: 1rem;
 	line-height: 1.25;
 	color: #333;
@@ -40,10 +41,9 @@ h6 {
 }
 
 blockquote {
-	border: 1px solid lightgray;
-	border-left: 4px solid lightgray;
+	border-left: 2px solid currentColor;
 	margin: 3em 0;
-	padding: 1em 2em;
+	padding: 0.2em 1em;
 	line-height: 1.6em;
 }
 
@@ -55,20 +55,13 @@ ol {
 
 ul,
 ol {
-	margin-top: 10px;
-	padding-left: 20px;
+	margin: 1rem auto;
+	padding-left: 1.25rem;
 }
 
-ul li,
-ol li {
+li {
 	word-wrap: break-word;
-	margin-bottom: 16px;
-}
-
-ul img,
-ol img {
-	margin: 40px 0;
-	border-radius: 5px;
+	margin-bottom: 1rem;
 }
 
 sup {
@@ -78,14 +71,8 @@ sup {
 	margin-left: 1px;
 }
 
-time {
-	color: #555;
-}
-
 code,
-pre,
-.code,
-.footnotes {
+pre {
 	font-family: Consolas, monaco, monospace;
 }
 
@@ -114,26 +101,6 @@ pre code {
 	color: inherit;
 	background-color: transparent;
 	padding: 0;
-}
-
-table {
-	width: 100%;
-	table-layout: fixed;
-	margin: 45px 0;
-}
-
-table thead {
-	background: #f2f2f2;
-}
-
-table th {
-	text-align: left;
-	padding: 8px 10px;
-	border-bottom: 15px solid #fff;
-}
-
-table td {
-	padding: 4px 0;
 }
 
 time {
