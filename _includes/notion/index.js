@@ -14,11 +14,11 @@ const RenderText = (title) => {
 	return title
 		.map(([text, decs]) => {
 			if (!decs) {
-				let twemoji = twemoji.parse(text, {
+				let string = twemoji.parse(text, {
 					ext: '.svg',
 					folder: 'svg'
 				})
-				return twemoji
+				return string
 			}
 			return decs.reduceRight((el, dec) => {
 				if (!dec[0]) return ""
