@@ -63,7 +63,7 @@ const InitBlock = (level = 0, blockMap, showHeader, thisId) => {
 		return ""
 	}
 
-	const children = thisBlock?.value?.content?.map((childId) =>
+	const children = thisBlock.value?.content?.map((childId) =>
 		InitBlock(level + 1, blockMap, showHeader, childId)
 	).join("") || ""
 
