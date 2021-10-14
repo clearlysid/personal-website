@@ -12,6 +12,15 @@ $system-fonts-mono: ui-monospace, Menlo, Monaco, "Segoe UI Mono", "Roboto Mono",
 @import "_notion";
 @import "_article";
 @import "_blog";
+@import "_prism";
+
+img.emoji {
+	display: inline;
+	height: 1em;
+	width: 1em;
+	margin: 0 0.05em 0 0.1em;
+	vertical-align: -0.1em;
+}
 
 a {
 	color: inherit;
@@ -33,7 +42,6 @@ a.image {
 }
 
 iframe {
-	margin: 45px 0 !important;
 	width: 100%;
 }
 

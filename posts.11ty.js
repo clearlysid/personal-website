@@ -10,13 +10,12 @@ class Posts {
 			layout: "article",
 			eleventyComputed: {
 				title: ({ post }) => post.page,
-				image: ({ post }) =>
-					post.image && post.image[0] ? post.image[0].url : "",
-			},
-		};
+				image: ({ image }) => image,
+			}
+		}
 	}
 	render(data) {
-		return this.notion(data.post.blocks);
+		return this.notion(data.post.blocks, false);
 	}
 }
 

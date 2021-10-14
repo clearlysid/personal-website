@@ -6,7 +6,7 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true);
 	eleventyConfig.addPassthroughCopy({ assets: "assets" });
-	eleventyConfig.addShortcode("notion", (blocks) => RenderNotion(blocks));
+	eleventyConfig.addShortcode("notion", (blocks, header) => RenderNotion(blocks, header));
 	eleventyConfig.addShortcode("cloudimage", (u, a) => Cloudinary(u, a));
 
 	// Read Vite's manifest.json, add script tags for entry files

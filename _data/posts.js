@@ -46,7 +46,10 @@ module.exports = async function () {
 		postList.map((post) => {
 			const date = new Date(post.date);
 			const year = date.getFullYear();
-			const data = getPageBlocksFromSplitbee(post.id).then((r) => ({ ...post, year, blocks: r }));
+			const data = getPageBlocksFromSplitbee(post.id).then((r) => {
+				const image = r[Object.keys(r)[0]].value?.format?.page_cover || ""
+				return { ...post, year, blocks: r, image }
+			});
 			return data;
 		})
 	);
