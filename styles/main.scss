@@ -74,33 +74,45 @@ iframe {
 }
 
 .article-wrapper {
-	max-width: 640px;
-	padding: 2rem;
+	max-width: 52rem;
+	display: grid;
+	grid-template-columns: 1fr min(44rem, 100%) 1fr;
+	padding: 10rem 2rem 2rem;
 	margin: 0 auto;
 }
 
+.article-wrapper > * {
+	grid-column: 2;
+}
+
 .article-title {
-	padding-top: 2em;
-	line-height: 1.4em;
-	text-align: center;
-	font-size: 1.6em;
+	font-size: 4.5rem;
+	line-height: 1.02em;
+	max-width: 18ch;
+	margin-bottom: 0;
 }
 
 .article-back {
 	position: fixed;
-	top: 2rem;
-	left: 2rem;
+	top: 2.8rem;
+	left: 3.2rem;
+	border: none;
+	letter-spacing: -0.04em;
+	font-size: 1.25rem;
 }
 
 .article-header {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 2rem;
+	flex-direction: column-reverse;
+	margin-bottom: 4rem;
 }
 
 .article-date {
-	font-size: 0.8rem;
+	font-size: 1.2rem;
+	line-height: 1.8em;
+	letter-spacing: -0.04em;
+	color: #c47af2;
+	margin-bottom: 1.4rem;
 }
 
 article hr {
@@ -115,7 +127,9 @@ article p {
 
 article p,
 article li {
-	line-height: 1.6em;
+	font-size: 1.2rem;
+	letter-spacing: -0.02em;
+	line-height: 1.8em;
 	word-wrap: break-word;
 	color: #222;
 }
@@ -202,14 +216,14 @@ header.blog-container h2 > a {
 	font-variation-settings: "wght" 560;
 }
 
-.post-list {
+.blog-list {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	margin-bottom: 3rem;
 }
 
-.post-list-item {
+.blog-item {
 	margin-bottom: 1.4rem;
 	display: grid;
 	align-items: center;
@@ -218,7 +232,7 @@ header.blog-container h2 > a {
 	row-gap: 0.4rem;
 }
 
-.post-list-item-title {
+.blog-item-title {
 	font-size: 1.28rem;
 	letter-spacing: -0.04em;
 	line-height: 1.4em;
@@ -226,14 +240,14 @@ header.blog-container h2 > a {
 	color: #222;
 }
 
-.post-list-item-date {
+.blog-item-date {
 	font-size: 0.84em;
 	color: #444444;
 	width: 8ch;
 }
 
 @media (max-width: 600px) {
-	.post-list-item-title {
+	.blog-item-title {
 		border: none;
 	}
 }
@@ -258,7 +272,7 @@ header.blog-container h2 > a {
 	margin-bottom: 1.8em;
 }
 
-.post-list-item-title {
+.blog-item-title {
 	width: max-content;
 	color: #222;
 	position: relative;
@@ -267,11 +281,11 @@ header.blog-container h2 > a {
 	border: none;
 }
 
-.post-list-item-title:hover {
+.blog-item-title:hover {
 	border: none;
 }
 
-.post-item-svg {
+.blog-item-svg {
 	position: absolute;
 	top: 90%;
 	left: 0;
@@ -287,7 +301,7 @@ header.blog-container h2 > a {
 		transition: stroke-dashoffset 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 	}
 
-	.post-list-item-title:hover & path {
+	.blog-item-title:hover & path {
 		stroke-dashoffset: 0;
 		transition-timing-function: cubic-bezier(0.8, 1, 0.7, 1);
 		transition-duration: 0.3s;

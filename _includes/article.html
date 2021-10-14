@@ -8,7 +8,7 @@ type: "article"
 <article class="article-wrapper">
 	<header class="article-header">
 		<h1 class="article-title">{{ post.page }}</h1>
-		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
+		<time class="article-date">{{ post.date | date: '%B %d, %Y' }}</time>
 	</header>
 
 	{{- content | safe -}}

@@ -38,10 +38,9 @@ const getListNumber = (blockId, blockMap) => {
 
 const mapImageUrl = (image = "", blockV) => {
 	const url = new URL(
-		`https://www.notion.so${
-			image.startsWith("/image")
-				? image
-				: `/image/${encodeURIComponent(image)}`
+		`https://www.notion.so${image.startsWith("/image")
+			? image
+			: `/image/${encodeURIComponent(image)}`
 		}`
 	);
 
@@ -105,10 +104,10 @@ const renderBlock = (level = 0, blockMap, currentId) => {
 	const children =
 		currentBlock && currentBlock.value && currentBlock.value.content
 			? currentBlock.value.content
-					.map((contentId) =>
-						renderBlock(level + 1, blockMap, contentId)
-					)
-					.join("")
+				.map((contentId) =>
+					renderBlock(level + 1, blockMap, contentId)
+				)
+				.join("")
 			: "";
 
 	const thisBlock = Block(level, blockMap, currentBlock, children);
@@ -132,15 +131,13 @@ const renderAsset = (blockValue) => {
 
 			return cloudinaryRenderer(sourceUrl, caption);
 		case "figma":
-			return `<iframe class="notion" src="${
-				blockValue.properties.source[0][0]
-			}" style="height:500px;"></iframe>
-						${
-							blockValue.properties.caption &&
-							`<figcaption class="notion-image-caption">${renderText(
-								blockValue.properties.caption
-							)}</figcaption>`
-						}`;
+			return `<iframe class="notion" src="${blockValue.properties.source[0][0]
+				}" style="height:500px;"></iframe>
+						${blockValue.properties.caption &&
+				`<figcaption class="notion-image-caption">${renderText(
+					blockValue.properties.caption
+				)}</figcaption>`
+				}`;
 		case "video":
 			// console.log(blockValue.properties);
 			const url = blockValue.properties.source[0][0];
@@ -190,7 +187,7 @@ function Block(level, blockMap, block, children) {
 			// TODO: render a self-contained page section
 			return `${children}`;
 		case "header":
-			return `<h1 class="notion>${children}</h1>`;
+			return `<h1 class="notion">${children}</h1>`;
 		case "sub_header":
 			if (text === "") return "";
 			return `<h2 class="notion">${text}</h2>`;
@@ -207,9 +204,8 @@ function Block(level, blockMap, block, children) {
 			const wrapList = (content, start) =>
 				blockValue.type === "bulleted_list"
 					? `<ul class="notion">${content}</ul>`
-					: `<ol start="${
-							start || ""
-					  }" class="notion">${content}</ol>`;
+					: `<ol start="${start || ""
+					}" class="notion">${content}</ol>`;
 
 			const output = blockValue.content
 				? `<li>${text}</li>${wrapList(children)}`
@@ -244,23 +240,21 @@ function Block(level, blockMap, block, children) {
 					<a target="_blank" class="notion-bookmark" href="${link[0][0]}">
 						<div>
 							<div class="notion-bookmark-title">${text}</div>
-							${
-								description &&
-								`<div class="notion-bookmark-description">${renderText(
-									description
-								)}</div>`
-							}
+							${description &&
+				`<div class="notion-bookmark-description">${renderText(
+					description
+				)}</div>`
+				}
 							<div class="notion-bookmark-link">
 								${icon && `<img src="${icon}" alt="" />`}
 								<div>${renderText(link)}</div>
 							</div>
 						</div>
-						${
-							cover &&
-							`<div class="notion-bookmark-image">
+						${cover &&
+				`<div class="notion-bookmark-image">
 								<img src="${cover}" alt="" />
 							</div>`
-						}
+				}
 					</a>
 				</div>`;
 		case "toggle":
@@ -270,20 +264,18 @@ function Block(level, blockMap, block, children) {
 					<div>${children}</div>
 				</details>`;
 		case "to_do":
-			return `<div class="notion notion-checkbox${
-				blockValue.properties.checked &&
-				blockValue.properties.checked.toString().includes("Yes")
+			return `<div class="notion notion-checkbox${blockValue.properties.checked &&
+					blockValue.properties.checked.toString().includes("Yes")
 					? " checked"
 					: ""
-			}">${text}</div>`;
+				}">${text}</div>`;
 		case "codepen":
 		case "embed":
 		case "figma":
 		case "video":
 		case "image":
-			return `<figure class="notion notion-${
-				blockValue.type
-			}">${renderAsset(blockValue)}</figure>`;
+			return `<figure class="notion notion-${blockValue.type
+				}">${renderAsset(blockValue)}</figure>`;
 		case "code":
 			if (!blockValue.properties.title) return "";
 			const content = blockValue.properties.title[0][0];

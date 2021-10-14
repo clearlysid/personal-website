@@ -7,7 +7,7 @@
 	"private": true,
 	"scripts": {
 		"clean": "rm -rf ./.cache",
-		"dev": "concurrently \"npx @11ty/eleventy --serve\" \"vite\"",
+		"dev": "concurrently \"eleventy --serve\" \"vite\"",
 		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
 		"build:vite": "NODE_ENV=production vite build",
