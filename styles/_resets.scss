@@ -17,10 +17,11 @@ img {
 body {
 	position: relative;
 	min-height: 100vh;
-	font-family: "Antarctica", $system-fonts;
-	font-weight: 300;
-	font-variation-settings: "wght" 300;
+	font-family: "Work Sans", $system-fonts;
+	font-weight: 400;
+	font-variation-settings: "wght" 350;
 	letter-spacing: -0.2px;
+	background: #f1f0ec;
 }
 
 @media (max-width: 600px) {

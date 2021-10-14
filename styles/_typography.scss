@@ -1,9 +1,10 @@
 @font-face {
-	font-family: "Antarctica";
-	src: url("../assets/AntBetTrialVF.woff2") format("woff2-variations");
-	font-weight: 1 950;
+	font-family: "Takota";
+	src: url("../assets/Takota.otf") format("opentype");
 	font-style: normal;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
 
 h1,
 h2,
@@ -14,11 +15,11 @@ h6 {
 	margin-bottom: 1rem;
 	line-height: 1.25;
 	color: #333;
-	font-weight: 700;
-	font-variation-settings: "wght" 600;
+	font-weight: 600;
 }
 
 h1 {
+	font-family: "takota";
 	font-size: 2rem;
 }
 

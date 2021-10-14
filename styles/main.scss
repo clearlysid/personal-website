@@ -125,7 +125,7 @@ article li {
 	width: 100%;
 	margin: 0 auto;
 	font-size: 0.8rem;
-	letter-spacing: 0.1px;
+	letter-spacing: -0.1px;
 	position: absolute;
 	bottom: 20px;
 	left: 0;
@@ -134,28 +134,72 @@ article li {
 }
 
 .blog-container {
-	max-width: 540px;
-	margin: 0 auto 4rem;
-	padding: 0 2rem;
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 0 2rem 5.25rem;
+}
+
+header.blog-container {
+	padding-top: 8rem;
+	position: relative;
+}
+
+.blog-avatar-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 10.8rem;
+	right: -6rem;
+	height: 240px;
+	width: 240px;
+}
+
+.blog-decal {
+	position: absolute;
+	top: 8rem;
+	left: -16rem;
+	z-index: -1;
+
+	svg {
+		opacity: 0.5;
+	}
+}
+
+.blog-avatar-wrapper svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.blog-avatar-wrapper img {
+	border-radius: 50%;
+	overflow: hidden;
+	width: calc(100% - 20px);
+	height: auto;
 }
 
 header.blog-container h1 {
-	padding-top: 2em;
-	margin-bottom: 0.6rem;
+	font-size: 4.5rem;
+	line-height: 1.02em;
+	max-width: 18ch;
+	margin-bottom: 0;
 }
 
 header.blog-container h2 {
 	font-size: 1rem;
-	margin: 0;
-	font-weight: 300;
-	font-variation-settings: "wght" 300;
+	line-height: 1.8em;
+	max-width: 40ch;
+	font-weight: 400;
+	margin-top: 1em;
 }
 
-.post-year {
-	font-size: 1rem;
-	margin: 0;
-	padding-bottom: 1.4rem;
-	font-family: $system-fonts-mono;
+header.blog-container h2 > a {
+	border: none;
+	font-weight: 600;
+	font-variation-settings: "wght" 560;
 }
 
 .post-list {
@@ -166,27 +210,26 @@ header.blog-container h2 {
 }
 
 .post-list-item {
-	margin-bottom: 1.2rem;
+	margin-bottom: 1.4rem;
 	display: grid;
 	align-items: center;
-	grid-template-columns: max-content auto;
-	column-gap: 1rem;
+	grid-template-columns: 3.6rem auto;
+	column-gap: 1.4rem;
 	row-gap: 0.4rem;
 }
 
 .post-list-item-title {
+	font-size: 1.28rem;
+	letter-spacing: -0.04em;
+	line-height: 1.4em;
 	width: max-content;
 	color: #222;
 }
 
-.post-list-item-title:hover {
-	border-bottom: 1px solid;
-}
-
 .post-list-item-date {
-	font-size: 0.8em;
-	font-family: $system-fonts-mono;
-	color: darkgray;
+	font-size: 0.84em;
+	color: #444444;
+	width: 8ch;
 }
 
 @media (max-width: 600px) {
