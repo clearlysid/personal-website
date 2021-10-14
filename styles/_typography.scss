@@ -6,7 +6,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
 
-h1,
+h1 {
+	font-family: "takota";
+	font-size: 4.5rem;
+	line-height: 1.02em;
+	color: #333;
+}
+
 h2,
 h3,
 h4,
@@ -16,11 +22,8 @@ h6 {
 	line-height: 1.25;
 	color: #333;
 	font-weight: 600;
-}
-
-h1 {
-	font-family: "takota";
-	font-size: 2rem;
+	font-variation-settings: "wght" 550;
+	letter-spacing: -0.04em;
 }
 
 h2 {
@@ -31,13 +34,6 @@ h2 {
 h3 {
 	margin-top: 1.5rem;
 	font-size: 1.25rem;
-}
-
-h4,
-h5,
-h6 {
-	margin-top: 1.1rem;
-	font-size: 1.1rem;
 }
 
 blockquote {
@@ -77,10 +73,6 @@ sup {
 	position: relative;
 	top: -0.5em;
 	margin-left: 1px;
-}
-
-time {
-	color: #555;
 }
 
 code,

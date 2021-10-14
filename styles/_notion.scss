@@ -2,7 +2,6 @@
 	margin-top: 0.2em;
 	padding-left: 1.4em;
 	position: relative;
-	color: #555555;
 	font-size: 1.1rem;
 	letter-spacing: -0.02em;
 	line-height: 1.8em;
@@ -11,7 +10,6 @@
 }
 
 .notion-checkbox.checked {
-	/* text-decoration: line-through; */
 	opacity: 0.6;
 	color: green;
 }
@@ -32,4 +30,8 @@
 
 .notion-checkbox.checked::before {
 	background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.39551 11.8989L12.3955 14.8989L22.3955 4.89893' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.3955 12.8989V19.8989C21.3955 20.4294 21.1848 20.9381 20.8097 21.3131C20.4346 21.6882 19.9259 21.8989 19.3955 21.8989H5.39551C4.86507 21.8989 4.35637 21.6882 3.98129 21.3131C3.60622 20.9381 3.39551 20.4294 3.39551 19.8989V5.89893C3.39551 5.36849 3.60622 4.85978 3.98129 4.48471C4.35637 4.10964 4.86507 3.89893 5.39551 3.89893H16.3955' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+}
+
+.notion-image {
+	grid-column: 1 / span 4 !important;
 }
