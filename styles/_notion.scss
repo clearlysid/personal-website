@@ -1,23 +1,13 @@
-.notion-page-title + picture img {
-	width: 140px;
-	height: 140px;
-	max-width: 50vw;
-	max-height: 50vw;
-	border-radius: 50%;
-	margin-left: 0;
-	margin-right: auto;
-	margin-bottom: 1rem;
-}
-
-.notion-page-title + picture + figcaption {
-	display: none;
-}
-
 .notion-checkbox {
-	margin-top: 0.6em;
-	padding-left: 1.6em;
+	margin-top: 0.2em;
+	padding-left: 1.4em;
 	position: relative;
 	color: #555555;
+	font-size: 1.1rem;
+	letter-spacing: -0.02em;
+	line-height: 1.8em;
+	word-wrap: break-word;
+	color: #222;
 }
 
 .notion-checkbox.checked {
@@ -34,7 +24,7 @@
 	background-size: contain;
 	z-index: 1;
 	position: absolute;
-	top: 0.3em;
+	top: 0.5em;
 	left: 0;
 	transform-origin: top;
 	opacity: 0.8;
@@ -42,85 +32,4 @@
 
 .notion-checkbox.checked::before {
 	background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.39551 11.8989L12.3955 14.8989L22.3955 4.89893' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.3955 12.8989V19.8989C21.3955 20.4294 21.1848 20.9381 20.8097 21.3131C20.4346 21.6882 19.9259 21.8989 19.3955 21.8989H5.39551C4.86507 21.8989 4.35637 21.6882 3.98129 21.3131C3.60622 20.9381 3.39551 20.4294 3.39551 19.8989V5.89893C3.39551 5.36849 3.60622 4.85978 3.98129 4.48471C4.35637 4.10964 4.86507 3.89893 5.39551 3.89893H16.3955' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
-}
-
-.w {
-	ul {
-		list-style-type: none;
-		margin: 0.6em;
-		font-size: 0.8em;
-		color: #818181;
-		// opacity: 0.6;
-	}
-
-	ul > li {
-		position: relative;
-		margin-bottom: 0;
-	}
-
-	ul > li::before {
-		content: "";
-		height: 0.8em;
-		width: 0.8em;
-		background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.96 10.1704L20.96 15.1704L15.96 20.1704' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.95996 4.17041V11.1704C4.95996 12.2313 5.38139 13.2487 6.13153 13.9988C6.88168 14.749 7.89909 15.1704 8.95996 15.1704H20.96' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-		position: absolute;
-		background-size: contain;
-		z-index: 1;
-		position: absolute;
-		top: 0.3em;
-		left: -1.4em;
-		transform-origin: top;
-		opacity: 0.4;
-	}
-
-	.notion-header + p > a {
-		background: linear-gradient(to bottom, #ec1943 0%, #ec1943 100%);
-		background-position: 0 100%;
-		background-repeat: repeat-x;
-		background-size: 3px 1.5px;
-		color: #ec1943;
-		text-decoration: none;
-		padding-bottom: 0.1em;
-	}
-
-	.notion-header + p > a:hover {
-		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ec1943' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-		background-position: 0 100%;
-		background-size: auto 4px;
-		background-repeat: repeat-x;
-		text-decoration: none;
-	}
-
-	hr {
-		border: none;
-		opacity: 0.1;
-		border-bottom: 1px black solid;
-		border-radius: 1px;
-		margin: 3rem auto 3rem;
-	}
-
-	h2,
-	h3,
-	h4 {
-		margin-top: 2em;
-		margin-bottom: 0.8em;
-		font-weight: 500;
-	}
-
-	b,
-	strong {
-		font-weight: 500;
-	}
-}
-.notion-blue {
-	color: navy;
-}
-
-.notion-red {
-	color: red;
-}
-
-.notion-yellow {
-	color: rgb(211, 192, 19);
-	opacity: 1;
 }
