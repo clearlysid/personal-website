@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"clean": "rm -rf ./.cache/*",
+		"clean": "rm -rf ./.cache",
 		"dev": "concurrently \"eleventy --serve\" \"vite\"",
 		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
