@@ -1,4 +1,3 @@
-import ParticleText from "./particleText";
 import "../styles/main.scss";
 
 // function TestVite() {
@@ -13,7 +12,3 @@ import "../styles/main.scss";
 // }
 
 // TestVite();
-
-if (document.querySelector("#canvas1")) {
-	ParticleText();
-}
