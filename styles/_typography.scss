@@ -17,8 +17,8 @@ h2,
 h3,
 h4,
 h5,
-h6,
-.h {
+h6 {
+	margin-top: 1em;
 	margin-bottom: 1rem;
 	line-height: 1.25;
 	color: #333;
@@ -28,17 +28,14 @@ h6,
 }
 
 h2 {
-	margin-top: 1em;
 	font-size: 2rem;
 }
 
 h3 {
-	margin-top: 1em;
 	font-size: 1.6rem;
 }
 
 h4 {
-	margin-top: 1em;
 	font-size: 1.2rem;
 }
 
@@ -108,4 +105,8 @@ pre code {
 time {
 	font-size: 1rem;
 	color: darkgray;
+}
+
+span.char {
+	overflow: visible !important;
 }

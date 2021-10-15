@@ -9,41 +9,42 @@ const renderHeader = (text, type) => {
 	}
 }
 
+const getListIndexAndLength = (blockId, blockMap) => {
+	const groups = []
+	let lastType = undefined
+	let index = -1
+
+	Object.keys(blockMap).forEach((id) => {
+		if (blockMap[id]?.value?.content) {
+			let contents = blockMap[id].value.content
+
+			contents.forEach((blockId) => {
+				const blockType = blockMap[blockId]?.value?.type;
+
+				if (blockType !== lastType) {
+					index++;
+					lastType = blockType
+					groups[index] = []
+				}
+				groups[index].push(blockId)
+			});
+		}
+		lastType = undefined
+	});
+
+	const group = groups.find((g) => g.includes(blockId));
+	if (!group) return;
+	return [group.indexOf(blockId), group.length - 1];
+};
+
 const renderList = (value, type, blockMap, text, children) => {
 
 	// TODO: value.content and children should be rendered with <li>
+	// WONTFIX: children returns undefined ??! :3
 
 	const openTag = type === "numbered_list" ? `<ol class="notion-numbered-list">` : `<ul class="notion-bulleted-list">`
 	const closeTag = type === "numbered_list" ? `</ol>` : `</ul>`
 	const listItemEl = `<li class="notion-list-item">${text}</li>`
-
-	const getListIndexAndLength = (blockId, blockMap) => {
-		const groups = []
-		let lastType = undefined
-		let index = -1
-
-		Object.keys(blockMap).forEach((id) => {
-			if (blockMap[id]?.value?.content) {
-				let contents = blockMap[id].value.content
-
-				contents.forEach((blockId) => {
-					const blockType = blockMap[blockId]?.value?.type;
-
-					if (blockType !== lastType) {
-						index++;
-						lastType = blockType
-						groups[index] = []
-					}
-					groups[index].push(blockId)
-				});
-			}
-			lastType = undefined
-		});
-
-		const group = groups.find((g) => g.includes(blockId));
-		if (!group) return;
-		return [group.indexOf(blockId), group.length - 1];
-	};
 
 	const [index, length] = getListIndexAndLength(value.id, blockMap);
 
