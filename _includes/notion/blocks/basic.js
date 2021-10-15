@@ -16,8 +16,6 @@ const renderList = (value, type, blockMap, text, children) => {
 	const openTag = type === "numbered_list" ? `<ol class="notion-numbered-list">` : `<ul class="notion-bulleted-list">`
 	const closeTag = type === "numbered_list" ? `</ol>` : `</ul>`
 	const listItemEl = `<li class="notion-list-item">${text}</li>`
-	const isTopLevel =
-		type !== blockMap[value.parent_id].value.type;
 
 	const getListIndexAndLength = (blockId, blockMap) => {
 		const groups = []
@@ -65,8 +63,6 @@ const renderCallout = (text, emoji) => {
 }
 
 const renderToggle = (text, children) => {
-	// WONTFIX: current api is broken and doesn't expose children blocks
-	return ""
 	return `<details class="notion-toggle">
 		<summary>${text}</summary>
 		<div>${children}</div></details>`
