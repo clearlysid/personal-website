@@ -10,11 +10,6 @@
 	grid-column: 2;
 }
 
-.article-title {
-	max-width: 18ch;
-	margin-bottom: 0;
-}
-
 .article-back {
 	position: fixed;
 	top: 2.8rem;
@@ -26,8 +21,24 @@
 
 .article-header {
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	margin-bottom: 4rem;
+	position: relative;
+}
+
+.article-title {
+	max-width: 19ch;
+	margin-bottom: 0;
+	z-index: 1;
+}
+
+.article-image {
+	position: absolute;
+	bottom: 0;
+	right: -14rem;
+	width: 600px;
+	height: 450px;
+	transform: rotate(6deg);
 }
 
 .article-date {
@@ -55,10 +66,6 @@ article li {
 	line-height: 1.8em;
 	word-wrap: break-word;
 	color: #222;
-}
-
-article li {
-	margin-bottom: 0;
 }
 
 article footer {

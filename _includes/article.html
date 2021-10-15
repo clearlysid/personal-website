@@ -7,11 +7,11 @@ type: "article"
 
 <article class="article-wrapper">
 	<header class="article-header">
-		<h1 class="article-title">{{ post.page }}</h1>
-		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
 		{%- if post.image != "" -%}
-		<img class="article-image" src="{{ post.image }}" alt="{{ post.page }}">
+			<img class="article-image" src="{{ post.image }}" alt="{{ post.page }}">
 		{%- endif -%}
+		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
+		<h1 class="article-title">{{ post.page }}</h1>
 	</header>
 
 	{{- content | safe -}}
