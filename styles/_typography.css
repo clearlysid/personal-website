@@ -72,7 +72,9 @@ sup {
 
 code,
 pre {
-	font-family: Consolas, monaco, monospace;
+	font-family: Consolas, monaco, ui-monospace, Menlo, "Segoe UI Mono",
+		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+		"Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 code {

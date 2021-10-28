@@ -10,8 +10,7 @@
 		"dev": "concurrently \"eleventy --serve\" \"vite\"",
 		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
-		"build:vite": "NODE_ENV=production vite build",
-		"prod": "NODE_ENV=production yarn build && serve _site"
+		"build:vite": "NODE_ENV=production vite build"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
@@ -22,8 +21,6 @@
 		"node-fetch": "^2.6.1",
 		"prismjs": "^1.24.1",
 		"rough-notation": "^0.5.1",
-		"sass": "^1.35.1",
-		"serve": "^12.0.0",
 		"spltjs": "^1.1.0",
 		"twemoji": "^13.1.0",
 		"vite": "^2.3.8"

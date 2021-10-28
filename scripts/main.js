@@ -1,4 +1,4 @@
-import "../styles/main.scss";
+import "../styles/main.css";
 import { animate, stagger, timeline } from "motion"
 import splt from "spltjs"
 

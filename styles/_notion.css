@@ -71,35 +71,35 @@
 	overflow: hidden;
 	column-gap: 1rem;
 	row-gap: 1rem;
+}
 
-	.bm-title {
-		font-size: 1rem;
-		padding-top: 1rem;
-		margin: 0;
-		grid-column: 2;
+.bm-title {
+	font-size: 1rem;
+	padding-top: 1rem;
+	margin: 0;
+	grid-column: 2;
+}
 
-		img {
-			display: inline-block;
-			height: 1em;
-			width: 1em;
-			margin-right: 0.4em;
-			vertical-align: -0.1em;
-		}
-	}
+.bm-title img {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	margin-right: 0.4em;
+	vertical-align: -0.1em;
+}
 
-	.bm-caption {
-		font-size: 0.8em;
-		width: calc(100% - 1rem);
-		grid-column: 2;
-		color: #222;
-	}
+.bm-caption {
+	font-size: 0.8em;
+	width: calc(100% - 1rem);
+	grid-column: 2;
+	color: #222;
+}
 
-	.bm-image {
-		grid-column: 1;
-		grid-row: 1 / span 2;
-		width: 100%;
-		height: auto;
-	}
+.bm-image {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	width: 100%;
+	height: auto;
 }
 
 .notion-bookmark:hover {
