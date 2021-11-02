@@ -108,7 +108,3 @@ time {
 	font-size: 1rem;
 	color: darkgray;
 }
-
-span.char {
-	overflow: visible !important;
-}

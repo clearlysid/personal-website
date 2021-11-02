@@ -19,7 +19,12 @@ title: Siddharth's Notes — Products, Design and Code
 			stroke-linecap="round"/>
 			</svg>					
 	</div>
-	<h1 class="splt">Notes on products, design and code.</h1>
+	{% assign heading_arr = "Notes on products, design and code." | split: '' %}
+	<h1 id="manual">
+		{%- for letter in heading_arr -%}
+		<span class="char{% if letter == ' ' %} whtSpc{% endif %}">{{ letter }}</span>
+		{%- endfor -%}
+	</h1>
 	<h2>As written by <a href="https://www.twitter.com/clearlysid" target="_blank">@clearlysid</a> — wearer of many hats, and showrunner of UX Engineering at <a href="https://www.headout.com" target="_blank">Headout.</a></h2>
 </header>
 
