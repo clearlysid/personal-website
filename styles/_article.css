@@ -8,6 +8,7 @@
 
 .article-wrapper > * {
 	grid-column: 2;
+	width: 100%;
 }
 
 .article-back {
@@ -15,7 +16,7 @@
 	top: 2.8rem;
 	left: 3.2rem;
 	border: none;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.02em;
 	font-size: 1.25rem;
 }
 
@@ -44,7 +45,7 @@
 .article-date {
 	font-size: 1.2rem;
 	line-height: 1.8em;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.02em;
 	color: #c47af2;
 	margin-bottom: 1.4rem;
 }
