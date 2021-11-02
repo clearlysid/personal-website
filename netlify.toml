@@ -6,3 +6,4 @@
   from = "/"
   to = "/blog"
   status = 302
+  force = true
