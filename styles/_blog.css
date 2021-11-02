@@ -1,0 +1,141 @@
+.blog-container {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 0 2rem 5.25rem;
+}
+
+header.blog-container {
+	padding-top: 8rem;
+	position: relative;
+}
+
+.blog-avatar-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 10.8rem;
+	right: -6rem;
+	height: 240px;
+	width: 240px;
+}
+
+.blog-decal {
+	position: absolute;
+	top: 8rem;
+	left: -16rem;
+	z-index: -1;
+}
+
+.blog-decal > svg {
+	opacity: 0.5;
+}
+
+.blog-avatar-wrapper svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.blog-avatar-wrapper img {
+	border-radius: 50%;
+	overflow: hidden;
+	width: calc(100% - 20px);
+	height: auto;
+}
+
+header.blog-container h1 {
+	font-size: 4.5rem;
+	line-height: 1.02em;
+	max-width: 18ch;
+	margin-bottom: 0;
+}
+
+header.blog-container h2 {
+	font-size: 1rem;
+	line-height: 1.8em;
+	max-width: 40ch;
+	font-weight: 400;
+	font-variation-settings: "wght" 360;
+	margin-top: 1em;
+}
+
+header.blog-container h2 > a {
+	border: none;
+	font-weight: 600;
+	font-variation-settings: "wght" 540;
+}
+
+.blog-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 3rem;
+}
+
+.blog-item {
+	margin-bottom: 1.4rem;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 3.6rem auto;
+	column-gap: 1.4rem;
+	row-gap: 0.4rem;
+}
+
+.blog-item-title {
+	font-size: 1.28rem;
+	letter-spacing: -0.04em;
+	line-height: 1.4em;
+	width: max-content;
+	color: #222;
+}
+
+.blog-item-date {
+	font-size: 0.84em;
+	color: #444444;
+	width: 8ch;
+}
+
+@media (max-width: 600px) {
+	.blog-item-title {
+		border: none;
+	}
+}
+
+.blog-item-title {
+	width: max-content;
+	color: #222;
+	position: relative;
+	white-space: nowrap;
+	cursor: pointer;
+	border: none;
+}
+
+.blog-item-title:hover {
+	border: none;
+}
+
+.blog-item-svg {
+	position: absolute;
+	top: 90%;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1px;
+}
+
+.blog-item-svg path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	transition: stroke-dashoffset 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.blog-item-title:hover path {
+	stroke-dashoffset: 0;
+	transition-timing-function: cubic-bezier(0.8, 1, 0.7, 1);
+	transition-duration: 0.3s;
+}

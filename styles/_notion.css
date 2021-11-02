@@ -1,0 +1,117 @@
+.notion-checkbox {
+	margin-top: 0.2em;
+	padding-left: 1.4em;
+	position: relative;
+	font-size: 1.1rem;
+	letter-spacing: -0.02em;
+	line-height: 1.8em;
+	word-wrap: break-word;
+	color: #222;
+}
+
+.notion-checkbox.checked {
+	opacity: 0.6;
+	color: green;
+}
+
+.notion-checkbox::before {
+	content: "";
+	height: 0.8em;
+	width: 0.8em;
+	background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+	background-size: contain;
+	z-index: 1;
+	position: absolute;
+	top: 0.5em;
+	left: 0;
+	transform-origin: top;
+	opacity: 0.8;
+}
+
+.notion-checkbox.checked::before {
+	background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.39551 11.8989L12.3955 14.8989L22.3955 4.89893' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.3955 12.8989V19.8989C21.3955 20.4294 21.1848 20.9381 20.8097 21.3131C20.4346 21.6882 19.9259 21.8989 19.3955 21.8989H5.39551C4.86507 21.8989 4.35637 21.6882 3.98129 21.3131C3.60622 20.9381 3.39551 20.4294 3.39551 19.8989V5.89893C3.39551 5.36849 3.60622 4.85978 3.98129 4.48471C4.35637 4.10964 4.86507 3.89893 5.39551 3.89893H16.3955' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+}
+
+.notion-image {
+	grid-column: 1 / span 4 !important;
+}
+
+.notion-blue {
+	color: navy;
+}
+
+.notion-red {
+	color: red;
+}
+
+.notion-yellow {
+	color: rgb(211, 192, 19);
+	opacity: 1;
+}
+
+.notion-columns {
+	display: flex;
+}
+
+.notion-callout {
+	padding: 1em;
+	background: #f8f8f8;
+	margin: 2rem auto;
+}
+
+.notion-bookmark {
+	margin: 2rem auto;
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	grid-template-rows: 2.2rem 1fr;
+	background-color: #fafafa;
+	border: 1px solid #ddd;
+	border-radius: 0.6em;
+	height: 140px;
+	overflow: hidden;
+	column-gap: 1rem;
+	row-gap: 1rem;
+}
+
+.bm-title {
+	font-size: 1rem;
+	padding-top: 1rem;
+	margin: 0;
+	grid-column: 2;
+}
+
+.bm-title img {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	margin-right: 0.4em;
+	vertical-align: -0.1em;
+}
+
+.bm-caption {
+	font-size: 0.8em;
+	width: calc(100% - 1rem);
+	grid-column: 2;
+	color: #222;
+}
+
+.bm-image {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	width: 100%;
+	height: auto;
+}
+
+.notion-bookmark:hover {
+	border-color: #222;
+}
+
+figure {
+	margin-bottom: 2rem;
+}
+
+figure figcaption {
+	font-size: 0.8rem;
+	text-align: center;
+	margin-top: 0.4rem;
+}

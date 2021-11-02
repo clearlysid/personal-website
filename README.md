@@ -9,7 +9,7 @@ Hi, I'm @clearlysid and this is my personal website. It evolves as I do — the 
 1. [11ty](https://www.11ty.dev/), the best static site generator in town
 2. Most words were written in [Notion](https://www.notion.so/)
 3. I design things in [Figma](https://www.figma.com/)
-4. Typeset in [Antarctica Betri](https://beta.newglyph.com/classic-collection/#font-antarctica) by NewGlyph
+4. Typeset in Work Sans and Takota
 5. [VS Code](https://code.visualstudio.com/) is my code editor of choice
 6. The most robust web-animations tool [GSAP](https://greensock.com/gsap/)
 7. [Cloudinary](https://cloudinary.com/) handles image optimization and hosting

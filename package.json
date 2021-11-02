@@ -7,22 +7,22 @@
 	"private": true,
 	"scripts": {
 		"clean": "rm -rf ./.cache",
-		"dev": "concurrently \"npx @11ty/eleventy --serve\" \"vite\"",
+		"dev": "concurrently \"eleventy --serve\" \"vite\"",
 		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
-		"build:vite": "NODE_ENV=production vite build",
-		"prod": "NODE_ENV=production yarn build && serve _site"
+		"build:vite": "NODE_ENV=production vite build"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
 		"@11ty/eleventy-cache-assets": "^2.0.4",
-		"@notionhq/client": "^0.2.4",
 		"concurrently": "^6.2.0",
 		"dotenv": "^10.0.0",
-		"gsap": "^3.7.0",
+		"motion": "^10.3.1",
 		"node-fetch": "^2.6.1",
-		"sass": "^1.35.1",
-		"serve": "^12.0.0",
+		"prismjs": "^1.24.1",
+		"rough-notation": "^0.5.1",
+		"spltjs": "^1.1.0",
+		"twemoji": "^13.1.0",
 		"vite": "^2.3.8"
 	}
 }

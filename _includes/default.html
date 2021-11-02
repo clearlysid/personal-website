@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 	{%- include seo.html -%}
 
 	{% if build.env == "production" %}
-		{% viteStyles "scripts/main.js" %}
+		{%- viteStyles "scripts/main.js" -%}
 	{% endif %}
 </head>
 
@@ -27,10 +28,11 @@
 		&copy;{{ "now" | date: "%Y" }} Siddharth Jha, Built on 11ty via Notion
 	</footer>
     {% if build.env == "production" %}
-        {% viteScript "scripts/main.js" %}
+        {%- viteScript "scripts/main.js" -%}
     {% else %}
         <script type="module" src="http://localhost:3000/@vite/client"></script>
         <script type="module" src="http://localhost:3000/scripts/main.js"></script>
     {% endif %}
 </body>
+
 </html>

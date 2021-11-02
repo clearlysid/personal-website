@@ -1,19 +1,11 @@
-import ParticleText from "./particleText";
-import "../styles/main.scss";
+import "../styles/main.css";
+import { animate, stagger, timeline } from "motion"
+import splt from "spltjs"
 
-// function TestVite() {
-// 	setTimeout(() => {
-// 		if (import.meta.env.DEV === true) {
-// 			console.log("vite is working!");
-// 		}
-// 		if (import.meta.env.PROD === true) {
-// 			console.log("vite built, and 11ty injected correct script tag");
-// 		}
-// 	}, 400);
-// }
+splt({})
 
-// TestVite();
-
-if (document.querySelector("#canvas1")) {
-	ParticleText();
-}
+animate(
+	".blog-container h1 > .char",
+	{ y: [20, 0], opacity: [0, 1] },
+	{ duration: 0.3, delay: stagger(0.02) }
+)

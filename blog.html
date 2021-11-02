@@ -1,39 +1,40 @@
 ---
 layout: default
 permalink: '/blog/'
-title: Siddharth's Notes — Design, Life and People
+title: Siddharth's Notes — Products, Design and Code
 ---
 
-
 <header class="blog-container">
-	<h1>Siddharth's Notes</h1>
-	<h2>— on products, people, design and life.</h2>
+	
+	<div class="blog-avatar-wrapper">
+		<svg width="242" height="242" viewBox="0 0 242 242" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M25.188 227.226C41.3604 230.856 56.6899 238.145 73.3032 239.426C111.212 242.349 150.547 242.444 186.878 228.626C214.971 217.941 235.728 201.636 239.655 168.427C245.194 121.589 234.184 53.0809 196.109 23.4287C170.484 3.47288 128.285 -2.09851 97.3608 2.52894C67.7847 6.95468 36.4137 31.2281 19.4999 57.4283C2.74581 83.381 -3.81028 124.207 4.76696 154.527C16.0401 194.377 44.076 218.454 77.2196 236.226" stroke="#CCCCCC" stroke-linecap="round"/>
+			</svg>
+		<img src="/assets/cat.jpg" alt="clearly sid and clearly cat">		
+	</div>
+
+	<div class="blog-decal">
+		<svg width="1145" height="234" viewBox="0 0 1145 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1144.18 145.755C1101.3 186.66 989.448 254.672 885.08 199.483C754.621 130.497 708.162 -29.1461 558.049 6.27246C415.094 40.0021 393.339 206.656 237.59 231.139C110.075 251.184 14.2588 109.015 1.02515 11.5541" stroke="#CCCCCC" pathLength="1"
+			stroke-linecap="round"/>
+			</svg>					
+	</div>
+	<h1 class="splt">Notes on products, design and code.</h1>
+	<h2>As written by <a href="https://www.twitter.com/clearlysid" target="_blank">@clearlysid</a> — wearer of many hats, and showrunner of UX Engineering at <a href="https://www.headout.com" target="_blank">Headout.</a></h2>
 </header>
 
 <main class="blog-container">
-	{% for post in posts %}
-		{% assign currentdate = post.date | date: "%Y" %}
-
-		{% if currentdate != date %}
-			{% unless forloop.first %}
-				</ul>
-			{% endunless %}
-			<h3 class="post-year">{{ currentdate }}</h3>
-			<ul class="post-list">
-			{% assign date = currentdate %}
-		{% endif %}
-
-		{% if post.published == true %}
-			<li class="post-list-item">
-				<time class="post-list-item-date">{{ post.date | date: "%d/%m" }}</time>
-				<a href="/blog/{{ post.slug }}" class="post-list-item-title">
-					<span>{{ post.page }}</span>
-					<svg class="post-item-svg" viewBox="0 0 101 9" height="6" preserveAspectRatio="none"><path d="M.426 1.973C4.144 1.567 17.77-.514 21.443 1.48 24.296 3.026 24.844 4.627 27.5 7c3.075 2.748 6.642-4.141 10.066-4.688 7.517-1.2 13.237 5.425 17.59 2.745C58.5 3 60.464-1.786 66 2c1.996 1.365 3.174 3.737 5.286 4.41 5.423 1.727 25.34-7.981 29.14-1.294" pathLength="1"  /></svg>
-				</a>
-			</li>
-		{% endif %}
-		{% if forloop.last %}
-			</ul>
-		{% endif %}
-	{% endfor %}
+	<ul class="blog-list">
+		{% for post in posts %}
+			{% if post.published == true %}
+				<li class="blog-item">
+					<time class="blog-item-date">{{ post.date | date: "%d/%m/%y" }}</time>
+					<a href="/blog/{{ post.slug }}" class="blog-item-title">
+						<span>{{ post.page }}</span>
+						<svg class="blog-item-svg" viewBox="0 0 101 9" height="6" preserveAspectRatio="none"><path d="M.426 1.973C4.144 1.567 17.77-.514 21.443 1.48 24.296 3.026 24.844 4.627 27.5 7c3.075 2.748 6.642-4.141 10.066-4.688 7.517-1.2 13.237 5.425 17.59 2.745C58.5 3 60.464-1.786 66 2c1.996 1.365 3.174 3.737 5.286 4.41 5.423 1.727 25.34-7.981 29.14-1.294" pathLength="1"  /></svg>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
 </main>
