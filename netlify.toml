@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/"
-  to = "/notes"
+  to = "/blog"
   status = 302
