@@ -6,31 +6,19 @@ Hi, I'm @clearlysid and this is my personal website. It evolves as I do — the 
 
 ### Current Stack
 
-1. [11ty](https://www.11ty.dev/), the best static site generator in town
-2. Most words were written in [Notion](https://www.notion.so/)
-3. I design things in [Figma](https://www.figma.com/)
-4. Typeset in Work Sans and Takota
-5. [VS Code](https://code.visualstudio.com/) is my code editor of choice
-6. The most robust web-animations tool [GSAP](https://greensock.com/gsap/)
-7. [Cloudinary](https://cloudinary.com/) handles image optimization and hosting
-8. Deployed via [![Netlify](https://api.netlify.com/api/v1/badges/4fc3be70-90bc-44a2-80f0-8deebc83575a/deploy-status)](https://app.netlify.com/sites/sidds/deploys)
+1. Posts are written in plain markdown files pulled from [Dropbox](https://www.dropbox.com).
+2. I design stuff in [Figma](https://www.figma.com/) and code the stuff in [VS Code](https://code.visualstudio.com/).
+3. [11ty](https://www.11ty.dev/), the best static site generator in town.
+4. The leanest WAAPI animation library [Motion One](https://motion.dev)
+5. [Cloudinary](https://cloudinary.com/) handles image optimization and hosting.
+6. Deployed via [![Netlify](https://api.netlify.com/api/v1/badges/4fc3be70-90bc-44a2-80f0-8deebc83575a/deploy-status)](https://app.netlify.com/sites/sidds/deploys).
 
 In the past, I've used Jekyll, Hugo, Hexo, Gatsby and NextJS to power this site: but for a project this size, 11ty was a clear winner. I adore the JAMstack and try to keep my codebase lean if I can.
 
-### To-Do
-
--   [ ] Make homepage responsive
--   [ ] Fluid typography and layouts
--   [ ] Page transitions
--   [x] Migrate lifelog to this codebase
--   [ ] Modular CSS structure
--   [ ] Add case studies
--   [ ] Add site-level navigation
-
 ### Developer Reference
 
-Under the hood, I use [Vite](https://vitejs.dev/) to process my JS and SCSS.
+Under the hood, I use [Vite](https://vitejs.dev/) to process my JS and CSS.
 
-1. To spin up a dev server: `yarn dev`
-2. Build it for production: `yarn build`
-3. Alternately, use `yarn prod` for a prod-build and serve it up locally
+1. `yarn` will install all packages needed
+2. To spin up a dev server: `yarn dev`
+3. Build it for production: `yarn build`

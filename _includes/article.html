@@ -1,17 +1,17 @@
 ---
-layout: "default"
-type: "article"
+layout: default
+type: article
 ---
 
 <a href="/blog/" class="article-back">← All Notes</a>
 
 <article class="article-wrapper">
 	<header class="article-header">
-		{%- if post.image != "" -%}
+		{%- if post.data.image -%}
 			<img class="article-image" src="{{ post.image }}" alt="{{ post.page }}">
 		{%- endif -%}
 		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
-		<h1 class="article-title">{{ post.page }}</h1>
+		<h1 class="article-title">{{ title }}</h1>
 	</header>
 
 	{{- content | safe -}}

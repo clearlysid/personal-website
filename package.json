@@ -1,7 +1,7 @@
 {
 	"name": "personal-website",
 	"version": "8.0.0",
-	"description": "Portfolio and blog, powered by 11ty and Notion",
+	"description": "Portfolio and Blog",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
 	"license": "MIT",
 	"private": true,
