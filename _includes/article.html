@@ -1,14 +1,15 @@
 ---
 layout: default
 type: article
+permalink: /notes/{{ slug }}/
 ---
 
-<a href="/blog/" class="article-back">← All Notes</a>
+<a href="/notes/" class="article-back">← All Notes</a>
 
 <article class="article-wrapper">
 	<header class="article-header">
-		{%- if post.data.image -%}
-			<img class="article-image" src="{{ post.image }}" alt="{{ post.page }}">
+		{%- if image -%}
+			<img class="article-image" src="{{ image }}" alt="{{ title }}">
 		{%- endif -%}
 		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
 		<h1 class="article-title">{{ title }}</h1>

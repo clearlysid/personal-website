@@ -4,14 +4,14 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true)
 	eleventyConfig.addPassthroughCopy({ assets: "assets" })
-	eleventyConfig.addCollection("blog", (c) => c.getFilteredByGlob("blog/*.md"));
+	eleventyConfig.addCollection("notes", (c) => c.getFilteredByGlob("_notes/*.md"));
 
 	// Read Vite's manifest.json, add script tags for entry files
 	// you could probably read vite.config.js and get that information directly
 	// @see https://vitejs.dev/guide/backend-integration.html
 
 	const getChunkInformationFor = async (entryFile) => {
-		// We want an entryFilename, because in practice you might have multiple entrypoints
+		// We want an entryFile, because in practice you might have multiple entrypoints
 		if (!entryFile) throw new Error("Specify an entryFile to viteScript.");
 
 		// TODO: Consider caching this call, to avoid going to the filesystem every time
@@ -38,7 +38,7 @@ module.exports = function (eleventyConfig) {
 			console.warn(`No css found for ${entryFile} entry`);
 			return "";
 		}
-		/* There can be multiple CSS files per entry, so assume many by default */
+		// Assume multiple CSS files per entry by default
 		return entryChunk.css
 			.map((css) => `<link rel="stylesheet" href="/${css}"></link>`)
 			.join("\n");
