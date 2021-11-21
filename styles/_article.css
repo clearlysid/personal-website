@@ -34,6 +34,7 @@
 }
 
 .article-image {
+	object-fit: cover;
 	position: absolute;
 	bottom: 0;
 	right: -14rem;
