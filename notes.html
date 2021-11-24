@@ -30,7 +30,7 @@ title: Siddharth's Notes — Products, Design and Code
 
 <main class="blog-container">
 	<ul class="blog-list">
-		{% for note in collections.notes %}
+		{% for note in collections.notes reversed %}
 			{% if note.data.published == true %}
 				<li class="blog-item">
 					<time class="blog-item-date">{{ note.date | date: "%d/%m/%y" }}</time>
