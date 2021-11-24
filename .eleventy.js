@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true)
 	eleventyConfig.addPassthroughCopy({ assets: "assets" })
-	eleventyConfig.addCollection("notes", (c) => c.getFilteredByGlob("_notes/*.md"));
+	eleventyConfig.addCollection("notes", (c) => c.getFilteredByGlob("notes/*.md"));
 
 	// Read Vite's manifest.json, add script tags for entry files
 	// you could probably read vite.config.js and get that information directly
