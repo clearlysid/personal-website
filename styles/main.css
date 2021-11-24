@@ -2,17 +2,14 @@
 
 @import "_base";
 @import "_typography";
-@import "_notion";
 @import "_article";
 @import "_blog";
-@import "_prism";
 
 .footer {
 	text-align: center;
 	width: 100%;
 	margin: 0 auto;
 	font-size: 0.8rem;
-	letter-spacing: -0.1px;
 	position: absolute;
 	bottom: 20px;
 	left: 0;

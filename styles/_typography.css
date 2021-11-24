@@ -24,7 +24,7 @@ h6 {
 	color: #333;
 	font-weight: 600;
 	font-variation-settings: "wght" 550;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.02em;
 }
 
 h2 {
@@ -107,8 +107,4 @@ pre code {
 time {
 	font-size: 1rem;
 	color: darkgray;
-}
-
-span.char {
-	overflow: visible !important;
 }

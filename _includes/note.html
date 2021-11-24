@@ -1,0 +1,19 @@
+---
+layout: default
+type: article
+permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slug }}{% endif %}/"
+---
+
+<a href="/notes/" class="article-back">← All Notes</a>
+
+<article class="article-wrapper">
+	<header class="article-header">
+		{%- if image -%}
+			<img class="article-image" src="{{ image }}" alt="{{ title }}">
+		{%- endif -%}
+		<time class="article-date">{{ page.date | date: '%B %d, %Y' }}</time>
+		<h1 class="article-title">{{ title }}</h1>
+	</header>
+
+	{{- content | safe -}}
+</article>

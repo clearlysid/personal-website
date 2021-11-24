@@ -1,28 +1,26 @@
 {
-	"name": "11ty-personal-website",
-	"version": "8.0.0",
-	"description": "Portfolio and blog, powered by 11ty and Notion",
+	"name": "personal-website",
+	"version": "10.0.0",
+	"description": "Portfolio and Blog",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"clean": "rm -rf ./.cache",
+		"notes": "node getNotes.js",
+		"clean": "rm -rf _site",
 		"dev": "concurrently \"eleventy --serve\" \"vite\"",
-		"build": "mkdir ./.cache && yarn build:vite && yarn build:eleventy",
+		"build": "yarn notes && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
 		"build:vite": "NODE_ENV=production vite build"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
-		"@11ty/eleventy-cache-assets": "^2.0.4",
 		"concurrently": "^6.2.0",
 		"dotenv": "^10.0.0",
+		"dropbox": "^10.21.0",
+		"extract-zip": "^2.0.1",
 		"motion": "^10.3.1",
-		"node-fetch": "^2.6.1",
-		"prismjs": "^1.24.1",
 		"rough-notation": "^0.5.1",
-		"spltjs": "^1.1.0",
-		"twemoji": "^13.1.0",
 		"vite": "^2.3.8"
 	}
 }

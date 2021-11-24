@@ -46,23 +46,33 @@ header.blog-container {
 	height: auto;
 }
 
-header.blog-container h1 {
+.blog-container h1 {
 	font-size: 4.5rem;
 	line-height: 1.02em;
 	max-width: 18ch;
 	margin-bottom: 0;
 }
 
-header.blog-container h2 {
+#manual > span {
+	display: inline-block;
+	overflow: visible;
+	vertical-align: top;
+}
+
+.whtSpc {
+	width: 0.6ch;
+}
+
+.blog-container h2 {
 	font-size: 1rem;
 	line-height: 1.8em;
-	max-width: 40ch;
+	max-width: 42ch;
 	font-weight: 400;
 	font-variation-settings: "wght" 360;
 	margin-top: 1em;
 }
 
-header.blog-container h2 > a {
+.blog-container h2 > a {
 	border: none;
 	font-weight: 600;
 	font-variation-settings: "wght" 540;
@@ -86,7 +96,7 @@ header.blog-container h2 > a {
 
 .blog-item-title {
 	font-size: 1.28rem;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.02em;
 	line-height: 1.4em;
 	width: max-content;
 	color: #222;

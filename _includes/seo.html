@@ -1,37 +1,37 @@
 {%- if title -%}
 {%- assign page_title = title -%}
 {%- else -%}
-{%- assign page_title = seo.title -%}
+{%- assign page_title = global.title -%}
 {%- endif -%}
 
 {%- if description -%}
 {%- assign page_desc = description -%}
 {%- else -%}
-{%- assign page_desc = seo.description -%}
+{%- assign page_desc = global.description -%}
 {%- endif -%}
 
 {%- if type -%}
 {%- assign page_type = type -%}
 {%- else -%}
-{%- assign page_type = seo.type -%}
+{%- assign page_type = "website" -%}
 {%- endif -%}
 
 {%- if image -%}
 {%- assign page_image = image -%}
 {%- else -%}
-{%- assign page_image = seo.image -%}
+{%- assign page_image = global.image -%}
 {%- endif -%}
 
 {%- if author -%}
 {%- assign page_author = author -%}
 {%- else -%}
-{%- assign page_author = seo.author -%}
+{%- assign page_author = global.author -%}
 {%- endif -%}
 
 {%- if username -%}
 {%- assign page_username = username -%}
 {%- else -%}
-{%- assign page_username = seo.username -%}
+{%- assign page_username = global.username -%}
 {%- endif -%}
 
 <title>{{- page_title -}}</title>
@@ -48,4 +48,4 @@
 <meta name="twitter:description" content="{{- page_desc -}}" />
 <meta name="twitter:creator" content="{{- page_username -}}" />
 <meta name="twitter:image" content="{{- page_image -}}" />
-<link rel="canonical" href="{{- seo.url -}}{{- page.url -}}" />
+<link rel="canonical" href="{{- global.url -}}{{- page.url -}}" />

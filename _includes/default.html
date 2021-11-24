@@ -10,7 +10,7 @@
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
 	{%- include seo.html -%}
 
-	{% if build.env == "production" %}
+	{% if global.env == "production" %}
 		{%- viteStyles "scripts/main.js" -%}
 	{% endif %}
 </head>
@@ -25,9 +25,9 @@
 	</div>
 
 	<footer class="footer">
-		&copy;{{ "now" | date: "%Y" }} Siddharth Jha, Built on 11ty via Notion
+		&copy;{{ "now" | date: "%Y" }} Siddharth Jha, Built on 11ty.
 	</footer>
-    {% if build.env == "production" %}
+    {% if global.env == "production" %}
         {%- viteScript "scripts/main.js" -%}
     {% else %}
         <script type="module" src="http://localhost:3000/@vite/client"></script>
