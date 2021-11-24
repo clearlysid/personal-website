@@ -7,17 +7,6 @@
   resolved "https://registry.yarnpkg.com/@11ty/dependency-tree/-/dependency-tree-1.0.0.tgz#b1fa53da49aafe0ab3fe38bc6b6058b704aa59a1"
   integrity sha512-2FWYlkphQ/83MG7b9qqBJfJJ0K9zupNz/6n4EdDuNLw6hQHGp4Sp4UMDRyBvA/xCTYDBaPSuSjHuu45tSujegg==
 
-"@11ty/eleventy-cache-assets@^2.0.4":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@11ty/eleventy-cache-assets/-/eleventy-cache-assets-2.3.0.tgz#6a81c5df822d42ca2268aa6e2374b272297ffe46"
-  integrity sha512-W8tvO00GlWaKt3ccpEStaUBoj9BE3EgzuD8uYChCfYbN2Q4HkEItkiapvIJT0zJwAwoMfnSq6VHPLScYlX2XCg==
-  dependencies:
-    debug "^4.3.1"
-    flat-cache "^3.0.4"
-    node-fetch "^2.6.1"
-    p-queue "^6.6.2"
-    short-hash "^1.0.0"
-
 "@11ty/eleventy@^0.11.0":
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/@11ty/eleventy/-/eleventy-0.11.1.tgz#2820c4d920756c25b068265a3faea18dae280dbc"
@@ -672,7 +661,7 @@ debug@2.6.9, debug@^2.2.0:
   dependencies:
     ms "2.0.0"
 
-debug@4.3.2, debug@^4.1.1, debug@^4.3.1:
+debug@4.3.2, debug@^4.1.1:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
@@ -994,7 +983,7 @@ etag@1.8.1, etag@^1.8.1, etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eventemitter3@^4.0.0, eventemitter3@^4.0.4:
+eventemitter3@^4.0.0:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
@@ -1069,19 +1058,6 @@ find-up@^4.1.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
-
-flat-cache@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-3.0.4.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
-  integrity sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==
-  dependencies:
-    flatted "^3.1.0"
-    rimraf "^3.0.2"
-
-flatted@^3.1.0:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
-  integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.14.5"
@@ -1277,11 +1253,6 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
-
-hash-string@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hash-string/-/hash-string-1.0.0.tgz#c3fa15f078ddd16bc150b4176fde7091620f2c7f"
-  integrity sha1-w/oV8Hjd0WvBULQXb95wkWIPLH8=
 
 hey-listen@^1.0.8:
   version "1.0.8"
@@ -1838,11 +1809,6 @@ opn@5.3.0:
   dependencies:
     is-wsl "^1.1.0"
 
-p-finally@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/p-finally/-/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"
-  integrity sha1-P7z7FbiZpEEjs0ttzBi3JDNqLK4=
-
 p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
@@ -1856,21 +1822,6 @@ p-locate@^4.1.0:
   integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
   dependencies:
     p-limit "^2.2.0"
-
-p-queue@^6.6.2:
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/p-queue/-/p-queue-6.6.2.tgz#2068a9dcf8e67dd0ec3e7a2bcb76810faa85e426"
-  integrity sha512-RwFpb72c/BhQLEXIZ5K2e+AhgNVmIejGlTgiB9MzZ0e93GRvqZ7uSi0dvRF7/XIXDeNkra2fNHBxTyPDGySpjQ==
-  dependencies:
-    eventemitter3 "^4.0.4"
-    p-timeout "^3.2.0"
-
-p-timeout@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-3.2.0.tgz#c7e17abc971d2a7962ef83626b35d635acf23dfe"
-  integrity sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg==
-  dependencies:
-    p-finally "^1.0.0"
 
 p-try@^2.0.0:
   version "2.2.0"
@@ -2262,13 +2213,6 @@ rimraf@^2.2.8:
   dependencies:
     glob "^7.1.3"
 
-rimraf@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
-  integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
-  dependencies:
-    glob "^7.1.3"
-
 rollup@^2.57.0:
   version "2.60.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.0.tgz#4ee60ab7bdd0356763f87d7099f413e5460fc193"
@@ -2398,13 +2342,6 @@ setprototypeof@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
-
-short-hash@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/short-hash/-/short-hash-1.0.0.tgz#3f491d728fcc777ec605bbaf7f83f23712f42050"
-  integrity sha1-P0kdco/Md37GBbuvf4PyNxL0IFA=
-  dependencies:
-    hash-string "^1.0.0"
 
 sigmund@^1.0.1:
   version "1.0.1"

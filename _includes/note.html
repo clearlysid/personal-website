@@ -1,7 +1,7 @@
 ---
 layout: default
 type: article
-permalink: /notes/{{ slug }}/
+permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slugify }}{% endif %}/"
 ---
 
 <a href="/notes/" class="article-back">← All Notes</a>
@@ -16,8 +16,4 @@ permalink: /notes/{{ slug }}/
 	</header>
 
 	{{- content | safe -}}
-
-	<footer class="article-footer">
-
-	</footer>
 </article>
