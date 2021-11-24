@@ -1,25 +1,25 @@
 {
 	"name": "personal-website",
-	"version": "8.0.0",
+	"version": "10.0.0",
 	"description": "Portfolio and Blog",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
 	"license": "MIT",
 	"private": true,
 	"scripts": {
+		"notes": "node getNotes.js",
+		"clean": "rm -rf _site",
 		"dev": "concurrently \"eleventy --serve\" \"vite\"",
-		"build": "yarn build:vite && yarn build:eleventy",
+		"build": "yarn notes && yarn build:vite && yarn build:eleventy",
 		"build:eleventy": "NODE_ENV=production eleventy",
 		"build:vite": "NODE_ENV=production vite build"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^0.11.0",
-		"@11ty/eleventy-cache-assets": "^2.0.4",
 		"concurrently": "^6.2.0",
 		"dotenv": "^10.0.0",
 		"dropbox": "^10.21.0",
 		"extract-zip": "^2.0.1",
 		"motion": "^10.3.1",
-		"node-fetch": "^2.6.1",
 		"rough-notation": "^0.5.1",
 		"vite": "^2.3.8"
 	}
