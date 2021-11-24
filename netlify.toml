@@ -9,13 +9,13 @@
   force = true
 
 [[redirects]]
-  from = "/blog"
-  to = "/notes"
+  from = /blog
+  to = /notes
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/notes/*"
+  from = /blog/*
+  to = /notes/*
   status = 301
   force = true
