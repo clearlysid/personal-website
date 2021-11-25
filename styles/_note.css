@@ -23,6 +23,7 @@
 .note-title {
 	margin-bottom: 0;
 	z-index: 1;
+	filter: drop-shadow(4px 1px #f1f0ec);
 }
 
 .note-image {
