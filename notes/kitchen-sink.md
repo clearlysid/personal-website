@@ -6,11 +6,15 @@ published: true
 image: https://images.unsplash.com/photo-1637500970860-90c839da7c39?&auto=format&fit=crop&w=1200&q=80
 ---
 
-This site used to be powered by Notion via a renderer that I wrote, but given how complex the data structures were and the number of block types Notion had — it quickly became hard to maintain. As Notion updated things on their end, my renderer would break until I updated it again.
+Think of this page as a style-guide. Here I list down all the elements from my blog and experiment with their styling. It's a jumping off point to get your type, colors and component styles locked in for the site. The content of this site doesn't particularly make sense so I wouldn't bother reading.
+
+I used to power this site from [Notion](https://www.notion.so) with a renderer that I wrote, but given how complex the data structures became over time — it quickly started to feel hard to maintain. Every time Notion would update their architecture, my renderer would break until I made appropriate connections.
 
 ## Back to Markdown
 
-I moved all my notes back to good ol' `markdown`, but I do miss the flexibility a bit. Unlike Notion, the "types" of blocks here are limited to just:
+I moved all my notes back to good ol' `markdown`, but I do miss the flexibility. I'd become used to the plethora of block types available in Notion: todos, callouts, fancy embeds, kanban. It'll take a while to unlearn all my muscle memory for those and pare them all down.
+
+### Vanilla markdown elements
 
 1. paragraphs
 2. a few headings
@@ -21,10 +25,8 @@ I moved all my notes back to good ol' `markdown`, but I do miss the flexibility 
     - videos
 6. Oh, and code blocks but that's about it.
 
-> No fancy embeds, no callouts, goodbye nested blocks.
+> This is what a quote looks like.
 
-## Lever Two Heading
+## Next Steps
 
-Paragraphs and how they look.
-
-Note: this page is a playground where I can render different elements and play with CSS styles to see how they look. Nothing worthwhile to read here.
+There may be ways for me to spin some styling over the basics and still arrive at something unique for this site.

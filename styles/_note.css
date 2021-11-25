@@ -1,14 +1,7 @@
 .note-wrapper {
-	max-width: 60rem;
-	display: grid;
-	grid-template-columns: 1fr min(40rem, 100%) 1fr;
-	padding: 10rem 2rem 2rem;
+	max-width: 40rem;
+	padding: 10rem 2rem 4rem;
 	margin: 0 auto;
-}
-
-.note-wrapper > * {
-	grid-column: 2;
-	width: 100%;
 }
 
 .note-back {
