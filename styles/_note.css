@@ -1,4 +1,4 @@
-.article-wrapper {
+.note-wrapper {
 	max-width: 60rem;
 	display: grid;
 	grid-template-columns: 1fr min(40rem, 100%) 1fr;
@@ -6,12 +6,12 @@
 	margin: 0 auto;
 }
 
-.article-wrapper > * {
+.note-wrapper > * {
 	grid-column: 2;
 	width: 100%;
 }
 
-.article-back {
+.note-back {
 	position: fixed;
 	top: 2.8rem;
 	left: 3.2rem;
@@ -20,20 +20,20 @@
 	font-size: 1.25rem;
 }
 
-.article-header {
+.note-header {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 4rem;
 	position: relative;
 }
 
-.article-title {
+.note-title {
 	max-width: 19ch;
 	margin-bottom: 0;
 	z-index: 1;
 }
 
-.article-image {
+.note-image {
 	object-fit: cover;
 	position: absolute;
 	bottom: 0;
@@ -43,7 +43,7 @@
 	transform: rotate(6deg);
 }
 
-.article-date {
+.note-date {
 	font-size: 1.2rem;
 	line-height: 1.8em;
 	letter-spacing: -0.02em;

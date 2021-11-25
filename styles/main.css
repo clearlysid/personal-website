@@ -2,7 +2,7 @@
 
 @import "_base";
 @import "_typography";
-@import "_article";
+@import "_note";
 @import "_blog";
 
 .footer {
