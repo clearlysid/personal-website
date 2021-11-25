@@ -8,7 +8,36 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
-	{%- include seo.html -%}
+
+	{%- if title -%}
+	<title>{{- title -}}</title>
+	<meta property="og:title" content="{{- title -}}" />
+	{%- else -%}
+	<title>{{- global.title -}}</title>
+	{%- endif -%}
+
+	<meta property="og:url" content="{{- page.url -}}" />
+	<meta property="og:site_name" content="{{- global.sitename -}}" />
+	<meta name="twitter:card" value="summary" />
+	<meta name="twitter:site" content="{{- global.username -}}" />
+	<link rel="canonical" href="{{- page.url -}}" />
+
+	{%- if description -%}
+	<meta name="description" content="{{- p_desc -}}" />
+	<meta property="og:description" content="{{- p_desc -}}" />
+	{%- endif -%}
+
+	{%- if image -%}
+	<meta property="og:image" content="{{- image -}}" />
+	{%- else -%}
+	<meta property="og:image" content="{{- global.image -}}" />
+	{%- endif -%}
+
+	{%- if type -%}
+	<meta property="og:type" content="{{- type -}}" />
+	{%- else -%}
+	<meta property="og:type" content="website" />
+	{%- endif -%}
 
 	{% if global.env == "production" %}
 		{%- viteStyles "scripts/main.js" -%}
@@ -16,9 +45,11 @@
 </head>
 
 <body>
-	{% comment %}
-	{%- include navigation.html -%}
-	{% endcomment %}
+	<!-- <nav class="nav-main">
+		<ul class="nav-list">
+			<li><a href="/blog/">Blog</a></li>
+		</ul>
+	</nav> -->
 
 	<div id="content">
 		{{- content | safe -}}

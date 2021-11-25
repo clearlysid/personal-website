@@ -63,16 +63,16 @@ header.blog-container {
 	width: 0.6ch;
 }
 
-.blog-container h2 {
+.blog-container p {
 	font-size: 1rem;
 	line-height: 1.8em;
-	max-width: 42ch;
+	max-width: 45ch;
 	font-weight: 400;
 	font-variation-settings: "wght" 360;
 	margin-top: 1em;
 }
 
-.blog-container h2 > a {
+.blog-container p > a {
 	border: none;
 	font-weight: 600;
 	font-variation-settings: "wght" 540;
@@ -90,7 +90,7 @@ header.blog-container {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 3.6rem auto;
-	column-gap: 1.4rem;
+	column-gap: 2rem;
 	row-gap: 0.4rem;
 }
 
@@ -103,9 +103,12 @@ header.blog-container {
 }
 
 .blog-item-date {
+	text-transform: uppercase;
 	font-size: 0.84em;
+	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
+		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
 	color: #444444;
-	width: 8ch;
+	width: 10ch;
 }
 
 @media (max-width: 600px) {
@@ -121,31 +124,4 @@ header.blog-container {
 	white-space: nowrap;
 	cursor: pointer;
 	border: none;
-}
-
-.blog-item-title:hover {
-	border: none;
-}
-
-.blog-item-svg {
-	position: absolute;
-	top: 90%;
-	left: 0;
-	width: 100%;
-	pointer-events: none;
-	fill: none;
-	stroke: currentColor;
-	stroke-width: 1px;
-}
-
-.blog-item-svg path {
-	stroke-dasharray: 1;
-	stroke-dashoffset: 1;
-	transition: stroke-dashoffset 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-}
-
-.blog-item-title:hover path {
-	stroke-dashoffset: 0;
-	transition-timing-function: cubic-bezier(0.8, 1, 0.7, 1);
-	transition-duration: 0.3s;
 }
