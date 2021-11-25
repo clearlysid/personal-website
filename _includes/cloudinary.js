@@ -11,5 +11,5 @@ module.exports = function (url, alt, width = 1000, className) {
 	const sizes = ` sizes="(min-width: ${mobileWidth}px) ${width}px, ${mobileWidth}px"`
 	const srcset = ` srcset="${link(width)} ${width}w, ${link(mobileWidth)}w"`
 
-	return `<img` + classN + srcset + sizes + src + altText + ` />`
+	return `<img width="${width}" height="600"` + classN + srcset + sizes + src + altText + ` />`
 }
