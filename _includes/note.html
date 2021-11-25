@@ -9,10 +9,17 @@ permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slug }}{% endif %
 <article class="note-wrapper">
 	<header class="note-header">
 		{%- if image -%}
-			<img class="note-image" src="{{ image }}" alt="{{ title }}">
+		{% cloudinary image title 600 "note-image" %}
 		{%- endif -%}
 		<time class="note-date">{{ page.date | date: '%B %d, %Y' }}</time>
-		<h1 class="note-title">{{ title }}</h1>
+		<h1
+			class="note-title"
+			{% if image %}
+			style="width: {{ title | size | times: 0.6 | round }}ch;"
+			{% endif %}
+		>
+			{{ title }}
+		</h1>
 	</header>
 
 	{{- content | safe -}}
