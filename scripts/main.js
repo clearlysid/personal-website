@@ -33,7 +33,7 @@ document.querySelectorAll('.blog-item-title').forEach(blog => {
 
 
 document.querySelectorAll('p > a').forEach(link => {
-	const linkAnn = annotate(link, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
+	const linkAnn = annotate(link, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2, multiline: true })
 
 	link.addEventListener('mouseenter', () => linkAnn.show())
 	link.addEventListener('mouseleave', () => linkAnn.hide())

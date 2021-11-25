@@ -30,7 +30,18 @@ title: Siddharth's Notes — Products, People and Craft
 
 <main class="blog-container">
 	<ul class="blog-list">
-		{% for note in collections.notes reversed %}
+		{% for note in collections.now %}
+			{% if note.data.published == true %}
+				<li class="blog-item" role="article">
+					<time class="blog-item-date">RIGHT NOW</time>
+					<a href="{{ note.url }}" class="blog-item-title">
+						{{ note.data.title }}
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% for note in collections.notes %}
 			{% if note.data.published == true %}
 				<li class="blog-item" role="article">
 					<time class="blog-item-date">{{ note.date | date: "%d %b %y" }}</time>
