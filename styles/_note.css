@@ -28,7 +28,6 @@
 }
 
 .note-title {
-	max-width: 19ch;
 	margin-bottom: 0;
 	z-index: 1;
 }
@@ -64,7 +63,7 @@ article p {
 article p,
 article li {
 	font-size: 1.1rem;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.004em;
 	line-height: 1.8em;
 	word-wrap: break-word;
 	color: #222;

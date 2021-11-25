@@ -41,9 +41,13 @@ h4 {
 
 blockquote {
 	border-left: 2px solid currentColor;
-	margin: 3em 0;
+	margin-bottom: 2em;
 	padding: 0.2em 1em;
 	line-height: 1.6em;
+}
+
+blockquote > *:last-child {
+	margin-bottom: 0;
 }
 
 p,
@@ -54,13 +58,13 @@ ol {
 
 ul,
 ol {
-	margin: 1rem auto;
+	margin: 0 auto 1rem;
 	padding-left: 1.25rem;
 }
 
 li {
 	word-wrap: break-word;
-	margin-bottom: 0.6rem;
+	margin-bottom: 0.2rem;
 }
 
 sup {
@@ -72,16 +76,17 @@ sup {
 
 code,
 pre {
-	font-family: Consolas, monaco, ui-monospace, Menlo, "Segoe UI Mono",
-		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-		"Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
+		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
 }
 
 code {
-	color: #f14e32;
-	background: #eee;
+	color: inherit;
+	background: rgba(0, 0, 0, 0.1);
 	padding: 2px 6px;
-	font-size: 13px;
+	margin: 0px 4px;
+	border-radius: 4px;
+	font-size: 0.84em;
 }
 
 pre {

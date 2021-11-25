@@ -105,7 +105,8 @@ header.blog-container {
 .blog-item-date {
 	text-transform: uppercase;
 	font-size: 0.84em;
-	font-family: monospace;
+	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
+		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
 	color: #444444;
 	width: 10ch;
 }
@@ -123,31 +124,4 @@ header.blog-container {
 	white-space: nowrap;
 	cursor: pointer;
 	border: none;
-}
-
-.blog-item-title:hover {
-	border: none;
-}
-
-.blog-item-svg {
-	position: absolute;
-	top: 90%;
-	left: 0;
-	width: 100%;
-	pointer-events: none;
-	fill: none;
-	stroke: currentColor;
-	stroke-width: 1px;
-}
-
-.blog-item-svg path {
-	stroke-dasharray: 1;
-	stroke-dashoffset: 1;
-	transition: stroke-dashoffset 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-}
-
-.blog-item-title:hover path {
-	stroke-dashoffset: 0;
-	transition-timing-function: cubic-bezier(0.8, 1, 0.7, 1);
-	transition-duration: 0.3s;
 }
