@@ -41,7 +41,7 @@ title: Siddharth's Notes — Products, People and Craft
 			{% endif %}
 		{% endfor %}
 
-		{% for note in collections.notes %}
+		{% for note in collections.notes reversed %}
 			{% if note.data.published == true %}
 				<li class="blog-item" role="article">
 					<time class="blog-item-date">{{ note.date | date: "%d %b %y" }}</time>

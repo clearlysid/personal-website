@@ -25,8 +25,14 @@ I moved all my notes back to good ol' `markdown`, but I do miss the flexibility.
     - videos
 6. Oh, and code blocks but that's about it.
 
-> This is what a quote looks like.
+> This is what a quote looks like. 🧱
 
 ## Next Steps
 
 There may be ways for me to spin some styling over the basics and still arrive at something unique for this site.
+
+### Todo
+
+-   [ ] pending
+-   [ ] another pending
+-   [x] done x
