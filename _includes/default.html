@@ -10,8 +10,8 @@
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
 
 	{%- if title -%}
-	<title>{{- title -}}</title>
-	<meta property="og:title" content="{{- title -}}" />
+	<title>{{ global.sitename }} — {{ title -}}</title>
+	<meta property="og:title" content="{{ global.sitename }} — {{ title -}}" />
 	{%- else -%}
 	<title>{{- global.title -}}</title>
 	{%- endif -%}
