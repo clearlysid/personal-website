@@ -20,6 +20,9 @@
 		"dotenv": "^10.0.0",
 		"dropbox": "^10.21.0",
 		"extract-zip": "^2.0.1",
+		"markdown-it": "^12.2.0",
+		"markdown-it-implicit-figures": "^0.10.0",
+		"markdown-it-task-checkbox": "^1.0.6",
 		"motion": "^10.3.1",
 		"rough-notation": "^0.5.1",
 		"vite": "^2.3.8"
