@@ -51,6 +51,7 @@ body {
 	font-weight: 400;
 	font-variation-settings: "wght" 350;
 	background: #f1f0ec;
+	overflow-x: hidden;
 }
 
 @media (max-width: 600px) {

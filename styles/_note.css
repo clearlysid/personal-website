@@ -1,7 +1,15 @@
 .note-wrapper {
-	max-width: 40rem;
-	padding: 10rem 2rem 4rem;
+	width: min(60rem, 100%);
+	display: grid;
+	grid-template-columns: 1fr min(calc(100% - 4rem), 40rem) 1fr;
+	padding-top: 10rem;
+	padding-bottom: 4rem;
 	margin: 0 auto;
+}
+
+.note-wrapper > * {
+	grid-column: 2;
+	width: 100%;
 }
 
 .note-back {
@@ -26,6 +34,14 @@
 	filter: drop-shadow(4px 1px #f1f0ec);
 }
 
+.note-date {
+	font-size: 1.2rem;
+	line-height: 1.8em;
+	letter-spacing: -0.02em;
+	color: #c47af2;
+	margin-bottom: 1.4rem;
+}
+
 .note-image {
 	object-fit: cover;
 	position: absolute;
@@ -36,12 +52,56 @@
 	transform: rotate(6deg);
 }
 
-.note-date {
-	font-size: 1.2rem;
-	line-height: 1.8em;
-	letter-spacing: -0.02em;
-	color: #c47af2;
-	margin-bottom: 1.4rem;
+@media (max-width: 720px) {
+	.note-back {
+		position: fixed;
+		top: 2rem;
+		left: 2rem;
+		visibility: hidden;
+		width: 2.4rem;
+		height: 2.4rem;
+		z-index: 2;
+	}
+
+	.note-back::before {
+		content: "×";
+		font-size: 1.4em;
+		line-height: 1.2em;
+		position: absolute;
+		visibility: visible;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: white;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	.note-header {
+		position: static;
+		margin-top: 8rem;
+		flex-direction: column-reverse;
+	}
+
+	.note-date {
+		margin-bottom: 0;
+		margin-top: 1rem;
+	}
+
+	.note-image {
+		position: absolute;
+		top: -2rem;
+		left: 0;
+		bottom: unset;
+		right: unset;
+		transform: rotate(6deg) scale(1.1);
+		width: 100vw;
+		height: 60vw;
+		z-index: -1;
+	}
+
+	
 }
 
 article hr {
@@ -65,4 +125,49 @@ article li {
 
 article footer {
 	margin-bottom: 8rem;
+}
+
+article figure {
+	margin-bottom: 2rem;
+	grid-column: 1 / span 3 !important;
+}
+
+article figure figcaption {
+	font-size: 0.8rem;
+	text-align: center;
+	margin-top: 0.4rem;
+}
+
+.task-list {
+	list-style-type: none;
+}
+
+.task-list-item input {
+	visibility: hidden;
+	position: relative;
+	left: -1rem;
+}
+
+.task-list-item input::before {
+	content: "";
+	position: absolute;
+	visibility: visible;
+	height: 1.2em;
+	width: 1.2em;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+	background-size: contain;
+	background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+
+.task-list-item input:checked::before {
+	background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.39551 11.8989L12.3955 14.8989L22.3955 4.89893' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21.3955 12.8989V19.8989C21.3955 20.4294 21.1848 20.9381 20.8097 21.3131C20.4346 21.6882 19.9259 21.8989 19.3955 21.8989H5.39551C4.86507 21.8989 4.35637 21.6882 3.98129 21.3131C3.60622 20.9381 3.39551 20.4294 3.39551 19.8989V5.89893C3.39551 5.36849 3.60622 4.85978 3.98129 4.48471C4.35637 4.10964 4.86507 3.89893 5.39551 3.89893H16.3955' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+}
+
+.task-list-item input:checked + label {
+	/* text-decoration: line-through; */
+	opacity: 0.6;
+	color: green;
 }

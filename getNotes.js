@@ -3,6 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const Dropbox = require('dropbox');
 const extract = require('extract-zip')
+
+
+if (!process.env.DROPBOX_TOKEN) {
+	console.warn("No API token for Dropbox found")
+	return
+}
+
 const dbx = new Dropbox.Dropbox({ accessToken: process.env.DROPBOX_TOKEN });
 
 const blogDir = '/Notes/blog'
