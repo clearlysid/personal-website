@@ -25,6 +25,8 @@ header.blog-container {
 	top: 8rem;
 	left: -16rem;
 	z-index: -1;
+	max-width: 100vw;
+	overflow: hidden;
 }
 
 .blog-decal > svg {
@@ -121,6 +123,11 @@ header.blog-container {
 }
 
 @media (max-width: 720px) {
+	header.blog-container {
+		overflow: hidden;
+		max-width: 100vw;
+	}
+
 	.blog-avatar {
 		position: absolute;
 		height: 30vw;
