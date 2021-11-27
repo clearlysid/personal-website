@@ -55,8 +55,8 @@ header.blog-container {
 	margin-bottom: 0;
 }
 
-#manual > span {
-	display: inline-block;
+#manual > span > span {
+	/* display: inline-block; */
 	overflow: visible;
 	vertical-align: top;
 }
@@ -128,10 +128,14 @@ header.blog-container {
 		max-width: 100vw;
 	}
 
+	.blog-container h1 {
+		max-width: 80vw;
+	}
+
 	.blog-avatar {
 		position: absolute;
-		height: 30vw;
-		width: 30vw;
+		height: max(10rem, 30vw);
+		width:  max(10rem, 30vw);
 		right: -4rem;
 	}
 }

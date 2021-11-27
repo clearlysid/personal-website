@@ -22,10 +22,15 @@ title: Products, People and Craft
 				stroke="#CCCCCC" pathLength="1" stroke-linecap="round" />
 		</svg>
 	</div>
-	{% assign heading_arr = "Notes on product, people & craft" | split: '' %}
+	{% assign heading_arr = "Notes on product, people & craft" | split: ' ' %}
 	<h1 id="manual">
-		{%- for letter in heading_arr -%}
-		<span class="char{% if letter == ' ' %} whtSpc{% endif %}">{{ letter }}</span>
+		{%- for word in heading_arr -%}
+		{% assign word_arr = "word | split: '' %}
+		<span class="word">
+			{%- for letter in word_arr -%}
+			<span class="char">{{ letter }}</span>
+			{%- endfor -%}
+		</span>
 		{%- endfor -%}
 	</h1>
 	<p>As written by <a href="https://www.twitter.com/clearlysid" target="_blank">@clearlysid</a> — showrunner of UX
