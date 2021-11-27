@@ -34,6 +34,14 @@
 	filter: drop-shadow(4px 1px #f1f0ec);
 }
 
+.note-date {
+	font-size: 1.2rem;
+	line-height: 1.8em;
+	letter-spacing: -0.02em;
+	color: #c47af2;
+	margin-bottom: 1.4rem;
+}
+
 .note-image {
 	object-fit: cover;
 	position: absolute;
@@ -44,12 +52,56 @@
 	transform: rotate(6deg);
 }
 
-.note-date {
-	font-size: 1.2rem;
-	line-height: 1.8em;
-	letter-spacing: -0.02em;
-	color: #c47af2;
-	margin-bottom: 1.4rem;
+@media (max-width: 720px) {
+	.note-back {
+		position: fixed;
+		top: 2rem;
+		left: 2rem;
+		visibility: hidden;
+		width: 2.4rem;
+		height: 2.4rem;
+		z-index: 2;
+	}
+
+	.note-back::before {
+		content: "×";
+		font-size: 1.4em;
+		line-height: 1.2em;
+		position: absolute;
+		visibility: visible;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: white;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	.note-header {
+		position: static;
+		margin-top: 8rem;
+		flex-direction: column-reverse;
+	}
+
+	.note-date {
+		margin-bottom: 0;
+		margin-top: 1rem;
+	}
+
+	.note-image {
+		position: absolute;
+		top: -2rem;
+		left: 0;
+		bottom: unset;
+		right: unset;
+		transform: rotate(6deg) scale(1.1);
+		width: 100vw;
+		height: 60vw;
+		z-index: -1;
+	}
+
+	
 }
 
 article hr {
