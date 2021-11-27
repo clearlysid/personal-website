@@ -12,14 +12,7 @@ html {
 img {
 	display: block;
 	max-width: 100%;
-}
-
-img.emoji {
-	display: inline;
-	height: 1em;
-	width: 1em;
-	margin: 0 0.05em 0 0.1em;
-	vertical-align: -0.1em;
+	height: auto;
 }
 
 a {
@@ -51,11 +44,15 @@ body {
 	font-weight: 400;
 	font-variation-settings: "wght" 350;
 	background: #f1f0ec;
-	overflow-x: hidden;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
 	html {
-		font-size: 14px;
+		font-size: max(2.222vw, 12px);
 	}
 }
+
+
+/* 720 - 16
+600 - 14
+400 - 12 */

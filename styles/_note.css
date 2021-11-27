@@ -5,6 +5,8 @@
 	padding-top: 10rem;
 	padding-bottom: 4rem;
 	margin: 0 auto;
+	max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .note-wrapper > * {
@@ -43,13 +45,18 @@
 }
 
 .note-image {
-	object-fit: cover;
 	position: absolute;
 	bottom: 0;
-	right: -14rem;
+	right: -12rem;
 	width: 600px;
 	height: 450px;
-	transform: rotate(6deg);
+}
+
+.note-image img {
+	transform: scale(0.9) rotate(6deg);
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 @media (max-width: 720px) {
@@ -80,7 +87,7 @@
 
 	.note-header {
 		position: static;
-		margin-top: 8rem;
+		margin-top: 20vw;
 		flex-direction: column-reverse;
 	}
 
@@ -95,10 +102,17 @@
 		left: 0;
 		bottom: unset;
 		right: unset;
-		transform: rotate(6deg) scale(1.1);
 		width: 100vw;
 		height: 60vw;
 		z-index: -1;
+		overflow: hidden;
+	}
+	
+	.note-image img {
+		transform: scale(1.1) rotate(4deg);
+		height: 90%;
+		width: 100%;
+		object-fit: cover;
 	}
 
 	
@@ -167,7 +181,6 @@ article figure figcaption {
 }
 
 .task-list-item input:checked + label {
-	/* text-decoration: line-through; */
 	opacity: 0.6;
 	color: green;
 }

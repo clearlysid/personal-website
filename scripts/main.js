@@ -3,7 +3,7 @@ import { animate, stagger } from "motion"
 import { annotate } from 'rough-notation';
 
 animate(
-	".blog-container h1 > span",
+	".blog-container h1 > span > span",
 	{ y: [20, 0], opacity: [0, 1] },
 	{ duration: 0.3, delay: stagger(0.02) }
 )
