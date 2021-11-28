@@ -19,29 +19,33 @@ const randomColour = () => {
 	return item
 }
 
-document.querySelectorAll('.blog-item-title').forEach(blog => {
-	const blogAnnotation = annotate(blog, {
-		type: 'highlight',
-		animationDuration: 600,
-		color: randomColour(),
-		iterations: 2
+if (window.innerWidth > 720) {
+
+	document.querySelectorAll('.blog-item-title').forEach(blog => {
+		const blogAnnotation = annotate(blog, {
+			type: 'highlight',
+			animationDuration: 600,
+			color: randomColour(),
+			iterations: 2
+		})
+
+		blog.addEventListener('mouseenter', () => blogAnnotation.show())
+		blog.addEventListener('mouseleave', () => blogAnnotation.hide())
 	})
 
-	blog.addEventListener('mouseenter', () => blogAnnotation.show())
-	blog.addEventListener('mouseleave', () => blogAnnotation.hide())
-})
 
+	document.querySelectorAll('p > a').forEach(link => {
+		const linkAnn = annotate(link, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2, multiline: true })
 
-document.querySelectorAll('p > a').forEach(link => {
-	const linkAnn = annotate(link, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2, multiline: true })
+		link.addEventListener('mouseenter', () => linkAnn.show())
+		link.addEventListener('mouseleave', () => linkAnn.hide())
+	})
 
-	link.addEventListener('mouseenter', () => linkAnn.show())
-	link.addEventListener('mouseleave', () => linkAnn.hide())
-})
+	const noteBackEl = document.querySelector('.note-back')
 
-const noteBackEl = document.querySelector('.note-back')
+	const noteBackAnn = annotate(noteBackEl, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
 
-const noteBackAnn = annotate(noteBackEl, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
+	noteBackEl.addEventListener('mouseenter', () => noteBackAnn.show())
+	noteBackEl.addEventListener('mouseleave', () => noteBackAnn.hide())
 
-noteBackEl.addEventListener('mouseenter', () => noteBackAnn.show())
-noteBackEl.addEventListener('mouseleave', () => noteBackAnn.hide())
+}

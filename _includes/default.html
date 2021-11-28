@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/assets/favicon/site.webmanifest">
+	<link rel="preload" href="/assets/Takota.woff2" as="font" type="font/woff2">
 
 	{%- if title -%}
 	<title>{{ global.sitename }} — {{ title -}}</title>
@@ -42,16 +43,11 @@
 	<script defer data-domain="siddharthjha.com" src="https://plausible.io/js/plausible.js"></script>
 
 	{% if global.env == "production" %}
-		{%- viteStyles "scripts/main.js" -%}
+		{%- viteStyles -%}
 	{% endif %}
 </head>
 
 <body>
-	<!-- <nav class="nav-main">
-		<ul class="nav-list">
-			<li><a href="/blog/">Blog</a></li>
-		</ul>
-	</nav> -->
 
 	<div id="content">
 		{{- content | safe -}}
@@ -61,7 +57,7 @@
 		&copy;{{ "now" | date: "%Y" }} Siddharth Jha, Built on 11ty.
 	</footer>
     {% if global.env == "production" %}
-        {%- viteScript "scripts/main.js" -%}
+        {%- viteScript -%}
     {% else %}
         <script type="module" src="http://localhost:3000/@vite/client"></script>
         <script type="module" src="http://localhost:3000/scripts/main.js"></script>

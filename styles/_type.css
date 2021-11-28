@@ -1,13 +1,13 @@
 @font-face {
 	font-family: "Takota";
-	src: url("../assets/Takota.otf") format("opentype");
+	src: url("../assets/Takota.woff2") format("woff2"),
+		url("../assets/Takota.otf") format("opentype");
 	font-style: normal;
+	font-display: swap;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;550&display=swap");
-
 h1 {
-	font-family: "takota";
+	font-family: "Takota";
 	font-size: 4.5rem;
 	line-height: 1.02em;
 	color: #333;
@@ -23,7 +23,6 @@ h6 {
 	line-height: 1.25;
 	color: #333;
 	font-weight: 600;
-	font-variation-settings: "wght" 550;
 	letter-spacing: -0.02em;
 }
 
@@ -35,8 +34,22 @@ h3 {
 	font-size: 1.5rem;
 }
 
-h4 {
-	font-size: 1.2rem;
+@media (max-width: 720px) {
+	html {
+		font-size: max(2.222vw, 13px);
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		font-size: 1.4rem;
+	}
 }
 
 blockquote {
@@ -76,8 +89,8 @@ sup {
 
 code,
 pre {
-	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
-		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
+	font-family: ui-monospace, "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
+		"Ubuntu Monospace", "Fira Mono", monospace;
 }
 
 code {
