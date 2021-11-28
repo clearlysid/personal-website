@@ -89,8 +89,8 @@ sup {
 
 code,
 pre {
-	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
-		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
+	font-family: ui-monospace, "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
+		"Ubuntu Monospace", "Fira Mono", monospace;
 }
 
 code {

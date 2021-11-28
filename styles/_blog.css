@@ -85,7 +85,7 @@ header.blog-container {
 .blog-item {
 	margin-bottom: 1.4rem;
 	display: grid;
-	align-items: center;
+	align-items: flex-start;
 	grid-template-columns: 3.6rem auto;
 	column-gap: 2rem;
 	row-gap: 0.4rem;
@@ -97,24 +97,19 @@ header.blog-container {
 	line-height: 1.4em;
 	width: max-content;
 	color: #222;
+	position: relative;
+	cursor: pointer;
+	border: none;
 }
 
 .blog-item-date {
+	padding-top: 0.5em;
 	text-transform: uppercase;
 	font-size: 0.84em;
-	font-family: "SF Mono", SFMono-Regular, ui-monospace, "Segoe UI Mono",
-		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", monospace;
+	font-family: ui-monospace, "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
+		"Ubuntu Monospace", "Fira Mono", monospace;
 	color: #444444;
 	width: 10ch;
-}
-
-.blog-item-title {
-	width: max-content;
-	color: #222;
-	position: relative;
-	white-space: nowrap;
-	cursor: pointer;
-	border: none;
 }
 
 @media (max-width: 720px) {
@@ -132,5 +127,9 @@ header.blog-container {
 		height: max(10rem, 30vw);
 		width: max(10rem, 30vw);
 		right: -4rem;
+	}
+
+	.blog-item-title {
+		width: 100%;
 	}
 }
