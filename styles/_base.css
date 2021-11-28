@@ -38,11 +38,9 @@ iframe {
 body {
 	position: relative;
 	min-height: 100vh;
-	font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	font-weight: 400;
-	font-variation-settings: "wght" 350;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol";
 	background: #f1f0ec;
 }
 
@@ -51,8 +49,3 @@ body {
 		font-size: max(2.222vw, 12px);
 	}
 }
-
-
-/* 720 - 16
-600 - 14
-400 - 12 */

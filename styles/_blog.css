@@ -69,15 +69,12 @@ header.blog-container {
 	font-size: 1rem;
 	line-height: 1.8em;
 	max-width: 50ch;
-	font-weight: 400;
-	font-variation-settings: "wght" 360;
 	margin-top: 1em;
 }
 
 .blog-container p > a {
 	border: none;
 	font-weight: 600;
-	font-variation-settings: "wght" 540;
 }
 
 .blog-list {
@@ -135,7 +132,7 @@ header.blog-container {
 	.blog-avatar {
 		position: absolute;
 		height: max(10rem, 30vw);
-		width:  max(10rem, 30vw);
+		width: max(10rem, 30vw);
 		right: -4rem;
 	}
 }
