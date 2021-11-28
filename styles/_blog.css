@@ -49,8 +49,6 @@ header.blog-container {
 }
 
 .blog-container h1 {
-	font-size: 4.5rem;
-	line-height: 1.02em;
 	max-width: 18ch;
 	margin-bottom: 0;
 }

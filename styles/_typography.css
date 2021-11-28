@@ -1,11 +1,13 @@
 @font-face {
 	font-family: "Takota";
-	src: url("../assets/Takota.otf") format("opentype");
+	src: url("../assets/Takota.woff2") format("woff2"),
+		url("../assets/Takota.otf") format("opentype");
 	font-style: normal;
+	font-display: swap;
 }
 
 h1 {
-	font-family: "takota";
+	font-family: "Takota";
 	font-size: 4.5rem;
 	line-height: 1.02em;
 	color: #333;
