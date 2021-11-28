@@ -35,9 +35,3 @@ body {
 		"Segoe UI Symbol";
 	background: #f1f0ec;
 }
-
-@media (max-width: 720px) {
-	html {
-		font-size: max(2.222vw, 12px);
-	}
-}
