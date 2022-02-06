@@ -112,7 +112,7 @@ header.blog-container {
 	width: 10ch;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 620px) {
 	header.blog-container {
 		overflow: hidden;
 		max-width: 100vw;
@@ -120,13 +120,22 @@ header.blog-container {
 
 	.blog-container h1 {
 		max-width: 80vw;
+		font-size: min(4.5rem, 12vw);
+	}
+
+	.blog-container p {
+		max-width: 70vw;
+	}
+
+	.blog-decal {
+		display: none;
 	}
 
 	.blog-avatar {
 		position: absolute;
-		height: max(10rem, 30vw);
-		width: max(10rem, 30vw);
-		right: -4rem;
+		height: max(9rem, 30vw);
+		width: max(9rem, 30vw);
+		right: -3.4rem;
 	}
 
 	.blog-item-title {

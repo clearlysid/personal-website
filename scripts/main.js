@@ -8,18 +8,18 @@ animate(
 	{ duration: 0.3, delay: stagger(0.02) }
 )
 
-const colors = ["#59EFEF", "#4DF8D9", "#FF9AB2", "#CE9BF5"]
-let colorsCopy = colors.slice(0)
-
-const randomColour = () => {
-	if (colorsCopy.length < 1) colorsCopy = colors.slice(0)
-	const index = Math.floor(Math.random() * colorsCopy.length)
-	const item = colorsCopy[index]
-	colorsCopy.splice(index, 1)
-	return item
-}
 
 if (window.innerWidth > 720) {
+	const colors = ["#59EFEF", "#4DF8D9", "#FF9AB2", "#CE9BF5"]
+	let colorsCopy = colors.slice(0)
+
+	const randomColour = () => {
+		if (colorsCopy.length < 1) colorsCopy = colors.slice(0)
+		const index = Math.floor(Math.random() * colorsCopy.length)
+		const item = colorsCopy[index]
+		colorsCopy.splice(index, 1)
+		return item
+	}
 
 	document.querySelectorAll('.blog-item-title').forEach(blog => {
 		const blogAnnotation = annotate(blog, {

@@ -16,7 +16,7 @@ Hi, I'm [@clearlysid](https://twitter.com/clearlysid) and this is my personal we
 
 ## Developer Reference
 
-To pull notes from Dropbox, we need to specify a directory in `getNotes.js` as well as enter an [API key](https://dropbox.tech/developers/generate-an-access-token-for-your-own-account) in a `.env` file at the root of the project.
+To pull notes from Dropbox, specify a folder in `getNotes.js` and provide an [API key](https://dropbox.tech/developers/generate-an-access-token-for-your-own-account) in a `.env` file in your root.
 
 1. `yarn` installs all packages needed.
 2. `yarn notes` pulls notes from Dropbox — you set up an API key, right?
