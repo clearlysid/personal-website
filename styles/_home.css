@@ -30,6 +30,28 @@
 	margin-bottom: 24px;
 }
 
+.hm-cta {
+	display: flex;
+	column-gap: 24px;
+}
+
+.hm-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.8em;
+	border: 1.4px solid #222222;
+	font-size: 16px;
+	min-width: 142px;
+	height: 42px;
+	transition: all 0.2s ease;
+}
+
+.hm-button:hover {
+	background-color: #222222;
+	color: white;
+}
+
 .hm-tail {
 	margin-top: 72px;
 	grid-column: 1 / 5;
