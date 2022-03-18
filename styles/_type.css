@@ -1,16 +1,20 @@
-@font-face {
-	font-family: "Takota";
-	src: url("../assets/Takota.woff2") format("woff2"),
-		url("../assets/Takota.otf") format("opentype");
-	font-style: normal;
-	font-display: swap;
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+
+.fancy-type {
+	font-family: "Lora", serif;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 1.2em;
+	letter-spacing: -0.05em;
+	margin: 0;
 }
 
 h1 {
-	font-family: "Takota";
 	font-size: 4.5rem;
+	font-weight: 700;
+	letter-spacing: -0.04em;
 	line-height: 1.02em;
-	color: #333;
+	color: #222;
 }
 
 h2,
