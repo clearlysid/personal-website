@@ -1,88 +1,39 @@
-.blog-container {
+.blg-wrapper {
 	max-width: calc(800px + 2rem + 2rem);
 	margin: 0 auto;
 	padding: 0 2rem 3rem;
 }
 
-header.blog-container {
+header.blg-wrapper {
 	padding-top: 8rem;
 	position: relative;
 }
 
-.blog-avatar {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	top: 10.8rem;
-	right: -6rem;
-	height: 240px;
-	width: 240px;
-}
-
-.blog-decal {
-	position: absolute;
-	top: 8rem;
-	left: -16rem;
-	z-index: -1;
-	max-width: 100vw;
-	overflow: hidden;
-}
-
-.blog-decal > svg {
-	opacity: 0.5;
-}
-
-.blog-avatar svg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-}
-
-.blog-avatar img {
-	border-radius: 50%;
-	overflow: hidden;
-	width: calc(100% - 1rem);
-	height: auto;
-}
-
-.blog-container h1 {
+.blg-wrapper h1 {
 	max-width: 18ch;
 	margin-bottom: 0;
 }
 
-#manual > span > span {
-	/* display: inline-block; */
-	overflow: visible;
-	vertical-align: top;
-}
-
-.whtSpc {
-	width: 0.6ch;
-}
-
-.blog-container p {
+.blg-wrapper p {
 	font-size: 1rem;
 	line-height: 1.8em;
 	max-width: 50ch;
 	margin-top: 1em;
 }
 
-.blog-container p > a {
+.blg-wrapper p > a {
 	border: none;
 	font-weight: 600;
 }
 
-.blog-list {
+.blg-list {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	margin-bottom: 3rem;
 }
 
-.blog-item {
+.blg-item {
 	margin-bottom: 1.4rem;
 	display: grid;
 	align-items: flex-start;
@@ -91,7 +42,7 @@ header.blog-container {
 	row-gap: 0.4rem;
 }
 
-.blog-item-title {
+.blg-item-title {
 	font-size: 1.28rem;
 	letter-spacing: -0.02em;
 	line-height: 1.4em;
@@ -102,7 +53,7 @@ header.blog-container {
 	border: none;
 }
 
-.blog-item-date {
+.blg-item-date {
 	padding-top: 0.4em;
 	letter-spacing: 0;
 	font-size: 0.9em;
@@ -111,32 +62,21 @@ header.blog-container {
 }
 
 @media (max-width: 620px) {
-	header.blog-container {
+	header.blg-wrapper {
 		overflow: hidden;
 		max-width: 100vw;
 	}
 
-	.blog-container h1 {
+	.blg-wrapper h1 {
 		max-width: 80vw;
 		font-size: min(4.5rem, 12vw);
 	}
 
-	.blog-container p {
+	.blg-wrapper p {
 		max-width: 70vw;
 	}
 
-	.blog-decal {
-		display: none;
-	}
-
-	.blog-avatar {
-		position: absolute;
-		height: max(9rem, 30vw);
-		width: max(9rem, 30vw);
-		right: -3.4rem;
-	}
-
-	.blog-item-title {
+	.blg-item-title {
 		width: 100%;
 	}
 }

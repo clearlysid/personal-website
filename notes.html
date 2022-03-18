@@ -4,19 +4,19 @@ permalink: /notes/
 title: Notes on code, design and culture.
 ---
 
-<a href="/" class="note-back">← Home</a>
+<a href="/" class="back-button">← Home</a>
 
-<header class="blog-container">
-	<h1> @clearlysid's notes on <span class="fancy-type">code, design & culture.</span></h1>
+<header class="blg-wrapper">
+	<h1> @clearlysid's notes on <span class="lora">code, design & culture.</span></h1>
 </header>
 
-<main class="blog-container">
-	<ul class="blog-list">
+<main class="blg-wrapper">
+	<ul class="blg-list">
 		{% for note in collections.now %}
 		{% if note.data.published == true %}
-		<li class="blog-item" role="article">
-			<time class="blog-item-date fancy-type">NOW</time>
-			<a href="{{ note.url }}" class="blog-item-title">
+		<li class="blg-item" role="article">
+			<time class="blg-item-date lora">NOW</time>
+			<a href="{{ note.url }}" class="blg-item-title">
 				{{ note.data.title }}
 			</a>
 		</li>
@@ -25,9 +25,9 @@ title: Notes on code, design and culture.
 
 		{% for note in collections.notes reversed %}
 		{% if note.data.published == true %}
-		<li class="blog-item" role="article">
-			<time class="blog-item-date fancy-type">{{ note.date | date: "%d-%m-%y" }}</time>
-			<a href="{{ note.url }}" class="blog-item-title">
+		<li class="blg-item" role="article">
+			<time class="blg-item-date lora">{{ note.date | date: "%d-%m-%y" }}</time>
+			<a href="{{ note.url }}" class="blg-item-title">
 				{{ note.data.title }}
 			</a>
 		</li>

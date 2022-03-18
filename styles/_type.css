@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
-
-.fancy-type {
+.lora {
 	font-family: "Lora", serif;
 	font-style: italic;
 	font-weight: 400;

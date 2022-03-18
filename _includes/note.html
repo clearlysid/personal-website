@@ -4,17 +4,17 @@ type: article
 permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slug }}{% endif %}/"
 ---
 
-<a href="/notes/" class="note-back">← All Notes</a>
+<a href="/notes/" class="back-button">← All Notes</a>
 
-<article class="note-wrapper">
-	<header class="note-header fancy-type">
+<article class="nt-wrapper">
+	<header class="nt-header lora">
 		{%- if image -%}
-		<div class="note-image">
+		<div class="nt-image">
 			{% cloudinary image title 600 %}
 		</div>
 		{%- endif -%}
-		<time class="note-date">{{ page.date | date: '%B %d, %Y' }}</time>
-		<h1 class="note-title" {% if image %} style="width: {{ title | size | times: 0.5 | round }}ch;" {% endif %}>
+		<time class="nt-date">{{ page.date | date: '%B %d, %Y' }}</time>
+		<h1 class="nt-title" {% if image %} style="width: {{ title | size | times: 0.5 | round }}ch;" {% endif %}>
 			{{ title }}
 		</h1>
 	</header>

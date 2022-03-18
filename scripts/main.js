@@ -2,7 +2,10 @@ import "../styles/main.css";
 import { annotate } from 'rough-notation';
 
 
-if (window.innerWidth > 720) {
+const isDesktop = window.innerWidth >= 768
+
+
+if (isDesktop) {
 	const colors = ["#59EFEF", "#4DF8D9", "#FF9AB2", "#CE9BF5"]
 	let colorsCopy = colors.slice(0)
 
@@ -14,16 +17,16 @@ if (window.innerWidth > 720) {
 		return item
 	}
 
-	document.querySelectorAll('.blog-item-title').forEach(blog => {
-		const blogAnnotation = annotate(blog, {
+	document.querySelectorAll('.blg-item-title').forEach(title => {
+		const blogAnn = annotate(title, {
 			type: 'highlight',
 			animationDuration: 600,
 			color: randomColour(),
 			iterations: 2
 		})
 
-		blog.addEventListener('mouseenter', () => blogAnnotation.show())
-		blog.addEventListener('mouseleave', () => blogAnnotation.hide())
+		title.addEventListener('mouseenter', () => blogAnn.show())
+		title.addEventListener('mouseleave', () => blogAnn.hide())
 	})
 
 
@@ -34,11 +37,11 @@ if (window.innerWidth > 720) {
 		link.addEventListener('mouseleave', () => linkAnn.hide())
 	})
 
-	const noteBackEl = document.querySelector('.note-back')
+	const backButtonEl = document.querySelector('.back-button')
 
-	const noteBackAnn = annotate(noteBackEl, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
+	const backButtonAnn = annotate(backButtonEl, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
 
-	noteBackEl.addEventListener('mouseenter', () => noteBackAnn.show())
-	noteBackEl.addEventListener('mouseleave', () => noteBackAnn.hide())
+	backButtonEl.addEventListener('mouseenter', () => backButtonAnn.show())
+	backButtonEl.addEventListener('mouseleave', () => backButtonAnn.hide())
 
 }
