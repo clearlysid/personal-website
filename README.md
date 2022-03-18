@@ -16,9 +16,9 @@ Hi, I'm [@clearlysid](https://twitter.com/clearlysid) and this is my personal we
 
 ## Developer Reference
 
-To pull notes from Dropbox, specify a folder in `getNotes.js` and provide an [API key](https://dropbox.tech/developers/generate-an-access-token-for-your-own-account) in a `.env` file in your root.
+To pull notes from Dropbox, specify a folder in `getNotes.js` and provide an [API key](https://dropbox.tech/developers/generate-an-access-token-for-your-own-account) as `DROPBOX_TOKEN` in an `.env` file in your root.
 
 1. `yarn` installs all packages needed.
 2. `yarn notes` pulls notes from Dropbox — you set up an API key, right?
 3. `yarn dev` spins up a dev server.
-4. `yarn build` builds for production:
+4. `yarn build` builds for production.
