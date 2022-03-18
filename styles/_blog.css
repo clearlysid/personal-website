@@ -1,5 +1,5 @@
 .blog-container {
-	max-width: 640px;
+	max-width: calc(800px + 2rem + 2rem);
 	margin: 0 auto;
 	padding: 0 2rem 3rem;
 }
@@ -103,11 +103,9 @@ header.blog-container {
 }
 
 .blog-item-date {
-	padding-top: 0.5em;
-	text-transform: uppercase;
-	font-size: 0.84em;
-	font-family: ui-monospace, "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
-		"Ubuntu Monospace", "Fira Mono", monospace;
+	padding-top: 0.4em;
+	letter-spacing: 0;
+	font-size: 0.9em;
 	color: #444444;
 	width: 10ch;
 }

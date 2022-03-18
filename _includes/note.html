@@ -7,14 +7,14 @@ permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slug }}{% endif %
 <a href="/notes/" class="note-back">← All Notes</a>
 
 <article class="note-wrapper">
-	<header class="note-header">
+	<header class="note-header fancy-type">
 		{%- if image -%}
 		<div class="note-image">
 			{% cloudinary image title 600 %}
 		</div>
 		{%- endif -%}
 		<time class="note-date">{{ page.date | date: '%B %d, %Y' }}</time>
-		<h1 class="note-title" {% if image %} style="width: {{ title | size | times: 0.6 | round }}ch;" {% endif %}>
+		<h1 class="note-title" {% if image %} style="width: {{ title | size | times: 0.5 | round }}ch;" {% endif %}>
 			{{ title }}
 		</h1>
 	</header>
