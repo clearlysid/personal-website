@@ -43,7 +43,7 @@
 	border-radius: 0.8em;
 	border: 1px solid #222222;
 	font-size: 1rem;
-	min-width: 8.875rem;
+	width: 8.875rem;
 	height: 2.625rem;
 	transition: all 0.2s ease;
 }
@@ -59,7 +59,7 @@
 }
 
 .hm-wrapper > img:nth-of-type(1) {
-	margin-top: 15rem;
+	margin-top: 18rem;
 	grid-column: 5 / 9;
 	grid-row: 1 / span 2;
 	height: 37.5rem;
