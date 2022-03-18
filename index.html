@@ -1,7 +1,40 @@
 ---
 layout: default
-title: "Siddharth's Notebook"
-description: "Blog and Personal website of Siddharth"
+description: "Leads Design Ops and UX Engineering at Headout."
 ---
 
-{% cloudinary "https://images.unsplash.com/photo-1637783226061-6d3e55c26cdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60" "dummy photo" 800 %}
+<main class="hm-wrapper">
+	<section class="hm-head">
+		<h1>Siddharth<span style="display:none;"> Jha</span></h1>
+		<h2 class="fancy-type">@clearlysid</h2>
+		<p>I lead Design Ops + UX Engineering at Headout, home to the world’s finest real life experiences.</p>
+		<p>On nights and weekends you’ll find me taking apart and reassembling electronics, tinkering with sound design or gaming with some pals.</p>
+		<p>Outside of work — I love ice creams, cooking, long walks, valorant and cats. Lots of cats.</p>
+		<p><a href="/notes">Read Notes</a></p>
+	</section>
+	
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/v1647586154/sid-1_gtouun.jpg" alt="">
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/v1647594800/setup-1_dmj7ln.png" alt="">
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/v1647594800/cat-1_erg0xx.jpg" alt="">
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/v1647594800/cat-2_rbf1tb.png" alt="">
+	<img src="http://placekitten.com/533/296" alt="">
+	<img src="https://res.cloudinary.com/clearlysid/image/upload/v1647594800/synth-1_o7vonh.jpg" alt="">
+	
+	<section class="hm-tail">
+		<p>And that’s that really — I live a simple life. Own very few, but meaningful things. Try to fix and improve what I can, and would love to be very well known for my work someday.</p>
+		<p>Fancy a chat? <a href="">siddharth99c@gmail.com</a></p>
+	</section>
+
+	<section class="hm-features">
+		<h2>As seen elsewhere on</h2>
+		<ul class="hm-features-list">
+			{% for feature in features %}
+				<li>
+					<a href="{{ feature.link }}" target="_blank">
+						{{ feature.name }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+</main>

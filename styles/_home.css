@@ -1,0 +1,64 @@
+.hm-wrapper {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	column-gap: 24px;
+	max-width: calc(800px + 2rem + 2rem);
+	margin: 0 auto;
+	padding: 0 2rem 3rem;
+}
+
+.hm-head {
+	margin-top: 120px;
+	grid-column: 1 / 5;
+}
+
+.hm-head h1 {
+	font-size: 81px;
+	margin-bottom: -16px;
+}
+
+.hm-head h2 {
+	font-size: 54px;
+	margin-bottom: 24px;
+}
+
+.hm-head p,
+.hm-tail p {
+	font-size: 18px;
+	line-height: 1.8em;
+	letter-spacing: 0.004em;
+	margin-bottom: 24px;
+}
+
+.hm-tail {
+	margin-top: 72px;
+	grid-column: 5 / 9;
+}
+
+.hm-wrapper img:nth-of-type(1) {
+	grid-column: 5 / 9;
+}
+
+.hm-wrapper img:nth-of-type(2) {
+	grid-column: 2 / 8;
+}
+.hm-wrapper img:nth-of-type(3) {
+	grid-column: 1 / 5;
+}
+.hm-wrapper img:nth-of-type(4) {
+	grid-column: 6 / 9;
+}
+.hm-wrapper img:nth-of-type(5) {
+	grid-column: 3 / 8;
+}
+.hm-wrapper img:nth-of-type(6) {
+	grid-column: 1 / 4;
+}
+
+.hm-features {
+	grid-column: span 8;
+	display: flex;
+	flex-direction: column;
+	place-items: center;
+	margin-top: 120px;
+}
