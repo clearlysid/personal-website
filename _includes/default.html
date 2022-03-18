@@ -23,11 +23,11 @@
 	<meta property="og:site_name" content="{{- global.sitename -}}" />
 	<meta name="twitter:card" value="summary" />
 	<meta name="twitter:site" content="{{- global.username -}}" />
-	<link rel="canonical" href="{{- page.url -}}" />
+	<link rel="canonical" href="{{ global.baseurl }}{{- page.url -}}" />
 
 	{%- if description -%}
-	<meta name="description" content="{{- p_desc -}}" />
-	<meta property="og:description" content="{{- p_desc -}}" />
+	<meta name="description" content="{{- description -}}" />
+	<meta property="og:description" content="{{- description -}}" />
 	{%- endif -%}
 
 	{%- if image -%}
