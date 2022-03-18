@@ -60,15 +60,12 @@ if (isDesktop) {
 }
 
 window.onload = function () {
-	console.log("loaded")
 	lax.init()
 
-	// Add a driver that we use to control our animations
 	lax.addDriver('scrollY', function () {
 		return window.scrollY
 	})
 
-	// Add animation bindings to elements
 	lax.addElements('.hm-gallery:first-of-type', {
 		scrollY: {
 			translateY: [
@@ -113,8 +110,6 @@ window.onload = function () {
 			]
 		}
 	})
-
-
 }
 
 

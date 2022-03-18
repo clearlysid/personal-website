@@ -3,12 +3,6 @@
   publish = "_site"
 
 [[redirects]]
-  from = "/"
-  to = "/notes"
-  status = 302
-  force = true
-
-[[redirects]]
   from = "/blog"
   to = "/notes"
   status = 301
