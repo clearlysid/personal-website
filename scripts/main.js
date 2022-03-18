@@ -1,9 +1,8 @@
 import "../styles/main.css";
 import { annotate } from 'rough-notation';
-
+import lax from 'lax.js'
 
 const isDesktop = window.innerWidth >= 768
-
 
 if (isDesktop) {
 	const colors = ["#59EFEF", "#4DF8D9", "#FF9AB2", "#CE9BF5"]
@@ -31,7 +30,13 @@ if (isDesktop) {
 
 
 	document.querySelectorAll('p > a').forEach(link => {
-		const linkAnn = annotate(link, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2, multiline: true })
+		const linkAnn = annotate(link, {
+			type: 'circle',
+			iterations: 2,
+			color: randomColour(),
+			strokeWidth: 2,
+			multiline: true
+		})
 
 		link.addEventListener('mouseenter', () => linkAnn.show())
 		link.addEventListener('mouseleave', () => linkAnn.hide())
@@ -39,9 +44,77 @@ if (isDesktop) {
 
 	const backButtonEl = document.querySelector('.back-button')
 
-	const backButtonAnn = annotate(backButtonEl, { type: 'circle', iterations: 2, color: randomColour(), strokeWidth: 2 })
+	if (backButtonEl) {
 
-	backButtonEl.addEventListener('mouseenter', () => backButtonAnn.show())
-	backButtonEl.addEventListener('mouseleave', () => backButtonAnn.hide())
+		const backButtonAnn = annotate(backButtonEl, {
+			type: 'circle',
+			iterations: 2,
+			color: randomColour(),
+			strokeWidth: 2
+		})
+
+		backButtonEl.addEventListener('mouseenter', () => backButtonAnn.show())
+		backButtonEl.addEventListener('mouseleave', () => backButtonAnn.hide())
+	}
 
 }
+
+window.onload = function () {
+	console.log("loaded")
+	lax.init()
+
+	// Add a driver that we use to control our animations
+	lax.addDriver('scrollY', function () {
+		return window.scrollY
+	})
+
+	// Add animation bindings to elements
+	lax.addElements('.hm-gallery:first-of-type', {
+		scrollY: {
+			translateY: [
+				["elInY", "elOutY"],
+				[-100, 0],
+			]
+		}
+	})
+
+	lax.addElements('.hm-gallery:nth-of-type(2)', {
+		scrollY: {
+			translateY: [
+				["elInY", "elOutY"],
+				[200, 0],
+			]
+		}
+	})
+
+	lax.addElements('.hm-gallery:nth-of-type(3)', {
+		scrollY: {
+			translateY: [
+				["elInY", "elOutY"],
+				[40, 20],
+			]
+		}
+	})
+
+	lax.addElements('.hm-gallery:nth-of-type(4)', {
+		scrollY: {
+			translateY: [
+				["elInY", "elOutY"],
+				[100, -200],
+			]
+		}
+	})
+
+	lax.addElements('.hm-gallery:nth-of-type(5)', {
+		scrollY: {
+			translateY: [
+				["elInY", "elOutY"],
+				[0, 100],
+			]
+		}
+	})
+
+
+}
+
+
