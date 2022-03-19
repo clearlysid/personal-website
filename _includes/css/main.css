@@ -21,26 +21,34 @@
 
 .nav-burger {
 	display: flex;
+	align-items: center;
+	justify-content: center;
 	outline: none;
 	border: none;
-	height: 1.25rem;
-	width: 2rem;
-	padding: 0px;
 	background: transparent;
-	transition: all 0.4s cubic-bezier(0.49, 0, 0.08, 1.28);
-	cursor: pointer;
 	position: fixed;
 	top: 4rem;
 	right: 4rem;
 	z-index: 11;
+	cursor: pointer;
 	transform: translate3d(0, 0, 400px);
 	-webkit-transform: translate3d(0, 0, 400px);
+	height: 2.8rem;
+	width: 2.8rem;
 }
 
-.nav-burger:before,
-.nav-burger:after {
+.nav-burger-inner {
+	display: flex;
+	height: 1.25rem;
+	width: 2rem;
+	padding: 0px;
+	transition: all 0.4s cubic-bezier(0.49, 0, 0.08, 1.28);
+}
+
+.nav-burger-inner:before,
+.nav-burger-inner:after {
 	content: "";
-	width: 100%;
+	width: 2rem;
 	height: 0.125rem;
 	position: absolute;
 	background: #888;
@@ -48,19 +56,19 @@
 	will-change: transform;
 }
 
-.nav-burger:before {
+.nav-burger-inner:before {
 	transform: translateY(100%);
 }
 
-.nav-burger:after {
+.nav-burger-inner:after {
 	transform: translateY(800%);
 }
 
-.active.nav-burger:before {
+.active .nav-burger-inner:before {
 	transform: translateY(500%) rotate(45deg);
 }
 
-.active.nav-burger:after {
+.active .nav-burger-inner:after {
 	transform: translateY(500%) rotate(-45deg);
 }
 
