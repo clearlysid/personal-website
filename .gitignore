@@ -67,3 +67,5 @@ _site
 blog
 notes/*.md
 !notes/kitchen-sink.md
+# Local Netlify folder
+.netlify

@@ -4,7 +4,7 @@
 	"description": "Portfolio and Blog",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
 	"license": "WTFPL",
-	"private": true,
+	"private": false,
 	"scripts": {
 		"notes": "node getNotes.js",
 		"clean": "rm -rf _site",

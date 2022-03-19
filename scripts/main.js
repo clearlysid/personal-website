@@ -27,36 +27,6 @@ if (isDesktop) {
 		title.addEventListener('mouseenter', () => blogAnn.show())
 		title.addEventListener('mouseleave', () => blogAnn.hide())
 	})
-
-
-	document.querySelectorAll('p > a').forEach(link => {
-		const linkAnn = annotate(link, {
-			type: 'circle',
-			iterations: 2,
-			color: randomColour(),
-			strokeWidth: 2,
-			multiline: true
-		})
-
-		link.addEventListener('mouseenter', () => linkAnn.show())
-		link.addEventListener('mouseleave', () => linkAnn.hide())
-	})
-
-	const backButtonEl = document.querySelector('.back-button')
-
-	if (backButtonEl) {
-
-		const backButtonAnn = annotate(backButtonEl, {
-			type: 'circle',
-			iterations: 2,
-			color: randomColour(),
-			strokeWidth: 2
-		})
-
-		backButtonEl.addEventListener('mouseenter', () => backButtonAnn.show())
-		backButtonEl.addEventListener('mouseleave', () => backButtonAnn.hide())
-	}
-
 }
 
 window.onload = function () {
