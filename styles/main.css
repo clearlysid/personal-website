@@ -1,9 +1,9 @@
-@import "_base";
-@import "_type";
-@import "_home";
-@import "_prism";
-@import "_note";
-@import "_blog";
+@import "_base.css";
+@import "_home.css";
+@import "_type.css";
+@import "_prism.css";
+@import "_note.css";
+@import "_blog.css";
 
 .footer {
 	text-align: center;

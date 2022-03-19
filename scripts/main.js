@@ -1,6 +1,3 @@
-import "../styles/main.css";
-import { annotate } from 'rough-notation';
-import lax from 'lax.js'
 
 const isDesktop = window.innerWidth >= 768
 
