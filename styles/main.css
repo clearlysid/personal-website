@@ -31,6 +31,8 @@
 	top: 4rem;
 	right: 4rem;
 	z-index: 11;
+	transform: translate3d(0, 0, 400px);
+	-webkit-transform: translate3d(0, 0, 400px);
 }
 
 .nav-burger:before,
