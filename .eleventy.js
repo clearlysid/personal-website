@@ -1,7 +1,8 @@
+const CleanCSS = require("clean-css")
 const markdownIt = require("markdown-it")
+const htmlmin = require("html-minifier")
 const mdTaskCheckbox = require("markdown-it-task-checkbox")
 const mdImplicitFigures = require("markdown-it-implicit-figures")
-const cloudinary = require("./_includes/cloudinary")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 
 module.exports = function (eleventyConfig) {
@@ -9,8 +10,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true)
 	eleventyConfig.setUseGitIgnore(false)
 	eleventyConfig.addPassthroughCopy({ "assets": "assets" })
-	eleventyConfig.addPassthroughCopy({ "scripts": "assets/scripts" })
-	eleventyConfig.addPassthroughCopy({ "styles": "assets/styles" })
 	eleventyConfig.setFrontMatterParsingOptions({
 		excerpt: true,
 		excerpt_separator: "<!--excerpt-->"
@@ -24,8 +23,44 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setLibrary("md", md)
 
 	// Shortcodes
-	eleventyConfig.addShortcode("cloudinary", cloudinary)
+	eleventyConfig.addShortcode("cloudinary", (url, alt, width = 1000, className) => {
+		const mobileWidth = 600 // controls breakpoint + image width
+		const classN = className ? ` class="${className}"` : ``
+
+		const baseUrl = `https://res.cloudinary.com/clearlysid/image/fetch`
+		const link = (w) => baseUrl + `/f_auto/q_80/w_${w}/` + encodeURIComponent(url)
+
+		const src = ` src="${link(width)}"`
+		const altText = alt ? ` alt="${alt}"` : ``
+		const sizes = ` sizes="(min-width: ${mobileWidth}px) ${width}px, ${mobileWidth}px"`
+		const srcset = ` srcset="${link(width)} ${width}w, ${link(mobileWidth)}w"`
+
+		return `<img width="${width}" height="600"` + classN + srcset + sizes + src + altText + ` />`
+	})
+
+	// Filters
+	eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles)
 
 	// Plugins
 	eleventyConfig.addPlugin(syntaxHighlight)
+
+	eleventyConfig.addTransform("transform-name", function (content) {
+
+		if (this.outputPath.endsWith(".html")) {
+			let minified = htmlmin.minify(content, {
+				useShortDoctype: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			})
+
+			return minified
+			console.log(minified)
+		}
+
+		// console.log(this.inputPath);
+		// console.log(this.outputPath);
+		// note that this.outputPath is `false` for serverless templates
+
+		return content; // no change done.
+	});
 }

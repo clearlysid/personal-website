@@ -17,5 +17,5 @@ permalink: "/notes/{% if slug %}{{ slug }}{% else %}{{ title | slug }}{% endif %
 		</h1>
 	</header>
 
-	{{- content | safe -}}
+	{{- content | 'safe' -}}
 </article>
