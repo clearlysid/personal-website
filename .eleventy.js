@@ -44,23 +44,22 @@ module.exports = function (eleventyConfig) {
 	// Plugins
 	eleventyConfig.addPlugin(syntaxHighlight)
 
-	eleventyConfig.addTransform("transform-name", function (content) {
+	// Transforms
+	eleventyConfig.addTransform("htmlmin", function (content) {
 
 		if (this.outputPath.endsWith(".html")) {
 			let minified = htmlmin.minify(content, {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
+				conservativeCollapse: true,
+				continueOnParseError: true,
 			})
 
+			// console.log(minified)
 			return minified
-			console.log(minified)
 		}
 
-		// console.log(this.inputPath);
-		// console.log(this.outputPath);
-		// note that this.outputPath is `false` for serverless templates
-
-		return content; // no change done.
+		return content
 	});
 }
