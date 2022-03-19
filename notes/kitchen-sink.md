@@ -8,6 +8,8 @@ image: https://images.unsplash.com/photo-1637500970860-90c839da7c39?&auto=format
 
 Think of this page as a style-guide. Here I list down all the elements from my blog and experiment with their styling. It's a jumping off point to get your type, colors and component styles locked in for the site. The content of this page doesn't particularly make sense so I wouldn't bother reading.
 
+<!--excerpt-->
+
 I used to power this site from [Notion](https://www.notion.so) with a renderer that I wrote, but given how complex the data structures became over time — it quickly started to feel hard to maintain. Every time Notion would update their architecture, my renderer would break until I made appropriate connections.
 
 ## Back to Markdown
@@ -33,13 +35,12 @@ Within running text, here's what an image looks like on it's own:
 
 Each image should also be accompanied a caption explaining what the image is about.
 
-
 ## Next Steps
 
 There may be ways for me to spin some styling over the basics and still arrive at something unique for this site.
 
 ### Todo
 
-- [ ] pending
-- [ ] another pending
-- [x] done x
+-   [ ] pending
+-   [ ] another pending
+-   [x] done x

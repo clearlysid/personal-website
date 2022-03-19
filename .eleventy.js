@@ -11,6 +11,10 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true)
 	eleventyConfig.setUseGitIgnore(false)
 	eleventyConfig.addPassthroughCopy({ assets: "assets" })
+	eleventyConfig.setFrontMatterParsingOptions({
+		excerpt: true,
+		excerpt_separator: "<!--excerpt-->"
+	})
 
 	// Markdown Plugins
 	const md = markdownIt({ html: true })

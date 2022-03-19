@@ -28,6 +28,9 @@
 	{%- if description -%}
 	<meta name="description" content="{{- description -}}" />
 	<meta property="og:description" content="{{- description -}}" />
+	{% elsif layout == "note" %}
+	<meta name="description" content="{{- page.excerpt | strip_newlines -}}" />
+	<meta property="og:description" content="{{- page.excerpt | strip_newlines -}}" />
 	{%- endif -%}
 
 	{%- if image -%}
