@@ -137,12 +137,14 @@
 	.hm-wrapper {
 		max-width: 100%;
 		grid-template-columns: repeat(4, 1fr);
+		padding: 0 0 3rem;
 		column-gap: 0;
 	}
 
 	.hm-head,
 	.hm-tail {
 		grid-column: 1 / span 4;
+		padding: 0 2rem;
 	}
 
 	.hm-head p,
@@ -177,7 +179,8 @@
 
 	.hm-wrapper > img:nth-of-type(5) {
 		grid-column: 2 / span 3;
-		grid-row: 6;
+		grid-row: 7;
+		margin-bottom: 4rem;
 	}
 
 	.hm-features-list {
