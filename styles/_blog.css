@@ -4,26 +4,10 @@
 	padding: 0 2rem 3rem;
 }
 
-header.blg-wrapper {
-	padding-top: 8rem;
-	position: relative;
-}
-
 .blg-wrapper h1 {
+	padding-top: 8rem;
 	max-width: 18ch;
-	margin-bottom: 0;
-}
-
-.blg-wrapper p {
-	font-size: 1rem;
-	line-height: 1.8em;
-	max-width: 50ch;
-	margin-top: 1em;
-}
-
-.blg-wrapper p > a {
-	border: none;
-	font-weight: 600;
+	margin-bottom: 4rem;
 }
 
 .blg-list {
@@ -62,18 +46,9 @@ header.blg-wrapper {
 }
 
 @media (max-width: 620px) {
-	header.blg-wrapper {
-		overflow: hidden;
-		max-width: 100vw;
-	}
-
 	.blg-wrapper h1 {
-		max-width: 80vw;
+		max-width: 100%;
 		font-size: min(4.5rem, 12vw);
-	}
-
-	.blg-wrapper p {
-		max-width: 70vw;
 	}
 
 	.blg-item-title {
