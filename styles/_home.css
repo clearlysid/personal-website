@@ -7,11 +7,6 @@
 	column-gap: 1.5rem;
 }
 
-.hm-head {
-	margin-top: 7.5rem;
-	grid-column: 1 / 5;
-}
-
 .hm-head h1 {
 	font-size: 5rem;
 	margin-bottom: -1rem;
@@ -51,6 +46,11 @@
 .hm-button:hover {
 	background-color: #222222;
 	color: white;
+}
+
+.hm-head {
+	margin-top: 7.5rem;
+	grid-column: 1 / 5;
 }
 
 .hm-tail {
@@ -131,4 +131,56 @@
 
 .hm-feature:nth-of-type(3) > a > img {
 	width: 140px;
+}
+
+@media (max-width: 860px) {
+	.hm-wrapper {
+		max-width: 100%;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 0;
+	}
+
+	.hm-head,
+	.hm-tail {
+		grid-column: 1 / span 4;
+	}
+
+	.hm-head p,
+	.hm-tail p {
+		max-width: 36ch;
+	}
+
+	.hm-wrapper > img:nth-of-type(1) {
+		margin-top: 10rem;
+		grid-column: 2 / span 4;
+		grid-row: 2 / span 2;
+		height: 30rem;
+	}
+
+	.hm-wrapper > img:nth-of-type(2) {
+		grid-column: 1 / span 2;
+		grid-row: 3 / span 2;
+		z-index: 2;
+	}
+
+	.hm-wrapper > img:nth-of-type(3) {
+		grid-column: 3 / span 2;
+		grid-row: 4 / span 1;
+		margin: 0;
+	}
+
+	.hm-wrapper > img:nth-of-type(4) {
+		grid-column: 1 / span 3;
+		grid-row: 5 / span 3;
+		margin: 0;
+	}
+
+	.hm-wrapper > img:nth-of-type(5) {
+		grid-column: 2 / span 3;
+		grid-row: 6;
+	}
+
+	.hm-features-list {
+		column-gap: 0;
+	}
 }
