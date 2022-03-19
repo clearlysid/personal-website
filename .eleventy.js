@@ -39,7 +39,7 @@ module.exports = function (eleventyConfig) {
 	})
 
 	// Filters
-	eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles)
+	eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({ level: 2 }).minify(code).styles)
 
 	// Plugins
 	eleventyConfig.addPlugin(syntaxHighlight)
@@ -52,8 +52,8 @@ module.exports = function (eleventyConfig) {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
-				conservativeCollapse: true,
 				continueOnParseError: true,
+				minifyJS: true
 			})
 
 			// console.log(minified)

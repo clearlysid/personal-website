@@ -13,13 +13,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
 
 	{% capture css %}
-		{% include "styles/_base.css" %}
-		{% include "styles/_home.css" %}
-		{% include "styles/_type.css" %}
-		{% include "styles/_prism.css" %}
-		{% include "styles/_note.css" %}
-		{% include "styles/_blog.css" %}
-		{% include "styles/main.css" %}
+		{% include "css/_base.css" %}
+		{% include "css/_home.css" %}
+		{% include "css/_type.css" %}
+		{% include "css/_prism.css" %}
+		{% include "css/_note.css" %}
+		{% include "css/_blog.css" %}
+		{% include "css/main.css" %}
 	{% endcapture %}
 	<style>
 		{{ css | cssmin | 'safe' }}
@@ -44,7 +44,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
 
 	{% capture js %}
-	{% include "scripts/main.js" %}
+	{% include "js/main.js" %}
 	{% endcapture %}
 	<script>
 		{{ js | 'safe' }}
