@@ -12,38 +12,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
 
-	{%- if title -%}
-	<title>{{ global.sitename }} — {{ title -}}</title>
-	<meta property="og:title" content="{{ global.sitename }} — {{ title -}}" />
-	{%- else -%}
-	<title>{{- global.title -}}</title>
-	{%- endif -%}
-
-	<meta property="og:url" content="{{- page.url -}}" />
-	<meta property="og:site_name" content="{{- global.sitename -}}" />
-	<meta name="twitter:card" value="summary" />
-	<meta name="twitter:site" content="{{- global.username -}}" />
-	<link rel="canonical" href="{{ global.baseurl }}{{- page.url -}}" />
-
-	{%- if description -%}
-	<meta name="description" content="{{- description -}}" />
-	<meta property="og:description" content="{{- description -}}" />
-	{% elsif layout == "note" %}
-	<meta name="description" content="{{- page.excerpt | strip_newlines -}}" />
-	<meta property="og:description" content="{{- page.excerpt | strip_newlines -}}" />
-	{%- endif -%}
-
-	{%- if image -%}
-	<meta property="og:image" content="{{- image -}}" />
-	{%- else -%}
-	<meta property="og:image" content="{{- global.image -}}" />
-	{%- endif -%}
-
-	{%- if type -%}
-	<meta property="og:type" content="{{- type -}}" />
-	{%- else -%}
-	<meta property="og:type" content="website" />
-	{%- endif -%}
+	{% include seo.html %}
 
 	{% if global.env == "production" %}
 		{%- viteStyles -%}
@@ -51,6 +20,8 @@
 </head>
 
 <body>
+
+	{% include navigation.html %}
 
 	<div id="content">
 		{{- content | safe -}}
