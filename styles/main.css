@@ -70,13 +70,14 @@
 	z-index: 10;
 	pointer-events: none;
 	opacity: 0;
-	transition: all 0.3s cubic-bezier(0.65, 0, 0.23, 1);
+	transition: opacity 0.3s cubic-bezier(0.65, 0, 0.23, 1);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 	row-gap: 3rem;
-	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 200px);
+	-webkit-transform: translate3d(0, 0, 200px);
 }
 
 .nav-burger.active + .nav {
