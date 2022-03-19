@@ -3,7 +3,7 @@
 	"version": "10.0.0",
 	"description": "Portfolio and Blog",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
-	"license": "MIT",
+	"license": "WTFPL",
 	"private": true,
 	"scripts": {
 		"notes": "node getNotes.js",
