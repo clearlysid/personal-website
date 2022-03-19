@@ -1,7 +1,3 @@
-# Tell 11ty to ignore stuff Vite is serving/building
-scripts/*
-styles/*
-
 # Logs
 
 logs

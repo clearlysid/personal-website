@@ -1,16 +1,15 @@
-const fs = require("fs")
-const path = require("path")
+const CleanCSS = require("clean-css")
 const markdownIt = require("markdown-it")
+const htmlmin = require("html-minifier")
 const mdTaskCheckbox = require("markdown-it-task-checkbox")
 const mdImplicitFigures = require("markdown-it-implicit-figures")
-const cloudinary = require("./_includes/cloudinary")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 
 module.exports = function (eleventyConfig) {
 	// Options
 	eleventyConfig.setQuietMode(true)
 	eleventyConfig.setUseGitIgnore(false)
-	eleventyConfig.addPassthroughCopy({ assets: "assets" })
+	eleventyConfig.addPassthroughCopy({ "assets": "assets" })
 	eleventyConfig.setFrontMatterParsingOptions({
 		excerpt: true,
 		excerpt_separator: "<!--excerpt-->"
@@ -24,36 +23,43 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setLibrary("md", md)
 
 	// Shortcodes
-	eleventyConfig.addShortcode("cloudinary", cloudinary)
+	eleventyConfig.addShortcode("cloudinary", (url, alt, width = 1000, className) => {
+		const mobileWidth = 600 // controls breakpoint + image width
+		const classN = className ? ` class="${className}"` : ``
+
+		const baseUrl = `https://res.cloudinary.com/clearlysid/image/fetch`
+		const link = (w) => baseUrl + `/f_auto/q_80/w_${w}/` + encodeURIComponent(url)
+
+		const src = ` src="${link(width)}"`
+		const altText = alt ? ` alt="${alt}"` : ``
+		const sizes = ` sizes="(min-width: ${mobileWidth}px) ${width}px, ${mobileWidth}px"`
+		const srcset = ` srcset="${link(width)} ${width}w, ${link(mobileWidth)}w"`
+
+		return `<img width="${width}" height="600"` + classN + srcset + sizes + src + altText + ` />`
+	})
+
+	// Filters
+	eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({ level: 2 }).minify(code).styles)
 
 	// Plugins
 	eleventyConfig.addPlugin(syntaxHighlight)
 
-	// Vite Integration
-	const entryFile = "scripts/main.js" // we could read this from vite.config.js
+	// Transforms
+	eleventyConfig.addTransform("htmlmin", function (content) {
 
-	const getChunkInfo = () => {
-		const manifest = fs.readFileSync(path.resolve(process.cwd(), "_site", "manifest.json"))
-		const parsed = JSON.parse(manifest)
-		let entryChunk = parsed[entryFile]
+		if (this.outputPath.endsWith(".html")) {
+			let minified = htmlmin.minify(content, {
+				useShortDoctype: true,
+				removeComments: true,
+				collapseWhitespace: true,
+				continueOnParseError: true,
+				minifyJS: true
+			})
 
-		if (!entryChunk) throw new Error(`${entryFile} not found in the manifest.`)
-
-		return entryChunk
-	}
-
-	eleventyConfig.addShortcode("viteScript", () => {
-		return `<script type="module" src="/${getChunkInfo().file}"></script>`
-	})
-
-	eleventyConfig.addShortcode("viteStyles", () => {
-		const entryChunk = getChunkInfo()
-		if (!entryChunk.css || entryChunk.css.length === 0) {
-			console.warn(`No css found for ${entryFile} entry`)
-			return ""
+			// console.log(minified)
+			return minified
 		}
-		return entryChunk.css
-			.map((css) => `<link rel="stylesheet" href="/${css}"></link>`)
-			.join("\n")
-	})
+
+		return content
+	});
 }
