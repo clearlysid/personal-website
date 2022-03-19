@@ -28,54 +28,33 @@ if (isDesktop) {
 
 window.onload = function () {
 	lax.init()
+	lax.addDriver('scrollY', () => window.scrollY)
 
-	lax.addDriver('scrollY', function () {
-		return window.scrollY
-	})
+	document.querySelectorAll('.hm-gallery').forEach((el, i) => {
+		let offset = [0, 0]
 
-	lax.addElements('.hm-gallery:first-of-type', {
-		scrollY: {
-			translateY: [
-				["elInY", "elOutY"],
-				[-100, 0],
-			]
+		switch (i) {
+			case 0:
+				offset = [-100, 0]
+				break
+			case 1:
+				offset = [200, 0]
+				break
+			case 2:
+				offset = [40, 20]
+				break
+			case 3:
+				offset = [100, -200]
+				break
+			case 4:
+				offset = [0, 100]
+				break
 		}
-	})
 
-	lax.addElements('.hm-gallery:nth-of-type(2)', {
-		scrollY: {
-			translateY: [
-				["elInY", "elOutY"],
-				[200, 0],
-			]
-		}
-	})
+		lax.addElements(`.hm-gallery:nth-of-type(${i + 1})`, {
+			scrollY: { translateY: [["elInY", "elOutY"], offset] }
+		})
 
-	lax.addElements('.hm-gallery:nth-of-type(3)', {
-		scrollY: {
-			translateY: [
-				["elInY", "elOutY"],
-				[40, 20],
-			]
-		}
-	})
-
-	lax.addElements('.hm-gallery:nth-of-type(4)', {
-		scrollY: {
-			translateY: [
-				["elInY", "elOutY"],
-				[100, -200],
-			]
-		}
-	})
-
-	lax.addElements('.hm-gallery:nth-of-type(5)', {
-		scrollY: {
-			translateY: [
-				["elInY", "elOutY"],
-				[0, 100],
-			]
-		}
 	})
 }
 
