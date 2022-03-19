@@ -103,8 +103,9 @@
 	padding: 0;
 	display: grid;
 	align-items: center;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(auto-fill, 120px);
 	column-gap: 3rem;
+	row-gap: 2rem;
 	margin-top: 3.375rem;
 }
 
@@ -188,10 +189,14 @@
 	}
 
 	.hm-features-list {
-		column-gap: 0;
+		column-gap: 2rem;
 	}
 
-	.hm-features h2 {
+	.hm-features {
 		padding: 0 2rem;
+	}
+
+	.hm-feature img {
+		filter: grayscale(1) blur(2px);
 	}
 }

@@ -89,7 +89,7 @@
 
 .nav section {
 	max-width: 500px;
-	min-width: 180px;
+	min-width: 200px;
 	width: 30vw;
 	margin: 0 auto;
 }
@@ -106,13 +106,18 @@
 }
 
 .nav-main a:hover {
-	transform: translateX(1rem);
+	transform: translateX(0.6rem);
+}
+
+.nav-socials {
+	display: grid;
+	grid-template-columns: repeat(3, min-content);
+	column-gap: 2rem;
 }
 
 .nav-socials a {
 	font-size: 0.8rem;
 	color: white;
-	margin-right: 2rem;
 }
 
 @media (max-width: 720px) {
