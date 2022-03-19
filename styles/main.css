@@ -76,6 +76,7 @@
 	justify-content: center;
 	align-items: flex-start;
 	row-gap: 3rem;
+	-webkit-transform: translate3d(0, 0, 0);
 }
 
 .nav-burger.active + .nav {

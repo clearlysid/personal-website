@@ -186,4 +186,8 @@
 	.hm-features-list {
 		column-gap: 0;
 	}
+
+	.hm-features h2 {
+		padding: 0 2rem;
+	}
 }
