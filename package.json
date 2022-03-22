@@ -9,7 +9,7 @@
 		"notes": "node getNotes.js",
 		"clean": "rm -rf _site",
 		"dev": "eleventy --serve",
-		"build": "NODE_ENV=production eleventy"
+		"build": "yarn notes && NODE_ENV=production eleventy"
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "^1.0.0",
