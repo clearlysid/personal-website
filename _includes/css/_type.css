@@ -27,6 +27,15 @@ h3 {
 	font-size: 1.5rem;
 }
 
+@font-face {
+	font-family: "Lora";
+	src: url("/assets/lora-italic.woff2") format("woff2"),
+		url("/assets/lora-italic.woff") format("woff");
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
 .lora {
 	font-family: "Lora", serif;
 	font-style: italic;
