@@ -1,3 +1,4 @@
+const esbuild = require("esbuild")
 const CleanCSS = require("clean-css")
 const markdownIt = require("markdown-it")
 const htmlmin = require("html-minifier")
@@ -5,61 +6,62 @@ const mdTaskCheckbox = require("markdown-it-task-checkbox")
 const mdImplicitFigures = require("markdown-it-implicit-figures")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 
-module.exports = function (eleventyConfig) {
-	// Options
-	eleventyConfig.setQuietMode(true)
-	eleventyConfig.setUseGitIgnore(false)
-	eleventyConfig.addPassthroughCopy({ "assets": "assets" })
-	eleventyConfig.setFrontMatterParsingOptions({
-		excerpt: true,
-		excerpt_separator: "<!--excerpt-->"
-	})
+module.exports = (config) => {
 
 	// Markdown Plugins
 	const md = markdownIt({ html: true })
 		.use(mdTaskCheckbox)
 		.use(mdImplicitFigures, { figcaption: true })
 
-	eleventyConfig.setLibrary("md", md)
+	config.setLibrary("md", md)
 
 	// Shortcodes
-	eleventyConfig.addShortcode("cloudinary", (url, alt, width = 1000, className) => {
-		const mobileWidth = 600 // controls breakpoint + image width
+	config.addShortcode("cloudinary", (url, alt, width = 1000, className) => {
+		const mWidth = 600 // controls breakpoint + image width
 		const classN = className ? ` class="${className}"` : ``
-
 		const baseUrl = `https://res.cloudinary.com/clearlysid/image/fetch`
 		const link = (w) => baseUrl + `/f_auto/q_80/w_${w}/` + encodeURIComponent(url)
 
 		const src = ` src="${link(width)}"`
 		const altText = alt ? ` alt="${alt}"` : ``
-		const sizes = ` sizes="(min-width: ${mobileWidth}px) ${width}px, ${mobileWidth}px"`
-		const srcset = ` srcset="${link(width)} ${width}w, ${link(mobileWidth)}w"`
+		const sizes = ` sizes="(min-width: ${mWidth}px) ${width}px, ${mWidth}px"`
+		const srcset = ` srcset="${link(width)} ${width}w, ${link(mWidth)}w"`
 
 		return `<img width="${width}" height="600"` + classN + srcset + sizes + src + altText + ` />`
 	})
 
-	// Filters
-	eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({ level: 2 }).minify(code).styles)
+	// Options
+	config.setQuietMode(true)
+	config.setUseGitIgnore(false)
+	config.addPassthroughCopy({ "assets": "assets" })
+	config.setFrontMatterParsingOptions({
+		excerpt: true,
+		excerpt_separator: "<!--excerpt-->"
+	})
 
-	// Plugins
-	eleventyConfig.addPlugin(syntaxHighlight)
-
-	// Transforms
-	eleventyConfig.addTransform("htmlmin", function (content) {
-
+	// Filters, Plugins and Transforms
+	config.addFilter("cssmin", (code) => new CleanCSS({ level: 2 }).minify(code).styles)
+	config.addPlugin(syntaxHighlight)
+	config.addTransform("htmlmin", function (content) {
 		if (this.outputPath.endsWith(".html")) {
-			let minified = htmlmin.minify(content, {
+			let minifiedHtml = htmlmin.minify(content, {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
 				continueOnParseError: true,
 				minifyJS: true
 			})
-
-			// console.log(minified)
-			return minified
+			return minifiedHtml
 		}
-
 		return content
 	});
+
+	// Events
+	config.on('eleventy.after', () => esbuild.buildSync({
+		sourcemap: process.env.ELEVENTY_ENV !== "production",
+		entryPoints: ["_includes/js/main.js"],
+		outdir: "_site/assets",
+		bundle: true,
+		minify: true
+	}))
 }
