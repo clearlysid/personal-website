@@ -64,8 +64,8 @@ yarn-error.log
 
 _site
 .cache
-blog
 notes/*.md
 !notes/kitchen-sink.md
+
 # Local Netlify folder
 .netlify
