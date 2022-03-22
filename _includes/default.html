@@ -40,18 +40,9 @@
 		&copy;{{ "now" | date: "%Y" }} Siddharth Jha, Built on 11ty.
 	</footer>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/rough-notation/0.5.1/rough-notation.min.js" integrity="sha512-8b41eVh9uwwR/zlfwQon0Sb2CKUcrlK9XuKAWlDrHp2qNqH1RAysl//l/g47TkTDwU7wzMY0KnZ9ze3ORGy5CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
-
-	{% capture js %}
-	{% include "js/main.js" %}
-	{% endcapture %}
-	<script>
-		{{ js | 'safe' }}
-	</script>
-
+	<script src="/assets/main.js" />
     {% if global.env == "production" %}
-		<script defer data-domain="siddharthjha.com" src="https://plausible.io/js/plausible.js"></script>
+		<script defer data-domain="siddharthjha.com" src="https://plausible.io/js/plausible.js" />
     {% endif %}
 </body>
 
