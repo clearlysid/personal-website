@@ -21,7 +21,7 @@ description: A series of notes and essays by Siddharth (@clearlysid) on adventur
 		{% endfor %}
 
 		{% for note in collections.notes reversed %}
-		{% if note.data.published == true %}
+		{% if note.data.published == true and note.data.slug != "now" %}
 		<li class="blg-item" role="article">
 			<time class="blg-item-date lora">{{ note.date | date: "%d-%m-%y" }}</time>
 			<a href="{{ note.url }}" class="blg-item-title">
