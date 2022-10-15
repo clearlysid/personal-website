@@ -33,7 +33,7 @@ h3 {
 		url("/assets/lora-italic.woff") format("woff");
 	font-weight: normal;
 	font-style: italic;
-	font-display: swap;
+	font-display: fallback;
 }
 
 .lora {

@@ -40,7 +40,7 @@
 	font-size: 1rem;
 	width: 8.875rem;
 	height: 2.625rem;
-	transition: all 0.2s ease;
+	transition: background-color 0.2s, color 0.2s;
 }
 
 .hm-button:hover {
@@ -60,7 +60,7 @@
 
 .hm-wrapper > img {
 	z-index: -2;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s;
 }
 
 .hm-wrapper.isLoading > img {
@@ -69,6 +69,7 @@
 
 .hm-wrapper > img:nth-of-type(1) {
 	margin-top: 18rem;
+	padding-left: 2rem;
 	grid-column: 5 / 9;
 	grid-row: 1 / span 2;
 	height: 37.5rem;
@@ -147,7 +148,7 @@
 	width: 140px;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 600px) {
 	.hm-wrapper {
 		max-width: 100%;
 		grid-template-columns: repeat(4, 1fr);
@@ -203,9 +204,5 @@
 
 	.hm-features {
 		padding: 0 2rem;
-	}
-
-	.hm-feature img {
-		filter: grayscale(1) blur(2px);
 	}
 }
