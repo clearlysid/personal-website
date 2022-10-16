@@ -1,38 +1,62 @@
+---
+title: siddharth / @clearlysid
+image: https://res.cloudinary.com/clearlysid/image/upload/v1647637689/open-graph_uxzmph.jpg
+baseurl: https://www.sid.me
+sitename: siddharth / @clearlysid
+username: '@clearlysid'
+type: website
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-  <link rel="preload" href="/assets/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="preload" href="/assets/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+    <title>
+      {{ title }}
+    </title>
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:url" content="{{ page.url }}"/>
+    <meta property="og:site_name" content="{{ sitename }}"/>
+    <meta name="twitter:card" value="summary"/>
+    <meta name="twitter:site" content="{{ username }}"/>
+    <link rel="canonical" href="{{ baseurl }}{{ page.url }}"/>
+    <meta property="og:image" content="{{ image }}"/>
+    <meta property="og:type" content="{{ type }}"/>
 
-  {% capture css %}
-  {% include "styles.css" %}
-  {% endcapture %}
-  <style>
-    {{ css | cssmin | 'safe' }}
-  </style>
+    {% if description %}
+      <meta name="description" content="{{ description }}"/>
+      <meta property="og:description" content="{{ description }}"/>
+    {% elsif layout == "note" %}
+      <meta name="description" content="{{ page.excerpt | strip_newlines }}"/>
+      <meta property="og:description" content="{{ page.excerpt | strip_newlines }}"/>
+    {% endif %}
 
-  {% include 'seo.html' %}
-</head>
+    <style>
+      {% capture css %}
+        {% include "styles.css" %}
+      {% endcapture %}
+      {{ css | cssmin | 'safe' }}
+    </style>
+  </head>
 
-<body class="isLoading">
+  <body class="isLoading">
 
-  <div id="content">
     {{ content | 'safe' }}
-  </div>
 
-  <footer class="footer">
-    &copy;{{ "now" | date: "%Y" }}
-    Siddharth Jha, Built on 11ty.
-  </footer>
+    <footer class="footer">
+      &copy;{{ "now" | date: "%Y" }}
+      Siddharth Jha, Built on 11ty.
+    </footer>
 
-  <script src="/assets/main.js"></script>
-  <!-- TODO: find a way to run this only on production -->
-  <script defer data-domain="sid.me" src="https://plausible.io/js/plausible.js"></script>
-</body>
+    <script src="/assets/main.js"></script>
+    <!-- TODO: find a way to run this only on production -->
+    <script defer data-domain="sid.me" src="https://plausible.io/js/plausible.js"></script>
+  </body>
 
 </html>

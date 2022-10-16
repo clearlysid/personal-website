@@ -11,23 +11,22 @@ description: Siddharth Jha is a Design Engineer from India who has too many idea
     <h2 class="lora">@clearlysid</h2>
     <p>I lead Design Ops + UX Engineering at Headout, home to the world’s finest real life experiences.</p>
     <p>You can sometimes find me tinkering with sound design, working on electronics projects or enjoying some online
-            			gaming with pals.</p>
+                                          			gaming with pals.</p>
     <div class="hm-cta">
       <a class="hm-button" href="{{ '/notes/' | url }}">Go to Notes</a>
     </div>
   </header>
 
-  <section>
-    <img class="hm-gallery" width="388" height="600" alt="Siddharth at Headouting 2022" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647586154/sid-1_gtouun.jpg">
-    <img class="hm-gallery" width="388" height="420" alt="Cat peering through leaves of a plant" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647982376/cat-leaves_pqwyfx.png">
-    <img class="hm-gallery" width="285" height="318" alt="Cat sleeping peacefully" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647594800/cat-2_rbf1tb.png">
-    <img class="hm-gallery" width="386" height="508" alt="Launchpad setup next to a PC" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647983322/synth-1_lobb2p.png">
-    <img class="hm-gallery" width="491" height="351" alt="Home work setup next to whiteboard" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647594800/setup-1_dmj7ln.png">
+  <section class="hm-gallery">
+    <img width="388" height="600" alt="Siddharth at Headouting 2022" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647586154/sid-1_gtouun.jpg">
+    <img width="388" height="420" alt="Cat peering through leaves of a plant" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647982376/cat-leaves_pqwyfx.png">
+    <img width="285" height="318" alt="Cat sleeping peacefully" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647594800/cat-2_rbf1tb.png">
+    <img width="386" height="508" alt="Launchpad setup next to a PC" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647983322/synth-1_lobb2p.png">
+    <img width="491" height="351" alt="Home work setup next to whiteboard" src="https://res.cloudinary.com/clearlysid/image/upload/f_auto,q_80/v1647594800/setup-1_dmj7ln.png">
   </section>
 
   <section class="hm-tail">
-    <p>And that’s that really — I live a simple life. I own few, but meaningful things and try to improve and fix what I
-            			can. And I would love to be very well known for my work someday.</p>
+    <p>And that’s that really — I live a simple life. I own few, but meaningful things and try to improve and fix what I can. And I would love to be very well known for my work someday.</p>
     <p>Fancy a chat?
       <a href="mailto:siddharth99c@gmail.com" nofollow>siddharth99c@gmail.com</a>
     </p>
@@ -35,6 +34,21 @@ description: Siddharth Jha is a Design Engineer from India who has too many idea
 
   <section class="hm-features">
     <h2 id="features">As featured on:</h2>
-    {% include 'features.html' %}
+
+    {% assign feature_names = "HelloMeets, Framer, King Sidharth" | split: ','%}
+    {% assign feature_logos = "https://res.cloudinary.com/clearlysid/image/upload/f_auto/v1647613447/hellomeets-logo_vvyfg1.png, https://res.cloudinary.com/clearlysid/image/upload/f_auto/v1647613447/framer-logo_qvhhes.png, https://res.cloudinary.com/clearlysid/image/upload/f_auto/v1647613447/kingsid-logo_t2rgxi.png" | split: ','%}
+    {% assign feature_links = "https://twitter.com/hellomeets/status/1429781737970683905, https://twitter.com/clearlysid/status/1454355386434158593?s=20&t=yFeIyDoOs5DnR4JAG2Licw, https://www.youtube.com/watch?v=nVT8JbqYZs8" | split: ','%}
+
+    <ul class="hm-features-list">
+
+      {% for name in feature_names %}
+        <li class="hm-feature">
+          <a href="{{ feature_links[forloop.index0] }}" target="_blank" class="hm-feature-core">
+            <img src="{{ feature_logos[forloop.index0] }}" alt="{{ name | append: 'Logo'  }}" width="120" height="28">
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
   </section>
-</main>>>
+</main>

@@ -48,8 +48,7 @@ module.exports = (config) => {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
-				continueOnParseError: true,
-				minifyJS: true
+				continueOnParseError: true
 			})
 			return minifiedHtml
 		}
@@ -59,7 +58,7 @@ module.exports = (config) => {
 	// Events
 	config.on('eleventy.after', () => esbuild.buildSync({
 		sourcemap: process.env.ELEVENTY_ENV !== "production",
-		entryPoints: ["_includes/js/main.js"],
+		entryPoints: ["_includes/main.js"],
 		outdir: "_site/assets",
 		bundle: true,
 		minify: true
