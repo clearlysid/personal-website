@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="preload" href="/assets/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+
+  {% capture css %}
+  {% include "styles.css" %}
+  {% endcapture %}
+  <style>
+    {{ css | cssmin | 'safe' }}
+  </style>
+
+  {% include 'seo.html' %}
+</head>
+
+<body class="isLoading">
+
+  <div id="content">
+    {{ content | 'safe' }}
+  </div>
+
+  <footer class="footer">
+    &copy;{{ "now" | date: "%Y" }}
+    Siddharth Jha, Built on 11ty.
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <!-- TODO: find a way to run this only on production -->
+  <script defer data-domain="sid.me" src="https://plausible.io/js/plausible.js"></script>
+</body>
+
+</html>
