@@ -1,7 +1,7 @@
 {
 	"name": "personal-website",
 	"version": "10.0.0",
-	"description": "Portfolio and Blog",
+	"description": "Personal Website",
 	"author": "Siddharth Jha <siddharth99c@gmail.com>",
 	"license": "WTFPL",
 	"private": false,
@@ -25,7 +25,6 @@
 		"markdown-it-task-checkbox": "^1.0.6"
 	},
 	"dependencies": {
-		"lax.js": "^2.0.3",
-		"rough-notation": "^0.5.1"
+		"motion": "^10.14.2"
 	}
 }
