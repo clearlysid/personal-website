@@ -4,7 +4,7 @@
 
 Hi, I'm [@clearlysid](https://twitter.com/clearlysid) and this is my personal website. It evolves as I do — it's design and underlying technology keeps changing as I grow and learn new things. Things break often and radical design changes happen overnight. [No really](https://twitter.com/clearlysid/status/1394198294193086465?s=20).
 
-## Current Stack
+## Stack
 
 1. [11ty](https://www.11ty.dev/), the best static site generator in town.
 2. I write in [Obsidian](https://obsidian.md) and pull `.md` files from [Dropbox](https://www.dropbox.com).

@@ -32,7 +32,7 @@ module.exports = (config) => {
 
 	// Options
 	config.setQuietMode(true)
-	config.setUseGitIgnore(false)
+	config.setUseGitIgnore(false);
 	config.addPassthroughCopy({ "assets": "assets" })
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
@@ -64,4 +64,10 @@ module.exports = (config) => {
 		bundle: true,
 		minify: true
 	}))
+
+	return {
+		dir: {
+			layouts: "_layouts"
+		}
+	}
 }
