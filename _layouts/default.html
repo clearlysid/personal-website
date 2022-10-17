@@ -2,7 +2,6 @@
 title: siddharth / @clearlysid
 image: https://res.cloudinary.com/clearlysid/image/upload/v1647637689/open-graph_uxzmph.jpg
 baseurl: https://www.sid.me
-sitename: siddharth / @clearlysid
 username: '@clearlysid'
 type: website
 ---
@@ -17,15 +16,15 @@ type: website
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="preload" href="/assets/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="canonical" href="{{ baseurl }}{{ page.url }}"/>
     <title>
       {{ title }}
     </title>
     <meta property="og:title" content="{{ title }}"/>
     <meta property="og:url" content="{{ page.url }}"/>
-    <meta property="og:site_name" content="{{ sitename }}"/>
+    <meta property="og:site_name" content="{{ title }}"/>
     <meta name="twitter:card" value="summary"/>
     <meta name="twitter:site" content="{{ username }}"/>
-    <link rel="canonical" href="{{ baseurl }}{{ page.url }}"/>
     <meta property="og:image" content="{{ image }}"/>
     <meta property="og:type" content="{{ type }}"/>
 
